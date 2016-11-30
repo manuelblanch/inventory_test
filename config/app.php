@@ -166,7 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        //Scool\Inventory\Providers\InventoryServiceProvider::class,
         //
 
         /*
