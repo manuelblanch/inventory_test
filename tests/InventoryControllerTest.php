@@ -12,11 +12,36 @@ class InventoryControllerTest extends TestCase
      * @return void
      */
 
+    protected $Repository;
+
+
+
     use DatabaseMigrations;
+
+    public function __construct(){
+        $this->repository = Mockery::mock(studyRepository::class);
+        dd("setup");
+//        $this->login();
+    }
+
+    public function tearDown(){
+        Mockery::close();
+
+    }
     public function testIndex()
     {
         //dd(route('studies.index'));
         $studies = factory(\Scool\Inventory\Models\Study::class,50)->make();
+        $this->login();
+
+        $this->repository->shouldReceieve('all')->once()->andReturn()(
+            $this->createDummyStudies()
+    );
+
+        $this->app->Instance(StudyRepository::class, $this->repository);
+
+
+
         $user = factory(App\User::class)->create();
         $this->actingAs($user);
         $this->get('studies')->dump();
@@ -47,7 +72,8 @@ class InventoryControllerTest extends TestCase
     }
 
     protected function login(){
-        
+        $this->login();
+
     }
 
 
