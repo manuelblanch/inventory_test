@@ -34,9 +34,16 @@ class InventoryControllerTest extends TestCase
         $studies = factory(\Scool\Inventory\Models\Study::class,50)->make();
         $this->login();
 
-        $this->repository->shouldReceieve('all')->once()->andReturn()(
+        $this->repository->shouldReceieve('all')->once()->andReturn(
             $this->createDummyStudies()
     );
+
+        $this->repository->shouldReceive('pushCriteria')->once()->andReturn(
+
+
+        );
+
+//aplica al laravel important
 
         $this->app->Instance(StudyRepository::class, $this->repository);
 
