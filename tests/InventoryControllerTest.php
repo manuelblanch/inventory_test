@@ -1,87 +1,89 @@
 <?php
-
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-
+use Illuminate\Support\Facades\Input;
+use Scool\Inventory\Models\Study;
+use Scool\Inventory\Repositories\StudyRepository;
+/**
+ * Class InventoryControllerTest
+ *
+ */
 class InventoryControllerTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-
-    protected $Repository;
-
-
-
+    protected $repository;
     use DatabaseMigrations;
-
-    public function __construct(){
-        $this->repository = Mockery::mock(studyRepository::class);
-        dd("setup");
+    public function __construct() {
+        $this->repository = Mockery::mock(StudyRepository::class);
 //        $this->login();
     }
-
-    public function tearDown(){
+    public function tearDown() {
         Mockery::close();
-
     }
+    public function testIndexNotLogged()
+    {
+        $this->get('studies');
+        $this->assertRedirectedTo('login');
+    }
+    private function createDummyStudies()
+    {
+        $study1 = new Study();
+        $study2 = new Study();
+        $study3 = new Study();
+        $studies = [
+            $study1,
+            $study2,
+            $study3
+        ];
+        return collect($studies);
+    }
+    /**
+     *
+     */
     public function testIndex()
     {
-        //dd(route('studies.index'));
-        $studies = factory(\Scool\Inventory\Models\Study::class,50)->make();
+//        dd(route('studies.index'));
+//        $studies1 = factory(\Scool\Curriculum\Models\Study::class,50)->make();
+        //Fase 1 : preparació --> isolation/mocking
         $this->login();
-
-        $this->repository->shouldReceieve('all')->once()->andReturn(
-            $this->createDummyStudies()
-    );
-
-        $this->repository->shouldReceive('pushCriteria')->once()->andReturn(
-
-
+        $this->repository->shouldReceive('all')->once()->andReturn(
+            collect([])
         );
-
-//aplica al laravel important
-
-        $this->app->Instance(StudyRepository::class, $this->repository);
-
-
-
-        $user = factory(App\User::class)->create();
-        $this->actingAs($user);
-        $this->get('studies')->dump();
-        $this->response->dump();
+        $this->repository->shouldReceive('pushCriteria')->once();
+        $this->app->instance(StudyRepository::class, $this->repository);
+        $this->get('studies');
         $this->assertResponseOk();
-
         $this->assertViewHas('studies');
-
         $studies = $this->response->getOriginalContent()->getData()['studies'];
-
-        $this->assertInstanceOf(Illuminate\Database\Eloquent\Collection::class, $studies);
-
+//        dd($studies);
+        $this->assertInstanceOf(Illuminate\Support\Collection::class, $studies);
+        $this->assertEquals(count($studies),0);
+//        dd($studies);
         //1) Preparació
         //2) Execució
         //3) Assertions
+        // Laravel asserts: https://laravel.com/docs/5.3/application-testing#phpunit-assertions
+//assertViewHas
+//assertResponseOk
+//assertRedirectedTo
+//assertRedirectedToRoute
+//assertRedirectedToAction
+//assertSessionHas
+//assertSessionHasErrors
     }
-
-    public function testIndexNotLoggued(){
-        $this->get('studies');
-        $this->assertResponseOk();
-    }
-
+    /**
+     * @group failing
+     */
     public function testStore() {
-
         $this->login();
-        $this->post('studies');
+        Input::replace($input = ['name' => 'My Title']);
+        $this->post('studies',['name' => 'Estudi nou']);
+        dd($this->response);
         $this->assertRedirectedToRoute('studies.create');
     }
-
-    protected function login(){
-        $this->login();
-
+    protected function login()
+    {
+        $user = factory(App\User::class)->create();
+        $this->actingAs($user);
     }
-
-
 }
