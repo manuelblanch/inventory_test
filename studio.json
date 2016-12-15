@@ -1,6 +1,7 @@
 {
     "version": 2,
     "paths": [
-        "/home/manuel/code/scool/inventory"
+        "/home/manuel/Code/scool/inventory",
+        "../../stateful-eloquent/"
     ]
 }
