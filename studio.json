@@ -2,6 +2,9 @@
     "version": 2,
     "paths": [
         "/home/manuel/Code/scool/inventory",
-        "../../stateful-eloquent/"
+        "../../stateful-eloquent/",
+        "../../names",
+        "../../adminlte-laravel",
+        "../../acacha/l5-repository"
     ]
 }
