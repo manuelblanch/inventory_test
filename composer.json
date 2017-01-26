@@ -10,13 +10,11 @@
         "barryvdh/laravel-ide-helper": "^2.2",
         "barryvdh/laravel-debugbar": "^2.3",
         "acacha/admin-lte-template-laravel": "dev-master",
-        "scool/inventory": "dev-master",
         "acacha/stateful-eloquent": "dev-master",
         "acacha/periods": "dev-master",
         "acacha/names": "dev-master",
         "laravel/passport": "^1.0",
         "scool/foundation": "dev-master",
-        "scool/ebre_escool_model": "dev-master",
         "acacha/l5-repository": "dev-master",
         "predis/predis": "^1.1",
         "spatie/laravel-permission": "^1.6"
