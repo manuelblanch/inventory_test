@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "21cbd6549237f0a6c4633b7fc4ea1872",
-    "content-hash": "e21e148cd8c9ad458e731bd30e2add85",
+    "hash": "2fa8d6147cf38eddbc177c0adc532638",
+    "content-hash": "bfccc9908dd80ce3cf792c36a8793bbb",
     "packages": [
         {
             "name": "acacha/admin-lte-template-laravel",
-            "version": "dev-master",
+            "version": "4.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/acacha/adminlte-laravel.git",
-                "reference": "5cc1670763a72ae120d03c9285b9c0a41b464a47"
+                "reference": "0f55bf379ff802f21e3b2b709913a7da96291fa8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/acacha/adminlte-laravel/zipball/5cc1670763a72ae120d03c9285b9c0a41b464a47",
-                "reference": "5cc1670763a72ae120d03c9285b9c0a41b464a47",
+                "url": "https://api.github.com/repos/acacha/adminlte-laravel/zipball/0f55bf379ff802f21e3b2b709913a7da96291fa8",
+                "reference": "0f55bf379ff802f21e3b2b709913a7da96291fa8",
                 "shasum": ""
             },
             "require": {
@@ -69,7 +69,7 @@
                 "template",
                 "theme"
             ],
-            "time": "2017-02-02 20:40:09"
+            "time": "2017-02-02 20:12:39"
         },
         {
             "name": "acacha/helpers",
@@ -432,16 +432,16 @@
         },
         {
             "name": "barryvdh/laravel-ide-helper",
-            "version": "v2.2.3",
+            "version": "v2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-ide-helper.git",
-                "reference": "a7fc2ec489aada6062d3a63ddc915004a21e38af"
+                "reference": "555d3e37009bdb78f5d8bcea6eb8a816529a5cfa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/a7fc2ec489aada6062d3a63ddc915004a21e38af",
-                "reference": "a7fc2ec489aada6062d3a63ddc915004a21e38af",
+                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/555d3e37009bdb78f5d8bcea6eb8a816529a5cfa",
+                "reference": "555d3e37009bdb78f5d8bcea6eb8a816529a5cfa",
                 "shasum": ""
             },
             "require": {
@@ -494,7 +494,7 @@
                 "phpstorm",
                 "sublime"
             ],
-            "time": "2017-01-05 21:20:42"
+            "time": "2017-02-13 19:20:12"
         },
         {
             "name": "barryvdh/reflection-docblock",
@@ -5355,7 +5355,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "acacha/admin-lte-template-laravel": 20,
         "acacha/periods": 20,
         "acacha/names": 20,
         "acacha/stateful-eloquent": 20,
