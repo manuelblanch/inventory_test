@@ -37,6 +37,7 @@
             <li><a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.anotherlink') }}</span></a></li>
             <li class="treeview">
                 <a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.multilevel') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+            <li><a href="{{ url('inventory') }}"><i class='fa fa-link'></i> <span>Inventory</span></a></li>
                 <ul class="treeview-menu">
                     <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
                     <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
