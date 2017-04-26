@@ -19,8 +19,11 @@
                         <thead>
                         <tr class="tableheader">
                             <th style="width:40px">#</th>
+                            <th style="width:140px">Id Públic</th>
+                            <th style="width:140px">Id extern</th>
+                            <th style="width:140px">Tipus Id extern</th>
                             <th style="width:140px">Nom</th>
-                            <th style="width:140px">Tipus</th>
+                            <th style="width:140px">Nom curt</th>
                             <th style="width:140px">Referència</th>
                             <th style="width:140px">Quantitat</th>
                             <th style="width:140px">Preu</th>
@@ -46,7 +49,7 @@
                             <div class="pad" id="infopanel"></div>
                             <div class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Nom</label>
+                                    <label class="col-sm-3 control-label">Id Públic</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="txtname" placeholder="Name">
                                         <input type="hidden" id="crudmethod" value="N">
@@ -54,7 +57,28 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Tipus</label>
+                                    <label class="col-sm-3 control-label">Id extern</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" id="cbogender" >
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Tipus Id Extern</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" id="cbogender" >
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Nom</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" id="cbogender" >
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Nom Curt</label>
                                     <div class="col-sm-9">
                                         <select class="form-control" id="cbogender" >
                                         </select>
