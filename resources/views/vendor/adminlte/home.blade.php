@@ -13,7 +13,7 @@
 				<!-- Default box -->
 				<div class="box">
 					<div class="box-header with-border">
-						<h3 class="box-title">Home</h3>
+						<h3 class="box-title">Pagina Inicial</h3>
 
 						<div class="box-tools pull-right">
 							<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -23,11 +23,12 @@
 						</div>
 					</div>
 					<div class="box-body">
-						{{ trans('adminlte_lang::message.logged') }}. Pagina inicial!
+						{{ trans('adminlte_lang::message.logged') }}. Benvingut a la pagina inicial!
 					</div>
 					<!-- /.box-body -->
 					<div class="box-footer">
-						Footer
+						Footer (menu inferior)
+						<button class="btn btn-default" data-toggle="control-sidebar">Seccio dreta</button>
 					</div>
 					<!-- /.box-footer-->
 				</div>
