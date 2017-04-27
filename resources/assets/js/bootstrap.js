@@ -30,10 +30,20 @@ window.Vue = require('vue');
  */
 
 window.axios = require('axios');
+Vue.prototype.$http = axios;
 
 window.axios.defaults.headers.common = {
+    'X-CSRF-TOKEN': window.Laravel.csrfToken,
+    'Accept': 'application/json',
     'X-Requested-With': 'XMLHttpRequest'
-};
+}
+
+
+// Laravel AdminLTE vue components
+Vue.component('register-form', require('./components/auth/RegisterForm.vue'))
+Vue.component('login-form', require('./components/auth/LoginForm.vue'))
+Vue.component('email-reset-password-form', require('./components/auth/EmailResetPasswordForm.vue'))
+Vue.component('reset-password-form', require('./components/auth/ResetPasswordForm.vue'))
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

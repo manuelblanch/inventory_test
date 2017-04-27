@@ -24,6 +24,17 @@
                             <th style="width:140px">Tipus Id extern</th>
                             <th style="width:140px">Nom</th>
                             <th style="width:140px">Nom curt</th>
+                            <th style="width:140px">Descripció</th>
+                            <th style="width:140px">Objecte Pare</th>
+                            <th style="width:140px">Tipus de material</th>
+                            <th style="width:140px">Marca</th>
+                            <th style="width:140px">Model</th>
+                            <th style="width:140px">Data fabricació(Manual)</th>
+                            <th style="width:140px">Data Entrada (Automàtica)</th>
+                            <th style="width:140px">Data Entrada (Manual)</th>
+                            <th style="width:140px">Ultima actualitzacio(Automàtica)</th>
+                            <th style="width:140px">Ultima ctualització(Manual)</th>
+                            <th style="width:140px">Usuari</th>
                             <th style="width:140px">Referència</th>
                             <th style="width:140px">Quantitat</th>
                             <th style="width:140px">Preu</th>
