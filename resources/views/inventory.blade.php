@@ -32,8 +32,7 @@
                             <th style="width:140px">Data fabricació(Manual)</th>
                             <th style="width:140px">Data Entrada (Automàtica)</th>
                             <th style="width:140px">Data Entrada (Manual)</th>
-                            <th style="width:140px">Ultima actualitzacio(Automàtica)</th>
-                            <th style="width:140px">Ultima ctualització(Manual)</th>
+                            <th style="width:140px">Ultima actualitzacio</th>
                             <th style="width:140px">Usuari</th>
                             <th style="width:140px">Referència</th>
                             <th style="width:140px">Quantitat</th>
