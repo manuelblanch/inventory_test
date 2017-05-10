@@ -19,13 +19,13 @@
 
             <div class="pull-left">
 
-                <h2>Items CRUD</h2>
+                <h2>Inventory CRUD</h2>
 
             </div>
 
             <div class="pull-right">
 
-                <a class="btn btn-success" href="{{ route('itemCRUD.create') }}"> Create New Item</a>
+                <a class="btn btn-success" href="{{ route('itemCRUD.create') }}"> Afegeix nou element al inventari</a>
 
             </div>
 
@@ -69,11 +69,23 @@
 
                 <td>{{ $item->description }}</td>
 
+                <td>{{ $item->d}}</td>
+
+                <td>{{ $item->d }}</td>
+
+                <td>{{ $item->d }}</td>
+
+                <td>{{ $item->d }}</td>
+
+                <td>{{ $item->d }}</td>
+
+                <td>{{ $item->d }}</td>
+
                 <td>
 
-                    <a class="btn btn-info" href="{{ route('itemCRUD.show',$item->id) }}">Show</a>
+                    <a class="btn btn-info" href="{{ route('itemCRUD.show',$item->id) }}">Llistar</a>
 
-                    <a class="btn btn-primary" href="{{ route('itemCRUD.edit',$item->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('itemCRUD.edit',$item->id) }}">Editar</a>
 
                     {!! Form::open(['method' => 'DELETE','route' => ['itemCRUD.destroy', $item->id],'style'=>'display:inline']) !!}
 

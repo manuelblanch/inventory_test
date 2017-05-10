@@ -19,13 +19,13 @@
 
             <div class="pull-left">
 
-                <h2>Edit New Item</h2>
+                <h2>Edita un nou element</h2>
 
             </div>
 
             <div class="pull-right">
 
-                <a class="btn btn-primary" href="{{ route('itemCRUD.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('itemCRUD.index') }}"> Enrere</a>
 
             </div>
 
@@ -38,7 +38,7 @@
 
         <div class="alert alert-danger">
 
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <strong>Error!</strong> Atencio hi han hagut problemes.<br><br>
 
             <ul>
 
@@ -59,6 +59,18 @@
 
     <div class="row">
 
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+
+            <div class="form-group">
+
+                <strong>Titul:</strong>
+
+                {!! Form::text('title', null, array('placeholder' => 'Title','class' => 'form-control')) !!}
+
+            </div>
+
+        </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
 
