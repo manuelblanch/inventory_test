@@ -20,7 +20,7 @@ class CreateItemsTable extends Migration
 
             $table->increments('id_extern');
 
-            $table->string('tipus_id_extern');
+            $table->increments('tipus_id_extern');
 
             $table->string('nom');
 

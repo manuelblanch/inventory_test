@@ -11,7 +11,7 @@ class Item extends Model
 {
 
 
-public $fillable = ['title','description'];
+public $fillable = ['nom','title','description',''];
 
 
 }
