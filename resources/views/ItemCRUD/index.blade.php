@@ -49,7 +49,7 @@
 
         <tr>
 
-            <th>No</th>
+            <th>ID</th>
 
             <th>Title</th>
 
