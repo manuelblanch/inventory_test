@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProviders extends Migration
+class CreateInventoryObject extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,29 @@ class CreateProviders extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('providers', function (Blueprint $table) {
+
+            $table->integer('provider_id');
+
+            $table->string('name');
+
+            $table->string('shortName');
+
+            $table->text('description');
+
+            $table->dateTime('entryDate');
+
+            $table->timestamp('last_update');
+
+            $table->integer('creationUserId');
+
+            $table->integer('lastupdateUserId');
+
+            $table->enum('markedForDeletion', array('n','y'));
+
+            $table->datetime('markedForDeletionDate');
+
+        });
     }
 
     /**
@@ -23,6 +45,6 @@ class CreateProviders extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop("providers");
     }
 }
