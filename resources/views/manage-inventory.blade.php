@@ -164,6 +164,46 @@
 
                     </div>
 
+                    <div class="form-group">
+
+                        <label for="title">externalId:</label>
+
+                        <textarea name="description" class="form-control" v-model="newItem.description"></textarea>
+
+                        <span v-if="formErrors['description']" class="error text-danger">@{{ formErrors['description'] }}</span>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="title">externalIdType:</label>
+
+                        <textarea name="description" class="form-control" v-model="newItem.description"></textarea>
+
+                        <span v-if="formErrors['description']" class="error text-danger">@{{ formErrors['description'] }}</span>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="title">Nom:</label>
+
+                        <textarea name="description" class="form-control" v-model="newItem.description"></textarea>
+
+                        <span v-if="formErrors['description']" class="error text-danger">@{{ formErrors['description'] }}</span>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="title">Descripció:</label>
+
+                        <textarea name="description" class="form-control" v-model="newItem.description"></textarea>
+
+                        <span v-if="formErrors['description']" class="error text-danger">@{{ formErrors['description'] }}</span>
+
+                    </div>
+
 
                     <div class="form-group">
 
