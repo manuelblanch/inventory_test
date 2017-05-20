@@ -265,7 +265,27 @@
 
                         <textarea name="description" class="form-control" v-model="fillItem.description"></textarea>
 
-                        <span v-if="formErrorsUpdate['description']" class="error text-danger">@{{ formErrorsUpdate['description'] }}</span>
+                        <span v-if="formErrorsUpdate['description']" class="error text-danger">@{{ formErrorsUpdate['publicId'] }}</span>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="title">name:</label>
+
+                        <textarea name="name" class="form-control" v-model="fillItem.name"></textarea>
+
+                        <span v-if="formErrorsUpdate['name']" class="error text-danger">@{{ formErrorsUpdate['name'] }}</span>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="title">shortName:</label>
+
+                        <textarea name="shortName" class="form-control" v-model="fillItem.shortName"></textarea>
+
+                        <span v-if="formErrorsUpdate['shortName']" class="error text-danger">@{{ formErrorsUpdate['shortName'] }}</span>
 
                     </div>
 
@@ -301,8 +321,7 @@
 
 <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
 
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/vue.resource/0.9.3/vue-resource.min.js"></script>
 
