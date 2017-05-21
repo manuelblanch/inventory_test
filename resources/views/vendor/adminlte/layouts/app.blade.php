@@ -29,6 +29,13 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
 <body class="skin-blue sidebar-mini">
 <div id="app">
     <div class="wrapper">

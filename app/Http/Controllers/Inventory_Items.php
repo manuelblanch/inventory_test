@@ -66,8 +66,12 @@ class Inventory_Items extends Controller
      */
     public function store(Request $request)
     {
-        //$this->validate($request,
-            //)
+        $this->validate($request,[
+            'Id' => 'required',
+            'description' => 'required',
+            ]);
+        $create = InventoryServiceProvider::create($request->all());
+        return response()->json($create);
     }
 
     /**
@@ -101,7 +105,12 @@ class Inventory_Items extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'Id' => 'required',
+            'description' => 'required',
+        ]);
+        $edit = InventoryServiceProvider::find($id)->update($request->all());
+        return response()->json($edit);
     }
 
     /**
@@ -112,6 +121,7 @@ class Inventory_Items extends Controller
      */
     public function destroy($id)
     {
-        //
+        InventoryServiceProvider::find($id)->delete();
+        return response()->json(['done']);
     }
 }

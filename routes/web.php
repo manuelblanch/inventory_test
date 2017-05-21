@@ -20,6 +20,8 @@ Route::get('/inventory', function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/vuejscrud', 'Inventory_Items@vueCrud');
+    Route::resource('vueitems','Inventory_Items');
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware
 //    });
