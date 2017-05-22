@@ -4,7 +4,7 @@
 
 <head>
 
-	<title>Inventory Item CRUD</title>
+	<title>Inventory Provider CRUD</title>
 
 	<meta id="token" name="token" value="{{ csrf_token() }}">
 
@@ -24,7 +24,7 @@
 
 		        <div class="pull-left">
 
-		            <h2>Inventory Item CRUD</h2>
+		            <h2>Inventory Provider CRUD</h2>
 
 		        </div>
 
@@ -32,7 +32,7 @@
 
 				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#create-item">
 
-        Create Inventory_object
+        Create Provider_object
 
 </button>
 
@@ -43,7 +43,7 @@
 		</div>
 
 
-		<!-- Inventory Listing -->
+		<!-- Provider Listing -->
 
 		<table class="table table-bordered">
 
@@ -121,7 +121,7 @@
 </nav>
 
 
-<!-- Create Inventory_Object Modal -->
+<!-- Create Provider_Object Modal -->
 
 <div class="modal fade" id="create-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 
@@ -226,7 +226,7 @@
 </div>
 
 
-<!-- Edit Inventory_object Modal -->
+<!-- Edit Provider_object Modal -->
 
 <div class="modal fade" id="edit-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 
