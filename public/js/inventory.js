@@ -102,23 +102,17 @@ new Vue({
             });
         },
 
-        createItem: function(item) {
+        createItem: function() {
             var input this.newItem;
             this.$http.post('/vueitems',input).then((response) => {
                 this.changePage(this.pagination.current_page);
                 this.newItem = {'title':'','description':''};
                 $("#create-item").modal('hide');
                 toastr.success('Object Created Successfully.', 'Success Alert', {timeOut: 5000});
-            }, (response) =>
-            {
+            }, (response) => {
                 this.formErrors = response.data;
 
             });
-
-        },
-
-        }
-
 
         },
 
@@ -126,7 +120,8 @@ new Vue({
             this.$http.delete('/vueitems'+item,id).then((response)) =>
                 this.changePage(this.pagination.current_page);
                 toastr.success('Objecte Deleted Successfully.', 'Success Alert', {timeOut: 5000});
-        },
+        });
+    },
 
 
         editItem: function(item){
@@ -153,10 +148,11 @@ new Vue({
         },
 
         changePage: function(page) {
-            this.pagination.current_page
+            this.pagination.current_page = page;
+            this.getVueItems(page);
         }
 
-
+    }
 
 });
 
