@@ -102,24 +102,62 @@ new Vue({
             });
         },
 
-        createItem: function() {
+        createItem: function(item) {
             var input this.newItem;
             this.$http.post('/vueitems',input).then((response) => {
                 this.changePage(this.pagination.current_page);
                 this.newItem = {'title':'','description':''};
                 $("#create-item").modal('hide');
-                toastr.success('Post Created Successfully.', 'Success Alert', {timeOut: 5000});
-            });
-}
+                toastr.success('Object Created Successfully.', 'Success Alert', {timeOut: 5000});
+            }, (response) =>
+            {
+                this.formErrors = response.data;
 
+            });
+
+        },
+
+        }
 
 
         },
 
+        deleteItem: function(item){
+            this.$http.delete('/vueitems'+item,id).then((response)) =>
+                this.changePage(this.pagination.current_page);
+                toastr.success('Objecte Deleted Successfully.', 'Success Alert', {timeOut: 5000});
+        },
 
-    }
 
+        editItem: function(item){
+            this.fillItem.title = item.title;
+            this.fillItem.id = item.id;
+            this.fillItem.description = item.description;
+            $("#edit-item").modal('show');
+        },
+
+        updateItem: function(id) {
+            var input = this.fillItem;
+            this.$http.put('/vueitems' + id, input).then((response) = > {
+                this.changePage(this.pagination.current_page);
+            this.newItem = {'title': '', 'description': '', 'id': ''};
+            $("#edit-item").modal('hide');
+            toastr.success('Object Updated Successfully.', 'Success Alert', {timeOut: 5000});
+        },
+            (response) =
+        >
+            {
+                this.formErrors = response.data;
+
+            });
+        },
+
+        changePage: function(page) {
+            this.pagination.current_page
+        }
 
 
 
 });
+
+
