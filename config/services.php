@@ -59,5 +59,10 @@ return [
         'redirect' => env('GITHUB_OAUTH_APP_REDIRECT_URL'),
     ],
 
+    'twitter' => [
+        'client_id' => env('TWITTER_OAUTH_APP_ID'),
+        'client_secret' => env('TWITTER_OAUTH_APP_SECRET'),
+        'redirect' => env('TWITTER_OAUTH_APP_REDIRECT_URL'),
+    ],
 
 ];

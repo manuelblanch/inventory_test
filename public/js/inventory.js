@@ -96,9 +96,21 @@ new Vue({
     methods : {
 
         getVueItems: function(page){
+            this.$http.get('/vueitems?page='+page).then((response)) => {
+                this.$set('items', response.data.data.data);
+                this.$set('pagination', response.data.pagination);
+            });
+        },
 
-
-
+        createItem: function() {
+            var input this.newItem;
+            this.$http.post('/vueitems',input).then((response) => {
+                this.changePage(this.pagination.current_page);
+                this.newItem = {'title':'','description':''};
+                $("#create-item").modal('hide');
+                toastr.success('Post Created Successfully.', 'Success Alert', {timeOut: 5000});
+            });
+}
 
 
 
