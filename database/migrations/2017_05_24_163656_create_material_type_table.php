@@ -13,7 +13,13 @@ class CreateMaterialTypeTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('material_type', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name', 80);
+            $table->string('description', 120);
+            $table->timestamps();
+            $table->softDeletes();
+        });
     }
 
     /**
@@ -23,6 +29,6 @@ class CreateMaterialTypeTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('material_type');
     }
 }
