@@ -40,8 +40,12 @@
             <li><a href="{{ url('inventory') }}"><i class='fa fa-link'></i> <span>Inventory</span></a></li>
             <li><a href="{{ url('manteniments') }}"><i class='fa fa-link'></i> <span>Manteniments</span></a></li>
                 <ul class="treeview-menu">
-                    <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
-                    <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
+                    <li><a href="{{ url('manteniment-management/department') }}">Department</a></li>
+                    <li><a href="{{ url('manteniment-management/division') }}">Division</a></li>
+                    <li><a href="{{ url('manteniment-management/country') }}">Country</a></li>
+                    <li><a href="{{ url('manteniment-management/state') }}">State</a></li>
+                    <li><a href="{{ url('manteniment-management/city') }}">City</a></li>
+                    <li><a href="{{ url('system-management/report') }}">Report</a></li>
                 </ul>
             </li>
         </ul><!-- /.sidebar-menu -->

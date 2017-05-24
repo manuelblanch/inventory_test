@@ -1,0 +1,69 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateInventoryObjectTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('inventory', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('public_id');
+            $table->integer('ext_id');
+            $table->integer('type_id_ext');
+            $table->foreign('type_id_ext')->references('id')->on('id_ext');
+            $table->string('name', 80);
+            $table->string('description', 120);
+            $table->integer('material_type_id');
+            $table->integer('brand_id');
+            $table->integer('model_id');
+            $table->integer('location_id');
+            $table->foreign('material_type_id')->references('id')->on('material_type');
+            $table->foreign('brand_id')->references('id')->on('brand_type');
+            $table->foreign('model_id')->references('id')->on('brand_model');
+            $table->foreign('location_id')->references('id')->on('brand');
+            $table->integer('quantity');
+            $table->double('price');
+            $table->integer('moneysourceId');
+            $table->integer('provider_id');
+            $table->foreign('moneySourceId')->references('id')->on('brand');
+            $table->foreign('provider_id')->references('id')->on('providers');
+            $table->integer('city_id');
+            $table->integer('state_id');
+            $table->integer('country_id');
+
+
+
+            $table->char('zip', 10);
+            $table->integer('age');
+            $table->date('birthdate');
+            $table->date('date_hired');
+            $table->integer('department_id');
+            $table->integer('division_id');
+            $table->integer('company_id');
+            $table->foreign('department_id')->references('id')->on('department');
+            $table->foreign('division_id')->references('id')->on('division');
+            $table->foreign('company_id')->references('id')->on('company');
+            $table->string('picture', 60);
+            $table->timestamps();
+            $table->softDeletes();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        //
+    }
+}
