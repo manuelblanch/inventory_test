@@ -16,24 +16,27 @@ class CreateInventoryObjectTable extends Migration
         Schema::create('inventory', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('public_id');
-            $table->integer('ext_id');
-            $table->integer('type_id_ext');
-            $table->foreign('type_id_ext')->references('id')->on('id_ext');
             $table->string('name', 80);
             $table->string('description', 120);
             $table->integer('material_type_id');
             $table->integer('brand_id');
             $table->integer('model_id');
             $table->integer('location_id');
+
             $table->foreign('material_type_id')->references('id')->on('material_type');
+
             $table->foreign('brand_id')->references('id')->on('brand_type');
+
             $table->foreign('model_id')->references('id')->on('brand_model');
+
             $table->foreign('location_id')->references('id')->on('brand');
             $table->integer('quantity');
             $table->double('price');
             $table->integer('moneysourceId');
             $table->integer('provider_id');
+
             $table->foreign('moneySourceId')->references('id')->on('brand');
+
             $table->foreign('provider_id')->references('id')->on('providers');
             $table->date('date_entrance');
             $table->date('last_update');

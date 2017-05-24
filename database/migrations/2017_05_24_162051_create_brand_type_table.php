@@ -13,7 +13,13 @@ class CreateBrandTypeTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('brand_type', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name', 80);
+            $table->string('description', 120);
+            $table->timestamps();
+            $table->softDeletes();
+        });
     }
 
     /**
@@ -23,6 +29,6 @@ class CreateBrandTypeTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('brand_type');
     }
 }
