@@ -19,6 +19,11 @@ Route::get('/inventory', function () {
     return view('inventory');
 });
 
+Route::get('/manteniments', function () {
+        return view('manteniments');
+});
+
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/vuejscrud', 'Inventory_Items@vueCrud');
     Route::resource('vueitems','Inventory_Items');
