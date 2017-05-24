@@ -35,22 +35,8 @@ class CreateInventoryObjectTable extends Migration
             $table->integer('provider_id');
             $table->foreign('moneySourceId')->references('id')->on('brand');
             $table->foreign('provider_id')->references('id')->on('providers');
-            $table->integer('city_id');
-            $table->integer('state_id');
-            $table->integer('country_id');
-
-
-
-            $table->char('zip', 10);
-            $table->integer('age');
-            $table->date('birthdate');
-            $table->date('date_hired');
-            $table->integer('department_id');
-            $table->integer('division_id');
-            $table->integer('company_id');
-            $table->foreign('department_id')->references('id')->on('department');
-            $table->foreign('division_id')->references('id')->on('division');
-            $table->foreign('company_id')->references('id')->on('company');
+            $table->date('date_entrance');
+            $table->date('last_update');
             $table->string('picture', 60);
             $table->timestamps();
             $table->softDeletes();
@@ -64,6 +50,6 @@ class CreateInventoryObjectTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('inventory');
     }
 }
