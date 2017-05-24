@@ -23,21 +23,21 @@ class CreateInventoryObjectTable extends Migration
             $table->integer('model_id');
             $table->integer('location_id');
 
-            $table->foreign('material_type_id')->references('id')->on('material_type');
+            //$table->foreign('material_type_id')->references('id')->on('material_type');
 
-            $table->foreign('brand_id')->references('id')->on('brand_type');
+            //$table->foreign('brand_id')->references('id')->on('brand_type');
 
-            $table->foreign('model_id')->references('id')->on('brand_model');
+            //$table->foreign('model_id')->references('id')->on('brand_model');
 
-            $table->foreign('location_id')->references('id')->on('brand');
+            //$table->foreign('location_id')->references('id')->on('brand');
             $table->integer('quantity');
             $table->double('price');
             $table->integer('moneysourceId');
             $table->integer('provider_id');
 
-            $table->foreign('moneySourceId')->references('id')->on('brand');
+            //$table->foreign('moneySourceId')->references('id')->on('brand');
 
-            $table->foreign('provider_id')->references('id')->on('providers');
+            //$table->foreign('provider_id')->references('id')->on('providers');
             $table->date('date_entrance');
             $table->date('last_update');
             $table->string('picture', 60);
