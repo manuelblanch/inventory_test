@@ -1,7 +1,7 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-    <h2>Inventory</h2>
+    <h2>Model Brand</h2>
 @endsection
 
 
@@ -9,16 +9,13 @@
     <!-- ========================================================================================================== -->
     <!-- Main content -->
     <section class="content">
-        <a href="inventory/create" class="btn btn-primary">Afegir localització a inventari</a>
+        <a href="inventory/create" class="btn btn-primary">Afegir model de marca a inventari</a>
         <table class="table table-bordered table-responsive" style="margin-top: 20px;">
             <thead>
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
-                <th>Nom Curt</th>
                 <th>Descripció</th>
-                <th>Data Entrada</th>
-                <th>Ultima actualització</th>
                 <th>Action</th>
 
             </tr>
@@ -27,12 +24,8 @@
 
             <tr>
                 <td>1</td>
-                <td>Aula 24</td>
-                <td>A24</td>
-                <td>Classe de informatica</td>
-                <td>25-12-2012</td>
-                <td>27-12-2018</td>
-
+                <td>Sony</td>
+                <td>Toners Impresores</td>
                 <td>
                     <a href="" class="btn btn-success">Editar</a>
                     <a href="" class="btn btn-danger">Esborrar</a>

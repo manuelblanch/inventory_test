@@ -31,6 +31,18 @@ Route::get('/location', function () {
     return view('location');
 });
 
+Route::get('/material-type', function () {
+    return view('material-type');
+});
+
+Route::get('/brand-model', function () {
+    return view('brand-model');
+});
+
+Route::get('/brand', function () {
+    return view('brand');
+});
+
 Route::resource('inventory', 'InventoryController');
 
 

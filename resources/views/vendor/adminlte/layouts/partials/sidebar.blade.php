@@ -38,6 +38,9 @@
             <li><a href="{{ url('inventory') }}"><i class='fa fa-link'></i> <span>Inventory</span></a></li>
             <li><a href="{{ url('providers') }}"><i class='fa fa-link'></i> <span>Manteniment-Proveidors</span></a></li>
             <li><a href="{{ url('location') }}"><i class='fa fa-link'></i> <span>Manteniment-Localització</span></a></li>
+            <li><a href="{{ url('material-type') }}"><i class='fa fa-link'></i> <span>Manteniment-Tipus Material</span></a></li>
+            <li><a href="{{ url('brand') }}"><i class='fa fa-link'></i> <span>Manteniment-Marca</span></a></li>
+            <li><a href="{{ url('brand-model') }}"><i class='fa fa-link'></i> <span>Manteniment-Model Marca</span></a></li>
             <li class="treeview">
                 <a href="{{ url('manteniments') }}"><i class='fa fa-link'></i> <span>Manteniments</span></a>
                 <span class="pull-right-container">
