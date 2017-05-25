@@ -1,7 +1,7 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-    <h2>Inventory</h2>
+    Inventory
 @endsection
 
 

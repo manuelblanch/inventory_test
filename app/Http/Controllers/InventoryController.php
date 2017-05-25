@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\InventoryObject;
+use App\Http\Requests;
+use Validator;
+use Response;
+use Illuminate\Support\Facades\Input;
 
 class InventoryController extends Controller
 {

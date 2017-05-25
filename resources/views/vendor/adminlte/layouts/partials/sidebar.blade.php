@@ -41,21 +41,6 @@
             <li><a href="{{ url('material-type') }}"><i class='fa fa-link'></i> <span>Manteniment-Tipus Material</span></a></li>
             <li><a href="{{ url('brand') }}"><i class='fa fa-link'></i> <span>Manteniment-Marca</span></a></li>
             <li><a href="{{ url('brand-model') }}"><i class='fa fa-link'></i> <span>Manteniment-Model Marca</span></a></li>
-            <li class="treeview">
-                <a href="{{ url('manteniments') }}"><i class='fa fa-link'></i> <span>Manteniments</span></a>
-                <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a>Department</a></li>
-                    <li><a href="{{ url('providers') }}"></a></li>
-                    <li><a href="{{ url('system-management/country') }}"></a></li>
-                    <li><a href="{{ url('system-management/state') }}"></a></li>
-                    <li><a href="{{ url('system-management/city') }}"></a></li>
-                    <li><a href="{{ url('system-management/report') }}"></a></li>
-                </ul>
-            </li>
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
