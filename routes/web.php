@@ -23,8 +23,7 @@ Route::get('/manteniments', function () {
         return view('manteniments');
 });
 
-Route::resource('employee-management', 'EmployeeManagementController');
-Route::post('employee-management/search', 'EmployeeManagementController@search')->name('employee-management.search');
+Route::resource('inventory', 'InventoryController');
 
 
 Route::group(['middleware' => 'auth'], function () {
