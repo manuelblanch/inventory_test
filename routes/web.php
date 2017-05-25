@@ -23,6 +23,14 @@ Route::get('/manteniments', function () {
         return view('manteniments');
 });
 
+Route::get('/providers', function () {
+    return view('providers');
+});
+
+Route::get('/location', function () {
+    return view('location');
+});
+
 Route::resource('inventory', 'InventoryController');
 
 

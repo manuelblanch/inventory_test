@@ -34,18 +34,23 @@
             <li class="header">{{ trans('adminlte_lang::message.header') }}</li>
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
-            <li><a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.anotherlink') }}</span></a></li>
-            <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.multilevel') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+
             <li><a href="{{ url('inventory') }}"><i class='fa fa-link'></i> <span>Inventory</span></a></li>
-            <li><a href="{{ url('manteniments') }}"><i class='fa fa-link'></i> <span>Manteniments</span></a></li>
+            <li><a href="{{ url('providers') }}"><i class='fa fa-link'></i> <span>Manteniment-Proveidors</span></a></li>
+            <li><a href="{{ url('location') }}"><i class='fa fa-link'></i> <span>Manteniment-Localització</span></a></li>
+            <li class="treeview">
+                <a href="{{ url('manteniments') }}"><i class='fa fa-link'></i> <span>Manteniments</span></a>
+                <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ url('manteniment-management/department') }}">Department</a></li>
-                    <li><a href="{{ url('manteniment-management/division') }}">Division</a></li>
-                    <li><a href="{{ url('manteniment-management/country') }}">Country</a></li>
-                    <li><a href="{{ url('manteniment-management/state') }}">State</a></li>
-                    <li><a href="{{ url('manteniment-management/city') }}">City</a></li>
-                    <li><a href="{{ url('system-management/report') }}">Report</a></li>
+                    <li><a>Department</a></li>
+                    <li><a href="{{ url('providers') }}"></a></li>
+                    <li><a href="{{ url('system-management/country') }}"></a></li>
+                    <li><a href="{{ url('system-management/state') }}"></a></li>
+                    <li><a href="{{ url('system-management/city') }}"></a></li>
+                    <li><a href="{{ url('system-management/report') }}"></a></li>
                 </ul>
             </li>
         </ul><!-- /.sidebar-menu -->

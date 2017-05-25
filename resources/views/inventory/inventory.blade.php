@@ -32,7 +32,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($inventories as $inventory)
+
             <tr>
                 <td>1</td>
                 <td>24</td>
@@ -54,7 +54,7 @@
                     <a href="" class="btn btn-danger">Esborrar</a>
                 </td>
             </tr>
-                @endforeach
+
             </tbody>
         </table>
 
