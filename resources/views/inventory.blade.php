@@ -1,4 +1,3 @@
-
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
@@ -19,9 +18,9 @@
                         <thead>
                         <tr class="tableheader">
                             <th style="width:40px">#</th>
-                            <th style="width:140px">Id Públic</th>
-                            <th style="width:140px">Id extern</th>
-                            <th style="width:140px">Tipus Id extern</th>
+                            <th style="width:140px">Id </th>
+                            <th style="width:140px">Id </th>
+                            <th style="width:140px">Tipus ern</th>
                             <th style="width:140px">Nom</th>
                             <th style="width:140px">Nom curt</th>
                             <th style="width:140px">Descripció</th>
@@ -126,7 +125,7 @@
                 </div>
                 <!--form-kantor-modal-->
             </div>
-            </div>
+        </div>
     </section>
 
 @endsection

@@ -23,6 +23,9 @@ Route::get('/manteniments', function () {
         return view('manteniments');
 });
 
+Route::resource('employee-management', 'EmployeeManagementController');
+Route::post('employee-management/search', 'EmployeeManagementController@search')->name('employee-management.search');
+
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/vuejscrud', 'Inventory_Items@vueCrud');
