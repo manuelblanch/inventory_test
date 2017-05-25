@@ -13,7 +13,7 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        return view('inventory');
+        return view('inventory.inventory');
     }
 
     /**
