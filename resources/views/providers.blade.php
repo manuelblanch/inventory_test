@@ -8,6 +8,7 @@
 @section('main-content')
     <!-- ========================================================================================================== -->
     <!-- Main content -->
+    <script src="vue.js"></script>
     <section class="content">
         <a href="inventory/create" class="btn btn-primary">Afegir proveidor a inventari</a>
         <table class="table table-bordered table-responsive" style="margin-top: 20px;">
@@ -43,6 +44,41 @@
             </tbody>
         </table>
 
+        <div id="app" style="padding: 10px">
+            <p>Order by:</p>
+            <div class="btn-group btn-group-justified" role="group">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default" v-on:click="sortBy('city')">Pueblo</button>
+                </div>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default" v-on:click="sortBy('currentLevel')">Nivel</button>
+                </div>
+
+            </div>
+
+        </div>
+
+            <div class="container">
+              <div class="row">
+                <div id="vueapp" class="col-md-12">
+                  <h1>@{{ text }}</h1>
+                </div>
+              </div>
+
     </section>
 
 @endsection
+
+@section('foot')
+
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+      new Vue({
+        el: '#vueapp',
+        data: {
+          text: 'Let\'s Learn Vue.js'
+        }
+      })
+  </script>
+
+  @endsection

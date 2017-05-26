@@ -41,6 +41,7 @@
             <li><a href="{{ url('material-type') }}"><i class='fa fa-link'></i> <span>Manteniment-Tipus Material</span></a></li>
             <li><a href="{{ url('brand') }}"><i class='fa fa-link'></i> <span>Manteniment-Marca</span></a></li>
             <li><a href="{{ url('brand-model') }}"><i class='fa fa-link'></i> <span>Manteniment-Model Marca</span></a></li>
+            <li><a href="{{ url('vue') }}"><i class='fa fa-link'></i> <span>Vue</span></a></li>
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

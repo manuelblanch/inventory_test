@@ -43,6 +43,10 @@ Route::get('/brand', function () {
     return view('brand');
 });
 
+Route::get('/vue', function() {
+  return view('vue');
+});
+
 Route::resource('inventory', 'InventoryController');
 
 
