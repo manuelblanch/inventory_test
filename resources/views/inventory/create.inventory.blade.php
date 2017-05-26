@@ -52,6 +52,32 @@
                                   @endif
                               </div>
                             </div>
+                            <div class="form-group{{ $errors->has('descripcio') ? ' has-error' : '' }}">
+                                <label for="descripcio" class="col-md-4 control-label">Descripcio</label>
+
+                                <div class="col-md-6">
+                                    <input id="descripcio" type="text" class="form-control" name="descripcio" value="{{ old('descripcio') }}" required>
+
+                                    @if ($errors->has('descipcio'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('descripcio') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                              </div>
+                              <div class="form-group{{ $errors->has('material_type_id') ? ' has-error' : '' }}">
+                                  <label for="material_type_id" class="col-md-4 control-label">Tipus de material</label>
+
+                                  <div class="col-md-6">
+                                      <input id="material_type_id" type="text" class="form-control" name="material_type_id" value="{{ old('material_type_id') }}" required>
+
+                                      @if ($errors->has('material_type_id'))
+                                          <span class="help-block">
+                                              <strong>{{ $errors->first('material_type_id') }}</strong>
+                                          </span>
+                                      @endif
+                                  </div>
+                                </div>
                         <div class="form-group">
                             <label for="avatar" class="col-md-4 control-label" >Imatge</label>
                             <div class="col-md-6">
