@@ -9,11 +9,11 @@
     <!-- ========================================================================================================== -->
     <!-- Main content -->
     <section class="content">
-        <a href="create" class="btn btn-primary">Afegir objecte a inventari</a>
+        <a href="inventory/create" class="btn btn-primary">Afgir ouya inventari</a>
         <table class="table table-bordered table-responsive" style="margin-top: 20px;">
             <thead>
             <tr>
-                <th>resident </th>
+                <th>Id</th>
                 <th>Public_id</th>
                 <th>Nom</th>
                 <th>Descripció</th>

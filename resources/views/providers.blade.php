@@ -53,32 +53,24 @@
                 <div class="btn-group" role="group">
                     <button type="button" class="btn btn-default" v-on:click="sortBy('currentLevel')">Nivel</button>
                 </div>
-
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default" @click="sortBy('status')">Status</button>
+                </div>
             </div>
 
         </div>
+        <body>
+        <h1 id="title">Bienvenido, {{ name }}</h1>
+        <input type="text/javascript">
 
-            <div class="container">
-              <div class="row">
-                <div id="vueapp" class="col-md-12">
-                  <h1>@{{ text }}</h1>
-                </div>
-              </div>
+            new Vue({
+                el: "body",
+                data: {
+                    name: "Silence"
+                }
+        });
+        </body>
 
     </section>
 
 @endsection
-
-@section('foot')
-
-  <script src="https://unpkg.com/vue"></script>
-  <script>
-      new Vue({
-        el: '#vueapp',
-        data: {
-          text: 'Let\'s Learn Vue.js'
-        }
-      })
-  </script>
-
-  @endsection

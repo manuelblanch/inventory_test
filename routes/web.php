@@ -48,12 +48,11 @@ Route::get('/vue', function() {
 });
 
 Route::resource('inventory', 'InventoryController');
-Route::resource('create', 'InventoryController');
 
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/vuejscrud', 'Inventory_Items@vueCrud');
-    Route::resource('vueitems','Inventory_Items');
+Route::group(['middleware' => 'web'], function () {
+    Route::get('/vuejscrud', 'BlogController@vueCrud');
+    Route::resource('vueitems','BlogController');
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware
 //    });

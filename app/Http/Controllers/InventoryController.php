@@ -29,8 +29,7 @@ class InventoryController extends Controller
      */
     public function create()
     {
-      $id = Id::all();
-      return view('inventory.create', compact('id'));
+        return view('inventory.create');
     }
 
     /**
