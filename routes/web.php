@@ -48,6 +48,7 @@ Route::get('/vue', function() {
 });
 
 Route::resource('inventory', 'InventoryController');
+Route::resource('create', 'InventoryController');
 
 
 Route::group(['middleware' => 'auth'], function () {
