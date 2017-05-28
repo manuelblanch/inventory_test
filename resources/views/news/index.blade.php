@@ -3,8 +3,7 @@
 @section('title', $title)
 
 @section('sidebar')
-    @parent
-    // you can add something here
+
 @endsection
 
 @section('content')
