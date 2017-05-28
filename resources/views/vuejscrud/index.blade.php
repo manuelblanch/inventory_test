@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('htmlheader_title')
+    Inventory
+@endsection
+
 @section('content')
   <div class="form-group row add">
     <div class="col-md-12">

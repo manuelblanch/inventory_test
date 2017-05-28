@@ -49,10 +49,22 @@ Route::get('/vue', function() {
 
 Route::resource('inventory', 'InventoryController');
 
+Route::get('foo', function () {
+    return 'Hello World';
+});
+
+Route::get('news', array('as' => 'news.index', 'uses' => 'NewsController@index'));
+Route::get('news/add', array('as' => 'news.create', 'uses' => 'NewsController@create'));
+Route::post('news/store', array('as' => 'news.store', 'uses' => 'NewsController@store'));
+Route::get('news/edit/{id}', array('as' => 'news.edit', 'uses' => 'NewsController@edit'));
+Route::patch('news/update/{id}', array('as' => 'news.update', 'uses' => 'NewsController@update'));
+Route::delete('news/delete/{id}', array('as' => 'news.destroy', 'uses' => 'NewsController@destroy'));
+Route::get('news/{slug}', array('as' => 'news.show', 'uses' => 'NewsController@show'));
+
 
 Route::group(['middleware' => 'web'], function () {
-    Route::get('/vuejscrud', 'BlogController@vueCrud');
-    Route::resource('vueitems','BlogController');
+Route::get('/vuejscrud', 'BlogController@vueCrud');
+Route::resource('vueitems','BlogController');
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware
 //    });
