@@ -11,7 +11,7 @@ class Brand extends Model
      *
      * @var string
      */
-    protected $table = 'Brand';
+    protected $table = 'brand';
     /**
      * The attributes that aren't mass assignable.
      *
