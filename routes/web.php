@@ -61,14 +61,14 @@ Route::patch('news/update/{id}', array('as' => 'news.update', 'uses' => 'NewsCon
 Route::delete('news/delete/{id}', array('as' => 'news.destroy', 'uses' => 'NewsController@destroy'));
 Route::get('news/{slug}', array('as' => 'news.show', 'uses' => 'NewsController@show'));
 
+Route::resource('system-management/country', 'CountryController');
+Route::post('system-management/country/search', 'CountryController@search')->name('country.search');
+
+Route::resource('manteniments/location', 'LocationController');
+Route::post('manteniments/location/search', 'LocationController@search')->name('location.search');
 
 Route::group(['middleware' => 'web'], function () {
 Route::get('/vuejscrud', 'BlogController@vueCrud');
 Route::resource('vueitems','BlogController');
-    //    Route::get('/link1', function ()    {
-//        // Uses Auth Middleware
-//    });
 
-    //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
-    #adminlte_routes
 });
