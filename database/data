@@ -1,0 +1,1 @@
+INSERT INTO 'blog_post' ('id', 'title', 'description', 'created_at', 'updated_at') VALUES (NULL, 'ernesto', 'amigo', '2017-05-03 00:00:00', '2017-05-04 00:00:00'); 
