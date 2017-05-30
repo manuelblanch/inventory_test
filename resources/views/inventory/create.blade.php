@@ -1,6 +1,8 @@
-@extends('employees-mgmt.base')
+@extends('adminlte::layouts.app')
 
-@section('action-content')
+@section('htmlheader_title')
+    Inventory
+@endsection
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -112,31 +114,11 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Proveidor/label>
+                            <label class="col-md-4 control-label">Proveidor</label>
                             <div class="col-md-6">
                                 <select class="form-control" name="provider_id">
                                     @foreach ($providers as $provider)
                                         <option value="{{provider->id}}">{{provider->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">City</label>
-                            <div class="col-md-6">
-                                <select class="form-control" name="city_id">
-                                    @foreach ($cities as $city)
-                                        <option value="{{$city->id}}">{{$city->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                              <div class="form-group">
-                            <label class="col-md-4 control-label">State</label>
-                            <div class="col-md-6">
-                                <select class="form-control" name="state_id">
-                                    @foreach ($states as $state)
-                                        <option value="{{$state->id}}">{{$state->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
