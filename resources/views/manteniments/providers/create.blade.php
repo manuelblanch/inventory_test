@@ -80,6 +80,12 @@
                                 <button type="submit" class="btn btn-primary">
                                     Create
                                 </button>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                              <a href="{{ URL::previous() }}">Cancel·lar</a>
                             </div>
                         </div>
                     </form>
