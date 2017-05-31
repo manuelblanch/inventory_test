@@ -1,20 +1,24 @@
-@extends('manteniments.location.base')
+@extends('adminlte::layouts.app')
 
-@section('action-content')
+@section('htmlheader_title')
+    inventary
+@endsection
+    <!-- Main content -->
+    @section('main-content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Actualitza Localitzacions</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('location.update', ['id' => location->id]) }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('location.update', ['id' => $location->id]) }}">
                         <input type="hidden" name="_method" value="PATCH">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Nom de localització</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ location->name }}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ $location->name }}" required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -24,10 +28,10 @@
                             </div>
                         </div>
                          <div class="form-group{{ $errors->has('shortName') ? ' has-error' : '' }}">
-                            <label for="ahortName" class="col-md-4 control-label">Nom Curt</label>
+                            <label for="shortName" class="col-md-4 control-label">Nom Curt</label>
 
                             <div class="col-md-6">
-                                <input id="short_name" type="text" class="form-control" name="short_name" value="{{ location->short_name }}" required>
+                                <input id="shortName" type="text" class="form-control" name="shortName" value="{{ $location->shortName }}" required>
 
                                 @if ($errors->has('shortName'))
                                     <span class="help-block">
@@ -40,7 +44,7 @@
                            <label for="description" class="col-md-4 control-label">Descripció</label>
 
                            <div class="col-md-6">
-                               <input id="description" type="text" class="form-control" name="description" value="{{ location->description }}" required>
+                               <input id="description" type="text" class="form-control" name="description" value="{{ $location->description }}" required>
 
                                @if ($errors->has('description'))
                                    <span class="help-block">
@@ -62,15 +66,15 @@
                               @endif
                           </div>
                       </div>
-                      <div class="form-group{{ $errors->has('last_date') ? ' has-error' : '' }}">
-                         <label for="country_code" class="col-md-4 control-label">Ultima Actualització</label>
+                      <div class="form-group{{ $errors->has('last_update') ? ' has-error' : '' }}">
+                         <label for="last_update" class="col-md-4 control-label">Ultima Actualització</label>
 
                          <div class="col-md-6">
-                             <input id="country_code" type="text" class="form-control" name="last_date" value="{{ location->last_date }}" required>
+                             <input id="last_update" type="text" class="form-control" name="last_update" value="{{ $location->last_update }}" required>
 
-                             @if ($errors->has('last_date'))
+                             @if ($errors->has('last_update'))
                                  <span class="help-block">
-                                     <strong>{{ $errors->first('last_date') }}</strong>
+                                     <strong>{{ $errors->first('last_update') }}</strong>
                                  </span>
                              @endif
                          </div>

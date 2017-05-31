@@ -1,5 +1,10 @@
-@extends('manteniments.location.base')
-@section('action-content')
+@extends('adminlte::layouts.app')
+
+@section('htmlheader_title')
+    inventary
+@endsection
+    <!-- Main content -->
+    @section('main-content')
     <!-- Main content -->
     <section class="content">
       <div class="box">
@@ -20,12 +25,12 @@
         <div class="col-sm-6"></div>
       </div>
       <form method="POST" action="{{ route('location.search') }}">
-         {{ csrf_field() }}
-         @component('layouts.search', ['title' => 'Search'])
-          @component('layouts.two-cols-search-row', ['items' => ['Name', 'ShortName', 'Description', 'Date_entrance', 'last_update'],
-          'oldVals' => [isset($searchingVals) ? $searchingVals['name'] : '', isset($searchingVals) ? $searchingVals['shortName'] : ''], isset($searchingVals) ? $searchingVals['description'] : '', isset($searchingVals) ? $searchingVals['date_entrance'] : '', isset($searchingVals) ? $searchingVals['last_update'] : ''])
-          @endcomponent
-        @endcomponent
+        {{ csrf_field() }}
+        @component('layouts.search', ['title' => 'Search'])
+         @component('layouts.two-cols-search-row', ['items' => ['Name', 'ShortName'],
+         'oldVals' => [isset($searchingVals) ? $searchingVals['name'] : '', isset($searchingVals) ? $searchingVals['shortName'] : '']])
+         @endcomponent
+       @endcomponent
       </form>
     <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
       <div class="row">
@@ -33,11 +38,11 @@
           <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
             <thead>
               <tr role="row">
-                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="country: activate to sort column ascending">Nom</th>
-                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="country: activate to sort column ascending">Nom Curt</th>
-                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="country: activate to sort column ascending">Descripció</th>
-                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="country: activate to sort column ascending">Data Entrada</th>
-                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="country: activate to sort column ascending">Ultima actualització</th>
+                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="location: activate to sort column ascending">Nom</th>
+                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="location: activate to sort column ascending">Nom Curt</th>
+                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="location: activate to sort column ascending">Descripció</th>
+                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="location: activate to sort column ascending">Data Entrada</th>
+                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="location: activate to sort column ascending">Ultima actualització</th>
                 <th tabindex="0" aria-controls="example2" rowspan="1" colspan="2" aria-label="Action: activate to sort column ascending">Action</th>
               </tr>
             </thead>
@@ -45,16 +50,15 @@
             @foreach ($locations as $location)
                 <tr role="row" class="odd">
                   <td>{{ $location->name }}</td>
-                  <td>{{ $country->shortName }}</td>
-                  <td>{{ $location->name }}</td>
+                  <td>{{ $location->shortName }}</td>
                   <td>{{ $location->description }}</td>
                   <td>{{ $location->date_entrance }}</td>
                   <td>{{ $location->last_update }}</td>
                   <td>
-                    <form class="row" method="POST" action="{{ route('location.destroy', ['id' => location->id]) }}" onsubmit = "return confirm('Estas segur d'esborrar?')">
+                    <form class="row" method="POST" action="{{ route('location.destroy', ['id' => $location->id]) }}" onsubmit = "return confirm('Are you sure?')">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <a href="{{ route('location.edit', ['id' => location->id]) }}" class="btn btn-warning col-sm-3 col-xs-5 btn-margin">
+                        <a href="{{ route('location.edit', ['id' => $location->id]) }}" class="btn btn-success">
                         Editar
                         </a>
                         <button type="submit" class="btn btn-danger col-sm-3 col-xs-5 btn-margin">
@@ -67,7 +71,7 @@
             </tbody>
             <tfoot>
               <tr>
-                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="country: activate to sort column ascending">Nom</th>
+                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="location: activate to sort column ascending">Nom</th>
                 <th width="20%" rowspan="1" colspan="1">Nom Curt</th>
                 <th width="20%" rowspan="1" colspan="1">Descripció</th>
                 <th width="20%" rowspan="1" colspan="1">Data Entrada</th>
@@ -80,11 +84,11 @@
       </div>
       <div class="row">
         <div class="col-sm-5">
-          <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing 1 to {{count(locations)}} of {{count(locations)}} entries</div>
+          <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Mostrant 1 a {{count($locations)}} de {{count($locations)}} entrades</div>
         </div>
         <div class="col-sm-7">
           <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
-            {{ locations->links() }}
+            {{ $locations->links() }}
           </div>
         </div>
       </div>

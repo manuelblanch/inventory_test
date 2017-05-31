@@ -53,8 +53,8 @@ Route::get('foo', function () {
     return 'Hello World';
 });
 
-Route::get('/test/datepicker', function () {
-    return view('datepicker');
+Route::get('/mnt/provider/create', function () {
+    return view('create');
 });
 
 Route::post('/test/save', ['as' => 'save-date',
@@ -80,8 +80,8 @@ Route::post('mnt/provider/search', 'ProviderController@search')->name('provider.
 Route::resource('mnt/moneySource', 'MoneySourceController');
 Route::post('mnt/moneySource/search', 'MoneySourceController@search')->name('moneySource.search');
 
-Route::resource('manteniments/location', 'LocationController');
-Route::post('manteniments/location/search', 'LocationController@search')->name('location.search');
+Route::resource('mnt/location', 'LocationController');
+Route::post('mnt/location/search', 'LocationController@search')->name('location.search');
 
 Route::group(['middleware' => 'web'], function () {
 Route::get('/vuejscrud', 'BlogController@vueCrud');

@@ -1,6 +1,12 @@
-@extends(manteniments.location.base')
+@extends('adminlte::layouts.app')
 
-@section('action-content')
+@section('htmlheader_title')
+    <h2>Model Brand</h2>
+
+@endsection
+    <!-- Main content -->
+    @section('main-content')
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -23,11 +29,11 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('shortName') ? ' has-error' : '' }}">
-                            <label for="short_name" class="col-md-4 control-label">Nom Curt</label>
+                        <div class="form-group{{ $errors->has('country_code') ? ' has-error' : '' }}">
+                            <label for="shortName" class="col-md-4 control-label">Nom Curt</label>
 
                             <div class="col-md-6">
-                                <input id="shortName" type="text" class="form-control" name="ahortName" value="{{ old('shortName') }}" required>
+                                <input id="shortName" type="text" class="form-control" name="shortName" value="{{ old('shortName') }}" required>
                                 @if ($errors->has('shortName'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('shortName') }}</strong>
@@ -47,35 +53,40 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('date_entrance') ? ' has-error' : '' }}">
-                            <label for="date_entrance" class="col-md-4 control-label">Data Entrada</label>
-
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Data Entrada</label>
                             <div class="col-md-6">
-                                <input id="date_entrance" type="text" class="form-control" name="date_entrance" value="{{ old('date_entrance') }}" required>
-                                @if ($errors->has('date_entrance'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('date_entrance') }}</strong>
-                                    </span>
-                                @endif
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" value=" yyyy-mm-dd " name="date_entrance" class="form-control pull-right" id="dateEntrance" required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group{{ $errors->has('last_update') ? ' has-error' : '' }}">
-                            <label for="last_update" class="col-md-4 control-label">Ultima Actualització</label>
+                          </div>
 
+                          <div class="form-group">
+                            <label class="col-md-4 control-label">Ultima Actualització</label>
                             <div class="col-md-6">
-                                <input id="last_update" type="text" class="form-control" name="last_update" value="{{ old('last_update') }}" required>
-                                @if ($errors->has('last_update'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('last_update') }}</strong>
-                                    </span>
-                                @endif
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" value="{{ old('last_update') }}" name="last_update" class="form-control pull-right" id="lastUpdate" required>
+                                </div>
+                            </div>
+                          </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Create
+                                </button>
+
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Creació
-                                </button>
+                              <a href="{{ URL::previous() }}">Cancel·lar</a>
                             </div>
                         </div>
                     </form>

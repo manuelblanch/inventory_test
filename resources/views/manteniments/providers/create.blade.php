@@ -6,6 +6,7 @@
 @endsection
     <!-- Main content -->
     @section('main-content')
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -59,7 +60,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" value="{{ old('date_entrance') }}" name="date_entrance" class="form-control pull-right" id="dateEntrance" required>
+                                    <input type="text" value=" yyyy-mm-dd " name="date_entrance" class="form-control pull-right" id="dateEntrance" required>
                                 </div>
                             </div>
                           </div>
