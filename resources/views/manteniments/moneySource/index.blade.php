@@ -13,7 +13,7 @@
           <h3 class="box-title">Llista de procedencia dels diners</h3>
         </div>
         <div class="col-sm-4">
-          <a class="btn btn-primary" href="{{ route('moneySource.create') }}">Afegeix un nou proveidor</a>
+          <a class="btn btn-primary" href="{{ route('moneySource.create') }}">Afegeix nova procedencia dels diners</a>
         </div>
     </div>
   </div>
