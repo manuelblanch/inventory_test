@@ -40,7 +40,7 @@
             <li><a href="{{ url('location') }}"><i class='fa fa-link'></i> <span>Manteniment-Localització</span></a></li>
             <li><a href="{{ url('material-type') }}"><i class='fa fa-link'></i> <span>Manteniment-Tipus Material</span></a></li>
             <li><a href="{{ url('brand') }}"><i class='fa fa-link'></i> <span>Manteniment-Marca</span></a></li>
-            <li><a href="{{ url('brand-model') }}"><i class='fa fa-link'></i> <span>Manteniment-Model Marca</span></a></li>
+            <li><a href="{{ url('manteniments/export') }}"><i class='fa fa-link'></i> <span>Exportar</span></a></li>
             <li><a href="{{ url('vue') }}"><i class='fa fa-link'></i> <span>Vue</span></a></li>
             <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Manteniments</span>
@@ -54,6 +54,7 @@
             <li><a href="{{ url('manteniments/material_type') }}">Tipus Material</a></li>
             <li><a href="{{ url('manteniments/brand') }}">Marca</a></li>
             <li><a href="{{ url('manteniments/brand_model') }}">Model Marca</a></li>
+            <li><a href="{{ url('mnt/moneySource') }}">Procedencia Monetaria</a></li>
           </ul>
 </li>
         </ul><!-- /.sidebar-menu -->

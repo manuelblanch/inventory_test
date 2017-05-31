@@ -53,6 +53,16 @@ Route::get('foo', function () {
     return 'Hello World';
 });
 
+Route::get('/test/datepicker', function () {
+    return view('datepicker');
+});
+
+Route::post('/test/save', ['as' => 'save-date',
+                           'uses' => 'DateController@showDate',
+                            function () {
+                                return '';
+                            }]);
+
 Route::get('news', array('as' => 'news.index', 'uses' => 'NewsController@index'));
 Route::get('news/add', array('as' => 'news.create', 'uses' => 'NewsController@create'));
 Route::post('news/store', array('as' => 'news.store', 'uses' => 'NewsController@store'));
@@ -66,6 +76,9 @@ Route::post('system-management/country/search', 'CountryController@search')->nam
 
 Route::resource('mnt/provider', 'ProviderController');
 Route::post('mnt/provider/search', 'ProviderController@search')->name('provider.search');
+
+Route::resource('mnt/moneySource', 'MoneySourceController');
+Route::post('mnt/moneySource/search', 'MoneySourceController@search')->name('moneySource.search');
 
 Route::resource('manteniments/location', 'LocationController');
 Route::post('manteniments/location/search', 'LocationController@search')->name('location.search');

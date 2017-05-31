@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Provider;
+use App\MoneySource;
 
-class ProviderController extends Controller
+class MoneySourceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +19,8 @@ class ProviderController extends Controller
 
     public function index()
     {
-      $providers = Provider::paginate(5);
-      return view('manteniments/providers/index', ['providers' => $providers]);
+      $moneySources = MoneySource::paginate(5);
+      return view('manteniments/moneySource/index', ['moneySources' => $moneySources]);
     }
 
     /**
@@ -30,7 +30,7 @@ class ProviderController extends Controller
      */
     public function create()
     {
-        return view('manteniments/providers/create');
+        return view('manteniments/moneySource/create');
     }
 
     /**
@@ -42,14 +42,14 @@ class ProviderController extends Controller
     public function store(Request $request)
     {
       $this->validateInput($request);
-       Provider::create([
+       MoneySource::create([
          'name' => $request['name'],
          'shortName' => $request['shortName'],
          'description' => $request['description'],
          'date_entrance' => $request['date_entrance'],
          'last_update' => $request['last_update']
            ]);
-      return redirect()->intended('mnt/provider');
+      return redirect()->intended('mnt/moneySource');
     }
 
     /**
@@ -71,12 +71,12 @@ class ProviderController extends Controller
      */
     public function edit($id)
     {
-      $provider = Provider::find($id);
+      $moneySource = MoneySource::find($id);
       // Redirect to country list if updating country wasn't existed
-      if ($provider == null || count($provider) == 0) {
-          return redirect()->intended('/mnt/provider');
+      if ($moneySource == null || count($moneySource) == 0) {
+          return redirect()->intended('/mnt/moneySource');
       }
-      return view('manteniments/providers/edit', ['provider' => $provider]);
+      return view('manteniments/moneySource/edit', ['moneySource' => $moneySource]);
     }
 
     /**
@@ -88,7 +88,7 @@ class ProviderController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $provider = Provider::findOrFail($id);
+      $moneySource = MoneySource::findOrFail($id);
       $input = [
         'name' => $request['name'],
         'shortName' => $request['shortName'],
@@ -99,10 +99,10 @@ class ProviderController extends Controller
       $this->validate($request, [
       'name' => 'required|max:60'
       ]);
-      Provider::where('id', $id)
+      MoneySource::where('id', $id)
           ->update($input);
 
-      return redirect()->intended('mnt/provider');
+      return redirect()->intended('mnt/moneySource');
     }
 
     /**
@@ -113,8 +113,8 @@ class ProviderController extends Controller
      */
     public function destroy($id)
     {
-      Provider::where('id', $id)->delete();
-       return redirect()->intended('mnt/provider');
+      MoneySource::where('id', $id)->delete();
+       return redirect()->intended('mnt/moneySource');
     }
 
     public function search(Request $request) {
@@ -122,11 +122,11 @@ class ProviderController extends Controller
             'name' => $request['name'],
             'shortName' => $request['shortName']
             ];
-       $providers = $this->doSearchingQuery($constraints);
-       return view('manteniments/providers/index', ['providers' => $providers, 'searchingVals' => $constraints]);
+       $moneySources = $this->doSearchingQuery($constraints);
+       return view('manteniments/moneySource/index', ['moneySources' => $moneySources, 'searchingVals' => $constraints]);
     }
     private function doSearchingQuery($constraints) {
-        $query = provider::query();
+        $query = moneySource::query();
         $fields = array_keys($constraints);
         $index = 0;
         foreach ($constraints as $constraint) {

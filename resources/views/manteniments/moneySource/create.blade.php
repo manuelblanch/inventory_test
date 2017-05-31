@@ -10,9 +10,9 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Afegeix nou proveidor</div>
+                <div class="panel-heading">Afegeix nova procedencia dels diners</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('provider.store') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('moneySource.store') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -28,7 +28,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('country_code') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('shortName') ? ' has-error' : '' }}">
                             <label for="shortName" class="col-md-4 control-label">Nom Curt</label>
 
                             <div class="col-md-6">

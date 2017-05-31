@@ -10,10 +10,10 @@
   <div class="box-header">
     <div class="row">
         <div class="col-sm-8">
-          <h3 class="box-title">Llista de proveidors</h3>
+          <h3 class="box-title">Llista de procedencia dels diners</h3>
         </div>
         <div class="col-sm-4">
-          <a class="btn btn-primary" href="{{ route('provider.create') }}">Afegeix un nou proveidor</a>
+          <a class="btn btn-primary" href="{{ route('moneySource.create') }}">Afegeix un nou proveidor</a>
         </div>
     </div>
   </div>
@@ -37,27 +37,27 @@
           <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
             <thead>
               <tr role="row">
-                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="provider: activate to sort column ascending">Nom</th>
-                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="provider: activate to sort column ascending">Nom Curt</th>
-                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="provider: activate to sort column ascending">Descripció</th>
-                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="provider: activate to sort column ascending">Data Entrada</th>
-                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="provider: activate to sort column ascending">Ultima actualització</th>
+                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="moneySource: activate to sort column ascending">Nom</th>
+                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="moneySource: activate to sort column ascending">Nom Curt</th>
+                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="moneySource: activate to sort column ascending">Descripció</th>
+                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="moneySource: activate to sort column ascending">Data Entrada</th>
+                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="moneySource: activate to sort column ascending">Ultima actualització</th>
                 <th tabindex="0" aria-controls="example2" rowspan="1" colspan="2" aria-label="Action: activate to sort column ascending">Acció</th>
               </tr>
             </thead>
             <tbody>
-            @foreach ($providers as $provider)
+            @foreach ($moneySources as $moneySource)
                 <tr role="row" class="odd">
-                  <td>{{ $provider->name }}</td>
-                  <td>{{ $provider->shortName }}</td>
-                  <td>{{ $provider->description }}</td>
-                  <td>{{ $provider->date_entrance }}</td>
-                  <td>{{ $provider->last_update }}</td>
+                  <td>{{ $moneySource->name }}</td>
+                  <td>{{ $moneySource->shortName }}</td>
+                  <td>{{ $moneySource->description }}</td>
+                  <td>{{ $moneySource->date_entrance }}</td>
+                  <td>{{ $moneySource->last_update }}</td>
                   <td>
-                    <form class="row" method="POST" action="{{ route('provider.destroy', ['id' => $provider->id]) }}" onsubmit = "return confirm('Are you sure?')">
+                    <form class="row" method="POST" action="{{ route('moneySource.destroy', ['id' => $moneySource->id]) }}" onsubmit = "return confirm('Are you sure?')">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <a href="{{ route('provider.edit', ['id' => $provider->id]) }}" class="btn btn-success">
+                        <a href="{{ route('moneySource.edit', ['id' => $moneySource->id]) }}" class="btn btn-success">
                         Editar
                         </a>
                         <button type="submit" class="btn btn-danger">
@@ -70,7 +70,7 @@
             </tbody>
             <tfoot>
               <tr>
-                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="provider: activate to sort column ascending">Nom</th>
+                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="moneySource: activate to sort column ascending">Nom</th>
                 <th width="20%" rowspan="1" colspan="1">Nom Curt</th>
                 <th width="20%" rowspan="1" colspan="1">Descripció</th>
                 <th width="20%" rowspan="1" colspan="1">Data Entrada</th>
@@ -83,11 +83,11 @@
       </div>
       <div class="row">
         <div class="col-sm-5">
-          <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Mostrant 1 a {{count($providers)}} de {{count($providers)}} entrades</div>
+          <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Mostrant 1 a {{count($moneySources)}} de {{count($moneySources)}} entrades</div>
         </div>
         <div class="col-sm-7">
           <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
-            {{ $providers->links() }}
+            {{ $moneySources->links() }}
           </div>
         </div>
       </div>
