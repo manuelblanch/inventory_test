@@ -83,6 +83,9 @@ Route::post('mnt/moneySource/search', 'MoneySourceController@search')->name('mon
 Route::resource('mnt/location', 'LocationController');
 Route::post('mnt/location/search', 'LocationController@search')->name('location.search');
 
+Route::resource('mnt/material_type', 'Material_TypeController');
+Route::post('mnt/material_type/search', 'Material_TypeController@search')->name('material_type.search');
+
 Route::group(['middleware' => 'web'], function () {
 Route::get('/vuejscrud', 'BlogController@vueCrud');
 Route::resource('vueitems','BlogController');
