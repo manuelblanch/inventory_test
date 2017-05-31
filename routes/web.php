@@ -64,6 +64,9 @@ Route::get('news/{slug}', array('as' => 'news.show', 'uses' => 'NewsController@s
 Route::resource('system-management/country', 'CountryController');
 Route::post('system-management/country/search', 'CountryController@search')->name('country.search');
 
+Route::resource('mnt/provider', 'ProviderController');
+Route::post('mnt/provider/search', 'ProviderController@search')->name('provider.search');
+
 Route::resource('manteniments/location', 'LocationController');
 Route::post('manteniments/location/search', 'LocationController@search')->name('location.search');
 

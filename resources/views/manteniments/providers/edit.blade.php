@@ -28,7 +28,7 @@
                             </div>
                         </div>
                          <div class="form-group{{ $errors->has('shortName') ? ' has-error' : '' }}">
-                            <label for="ahortName" class="col-md-4 control-label">Nom Curt</label>
+                            <label for="shortName" class="col-md-4 control-label">Nom Curt</label>
 
                             <div class="col-md-6">
                                 <input id="short_name" type="text" class="form-control" name="short_name" value="{{ provider->short_name }}" required>
@@ -66,15 +66,15 @@
                               @endif
                           </div>
                       </div>
-                      <div class="form-group{{ $errors->has('last_date') ? ' has-error' : '' }}">
-                         <label for="country_code" class="col-md-4 control-label">Ultima Actualització</label>
+                      <div class="form-group{{ $errors->has('last_update') ? ' has-error' : '' }}">
+                         <label for="last_update" class="col-md-4 control-label">Ultima Actualització</label>
 
                          <div class="col-md-6">
-                             <input id="country_code" type="text" class="form-control" name="last_date" value="{{ provider->last_date }}" required>
+                             <input id="last_update" type="text" class="form-control" name="last_update" value="{{ provider->last_update }}" required>
 
-                             @if ($errors->has('last_date'))
+                             @if ($errors->has('last_update'))
                                  <span class="help-block">
-                                     <strong>{{ $errors->first('last_date') }}</strong>
+                                     <strong>{{ $errors->first('last_update') }}</strong>
                                  </span>
                              @endif
                          </div>

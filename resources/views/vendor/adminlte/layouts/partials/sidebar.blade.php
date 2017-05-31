@@ -49,7 +49,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ url('manteniments/providers') }}">Proveidors</a></li>
+            <li><a href="{{ url('mnt/provider') }}">Proveidors</a></li>
             <li><a href="{{ url('system-management/country') }}">Localització</a></li>
             <li><a href="{{ url('manteniments/material_type') }}">Tipus Material</a></li>
             <li><a href="{{ url('manteniments/brand') }}">Marca</a></li>

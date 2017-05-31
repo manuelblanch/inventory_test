@@ -11,6 +11,7 @@ use App\Http\Requests\ProviderCreateRequest;
 use App\Http\Requests\ProviderUpdateRequest;
 use App\Repositories\ProviderRepository;
 use App\Validators\ProviderValidator;
+use App\Provider;
 
 
 class ProvidersController extends Controller
@@ -50,7 +51,10 @@ class ProvidersController extends Controller
             ]);
         }
 
-        return view('providers.index', compact('providers'));
+        $providers = Country::paginate(5);
+        return view('manteniments/providers/index', ['providers' => $providers]);
+
+        //return view('providers.index', compact('providers'));
     }
 
     /**
@@ -63,33 +67,7 @@ class ProvidersController extends Controller
     public function store(ProviderCreateRequest $request)
     {
 
-        try {
-
-            $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
-
-            $provider = $this->repository->create($request->all());
-
-            $response = [
-                'message' => 'Provider created.',
-                'data'    => $provider->toArray(),
-            ];
-
-            if ($request->wantsJson()) {
-
-                return response()->json($response);
-            }
-
-            return redirect()->back()->with('message', $response['message']);
-        } catch (ValidatorException $e) {
-            if ($request->wantsJson()) {
-                return response()->json([
-                    'error'   => true,
-                    'message' => $e->getMessageBag()
-                ]);
-            }
-
-            return redirect()->back()->withErrors($e->getMessageBag())->withInput();
-        }
+        return view('manteniments/providers/create');
     }
 
 
@@ -102,17 +80,17 @@ class ProvidersController extends Controller
      */
     public function show($id)
     {
-        $provider = $this->repository->find($id);
+      $this->validateInput($request);
+      Country::create([
+        'name' => $request['name'],
+        'shortName' => $request['shortName'],
+        'description' => $request['description'],
+        'date_entrance' => $request['date_entrance'],
+        'last_update' => $request['last_update']
+          ]);
+            return redirect()->intended('manteniments/providers');
+            }
 
-        if (request()->wantsJson()) {
-
-            return response()->json([
-                'data' => $provider,
-            ]);
-        }
-
-        return view('providers.show', compact('provider'));
-    }
 
 
     /**
@@ -125,9 +103,12 @@ class ProvidersController extends Controller
     public function edit($id)
     {
 
-        $provider = $this->repository->find($id);
-
-        return view('providers.edit', compact('provider'));
+      $providers = Providers::find($id);
+      // Redirect to country list if updating country wasn't existed
+      if ($providers == null || count($providers) == 0) {
+          return redirect()->intended('/manteniments/providers');
+      }
+      return view('manteniments/providers/edit', ['providers' => $providers]);
     }
 
 
@@ -142,35 +123,21 @@ class ProvidersController extends Controller
     public function update(ProviderUpdateRequest $request, $id)
     {
 
-        try {
+      $providers = Providers::findOrFail($id);
+      $input = [
+        'name' => $request['name'],
+        'shortName' => $request['shortName'],
+        'description' => $request['description'],
+        'date_entrance' => $request['date_entrance'],
+        'last_update' => $request['last_update']
+      ];
+      $this->validate($request, [
+      'name' => 'required|max:60'
+      ]);
+      Providers::where('id', $id)
+          ->update($input);
 
-            $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
-
-            $provider = $this->repository->update($id, $request->all());
-
-            $response = [
-                'message' => 'Provider updated.',
-                'data'    => $provider->toArray(),
-            ];
-
-            if ($request->wantsJson()) {
-
-                return response()->json($response);
-            }
-
-            return redirect()->back()->with('message', $response['message']);
-        } catch (ValidatorException $e) {
-
-            if ($request->wantsJson()) {
-
-                return response()->json([
-                    'error'   => true,
-                    'message' => $e->getMessageBag()
-                ]);
-            }
-
-            return redirect()->back()->withErrors($e->getMessageBag())->withInput();
-        }
+      return redirect()->intended('manteniments/providers');
     }
 
 
@@ -183,16 +150,34 @@ class ProvidersController extends Controller
      */
     public function destroy($id)
     {
-        $deleted = $this->repository->delete($id);
+      Providers::where('id', $id)->delete();
+       return redirect()->intended('manteniments/providers');
+    }
 
-        if (request()->wantsJson()) {
-
-            return response()->json([
-                'message' => 'Provider deleted.',
-                'deleted' => $deleted,
-            ]);
+    public function search(Request $request) {
+        $constraints = [
+            'name' => $request['name'],
+            'shortName' => $request['shortName']
+            ];
+       $providers = $this->doSearchingQuery($constraints);
+       return view('manteniments/providers/index', ['providers' => $providers, 'searchingVals' => $constraints]);
+    }
+    private function doSearchingQuery($constraints) {
+        $query = providers::query();
+        $fields = array_keys($constraints);
+        $index = 0;
+        foreach ($constraints as $constraint) {
+            if ($constraint != null) {
+                $query = $query->where( $fields[$index], 'like', '%'.$constraint.'%');
+            }
+            $index++;
         }
-
-        return redirect()->back()->with('message', 'Provider deleted.');
+        return $query->paginate(5);
+    }
+    private function validateInput($request) {
+        $this->validate($request, [
+        'name' => 'required|max:60|unique:providers',
+        'shortName' => 'required|max:6|unique:providers'
+    ]);
     }
 }

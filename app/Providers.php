@@ -11,7 +11,7 @@ class Provider extends Model
    *
    * @var string
    */
-  protected $table = 'provider';
+  protected $table = 'providers';
   /**
    * The attributes that aren't mass assignable.
    *
