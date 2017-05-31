@@ -29,18 +29,6 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('shortName') ? ' has-error' : '' }}">
-                            <label for="shortName" class="col-md-4 control-label">Nom Curt</label>
-
-                            <div class="col-md-6">
-                                <input id="shortName" type="text" class="form-control" name="shortName" value="{{ old('shortName') }}" required>
-                                @if ($errors->has('shortName'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('shortName') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
                         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
                             <label for="description" class="col-md-4 control-label">Descripció</label>
 

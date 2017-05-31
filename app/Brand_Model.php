@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Material_Type extends Model
+class Brand_Model extends Model
 {
   /**
    * The table associated with the model.
    *
    * @var string
    */
-  protected $table = 'material_type';
+  protected $table = 'brand_model';
   /**
    * The attributes that aren't mass assignable.
    *

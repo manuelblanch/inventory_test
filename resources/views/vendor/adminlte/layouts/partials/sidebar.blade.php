@@ -51,7 +51,7 @@
           <ul class="treeview-menu">
             <li><a href="{{ url('mnt/provider') }}">Proveidors</a></li>
             <li><a href="{{ url('mnt/location') }}">Localització</a></li>
-            <li><a href="{{ url('manteniments/material_type') }}">Tipus Material</a></li>
+            <li><a href="{{ url('mnt/material_type') }}">Tipus Material</a></li>
             <li><a href="{{ url('manteniments/brand') }}">Marca</a></li>
             <li><a href="{{ url('manteniments/brand_model') }}">Model Marca</a></li>
             <li><a href="{{ url('mnt/moneySource') }}">Procedencia Monetaria</a></li>

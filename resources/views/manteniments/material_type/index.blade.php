@@ -39,7 +39,6 @@
             <thead>
               <tr role="row">
                 <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="material_type: activate to sort column ascending">Nom</th>
-                <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="material_type: activate to sort column ascending">Nom Curt</th>
                 <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="material_type: activate to sort column ascending">Descripció</th>
                 <th tabindex="0" aria-controls="example2" rowspan="1" colspan="2" aria-label="Action: activate to sort column ascending">Action</th>
               </tr>
@@ -48,7 +47,6 @@
             @foreach ($material_types as $material_type)
                 <tr role="row" class="odd">
                   <td>{{ $material_type->name }}</td>
-                  <td>{{ $material_type->shortName }}</td>
                   <td>{{ $material_type->description }}</td>
                   <td>
                     <form class="row" method="POST" action="{{ route('material_type.destroy', ['id' => $material_type->id]) }}" onsubmit = "return confirm('Estas segur?')">
@@ -68,7 +66,6 @@
             <tfoot>
               <tr>
                 <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="location: activate to sort column ascending">Nom</th>
-                <th width="20%" rowspan="1" colspan="1">Nom Curt</th>
                 <th width="20%" rowspan="1" colspan="1">Descripció</th>
                 <th rowspan="1" colspan="2">Acció</th>
               </tr>
