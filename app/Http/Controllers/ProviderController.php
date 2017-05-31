@@ -99,7 +99,7 @@ class ProviderController extends Controller
       $this->validate($request, [
       'name' => 'required|max:60'
       ]);
-      Providers::where('id', $id)
+      Provider::where('id', $id)
           ->update($input);
 
       return redirect()->intended('mnt/provider');
