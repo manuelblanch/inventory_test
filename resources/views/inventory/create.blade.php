@@ -2,24 +2,27 @@
 
 @section('htmlheader_title')
     Inventory
+
 @endsection
+    <!-- Main content -->
+    @section('main-content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Afegeix nou Item a Inventari</div>
+                <div class="panel-heading">Afegeix nou objecte a l'inventari</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('inventory.store') }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Nom</label>
+                            <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="firstname" value="{{ old('name') }}" required autofocus>
 
-                                @if ($errors->has('name'))
+                                @if ($errors->has('firstname'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('firstname') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -29,7 +32,6 @@
 
                             <div class="col-md-6">
                                 <input id="description" type="text" class="form-control" name="description" value="{{ old('description') }}" required>
-
                                 @if ($errors->has('description'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('description') }}</strong>
@@ -38,10 +40,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Tipus Material</label>
+                            <label class="col-md-4 control-label">Tipus de material</label>
                             <div class="col-md-6">
                                 <select class="form-control" name="material_type_id">
-                                    @foreach ($material_tipes as $material_type)
+                                    @foreach ($material_types as $material_type)
                                         <option value="{{$material_type->id}}">{{$material_type->name}}</option>
                                     @endforeach
                                 </select>
@@ -58,11 +60,11 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Model</label>
+                            <label class="col-md-4 control-label">Model de marca</label>
                             <div class="col-md-6">
                                 <select class="form-control" name="model_id">
-                                    @foreach ($models as $model)
-                                        <option value="{{model->id}}">{{model->name}}</option>
+                                    @foreach ($brand_models as $brand_model)
+                                        <option value="{{$brand_model->id}}">{{$brand_model->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -72,18 +74,18 @@
                             <div class="col-md-6">
                                 <select class="form-control" name="location_id">
                                     @foreach ($locations as $location)
-                                        <option value="{{location->id}}">{{location->name}}</option>
+                                        <option value="{{$location->id}}">{{$location->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('quatity') ? ' has-error' : '' }}">
-                            <label for="middlename" class="col-md-4 control-label">Quantitat</label>
+                        <div class="form-group{{ $errors->has('quantity') ? ' has-error' : '' }}">
+                            <label for="quantity" class="col-md-4 control-label">Quantitat</label>
 
                             <div class="col-md-6">
                                 <input id="quantity" type="text" class="form-control" name="quantity" value="{{ old('quantity') }}" required>
 
-                                @if ($errors->has('quantity'))
+                                @if ($errors->has('address'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('quantity') }}</strong>
                                     </span>
@@ -91,7 +93,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}">
-                            <label for="price" class="col-md-4 control-label">Preu</label>
+                            <label for="quantity" class="col-md-4 control-label">Preu</label>
 
                             <div class="col-md-6">
                                 <input id="price" type="text" class="form-control" name="price" value="{{ old('price') }}" required>
@@ -104,21 +106,21 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Procedencia dels Diners</label>
+                            <label class="col-md-4 control-label">Procedencia Monetaria</label>
                             <div class="col-md-6">
                                 <select class="form-control" name="moneysourceId">
-                                    @foreach ($moneysources as $moneysource)
-                                        <option value="{{moneysource->id}}">{{moneysource->name}}</option>
+                                    @foreach ($moneySources as $moneySource)
+                                        <option value="{{moneySource->id}}">{{$moneySource->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
+                              <div class="form-group">
                             <label class="col-md-4 control-label">Proveidor</label>
                             <div class="col-md-6">
                                 <select class="form-control" name="provider_id">
                                     @foreach ($providers as $provider)
-                                        <option value="{{provider->id}}">{{provider->name}}</option>
+                                        <option value="{{$provider->id}}">{{$provider->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -130,7 +132,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" value="{{ old('date_entrance') }}" name="date_entrance" class="form-control pull-right" id="date_entrance" required>
+                                    <input type="text" value="{{ old('date_entrance') }}" name="date_entrance" class="form-control pull-right" id="dateEntrance" required>
                                 </div>
                             </div>
                         </div>
@@ -141,12 +143,12 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" value="{{ old('last_update') }}" name="last_update" class="form-control pull-right" id="last_update" required>
+                                    <input type="text" value="{{ old('last_update') }}" name="last_update" class="form-control pull-right" id="lastUpate" required>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="avatar" class="col-md-4 control-label" >Imatge</label>
+                            <label for="avatar" class="col-md-4 control-label" >Picture</label>
                             <div class="col-md-6">
                                 <input type="file" id="picture" name="picture" required >
                             </div>
@@ -154,7 +156,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Crea Objecte per a l'inventari
+                                    Create
                                 </button>
                             </div>
                         </div>
