@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Brand;
 
 class BrandController extends Controller
 {
@@ -11,9 +12,15 @@ class BrandController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function __construct()
+     {
+         $this->middleware('auth');
+     }
+
     public function index()
     {
-        //
+      $brands = Brand::paginate(5);
+      return view('manteniments/brand/index', ['brands' => $brands]);
     }
 
     /**
@@ -23,7 +30,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        return view('manteniments/brand/create');
     }
 
     /**
@@ -34,7 +41,15 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $this->validateInput($request);
+       Brand::create([
+         'name' => $request['name'],
+         'shortName' => $request['shortName'],
+         'description' => $request['description'],
+         'date_entrance' => $request['date_entrance'],
+         'last_update' => $request['last_update']
+           ]);
+      return redirect()->intended('mnt/brand');
     }
 
     /**
@@ -56,7 +71,12 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        //
+      $brand = Brand::find($id);
+      // Redirect to country list if updating country wasn't existed
+      if ($brand == null || count($brand) == 0) {
+          return redirect()->intended('/mnt/brand');
+      }
+      return view('manteniments/brand/edit', ['brand' => $brand]);
     }
 
     /**
@@ -68,7 +88,21 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $brand = Brand::findOrFail($id);
+      $input = [
+        'name' => $request['name'],
+        'shortName' => $request['shortName'],
+        'description' => $request['description'],
+        'date_entrance' => $request['date_entrance'],
+        'last_update' => $request['last_update']
+      ];
+      $this->validate($request, [
+      'name' => 'required|max:60'
+      ]);
+      Brand::where('id', $id)
+          ->update($input);
+
+      return redirect()->intended('mnt/brand');
     }
 
     /**
@@ -79,6 +113,34 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        //
+      Brand::where('id', $id)->delete();
+       return redirect()->intended('mnt/brand');
+    }
+
+    public function search(Request $request) {
+        $constraints = [
+            'name' => $request['name'],
+            'shortName' => $request['shortName']
+            ];
+       $brands = $this->doSearchingQuery($constraints);
+       return view('manteniments/brand/index', ['brands' => $brand, 'searchingVals' => $constraints]);
+    }
+    private function doSearchingQuery($constraints) {
+        $query = brand::query();
+        $fields = array_keys($constraints);
+        $index = 0;
+        foreach ($constraints as $constraint) {
+            if ($constraint != null) {
+                $query = $query->where( $fields[$index], 'like', '%'.$constraint.'%');
+            }
+            $index++;
+        }
+        return $query->paginate(5);
+    }
+    private function validateInput($request) {
+        $this->validate($request, [
+        'name' => 'required|max:60|unique:provider',
+        'shortName' => 'required|max:6|unique:provider'
+    ]);
     }
 }
