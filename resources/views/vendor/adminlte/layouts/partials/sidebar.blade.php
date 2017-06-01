@@ -36,13 +36,6 @@
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
 
             <li><a href="{{ url('inventory-mnt') }}"><i class='fa fa-link'></i> <span>Inventory</span></a></li>
-            <li><a href="{{ url('mnt-export') }}"><i class='fa fa-link'></i> <span>Exportar</span></a></li>
-            <li><a href="{{ url('providers') }}"><i class='fa fa-link'></i> <span>Manteniment-Proveidors</span></a></li>
-            <li><a href="{{ url('location') }}"><i class='fa fa-link'></i> <span>Manteniment-Localització</span></a></li>
-            <li><a href="{{ url('material-type') }}"><i class='fa fa-link'></i> <span>Manteniment-Tipus Material</span></a></li>
-            <li><a href="{{ url('brand') }}"><i class='fa fa-link'></i> <span>Manteniment-Marca</span></a></li>
-            <li><a href="{{ url('manteniments/export') }}"><i class='fa fa-link'></i> <span>Exportar</span></a></li>
-            <li><a href="{{ url('vue') }}"><i class='fa fa-link'></i> <span>Vue</span></a></li>
             <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Manteniments</span>
             <span class="pull-right-container">
@@ -57,7 +50,10 @@
             <li><a href="{{ url('mnt/brand_model') }}">Model Marca</a></li>
             <li><a href="{{ url('mnt/moneySource') }}">Procedencia Monetaria</a></li>
           </ul>
-</li>
+        </li>
+            <li><a href="{{ url('mnt-export') }}"><i class='fa fa-link'></i> <span>Exportar</span></a></li>
+            <li><a href="{{ url('vue') }}"><i class='fa fa-link'></i> <span>Vue</span></a></li>
+
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
