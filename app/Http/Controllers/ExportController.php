@@ -50,7 +50,7 @@ class ExportController extends Controller
      */
      public function exportExcel(Request $request) {
        $this->prepareExportingData($request)->export('xlsx');
-       redirect()->intended('mnt/export');
+       redirect()->intended('mnt-export');
    }
    public function exportPDF(Request $request) {
         $constraints = [
