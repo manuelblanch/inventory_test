@@ -97,6 +97,11 @@ Route::post('inventory-mnt/search', 'InventoryController@search')->name('invento
 
 Route::get('avatars/{name}', 'InventoryController@load');
 
+Route::get('mnt-export', 'ExportController@index');
+Route::post('mnt-export/search', 'ExportController@search')->name('export.search');
+Route::post('mnt-export/excel', 'ExportController@exportExcel')->name('export.excel');
+Route::post('mnt-export/pdf', 'ExportController@exportPDF')->name('export.pdf');
+
 Route::group(['middleware' => 'web'], function () {
 Route::get('/vuejscrud', 'BlogController@vueCrud');
 Route::resource('vueitems','BlogController');

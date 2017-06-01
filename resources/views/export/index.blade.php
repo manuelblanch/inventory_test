@@ -41,7 +41,7 @@
         <div class="col-sm-6"></div>
         <div class="col-sm-6"></div>
       </div>
-      <form method="POST" action="{{ route('report.search') }}">
+      <form method="POST" action="{{ route('export.search') }}">
          {{ csrf_field() }}
          @component('layouts.search', ['title' => 'Search'])
           @component('layouts.two-cols-date-search-row', ['items' => ['From', 'To'],
