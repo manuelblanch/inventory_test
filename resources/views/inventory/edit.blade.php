@@ -11,14 +11,14 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Actualitza Inventari</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('inventory.update', ['id' => inventory->id]) }}" enctype="multipart/form-data">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('inventory.update', ['id' => $inventory->id]) }}">
                         <input type="hidden" name="_method" value="PATCH">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Nom</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ inventory->name }}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ $inventory->name }}" required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -31,7 +31,7 @@
                             <label for="description" class="col-md-4 control-label">Descripció</label>
 
                             <div class="col-md-6">
-                                <input id="description" type="text" class="form-control" name="description" value="{{ inventory->description }}" required>
+                                <input id="description" type="text" class="form-control" name="description" value="{{ $inventory->description }}" required>
 
                                 @if ($errors->has('description'))
                                     <span class="help-block">
@@ -44,8 +44,8 @@
                             <label class="col-md-4 control-label">Tipus de material</label>
                             <div class="col-md-6">
                                 <select class="form-control" name="material_type_id">
-                                    @foreach ($materials as $material)
-                                        <option {{inventory->material_type_id == material->id ? 'selected' : ''}} value="{{material->id}}">{{material->name}}</option>
+                                    @foreach ($material_types as $material_type)
+                                        <option {{$inventory->material_type_id == $material_type->id ? 'selected' : ''}} value="{{$material_type->id}}">{{$material_type->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -55,7 +55,7 @@
                             <div class="col-md-6">
                                 <select class="form-control" name="brand_id">
                                     @foreach ($brands as $brand)
-                                        <option {{inventory->brand_id == brand->id ? 'selected' : ''}} value="{{brand->id}}">{{brand->name}}</option>
+                                        <option {{$inventory->brand_id == $brand->id ? 'selected' : ''}} value="{{$brand->id}}">{{$brand->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -64,8 +64,8 @@
                             <label class="col-md-4 control-label">Model</label>
                             <div class="col-md-6">
                                 <select class="form-control" name="model_id">
-                                    @foreach ($models as $model)
-                                        <option {{inventory->model_id == model->id ? 'selected' : ''}} value="{{model->id}}">{{model->name}}</option>
+                                    @foreach ($brand_models as $brand_model)
+                                        <option {{$inventory->model_id == $brand_model->id ? 'selected' : ''}} value="{{$brand_model->id}}">{{$brand_model->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -75,7 +75,7 @@
                             <div class="col-md-6">
                                 <select class="form-control" name="location_id">
                                     @foreach ($locations as $location)
-                                        <option {{inventory->location_id == location->id ? 'selected' : ''}} value="{{location->id}}">{{location->name}}</option>
+                                        <option {{$inventory->location_id == $location->id ? 'selected' : ''}} value="{{$location->id}}">{{$location->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -84,7 +84,7 @@
                             <label for="quantity" class="col-md-4 control-label">Quantitat</label>
 
                             <div class="col-md-6">
-                                <input id="quantity" type="text" class="form-control" name="quantity" value="{{ inventory->quantity }}" required>
+                                <input id="quantity" type="text" class="form-control" name="quantity" value="{{ $inventory->quantity }}" required>
 
                                 @if ($errors->has('quantity'))
                                     <span class="help-block">
@@ -112,7 +112,7 @@
                             <div class="col-md-6">
                                 <select class="form-control" name="moneySource">
                                     @foreach ($moneySources as $moneySource)
-                                        <option {{inventory->moneysourceId == $moneySource->id ? 'selected' : ''}} value="{{moneySource->id}}">{{moneySource->name}}</option>
+                                        <option {{$inventory->moneysourceId == $moneySource->id ? 'selected' : ''}} value="{{$moneySource->id}}">{{$moneySource->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -122,7 +122,7 @@
                             <div class="col-md-6">
                                 <select class="form-control" name="provider_id">
                                     @foreach ($providers as $provider)
-                                        <option {{inventory->provider_id == $provider->id ? 'selected' : ''}} value="{{$provider->id}}">{{provider->name}}</option>
+                                        <option {{$inventory->provider_id == $provider->id ? 'selected' : ''}} value="{{$provider->id}}">{{$provider->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -134,7 +134,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" value="{{ inventory->date_entrance }}" name="date_entrance" class="form-control pull-right" id="date_entrance" required>
+                                    <input type="text" value="{{ $inventory->date_entrance }}" name="date_entrance" class="form-control pull-right" id="date_entrance" required>
                                 </div>
                             </div>
                         </div>
@@ -145,7 +145,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" value="{{ inventory->last_update }}" name="last_update" class="form-control pull-right" id="lastUpdate" required>
+                                    <input type="text" value="{{ $inventory->last_update }}" name="last_update" class="form-control pull-right" id="lastUpdate" required>
                                 </div>
                             </div>
                         </div>

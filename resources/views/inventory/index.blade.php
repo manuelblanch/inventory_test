@@ -60,6 +60,7 @@
                   <td><img src="../{{$inventory->picture }}" width="50px" height="50px"/></td>
                   <td class="hidden-xs">{{ $inventory->name }}</td>
                   <td class="hidden-xs">{{ $inventory->description }}</td>
+                  <td class="hidden.xs">{{ $inventory->material_type_id}}</td>
 
 
                   <td>

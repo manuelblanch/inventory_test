@@ -9,6 +9,7 @@ use App\Location;
 use App\Material_Type;
 use App\MoneySource;
 use App\Provider;
+use App\Inventory;
 class InventoryController extends Controller
 {
     /**
