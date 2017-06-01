@@ -89,6 +89,9 @@ Route::post('mnt/brand/search', 'BrandController@search')->name('brand.search');
 Route::resource('mnt/material_type', 'Material_TypeController');
 Route::post('mnt/material_type/search', 'Material_TypeController@search')->name('material_type.search');
 
+Route::resource('mnt/brand_model', 'Brand_ModelController');
+Route::post('mnt/brand_model/search', 'Brand_ModelController@search')->name('brand_model.search');
+
 Route::group(['middleware' => 'web'], function () {
 Route::get('/vuejscrud', 'BlogController@vueCrud');
 Route::resource('vueitems','BlogController');

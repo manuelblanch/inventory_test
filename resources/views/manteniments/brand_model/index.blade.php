@@ -75,7 +75,7 @@
       </div>
       <div class="row">
         <div class="col-sm-5">
-          <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Mostrant 1 a {{count($material_types)}} de {{count($material_types)}} entrades</div>
+          <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Mostrant 1 a {{count($brand_models)}} de {{count($brand_models)}} entrades</div>
         </div>
         <div class="col-sm-7">
           <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
