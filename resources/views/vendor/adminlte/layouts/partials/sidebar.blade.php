@@ -35,7 +35,7 @@
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
 
-            <li><a href="{{ url('inventory') }}"><i class='fa fa-link'></i> <span>Inventory</span></a></li>
+            <li><a href="{{ url('inventory-mnt') }}"><i class='fa fa-link'></i> <span>Inventory</span></a></li>
             <li><a href="{{ url('providers') }}"><i class='fa fa-link'></i> <span>Manteniment-Proveidors</span></a></li>
             <li><a href="{{ url('location') }}"><i class='fa fa-link'></i> <span>Manteniment-Localització</span></a></li>
             <li><a href="{{ url('material-type') }}"><i class='fa fa-link'></i> <span>Manteniment-Tipus Material</span></a></li>

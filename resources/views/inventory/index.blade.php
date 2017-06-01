@@ -28,8 +28,8 @@
       <form method="POST" action="{{ route('inventory.search') }}">
          {{ csrf_field() }}
          @component('layouts.search', ['title' => 'Search'])
-          @component('layouts.two-cols-search-row', ['items' => ['Name', 'Price'],
-          'oldVals' => [isset($searchingVals) ? $searchingVals['name'] : '', isset($searchingVals) ? $searchingVals['price'] : '']])
+          @component('layouts.two-cols-search-row', ['items' => ['Name'],
+          'oldVals' => [isset($searchingVals) ? $searchingVals['name'] : '']])
           @endcomponent
         @endcomponent
       </form>
@@ -55,21 +55,15 @@
               </tr>
             </thead>
             <tbody>
-            @foreach (inventories as $inventory)
+            @foreach ($inventories as $inventory)
                 <tr role="row" class="odd">
                   <td><img src="../{{$inventory->picture }}" width="50px" height="50px"/></td>
                   <td class="hidden-xs">{{ $inventory->name }}</td>
-                  <td class="hidden-xs">{{ $inventory->brand}}</td>
-                  <td class="hidden-xs">{{ $inventory->model}}</td>
-                  <td class="hidden-xs">{{ inventory->material_type }}</td>
-                  <td class="hidden-xs">{{ inventory->location }}</td>
-                  <td class="hidden-xs">{{ inventory->description }}</td>
-                  <td class="hidden-xs">{{ inventory->quantity }}</td>
-                  <td class="hidden-xs">{{ inventory->price }}</td>
-                  <td class="hidden-xs">{{ $inventory->date_entrance }}</td>
-                  <td class="hidden-xs">{{ $inventory->last_update }}</td>
+                  <td class="hidden-xs">{{ $inventory->description }}</td>
+
+
                   <td>
-                    <form class="row" method="POST" action="{{ route('inventory.destroy', ['id' => inventory->id]) }}" onsubmit = "return confirm('Estas segur?')">
+                    <form class="row" method="POST" action="{{ route('inventory.destroy', ['id' => $inventory->id]) }}" onsubmit = "return confirm('Estas segur?')">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <a href="{{ route('inventory.edit', ['id' => $inventory->id]) }}" class="btn btn-warning col-sm-3 col-xs-5 btn-margin">
@@ -107,11 +101,11 @@
       </div>
       <div class="row">
         <div class="col-sm-5">
-          <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing 1 to {{count(inventories)}} of {{count(inventories)}} entries</div>
+          <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing 1 to {{count($inventories)}} of {{count($inventories)}} entries</div>
         </div>
         <div class="col-sm-7">
           <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
-            {{ inventories->links() }}
+            {{ $inventories->links() }}
           </div>
         </div>
       </div>

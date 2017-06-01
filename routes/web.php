@@ -92,6 +92,11 @@ Route::post('mnt/material_type/search', 'Material_TypeController@search')->name(
 Route::resource('mnt/brand_model', 'Brand_ModelController');
 Route::post('mnt/brand_model/search', 'Brand_ModelController@search')->name('brand_model.search');
 
+Route::resource('inventory-mnt', 'InventoryController');
+Route::post('inventory-mnt/search', 'InventoryController@search')->name('inventory.search');
+
+Route::get('avatars/{name}', 'InventoryController@load');
+
 Route::group(['middleware' => 'web'], function () {
 Route::get('/vuejscrud', 'BlogController@vueCrud');
 Route::resource('vueitems','BlogController');

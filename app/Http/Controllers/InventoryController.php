@@ -1,16 +1,25 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-use App\InventoryObject;
-use App\Http\Requests;
-use Validator;
+use Illuminate\Support\Facades\DB;
 use Response;
-use Illuminate\Support\Facades\Input;
-
+use App\Brand;
+use App\Brand_Model;
+use App\Location;
+use App\Material_Type;
+use App\MoneySource;
+use App\Provider;
 class InventoryController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,10 +27,17 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        $inventories = InventoryObject::all();
-        return view('inventory.inventory', compact('inventories'));
+        $inventories = DB::table('inventories')
+        ->leftJoin('brand', 'inventories.brand_id', '=', 'brand.id')
+        ->leftJoin('material_type', 'inventories.material_type_id', '=', 'material_type.id')
+        ->leftJoin('brand_model', 'inventories.model_id', '=', 'brand_model.id')
+        ->leftJoin('moneySource', 'inventories.moneySourceId', '=', 'moneySource.id')
+        ->leftJoin('location', 'inventories.location_id', '=', 'location.id')
+        ->leftJoin('provider', 'inventories.provider_id', '=', 'provider.id')
+        ->select('inventories.*', 'brand.name as brand_name', 'brand.id as brand_id', 'material_type.name as material_type_name', 'material_type.id as material_type_id')
+        ->paginate(5);
+        return view('inventory/index', ['inventories' => $inventories]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -29,9 +45,15 @@ class InventoryController extends Controller
      */
     public function create()
     {
-        return view('inventory.create');
+        $brands = Brand::all();
+        $material_types = Material_type::all();
+        $brand_models = Brand_model::all();
+        $moneySources = MoneySource::all();
+        $locations = Location::all();
+        $providers = Provider::all();
+        return view('inventory/create', ['brands' => $brands, 'material_types' => $material_types, 'brand_models' => $brand_models,'moneySources' => $moneySources,
+        'locations' => $locations, 'providers' => $providers]);
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -40,9 +62,18 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validateInput($request);
+        // Upload image
+        $path = $request->file('picture')->store('avatars');
+        $keys = ['name', 'description', 'middlename', 'material_type_id', 'brand_id', 'model_id', 'location_id', 'quantity',
+        'price', 'moneysourceId', 'provider_id', 'date_entrance', 'last_update'];
+        $input = $this->createQueryInput($keys, $request);
+        $input['picture'] = $path;
+        // Not implement yet
+        $input['company_id'] = 0;
+        Inventory::create($input);
+        return redirect()->intended('/inventory-mnt');
     }
-
     /**
      * Display the specified resource.
      *
@@ -53,7 +84,6 @@ class InventoryController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -62,9 +92,20 @@ class InventoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $inventory = Inventory::find($id);
+        // Redirect to state list if updating state wasn't existed
+        if ($inventory == null || count($inventory) == 0) {
+            return redirect()->intended('/inventory-mnt');
+        }
+        $brands = Brand::all();
+        $material_types = Material_type::all();
+        $brand_models = Brand_model::all();
+        $moneySources = MoneySource::all();
+        $locations = Location::all();
+        $providers = Provider::all();
+        return view('inventory/edit', ['inventory' => $inventory, 'brands' => $brands, 'material_types' => $material_types, 'brand_models' => $brand_models, 'moneySources' => $moneySources,
+        'locations' => $locations, 'providers' => $providers]);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -74,9 +115,20 @@ class InventoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $inventory = Inventory::findOrFail($id);
+        $this->validateInput($request);
+        // Upload image
+        $keys = ['name', 'description', 'middlename', 'material_type_id', 'brand_id', 'model_id', 'location_id', 'quantity',
+        'price', 'moneysourceId', 'provider_id', 'date_entrance', 'last_update'];
+        $input = $this->createQueryInput($keys, $request);
+        if ($request->file('picture')) {
+            $path = $request->file('picture')->store('avatars');
+            $input['picture'] = $path;
+        }
+        Inventory::where('id', $id)
+            ->update($input);
+        return redirect()->intended('/inventory-mnt');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -85,6 +137,75 @@ class InventoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+         Inventory::where('id', $id)->delete();
+         return redirect()->intended('/inventory-mnt');
+    }
+    /**
+     * Search state from database base on some specific constraints
+     *
+     * @param  \Illuminate\Http\Request  $request
+     *  @return \Illuminate\Http\Response
+     */
+    public function search(Request $request) {
+        $constraints = [
+            'name' => $request['name']
+            ];
+        $inventories = $this->doSearchingQuery($constraints);
+        return view('inventory/index', ['inventories' => $inventories, 'searchingVals' => $constraints]);
+    }
+    private function doSearchingQuery($constraints) {
+        $query = DB::table('inventories')
+        ->leftJoin('brand', 'inventories.brand_id', '=', 'brand.id')
+        ->leftJoin('material_type', 'inventories.material_type_id', '=', 'material_type.id')
+        ->leftJoin('brand_model', 'inventories.brand_model_id', '=', 'brand_model.id')
+        ->leftJoin('moneySource', 'inventories.moneySource_id', '=', 'moneySource.id')
+        ->leftJoin('location', 'inventories.location_id', '=', 'location.id')
+        ->leftJoin('provider', 'inventories.provider_id', '=', 'provider.id')
+        ->select('inventories.name as inventories_name', 'inventories.*', 'brand.name as brand_name', 'brand.id as brand_id', 'material_type.name as material_type_name', 'material_type.id as material_type_id');
+        $fields = array_keys($constraints);
+        $index = 0;
+        foreach ($constraints as $constraint) {
+            if ($constraint != null) {
+                $query = $query->where($fields[$index], 'like', '%'.$constraint.'%');
+            }
+            $index++;
+        }
+        return $query->paginate(5);
+    }
+     /**
+     * Load image resource.
+     *
+     * @param  string  $name
+     * @return \Illuminate\Http\Response
+     */
+    public function load($name) {
+         $path = storage_path().'/app/avatars/'.$name;
+        if (file_exists($path)) {
+            return Response::download($path);
+        }
+    }
+    private function validateInput($request) {
+        $this->validate($request, [
+            'name' => 'required|max:60',
+            'description' => 'required|max:60',
+            'material_type_id' => 'required|max:60',
+            'brand_id' => 'required|max:120',
+            'model_id' => 'required',
+            'location_id' => 'required',
+            'quantity' => 'required',
+            'price' => 'required|max:10',
+            'moneysourceId' => 'required',
+            'provider_id' => 'required',
+            'date_entrabce' => 'required',
+            'last_update' => 'required'
+        ]);
+    }
+    private function createQueryInput($keys, $request) {
+        $queryInput = [];
+        for($i = 0; $i < sizeof($keys); $i++) {
+            $key = $keys[$i];
+            $queryInput[$key] = $request[$key];
+        }
+        return $queryInput;
     }
 }

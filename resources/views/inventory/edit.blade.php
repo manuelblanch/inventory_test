@@ -110,9 +110,9 @@
                               <div class="form-group">
                             <label class="col-md-4 control-label">Procedencia dels diners</label>
                             <div class="col-md-6">
-                                <select class="form-control" name="moneysourceId">
-                                    @foreach ($moneysources as $moneysource)
-                                        <option {{inventory->moneysourceid == $moneysource->id ? 'selected' : ''}} value="{{moneysource->id}}">{{moneysource->name}}</option>
+                                <select class="form-control" name="moneySource">
+                                    @foreach ($moneySources as $moneySource)
+                                        <option {{inventory->moneysourceId == $moneySource->id ? 'selected' : ''}} value="{{moneySource->id}}">{{moneySource->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -152,7 +152,7 @@
                         <div class="form-group">
                             <label for="avatar" class="col-md-4 control-label" >Imatge</label>
                             <div class="col-md-6">
-                                <img src="../../{{$employee->picture }}" width="50px" height="50px"/>
+                                <img src="../../{{$inventory->picture }}" width="50px" height="50px"/>
                                 <input type="file" id="picture" name="picture" />
                             </div>
                         </div>

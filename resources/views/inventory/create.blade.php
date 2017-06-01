@@ -18,11 +18,11 @@
                             <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="firstname" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
-                                @if ($errors->has('firstname'))
+                                @if ($errors->has('name'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('firstname') }}</strong>
+                                        <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -110,7 +110,7 @@
                             <div class="col-md-6">
                                 <select class="form-control" name="moneysourceId">
                                     @foreach ($moneySources as $moneySource)
-                                        <option value="{{moneySource->id}}">{{$moneySource->name}}</option>
+                                        <option value="{{$moneySource->id}}">{{$moneySource->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
