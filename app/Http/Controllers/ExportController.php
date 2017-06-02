@@ -91,8 +91,13 @@ class ExportController extends Controller
    }
    private function getExportingData($constraints) {
        return DB::table('inventories')
+       ->leftJoin('brand', 'inventories.brand_id', '=', 'brand.id')
        ->leftJoin('material_type', 'inventories.material_type_id', '=', 'material_type.id')
-       ->select('inventories.*', 'material_type.name as material_type_name', 'brand.name as brand_name', 'brand_model.name as brand_model_name', 'location.name as location_name', 'moneySource.name as moneySource_name',
+       ->leftJoin('brand_model', 'inventories.model_id', '=', 'brand_model.id')
+       ->leftJoin('moneySource', 'inventories.moneySourceId', '=', 'moneySource.id')
+       ->leftJoin('location', 'inventories.location_id', '=', 'location.id')
+       ->leftJoin('provider', 'inventories.provider_id', '=', 'provider.id')
+       ->select('inventories.name','inventories.description','material_type.name as material_type_name', 'brand.name as brand_name', 'brand_model.name as brand_model_name', 'location.name as location_name', 'moneySource.name as moneySource_name',
        'provider.name as provider_name')
        ->where('date_entrance', '>=', $constraints['from'])
        ->where('date_entrance', '<=', $constraints['to'])
