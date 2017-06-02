@@ -72,9 +72,6 @@
                   <td class="hidden.xs">{{ $inventory->date_entrance}}</td>
                   <td class="hidden.xs">{{ $inventory->last_update}}</td>
 
-
-
-
                   <td>
                     <form class="row" method="POST" action="{{ route('inventory.destroy', ['id' => $inventory->id]) }}" onsubmit = "return confirm('Estas segur?')">
                         <input type="hidden" name="_method" value="DELETE">

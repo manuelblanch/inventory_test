@@ -64,6 +64,16 @@
                 <tr role="row" class="odd">
                   <td>{{ $inventory->name }} </td>
                   <td>{{ $inventory->description }}</td>
+                  <td>{{ $inventory->material_type_name}}</td>
+                  <td class="hidden.xs">{{ $inventory->brand_name}}</td>
+                  <td class="hidden.xs">{{ $inventory->brand_model_name}}</td>
+                  <td class="hidden.xs">{{ $inventory->location_name}}</td>
+                  <td class="hidden.xs">{{ $inventory->quantity}}</td>
+                  <td class="hidden.xs">{{ $inventory->price}}</td>
+                  <td class="hidden.xs">{{ $inventory->moneySource_name}}</td>
+                  <td class="hidden.xs">{{ $inventory->provider_name}}</td>
+                  <td class="hidden.xs">{{ $inventory->date_entrance}}</td>
+                  <td class="hidden.xs">{{ $inventory->last_update}}</td>
 
               </tr>
             @endforeach
