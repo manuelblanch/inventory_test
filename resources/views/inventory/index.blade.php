@@ -41,15 +41,16 @@
               <tr role="row">
                 <th width="8%" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Picture: activate to sort column descending" aria-sort="ascending">Imatge</th>
                 <th width="10%" class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Name: activate to sort column descending" aria-sort="ascending">Nom</th>
-                <th width="12%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Brand: activate to sort column ascending">Marca</th>
-                <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Model: activate to sort column ascending">Model</th>
+                <th width="12%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Description: activate to sort column ascending">Descripció</th>
                 <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Material_type: activate to sort column ascending">Tipus Material</th>
-                <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Location: activate to sort column ascending">Localització</th>
-                <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Provider: activate to sort column ascending">Proveidor</th>
-                <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Description: activate to sort column ascending">Descripció</th>
-                <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Quantity: activate to sort column ascending">Quantitat</th>
-                <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending">Preu</th>
-                <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Date_entrance: activate to sort column ascending">Data Entrada</th>
+                <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Material_type: activate to sort column ascending">Marca</th>
+                <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Location: activate to sort column ascending">Model</th>
+                <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Provider: activate to sort column ascending">Localització</th>
+                <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Description: activate to sort column ascending">Quantitat</th>
+                <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Quantity: activate to sort column ascending">Preu</th>
+                <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending">Procedencia Monetaria</th>
+                <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Date_entrance: activate to sort column ascending">Proveidor</th>
+                <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Last_Update: activate to sort column ascending">Data Entrada</th>
                 <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Last_Update: activate to sort column ascending">Última Actualització</th>
                 <th tabindex="0" aria-controls="example2" rowspan="1" colspan="2" aria-label="Action: activate to sort column ascending">Acció</th>
               </tr>
@@ -61,6 +62,17 @@
                   <td class="hidden-xs">{{ $inventory->name }}</td>
                   <td class="hidden-xs">{{ $inventory->description }}</td>
                   <td class="hidden.xs">{{ $inventory->material_type_name}}</td>
+                  <td class="hidden.xs">{{ $inventory->brand_name}}</td>
+                  <td class="hidden.xs">{{ $inventory->brand_model_name}}</td>
+                  <td class="hidden.xs">{{ $inventory->location_name}}</td>
+                  <td class="hidden.xs">{{ $inventory->quantity}}</td>
+                  <td class="hidden.xs">{{ $inventory->price}}</td>
+                  <td class="hidden.xs">{{ $inventory->moneySource_name}}</td>
+                  <td class="hidden.xs">{{ $inventory->provider_name}}</td>
+                  <td class="hidden.xs">{{ $inventory->date_entrance}}</td>
+                  <td class="hidden.xs">{{ $inventory->last_update}}</td>
+
+
 
 
                   <td>
@@ -83,14 +95,15 @@
                 <tr role="row">
                   <th width="8%" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Picture: activate to sort column descending" aria-sort="ascending">Imatge</th>
                   <th width="10%" class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Name: activate to sort column descending" aria-sort="ascending">Nom</th>
-                  <th width="12%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Brand: activate to sort column ascending">Marca</th>
-                  <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Model: activate to sort column ascending">Model</th>
-                  <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Material_type: activate to sort column ascending">Tipus Material</th>
-                  <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Location: activate to sort column ascending">Localització</th>
-                  <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Provider: activate to sort column ascending">Proveidor</th>
-                  <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Description: activate to sort column ascending">Descripció</th>
-                  <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Quantity: activate to sort column ascending">Quantitat</th>
-                  <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending">Preu</th>
+                  <th width="12%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Brand: activate to sort column ascending">Descripció</th>
+                  <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Model: activate to sort column ascending">Tipus Material</th>
+                  <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Material_type: activate to sort column ascending">Marca</th>
+                  <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Location: activate to sort column ascending">Model</th>
+                  <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Provider: activate to sort column ascending">Localització</th>
+                  <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Description: activate to sort column ascending">Quantitat</th>
+                  <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Quantity: activate to sort column ascending">Preu</th>
+                  <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending">Procedencia Monetaria</th>
+                  <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending">Proveidor</th>
                   <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Date_entrance: activate to sort column ascending">Data Entrada</th>
                   <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Last_Update: activate to sort column ascending">Última Actualització</th>
                   <th tabindex="0" aria-controls="example2" rowspan="1" colspan="2" aria-label="Action: activate to sort column ascending">Acció</th>
