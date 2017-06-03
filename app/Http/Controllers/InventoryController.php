@@ -47,14 +47,14 @@ class InventoryController extends Controller
      */
     public function create()
     {
-        $brands = Brand::all();
-        $material_types = Material_type::all();
-        $brand_models = Brand_model::all();
-        $moneySources = MoneySource::all();
-        $locations = Location::all();
-        $providers = Provider::all();
-        return view('inventory/create', ['brands' => $brands, 'material_types' => $material_types, 'brand_models' => $brand_models,'moneySources' => $moneySources,
-        'locations' => $locations, 'providers' => $providers]);
+      $material_types = Material_Type::all();
+      $brands = Brand::all();
+      $brand_models = Brand_Model::all();
+      $moneySources = MoneySource::all();
+      $locations = Location::all();
+      $providers = Provider::all();
+      return view('inventory/create', ['material_types' => $material_types, 'brands' => $brands, 'brand_models' => $brand_models,
+      'moneySources' => $moneySources, 'locations' => $locations, 'providers' => $providers ]);
     }
     /**
      * Store a newly created resource in storage.
@@ -64,17 +64,18 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateInput($request);
+      $this->validateInput($request);
         // Upload image
         $path = $request->file('picture')->store('avatars');
-        $keys = ['name', 'description', 'middlename', 'material_type_id', 'brand_id', 'model_id', 'location_id', 'quantity',
-        'price', 'moneysourceId', 'provider_id', 'date_entrance', 'last_update'];
+        $keys = ['name', 'description', 'material_type_id', 'brand_id', 'model_id', 'location_id', 'quantity', 'price',
+        'moneysourceId', 'provider_id', 'date_entrance', 'last_update'];
         $input = $this->createQueryInput($keys, $request);
         $input['picture'] = $path;
         // Not implement yet
-        $input['company_id'] = 0;
+        //$input['company_id'] = 0;
         Inventory::create($input);
-        return redirect()->intended('/inventory-mnt');
+
+      return redirect()->intended('/inventory-mnt');
     }
     /**
      * Display the specified resource.
@@ -105,7 +106,7 @@ class InventoryController extends Controller
         $moneySources = MoneySource::all();
         $locations = Location::all();
         $providers = Provider::all();
-        return view('inventory/edit', ['inventory' => $inventory, 'brands' => $brands, 'material_types' => $material_types, 'brand_models' => $brand_models, 'moneySources' => $moneySources,
+        return view('inventory/edit', ['inventory' => $inventory, 'brands' => $brands, 'material_types' => $material_types, 'brand_models' => $brand_models, 'moneysources' => $moneysources,
         'locations' => $locations, 'providers' => $providers]);
     }
     /**
@@ -180,26 +181,10 @@ class InventoryController extends Controller
      * @param  string  $name
      * @return \Illuminate\Http\Response
      */
-    public function load($name) {
-         $path = storage_path().'/app/avatars/'.$name;
-        if (file_exists($path)) {
-            return Response::download($path);
-        }
-    }
+
     private function validateInput($request) {
         $this->validate($request, [
-            'name' => 'required|max:60',
-            'description' => 'required|max:60',
-            'material_type_id' => 'required|max:60',
-            'brand_id' => 'required|max:120',
-            'model_id' => 'required',
-            'location_id' => 'required',
-            'quantity' => 'required',
-            'price' => 'required|max:10',
-            'moneysourceId' => 'required',
-            'provider_id' => 'required',
-            'date_entrabce' => 'required',
-            'last_update' => 'required'
+            'name' => 'required|max:60'
         ]);
     }
     private function createQueryInput($keys, $request) {

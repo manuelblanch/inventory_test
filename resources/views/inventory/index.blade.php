@@ -39,7 +39,7 @@
           <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
             <thead>
               <tr role="row">
-                <th width="8%" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Picture: activate to sort column descending" aria-sort="ascending">Imatge</th>
+
                 <th width="10%" class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Name: activate to sort column descending" aria-sort="ascending">Nom</th>
                 <th width="12%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Description: activate to sort column ascending">Descripció</th>
                 <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Material_type: activate to sort column ascending">Tipus Material</th>
@@ -58,7 +58,7 @@
             <tbody>
             @foreach ($inventories as $inventory)
                 <tr role="row" class="odd">
-                  <td><img src="../{{$inventory->picture }}" width="50px" height="50px"/></td>
+
                   <td class="hidden-xs">{{ $inventory->name }}</td>
                   <td class="hidden-xs">{{ $inventory->description }}</td>
                   <td class="hidden.xs">{{ $inventory->material_type_name}}</td>
@@ -90,7 +90,7 @@
             <tfoot>
               <tr>
                 <tr role="row">
-                  <th width="8%" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Picture: activate to sort column descending" aria-sort="ascending">Imatge</th>
+                  
                   <th width="10%" class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Name: activate to sort column descending" aria-sort="ascending">Nom</th>
                   <th width="12%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Brand: activate to sort column ascending">Descripció</th>
                   <th width="8%" class="sorting hidden-xs" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Model: activate to sort column ascending">Tipus Material</th>
