@@ -58,7 +58,7 @@
             <tbody>
             @foreach ($inventories as $inventory)
                 <tr role="row" class="odd">
-                  <td><img src="avatars/{{$inventory->picture }}" width="50px" height="50px"/></td>
+                  <td><img src="{{ 'storage/avatars/'.$inventory->picture }}" width="50px" height="50px"></td>
                   <td class="hidden-xs">{{ $inventory->name }}</td>
                   <td class="hidden-xs">{{ $inventory->description }}</td>
                   <td class="hidden.xs">{{ $inventory->material_type_name}}</td>
