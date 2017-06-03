@@ -183,6 +183,13 @@ class InventoryController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+     public function load($name) {
+         $path = storage_path().'/app/avatars/'.$name;
+        if (file_exists($path)) {
+            return Response::download($path);
+        }
+    }
+
     private function validateInput($request) {
         $this->validate($request, [
             'name' => 'required|max:60'
