@@ -100,13 +100,14 @@ class InventoryController extends Controller
         if ($inventory == null || count($inventory) == 0) {
             return redirect()->intended('/inventory-mnt');
         }
-        $brands = Brand::all();
+
         $material_types = Material_type::all();
+        $brands = Brand::all();
         $brand_models = Brand_model::all();
         $moneySources = MoneySource::all();
         $locations = Location::all();
         $providers = Provider::all();
-        return view('inventory/edit', ['inventory' => $inventory, 'brands' => $brands, 'material_types' => $material_types, 'brand_models' => $brand_models, 'moneysources' => $moneysources,
+        return view('inventory/edit', ['inventory' => $inventory, 'material_types' => $material_types, 'brands' => $brands,  'brand_models' => $brand_models, 'moneySources' => $moneySources,
         'locations' => $locations, 'providers' => $providers]);
     }
     /**
@@ -121,8 +122,8 @@ class InventoryController extends Controller
         $inventory = Inventory::findOrFail($id);
         $this->validateInput($request);
         // Upload image
-        $keys = ['name', 'description', 'middlename', 'material_type_id', 'brand_id', 'model_id', 'location_id', 'quantity',
-        'price', 'moneysourceId', 'provider_id', 'date_entrance', 'last_update'];
+        $keys = ['name', 'description', 'material_type_id', 'brand_id', 'model_id', 'location_id', 'quantity',
+        'price', 'moneysourceId', 'provider_id','date_entrance', 'last_update'];
         $input = $this->createQueryInput($keys, $request);
         if ($request->file('picture')) {
             $path = $request->file('picture')->store('avatars');

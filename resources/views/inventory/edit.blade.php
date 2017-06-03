@@ -110,7 +110,7 @@
                               <div class="form-group">
                             <label class="col-md-4 control-label">Procedencia dels diners</label>
                             <div class="col-md-6">
-                                <select class="form-control" name="moneySource">
+                                <select class="form-control" name="moneysourceId">
                                     @foreach ($moneySources as $moneySource)
                                         <option {{$inventory->moneysourceId == $moneySource->id ? 'selected' : ''}} value="{{$moneySource->id}}">{{$moneySource->name}}</option>
                                     @endforeach
