@@ -52,10 +52,10 @@
                     <form class="row" method="POST" action="{{ route('material_type.destroy', ['id' => $material_type->id]) }}" onsubmit = "return confirm('Estas segur?')">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <a href="{{ route('material_type.edit', ['id' => $material_type->id]) }}" class="btn btn-success">
+                        <a href="{{ route('material_type.edit', ['id' => $material_type->id]) }}" class="btn btn-success col-sm-4 col-xs-4 btn-margin">
                         Editar
                         </a>
-                        <button type="submit" class="btn btn-danger col-sm-3 col-xs-5 btn-margin">
+                        <button type="submit" class="btn btn-danger col-sm-4 col-xs-4 btn-margin">
                         Esborrar
                         </button>
                     </form>

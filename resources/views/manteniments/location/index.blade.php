@@ -11,7 +11,7 @@
   <div class="box-header">
     <div class="row">
         <div class="col-sm-8">
-          <h3 class="box-title">LLista de localitzacions</h3>
+          <h3 class="box-title">Llista de localitzacions</h3>
         </div>
         <div class="col-sm-4">
           <a class="btn btn-primary" href="{{ route('location.create') }}">Afegeix una nova localització</a>
