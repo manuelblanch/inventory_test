@@ -122,7 +122,7 @@ class LocationController extends Controller
             'name' => $request['name'],
             'shortName' => $request['shortName']
             ];
-       $providers = $this->doSearchingQuery($constraints);
+       $locations = $this->doSearchingQuery($constraints);
        return view('manteniments/location/index', ['locations' => $locations, 'searchingVals' => $constraints]);
     }
     private function doSearchingQuery($constraints) {

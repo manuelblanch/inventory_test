@@ -123,7 +123,7 @@ class BrandController extends Controller
             'shortName' => $request['shortName']
             ];
        $brands = $this->doSearchingQuery($constraints);
-       return view('manteniments/brand/index', ['brands' => $brand, 'searchingVals' => $constraints]);
+       return view('manteniments/brand/index', ['brands' => $brands, 'searchingVals' => $constraints]);
     }
     private function doSearchingQuery($constraints) {
         $query = brand::query();

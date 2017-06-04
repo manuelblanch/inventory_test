@@ -25,7 +25,7 @@
       </div>
       <form method="POST" action="{{ route('provider.search') }}">
          {{ csrf_field() }}
-         @component('layouts.search', ['title' => 'Search'])
+         @component('layouts.search', ['title' => 'Busqueda'])
           @component('layouts.two-cols-search-row', ['items' => ['Name', 'ShortName'],
           'oldVals' => [isset($searchingVals) ? $searchingVals['name'] : '', isset($searchingVals) ? $searchingVals['shortName'] : '']])
           @endcomponent
@@ -54,7 +54,7 @@
                   <td>{{ $moneySource->date_entrance }}</td>
                   <td>{{ $moneySource->last_update }}</td>
                   <td>
-                    <form class="row" method="POST" action="{{ route('moneySource.destroy', ['id' => $moneySource->id]) }}" onsubmit = "return confirm('Are you sure?')">
+                    <form class="row" method="POST" action="{{ route('moneySource.destroy', ['id' => $moneySource->id]) }}" onsubmit = "return confirm('Estas segur?')">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <a href="{{ route('moneySource.edit', ['id' => $moneySource->id]) }}" class="btn btn-success col-sm-12 col-xs-12 btn-margin">

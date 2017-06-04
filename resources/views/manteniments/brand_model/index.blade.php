@@ -11,7 +11,7 @@
   <div class="box-header">
     <div class="row">
         <div class="col-sm-8">
-          <h3 class="box-title">LLista de tipus de material</h3>
+          <h3 class="box-title">Llista de tipus de models</h3>
         </div>
         <div class="col-sm-4">
           <a class="btn btn-primary" href="{{ route('brand_model.create') }}">Afegeix un nou model de marca</a>
@@ -26,7 +26,7 @@
       </div>
       <form method="POST" action="{{ route('brand_model.search') }}">
         {{ csrf_field() }}
-        @component('layouts.search', ['title' => 'Search'])
+        @component('layouts.search', ['title' => 'Busqueda'])
          @component('layouts.two-cols-search-row', ['items' => ['Name'],
          'oldVals' => [isset($searchingVals) ? $searchingVals['name'] : '']])
          @endcomponent
@@ -52,10 +52,10 @@
                     <form class="row" method="POST" action="{{ route('brand_model.destroy', ['id' => $brand_model->id]) }}" onsubmit = "return confirm('Estas segur?')">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <a href="{{ route('brand_model.edit', ['id' => $brand_model->id]) }}" class="btn btn-success col-sm-12 col-xs-12 btn-margin">
+                        <a href="{{ route('brand_model.edit', ['id' => $brand_model->id]) }}" class="btn btn-success">
                         Editar
                         </a>
-                        <button type="submit" class="btn btn-danger col-sm-12 col-xs-12 btn-margin">
+                        <button type="submit" class="btn btn-danger">
                         Esborrar
                         </button>
                     </form>

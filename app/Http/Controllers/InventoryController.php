@@ -165,7 +165,8 @@ class InventoryController extends Controller
         ->leftJoin('moneySource', 'inventories.moneySource_id', '=', 'moneySource.id')
         ->leftJoin('location', 'inventories.location_id', '=', 'location.id')
         ->leftJoin('provider', 'inventories.provider_id', '=', 'provider.id')
-        ->select('inventories.name as inventories_name', 'inventories.*', 'brand.name as brand_name', 'brand.id as brand_id', 'material_type.name as material_type_name', 'material_type.id as material_type_id');
+        ->select('inventories.*', 'material_type.name as material_type_name', 'material_type.id as material_type_id', 'brand.name as brand_name', 'brand.id as brand_id', 'brand_model.name as brand_model_name', 'brand_model.id as model_id', 'location.name as location_name', 'location.id as location_id', 'moneySource.name as moneySource_name', 'moneySource.id as moneySourceId',
+        'provider.name as provider_name', 'provider.id as provider_id');
         $fields = array_keys($constraints);
         $index = 0;
         foreach ($constraints as $constraint) {

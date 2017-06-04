@@ -126,7 +126,7 @@ class MoneySourceController extends Controller
        return view('manteniments/moneySource/index', ['moneySources' => $moneySources, 'searchingVals' => $constraints]);
     }
     private function doSearchingQuery($constraints) {
-        $query = moneySource::query();
+        $query = MoneySource::query();
         $fields = array_keys($constraints);
         $index = 0;
         foreach ($constraints as $constraint) {

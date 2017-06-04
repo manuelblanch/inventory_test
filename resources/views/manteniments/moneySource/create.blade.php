@@ -59,7 +59,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" value="{{ old('date_entrance') }}" name="date_entrance" class="form-control pull-right" id="dateEntrance" required>
+                                    <input type="text" placeholder="yyyy-mm-dd" value="{{ old('date_entrance') }}" name="date_entrance" class="form-control pull-right" id="dateEntrance" required>
                                 </div>
                             </div>
                           </div>
@@ -71,14 +71,14 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" value="{{ old('last_update') }}" name="last_update" class="form-control pull-right" id="lastUpdate" required>
+                                    <input type="text" placeholder="yyyy-mm-dd" value="{{ old('last_update') }}" name="last_update" class="form-control pull-right" id="lastUpdate" required>
                                 </div>
                             </div>
                           </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Create
+                                    Inserta
                                 </button>
                             </div>
                         </div>

@@ -116,7 +116,7 @@ class Brand_ModelController extends Controller
             'name' => $request['name']
             ];
        $brand_models = $this->doSearchingQuery($constraints);
-       return view('manteniments/brand_model/index', ['barnd_models' => $brand_models, 'searchingVals' => $constraints]);
+       return view('manteniments/brand_model/index', ['brand_models' => $brand_models, 'searchingVals' => $constraints]);
     }
     private function doSearchingQuery($constraints) {
         $query = brand_model::query();

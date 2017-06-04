@@ -26,7 +26,7 @@
       <form method="POST" action="{{ route('brand.search') }}">
          {{ csrf_field() }}
          @component('layouts.search', ['title' => 'Busqueda'])
-          @component('layouts.two-cols-search-row', ['items' => ['Nom', 'Nom Curt'],
+          @component('layouts.two-cols-search-row', ['items' => ['Name', 'ShortName'],
           'oldVals' => [isset($searchingVals) ? $searchingVals['name'] : '', isset($searchingVals) ? $searchingVals['shortName'] : '']])
           @endcomponent
         @endcomponent

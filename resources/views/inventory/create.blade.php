@@ -15,7 +15,7 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('inventory.store') }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                            <label for="name" class="col-md-4 control-label">Nom</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
@@ -132,7 +132,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" value="{{ old('date_entrance') }}" name="date_entrance" class="form-control pull-right" id="dateEntrance" required>
+                                    <input type="text" placeholder ="yyyy-mm-dd" value="{{ old('date_entrance') }}" name="date_entrance" class="form-control pull-right" id="dateEntrance" required>
                                 </div>
                             </div>
                         </div>
@@ -143,7 +143,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" value="{{ old('last_update') }}" name="last_update" class="form-control pull-right" id="lastUpate" required>
+                                    <input type="text" placeholder="yyyy-mm-dd" value="{{ old('last_update') }}" name="last_update" class="form-control pull-right" id="lastUpate" required>
                                 </div>
                             </div>
                         </div>
@@ -156,8 +156,13 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Create
+                                    Inserta
                                 </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                              <a href="{{ URL::previous() }}">Cancel·lar</a>
                             </div>
                         </div>
                     </form>
