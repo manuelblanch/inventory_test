@@ -38,8 +38,20 @@ class ExportController extends Controller
           'to' => $to
         ];
 
-        $inventories = $this->getItemsInventory($constraints);
+        $inventories = DB::table('inventories')
+        ->leftJoin('brand', 'inventories.brand_id', '=', 'brand.id')
+        ->leftJoin('material_type', 'inventories.material_type_id', '=', 'material_type.id')
+        ->leftJoin('brand_model', 'inventories.model_id', '=', 'brand_model.id')
+        ->leftJoin('moneySource', 'inventories.moneySourceId', '=', 'moneySource.id')
+        ->leftJoin('location', 'inventories.location_id', '=', 'location.id')
+        ->leftJoin('provider', 'inventories.provider_id', '=', 'provider.id')
+        ->select('inventories.*', 'material_type.name as material_type_name', 'material_type.id as material_type_id', 'brand.name as brand_name', 'brand.id as brand_id', 'brand_model.name as brand_model_name', 'brand_model.id as model_id', 'location.name as location_name', 'location.id as location_id', 'moneySource.name as moneySource_name', 'moneySource.id as moneySourceId',
+        'provider.name as provider_name', 'provider.id as provider_id')
+        ->paginate(5);
         return view('/export/index', ['inventories' =>$inventories, 'searchingVals' => $constraints]);
+
+        //$inventories = $this->getItemsInventory($constraints);
+        //return view('/export/index', ['inventories' =>$inventories, 'searchingVals' => $constraints]);
     }
 
     /**
@@ -97,8 +109,8 @@ class ExportController extends Controller
        ->leftJoin('moneySource', 'inventories.moneySourceId', '=', 'moneySource.id')
        ->leftJoin('location', 'inventories.location_id', '=', 'location.id')
        ->leftJoin('provider', 'inventories.provider_id', '=', 'provider.id')
-       ->select('inventories.name as name', 'inventories.description as description', 'inventories.quantity as quantity', 'inventories.price as price', 'inventories.date_entrance as date_entrance', 'inventories.last_update as last_update')
-       
+       ->select('inventories.name as name', 'inventories.description as description', 'inventories.material_type_id as material_type_id', 'inventories.quantity as quantity', 'inventories.price as price', 'inventories.date_entrance as date_entrance', 'inventories.last_update as last_update')
+
        ->get()
        ->map(function ($item, $key) {
        return (array) $item;
