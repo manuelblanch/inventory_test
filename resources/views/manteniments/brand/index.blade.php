@@ -25,8 +25,8 @@
       </div>
       <form method="POST" action="{{ route('brand.search') }}">
          {{ csrf_field() }}
-         @component('layouts.search', ['title' => 'Search'])
-          @component('layouts.two-cols-search-row', ['items' => ['Name', 'ShortName'],
+         @component('layouts.search', ['title' => 'Busqueda'])
+          @component('layouts.two-cols-search-row', ['items' => ['Nom', 'Nom Curt'],
           'oldVals' => [isset($searchingVals) ? $searchingVals['name'] : '', isset($searchingVals) ? $searchingVals['shortName'] : '']])
           @endcomponent
         @endcomponent
@@ -54,7 +54,7 @@
                   <td>{{ $brand->date_entrance }}</td>
                   <td>{{ $brand->last_update }}</td>
                   <td>
-                    <form class="row" method="POST" action="{{ route('brand.destroy', ['id' => $brand->id]) }}" onsubmit = "return confirm('Are you sure?')">
+                    <form class="row" method="POST" action="{{ route('brand.destroy', ['id' => $brand->id]) }}" onsubmit = "return confirm('Estas segur?')">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <a href="{{ route('brand.edit', ['id' => $brand->id]) }}" class="btn btn-success col-sm-12 col-xs-12 btn-margin">
