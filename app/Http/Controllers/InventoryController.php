@@ -159,13 +159,13 @@ class InventoryController extends Controller
     }
     private function doSearchingQuery($constraints) {
         $query = DB::table('inventories')
-        ->leftJoin('brand', 'inventories.brand_id', '=', 'brand.id')
         ->leftJoin('material_type', 'inventories.material_type_id', '=', 'material_type.id')
+        ->leftJoin('brand', 'inventories.brand_id', '=', 'brand.id')
         ->leftJoin('brand_model', 'inventories.brand_model_id', '=', 'brand_model.id')
         ->leftJoin('moneySource', 'inventories.moneySource_id', '=', 'moneySource.id')
         ->leftJoin('location', 'inventories.location_id', '=', 'location.id')
         ->leftJoin('provider', 'inventories.provider_id', '=', 'provider.id')
-        ->select('inventories.*', 'material_type.name as material_type_name', 'material_type.id as material_type_id', 'brand.name as brand_name', 'brand.id as brand_id', 'brand_model.name as brand_model_name', 'brand_model.id as model_id', 'location.name as location_name', 'location.id as location_id', 'moneySource.name as moneySource_name', 'moneySource.id as moneySourceId',
+        ->select('inventories.name as inventory_name','inventories.*', 'material_type.name as material_type_name', 'material_type.id as material_type_id', 'brand.name as brand_name', 'brand.id as brand_id', 'brand_model.name as brand_model_name', 'brand_model.id as model_id', 'location.name as location_name', 'location.id as location_id', 'moneySource.name as moneySource_name', 'moneySource.id as moneySourceId',
         'provider.name as provider_name', 'provider.id as provider_id');
         $fields = array_keys($constraints);
         $index = 0;
