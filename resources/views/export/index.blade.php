@@ -60,6 +60,7 @@
                 <th width = "20%" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Birthday: activate to sort column ascending">Tipus de material</th>
                 <th width = "20%" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Birthday: activate to sort column ascending">Marca</th>
                 <th width = "20%" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Birthday: activate to sort column ascending">Model</th>
+                <th width = "20%" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Birthday: activate to sort column ascending">Localització</th>
                 <th width = "20%" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Birthday: activate to sort column ascending">Quantitat</th>
                 <th width = "20%" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Birthday: activate to sort column ascending">Preu</th>
                 <th width = "20%" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Birthday: activate to sort column ascending">Data entrada</th>
@@ -74,6 +75,7 @@
                   <td class="hidden.xs">{{ $inventory->material_type_name}}</td>
                   <td class="hidden.xs">{{ $inventory->brand_name}}</td>
                   <td class="hidden.xs">{{ $inventory->brand_model_name}}</td>
+                  <td class="hidden.xs">{{ $inventory->location_name}}</td>
                   <td class="hidden.xs">{{ $inventory->quantity }}</td>
                   <td class="hidden.xs">{{ $inventory->price }}</td>
                   <td class="hidden.xs">{{ $inventory->date_entrance }}</td>

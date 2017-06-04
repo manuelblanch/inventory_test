@@ -33,6 +33,8 @@
                 <th width="20%">Tipus de Material</th>
                 <th width="20%">Marca</th>
                 <th width="20%">Model</th>
+                <th width="20%">Localització</th>
+                <th width="20%">Quantitat</th>
 
               </tr>
             </thead>
@@ -44,6 +46,8 @@
                   <td>{{ $inventory['material_type_name'] }}</td>
                   <td>{{ $inventory['brand_name'] }}</td>
                   <td>{{ $inventory['brand_model_name'] }}</td>
+                  <td>{{ $inventory['location_name'] }}</td>
+                  <td>{{ $inventory['quantity'] }}</td>
               </tr>
             @endforeach
             </tbody>
