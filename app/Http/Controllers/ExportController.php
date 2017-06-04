@@ -97,10 +97,8 @@ class ExportController extends Controller
        ->leftJoin('moneySource', 'inventories.moneySourceId', '=', 'moneySource.id')
        ->leftJoin('location', 'inventories.location_id', '=', 'location.id')
        ->leftJoin('provider', 'inventories.provider_id', '=', 'provider.id')
-       ->select('inventories.name','inventories.description','material_type.name as material_type_name', 'brand.name as brand_name', 'brand_model.name as brand_model_name', 'location.name as location_name', 'moneySource.name as moneySource_name',
-       'provider.name as provider_name')
-       ->where('date_entrance', '>=', $constraints['from'])
-       ->where('date_entrance', '<=', $constraints['to'])
+       ->select('inventories.name as name', 'inventories.description as description', 'inventories.quantity as quantity', 'inventories.price as price', 'inventories.date_entrance as date_entrance', 'inventories.last_update as last_update')
+       
        ->get()
        ->map(function ($item, $key) {
        return (array) $item;
