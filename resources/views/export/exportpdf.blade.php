@@ -39,7 +39,7 @@
                 <tr role="row" class="odd">
                   <td>{{ $inventory['name'] }}</td>
                   <td>{{ $inventory['description'] }}</td>
-                  <td>{{ $inventory['material_type_id'] }}</td>
+                  <td>{{ $inventory['material_type_name'] }}</td>
               </tr>
             @endforeach
             </tbody>
