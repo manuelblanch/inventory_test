@@ -58,10 +58,10 @@
                     <form class="row" method="POST" action="{{ route('location.destroy', ['id' => $location->id]) }}" onsubmit = "return confirm('Are you sure?')">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <a href="{{ route('location.edit', ['id' => $location->id]) }}" class="btn btn-success">
+                        <a href="{{ route('location.edit', ['id' => $location->id]) }}" class="btn btn-success col-sm-12 col-xs-12 btn-margin">
                         Editar
                         </a>
-                        <button type="submit" class="btn btn-danger col-sm-3 col-xs-5 btn-margin">
+                        <button type="submit" class="btn btn-danger col-sm-12 col-xs-12 btn-margin">
                         Esborrar
                         </button>
                     </form>

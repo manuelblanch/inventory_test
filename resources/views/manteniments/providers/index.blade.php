@@ -3,7 +3,7 @@
 @section('htmlheader_title')
     inventary
 @endsection
-    <!-- Main content -->
+    <!-- Contingut principal -->
     @section('main-content')
     <section class="content">
       <div class="box">
@@ -57,10 +57,10 @@
                     <form class="row" method="POST" action="{{ route('provider.destroy', ['id' => $provider->id]) }}" onsubmit = "return confirm('Are you sure?')">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <a href="{{ route('provider.edit', ['id' => $provider->id]) }}" class="btn btn-success">
+                        <a href="{{ route('provider.edit', ['id' => $provider->id]) }}" class="btn btn-small btn-success">
                         Editar
                         </a>
-                        <button type="submit" class="btn btn-danger">
+                        <button type="submit" class="btn btn-small btn-danger">
                         Esborrar
                         </button>
                     </form>
