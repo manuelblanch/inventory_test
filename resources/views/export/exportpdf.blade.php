@@ -24,7 +24,7 @@
   </head>
   <body>
     <div class="container">
-        <div><h2>Llista from {{$searchingVals['from']}} to {{$searchingVals['to']}}</h2></div>
+        <div><h2>Llista de inventari desde {{$searchingVals['from']}} a {{$searchingVals['to']}}</h2></div>
        <table id="example2" role="grid">
             <thead>
               <tr role="row">
@@ -35,6 +35,11 @@
                 <th width="20%">Model</th>
                 <th width="20%">Localització</th>
                 <th width="20%">Quantitat</th>
+                <th width="20%">Preu</th>
+                <th width="20%">Procedencia Monetaria</th>
+                <th width="20%">Proveidor</th>
+                <th width="20%">Data Entrada</th>
+                <th width="20%">Ultima Actualització</th>
 
               </tr>
             </thead>
@@ -48,6 +53,11 @@
                   <td>{{ $inventory['brand_model_name'] }}</td>
                   <td>{{ $inventory['location_name'] }}</td>
                   <td>{{ $inventory['quantity'] }}</td>
+                  <td>{{ $inventory['price'] }}</td>
+                  <td>{{ $inventory['moneySource_name'] }}</td>
+                  <td>{{ $inventory['provider_name'] }}</td>
+                  <td>{{ $inventory['date_entrance'] }}</td>
+                  <td>{{ $inventory['last_update'] }}</td>
               </tr>
             @endforeach
             </tbody>

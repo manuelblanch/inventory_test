@@ -32,7 +32,7 @@ class ExportController extends Controller
         date_default_timezone_set('Europe/Madrid');
         $format = 'Y/m/d';
         $now = date($format);
-        $to = date($format, strtotime("+30 days"));
+        $to = date($format, strtotime("+15 days"));
         $constraints = [
           'from' => $now,
           'to' => $to
@@ -61,7 +61,7 @@ class ExportController extends Controller
      * @return \Illuminate\Http\Response
      */
      public function exportExcel(Request $request) {
-       $this->prepareExportingData($request)->export('xlsx');
+       $this->prepareExportingData($request)->export('csv');
        redirect()->intended('mnt-export');
    }
    public function exportPDF(Request $request) {
@@ -70,18 +70,19 @@ class ExportController extends Controller
            'to' => $request['to']
        ];
        $inventories = $this->getExportingData($constraints);
-       $pdf = PDF::loadView('export/exportpdf', ['inventories' => $inventories, 'searchingVals' => $constraints]);
-       return $pdf->download('export_from_'. $request['from'].'_to_'.$request['to'].'pdf');
+       $pdf = PDF::loadView('export/exportpdf', ['inventories' => $inventories, 'searchingVals' => $constraints])->setPaper('a4', 'landscape');
+       return $pdf->download('Exportat_desde_'. $request['from'].'_a_'.$request['to'].'.pdf');
    }
 
    private function prepareExportingData($request) {
+
        $inventories = $this->getExportingData(['from'=> $request['from'], 'to' => $request['to']]);
-       return Excel::create('report_from_'. $request['from'].'_to_'.$request['to'], function($excel) use($inventories, $request) {
+       return Excel::create('Exportat_desde_'. $request['from'].'_a_'.$request['to'], function($excel) use($inventories, $request) {
        // Set the title
-       $excel->setTitle('Llista de items from '. $request['from'].' to '. $request['to']);
+       $excel->setTitle('Inventari from '. $request['from'].' to '. $request['to']);
 
        // Call them separately
-       $excel->setDescription('The list ');
+       $excel->setDescription('Llista');
        $excel->sheet('Items', function($sheet) use($inventories) {
        $sheet->fromArray($inventories);
            });
@@ -110,7 +111,7 @@ class ExportController extends Controller
        ->leftJoin('location', 'inventories.location_id', '=', 'location.id')
        ->leftJoin('provider', 'inventories.provider_id', '=', 'provider.id')
        ->select('inventories.name as name', 'inventories.description as description', 'material_type.name as material_type_name', 'brand.name as brand_name', 'brand_model.name as brand_model_name',
-       'location.name as location', 'inventories.quantity as quantity', 'inventories.price as price', 'inventories.date_entrance as date_entrance', 'inventories.last_update as last_update')
+       'location.name as location_name', 'moneySource.name as moneySource_name', 'provider.name as provider_name', 'inventories.quantity as quantity', 'inventories.price as price', 'inventories.date_entrance as date_entrance', 'inventories.last_update as last_update')
 
        ->get()
        ->map(function ($item, $key) {
