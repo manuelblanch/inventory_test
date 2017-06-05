@@ -153,10 +153,8 @@ class InventoryController extends Controller
     public function search(Request $request) {
         $constraints = [
             'name' => $request['name'],
-            'provider.name' => $request['provider_name']
             ];
         $inventories = $this->doSearchingQuery($constraints);
-        $constraints['provider_name'] = $request['provider_name'];
         return view('inventory/index', ['inventories' => $inventories, 'searchingVals' => $constraints]);
     }
     private function doSearchingQuery($constraints) {

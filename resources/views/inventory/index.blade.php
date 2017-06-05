@@ -28,8 +28,8 @@
       <form method="POST" action="{{ route('inventory.search') }}">
          {{ csrf_field() }}
          @component('layouts.search', ['title' => 'Busqueda'])
-          @component('layouts.two-cols-search-row', ['items' => ['Name', 'Provider_Name'],
-          'oldVals' => [isset($searchingVals) ? $searchingVals['name'] : '', isset($searchingVals) ? $searchingVals['provider_name'] : '']])
+          @component('layouts.two-cols-search-row', ['items' => ['Name'],
+          'oldVals' => [isset($searchingVals) ? $searchingVals['name'] : '']])
           @endcomponent
         @endcomponent
       </form>
