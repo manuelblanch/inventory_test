@@ -52,6 +52,21 @@ desired effect
     <title></title>
 </head>
 <body class="skin-blue sidebar-mini">
+
+  <div class="container" id"manage-vue">
+    @yield('content')
+  </div>
+      <!-- jQuery (necessari for Bootstrap's JavaScript plugins) -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+
+
+  <script type="text/javascript" src="https://unpkg.com/vue"></script>
+  <script type="text/javascript" src="/js/blog.js"></script>
 <div id="app">
     <div class="wrapper">
 

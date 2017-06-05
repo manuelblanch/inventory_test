@@ -93,7 +93,12 @@
                                             <small class="pull-right">20%</small>
                                         </h3>
                                         <!-- The progress bar -->
-                                        
+                                        <div class="progress xs">
+                                            <!-- Change the css width attribute to simulate progress -->
+                                            <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                <span class="sr-only">20% {{ trans('adminlte_lang::message.complete') }}</span>
+                                            </div>
+                                        </div>
                                     </a>
                                 </li><!-- end task item -->
                             </ul>

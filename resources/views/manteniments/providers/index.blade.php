@@ -58,9 +58,11 @@
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <a href="{{ route('provider.edit', ['id' => $provider->id]) }}" class="btn btn-success col-sm-12 col-xs-12 btn-margin">
+                          <span class="glyphicon glyphicon-edit"></span>
                         Editar
                         </a>
                         <button type="submit" class="btn btn-danger col-sm-12 col-xs-12 btn-margin">
+                          <span class="glyphicon glyphicon-trash"></span>
                         Esborrar
                         </button>
                     </form>

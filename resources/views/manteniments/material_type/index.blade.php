@@ -53,9 +53,11 @@
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <a href="{{ route('material_type.edit', ['id' => $material_type->id]) }}" class="btn btn-success">
+                          <span class="glyphicon glyphicon-edit"></span>
                         Editar
                         </a>
                         <button type="submit" class="btn btn-danger">
+                          <span class="glyphicon glyphicon-trash"></span>
                         Esborrar
                         </button>
                     </form>

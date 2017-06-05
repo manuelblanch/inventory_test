@@ -29,7 +29,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('country_code') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('shortName') ? ' has-error' : '' }}">
                             <label for="shortName" class="col-md-4 control-label">Nom Curt</label>
 
                             <div class="col-md-6">

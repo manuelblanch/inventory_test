@@ -14,6 +14,7 @@
           <h3 class="box-title">Llista de tipus de models</h3>
         </div>
         <div class="col-sm-4">
+
           <a class="btn btn-primary" href="{{ route('brand_model.create') }}">Afegeix un nou model de marca</a>
         </div>
     </div>
@@ -53,9 +54,11 @@
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <a href="{{ route('brand_model.edit', ['id' => $brand_model->id]) }}" class="btn btn-success">
+                          <span class="glyphicon glyphicon-edit"></span>
                         Editar
                         </a>
                         <button type="submit" class="btn btn-danger">
+                          <span class="glyphicon glyphicon-trash"></span>
                         Esborrar
                         </button>
                     </form>
