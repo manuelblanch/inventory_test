@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Post;
+use Illuminate\Http\Request;
 use Image;
 
 class PostsController extends Controller
 {
     protected $posts;
 
-    function __construct(Post $posts)
+    public function __construct(Post $posts)
     {
-      $this->posts = $posts;
+        $this->posts = $posts;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,6 +23,7 @@ class PostsController extends Controller
     public function index()
     {
         $posts = $this->posts->all();
+
         return view('posts.index');
     }
 
@@ -38,12 +40,13 @@ class PostsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $post = new Post;
+        $post = new Post();
         $post->title = $request->title;
         $post->body = $request->body;
 
@@ -60,7 +63,8 @@ class PostsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -71,20 +75,23 @@ class PostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $post = $this->posts->findOrFail($id);
+
         return view('posts.form', compact('post'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -94,15 +101,15 @@ class PostsController extends Controller
         $post->body = $request->body;
 
         if ($request->hasFile('image')) {
-          $old_image = $post->image;
-          if ($old_image!=null) {
-            unlink(public_path('uploads/posts/'.$old_image));
-          }
-          $image = $request->file('image');
-          $filename = time().'-'.$image->getClientOriginalName();
-          Image::make($image->getRealPath())->save(public_path('uploads/posts/'.$filename));
+            $old_image = $post->image;
+            if ($old_image != null) {
+                unlink(public_path('uploads/posts/'.$old_image));
+            }
+            $image = $request->file('image');
+            $filename = time().'-'.$image->getClientOriginalName();
+            Image::make($image->getRealPath())->save(public_path('uploads/posts/'.$filename));
 
-          $post->image = $filename;
+            $post->image = $filename;
         }
 
         $post->save();
@@ -113,7 +120,8 @@ class PostsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

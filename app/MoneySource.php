@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class MoneySource extends Model
 {
-  /**
+    /**
    * The table associated with the model.
    *
    * @var string

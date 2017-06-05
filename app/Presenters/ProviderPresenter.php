@@ -6,14 +6,12 @@ use App\Transformers\ProviderTransformer;
 use Prettus\Repository\Presenter\FractalPresenter;
 
 /**
- * Class ProviderPresenter
- *
- * @package namespace App\Presenters;
+ * Class ProviderPresenter.
  */
 class ProviderPresenter extends FractalPresenter
 {
     /**
-     * Transformer
+     * Transformer.
      *
      * @return \League\Fractal\TransformerAbstract
      */

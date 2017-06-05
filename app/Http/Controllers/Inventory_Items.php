@@ -4,12 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Providers\InventoryServiceProvider;
 use Illuminate\Http\Request;
-use App\proveidors;
-use App\Http\Requests;
-use Validator;
 use Response;
-use Illuminate\Support\Facades\Input;
-
 
 class Inventory_Items extends Controller
 {
@@ -18,30 +13,25 @@ class Inventory_Items extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function vueCrud(){
+    public function vueCrud()
+    {
         return view('/vuejscrud/index');
-
     }
 
-    /**
-     *
-     */
     public function index()
     {
         $items = InventoryServiceProvider::latest()->paginate(5);
 
         $response = [
             'pagination' => [
-                'total' => $items->total(),
-                'per_page' => $items->perPage(),
+                'total'        => $items->total(),
+                'per_page'     => $items->perPage(),
                 'current_page' => $items->currentPage(),
-                'last_page' => $items->lastPage(),
-                'from' => $items->lastItem()
+                'last_page'    => $items->lastPage(),
+                'from'         => $items->lastItem(),
             ],
 
-
-        'data' => $items
+        'data' => $items,
 
             ];
 
@@ -61,23 +51,26 @@ class Inventory_Items extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'Id' => 'required',
+        $this->validate($request, [
+            'Id'          => 'required',
             'description' => 'required',
             ]);
         $create = InventoryServiceProvider::create($request->all());
+
         return response()->json($create);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -88,7 +81,8 @@ class Inventory_Items extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -99,29 +93,33 @@ class Inventory_Items extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'Id' => 'required',
+        $this->validate($request, [
+            'Id'          => 'required',
             'description' => 'required',
         ]);
         $edit = InventoryServiceProvider::find($id)->update($request->all());
+
         return response()->json($edit);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         InventoryServiceProvider::find($id)->delete();
+
         return response()->json(['done']);
     }
 }

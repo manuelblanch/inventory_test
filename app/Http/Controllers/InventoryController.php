@@ -1,15 +1,18 @@
 <?php
+
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Response;
+
 use App\Brand;
 use App\Brand_Model;
+use App\Inventory;
 use App\Location;
 use App\Material_Type;
 use App\MoneySource;
 use App\Provider;
-use App\Inventory;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Response;
+
 class InventoryController extends Controller
 {
     /**
@@ -21,6 +24,7 @@ class InventoryController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -38,8 +42,10 @@ class InventoryController extends Controller
         ->select('inventories.*', 'material_type.name as material_type_name', 'material_type.id as material_type_id', 'brand.name as brand_name', 'brand.id as brand_id', 'brand_model.name as brand_model_name', 'brand_model.id as model_id', 'location.name as location_name', 'location.id as location_id', 'moneySource.name as moneySource_name', 'moneySource.id as moneySourceId',
         'provider.name as provider_name', 'provider.id as provider_id')
         ->paginate(5);
+
         return view('inventory/index', ['inventories' => $inventories]);
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -47,50 +53,57 @@ class InventoryController extends Controller
      */
     public function create()
     {
-      $material_types = Material_Type::all();
-      $brands = Brand::all();
-      $brand_models = Brand_Model::all();
-      $moneySources = MoneySource::all();
-      $locations = Location::all();
-      $providers = Provider::all();
-      return view('inventory/create', ['material_types' => $material_types, 'brands' => $brands, 'brand_models' => $brand_models,
-      'moneySources' => $moneySources, 'locations' => $locations, 'providers' => $providers ]);
+        $material_types = Material_Type::all();
+        $brands = Brand::all();
+        $brand_models = Brand_Model::all();
+        $moneySources = MoneySource::all();
+        $locations = Location::all();
+        $providers = Provider::all();
+
+        return view('inventory/create', ['material_types' => $material_types, 'brands' => $brands, 'brand_models' => $brand_models,
+      'moneySources'                                    => $moneySources, 'locations' => $locations, 'providers' => $providers, ]);
     }
+
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-      $this->validateInput($request);
+        $this->validateInput($request);
         // Upload image
         $path = $request->file('picture')->store('avatars');
         $keys = ['name', 'description', 'material_type_id', 'brand_id', 'model_id', 'location_id', 'quantity', 'price',
-        'moneysourceId', 'provider_id', 'date_entrance', 'last_update'];
+        'moneysourceId', 'provider_id', 'date_entrance', 'last_update', ];
         $input = $this->createQueryInput($keys, $request);
         $input['picture'] = $path;
         // Not implement yet
         //$input['company_id'] = 0;
         Inventory::create($input);
 
-      return redirect()->intended('/inventory-mnt');
+        return redirect()->intended('/inventory-mnt');
     }
+
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         //
     }
+
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -107,14 +120,17 @@ class InventoryController extends Controller
         $moneySources = MoneySource::all();
         $locations = Location::all();
         $providers = Provider::all();
+
         return view('inventory/edit', ['inventory' => $inventory, 'material_types' => $material_types, 'brands' => $brands,  'brand_models' => $brand_models, 'moneySources' => $moneySources,
-        'locations' => $locations, 'providers' => $providers]);
+        'locations'                                => $locations, 'providers' => $providers, ]);
     }
+
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -123,7 +139,7 @@ class InventoryController extends Controller
         $this->validateInput($request);
         // Upload image
         $keys = ['name', 'description', 'material_type_id', 'brand_id', 'model_id', 'location_id', 'quantity',
-        'price', 'moneysourceId', 'provider_id','date_entrance', 'last_update'];
+        'price', 'moneysourceId', 'provider_id', 'date_entrance', 'last_update', ];
         $input = $this->createQueryInput($keys, $request);
         if ($request->file('picture')) {
             $path = $request->file('picture')->store('avatars');
@@ -131,69 +147,86 @@ class InventoryController extends Controller
         }
         Inventory::where('id', $id)
             ->update($input);
+
         return redirect()->intended('/inventory-mnt');
     }
+
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-         Inventory::where('id', $id)->delete();
-         return redirect()->intended('/inventory-mnt');
+        Inventory::where('id', $id)->delete();
+
+        return redirect()->intended('/inventory-mnt');
     }
+
     /**
-     * Search state from database base on some specific constraints
+     * Search state from database base on some specific constraints.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      *  @return \Illuminate\Http\Response
      */
-    public function search(Request $request) {
+    public function search(Request $request)
+    {
         $constraints = [
             'name' => $request['name'],
             ];
         $inventories = $this->doSearchingQuery($constraints);
+
         return view('inventory/index', ['inventories' => $inventories, 'searchingVals' => $constraints]);
     }
-    private function doSearchingQuery($constraints) {
-      $query = inventory::query();
-      $fields = array_keys($constraints);
-      $index = 0;
-      foreach ($constraints as $constraint) {
-          if ($constraint != null) {
-              $query = $query->where( $fields[$index], 'like', '%'.$constraint.'%');
-          }
-          $index++;
-      }
-      return $query->paginate(5);
-    }
-     /**
-     * Load image resource.
-     *
-     * @param  string  $name
-     * @return \Illuminate\Http\Response
-     */
 
-     public function load($name) {
-         $path = storage_path().'/app/avatars/'.$name;
-        if (file_exists($path)) {
-            return Response::download($path);
+    private function doSearchingQuery($constraints)
+    {
+        $query = inventory::query();
+        $fields = array_keys($constraints);
+        $index = 0;
+        foreach ($constraints as $constraint) {
+            if ($constraint != null) {
+                $query = $query->where($fields[$index], 'like', '%'.$constraint.'%');
+            }
+            $index++;
         }
+
+        return $query->paginate(5);
     }
 
-    private function validateInput($request) {
+     /**
+      * Load image resource.
+      *
+      * @param  string  $name
+      *
+      * @return \Illuminate\Http\Response
+      */
+     public function load($name)
+     {
+         $path = storage_path().'/app/avatars/'.$name;
+         if (file_exists($path)) {
+             return Response::download($path);
+         }
+     }
+
+    private function validateInput($request)
+    {
         $this->validate($request, [
-            'name' => 'required|max:60'
+            'name' => 'required|max:60',
         ]);
     }
-    private function createQueryInput($keys, $request) {
+
+    private function createQueryInput($keys, $request)
+    {
         $queryInput = [];
-        for($i = 0; $i < sizeof($keys); $i++) {
+        for ($i = 0; $i < count($keys); $i++) {
             $key = $keys[$i];
             $queryInput[$key] = $request[$key];
         }
+
         return $queryInput;
     }
 }
