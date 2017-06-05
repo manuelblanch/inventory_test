@@ -95,7 +95,7 @@ Route::post('mnt/brand_model/search', 'Brand_ModelController@search')->name('bra
 Route::resource('inventory-mnt', 'InventoryController');
 Route::post('inventory-mnt/search', 'InventoryController@search')->name('inventory.search');
 
-Route::get('avatars/{name}', 'InventoryController@load');
+Route::get('app/public/', 'InventoryController@load');
 
 Route::get('mnt/blog', 'PostsController@index');
 Route::resource('posts', 'PostsController');

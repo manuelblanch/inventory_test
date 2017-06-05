@@ -52,7 +52,6 @@
           </ul>
         </li>
             <li><a href="{{ url('mnt-export') }}"><i class='fa fa-link'></i> <span>Exportar</span></a></li>
-            <li><a href="{{ url('vue') }}"><i class='fa fa-link'></i> <span>Vue</span></a></li>
 
         </ul><!-- /.sidebar-menu -->
     </section>

@@ -80,8 +80,7 @@ class InventoryController extends Controller
         'moneysourceId', 'provider_id', 'date_entrance', 'last_update', ];
         $input = $this->createQueryInput($keys, $request);
         $input['picture'] = $path;
-        // Not implement yet
-        //$input['company_id'] = 0;
+      
         Inventory::create($input);
 
         return redirect()->intended('/inventory-mnt');
@@ -142,7 +141,7 @@ class InventoryController extends Controller
         'price', 'moneysourceId', 'provider_id', 'date_entrance', 'last_update', ];
         $input = $this->createQueryInput($keys, $request);
         if ($request->file('picture')) {
-            $path = $request->file('picture')->store('avatars');
+            $path = $request->file('picture')->store('public');
             $input['picture'] = $path;
         }
         Inventory::where('id', $id)
@@ -206,7 +205,7 @@ class InventoryController extends Controller
       */
      public function load($name)
      {
-         $path = storage_path().'/app/avatars/'.$name;
+         $path = storage_path().'/app/public/'.$name;
          if (file_exists($path)) {
              return Response::download($path);
          }

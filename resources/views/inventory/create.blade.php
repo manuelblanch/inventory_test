@@ -150,7 +150,7 @@
                         <div class="form-group">
                             <label for="avatar" class="col-md-4 control-label" >Picture</label>
                             <div class="col-md-6">
-                                <input type="file" id="picture" name="picture" required >
+                                <input type="file" name="picture" required >
                             </div>
                         </div>
                         <div class="form-group">
