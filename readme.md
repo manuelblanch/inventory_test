@@ -1,5 +1,7 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img width="150"src="https://laravel.com/laravel.png"></a></p>
 
+[![StyleCI](https://styleci.io/repos/74695706/shield?branch=master)](https://styleci.io/repos/74695706)
+
 <p align="center">
 <img src="https://scrutinizer-ci.com/g/manuelblanch/inventory_test/badges/quality-score.png?b=master" alt="Scrutinizer"></a>
 
