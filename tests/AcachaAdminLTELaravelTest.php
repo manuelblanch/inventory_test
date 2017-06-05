@@ -5,8 +5,6 @@ namespace Tests;
 use App;
 use Artisan;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Contracts\Console\Kernel;
-use Illuminate\Contracts\Console\Kernel as ConsoleKernel;
 use Illuminate\Support\Facades\Hash;
 
 /**
@@ -78,7 +76,6 @@ class AcachaAdminLTELaravelTest extends BrowserKitTest
      * Test Login.
      *
      * @return void
-     *
      */
     public function testLogin()
     {
@@ -252,20 +249,19 @@ class AcachaAdminLTELaravelTest extends BrowserKitTest
     }
 
     /**
-     * Test make:view command
-     *
+     * Test make:view command.
      */
     public function testMakeViewCommand()
     {
         $view = 'ehqwiqweiohqweihoqweiohqweiojhqwejioqwejjqwe';
-        $viewPath= 'views/' . $view . '.blade.php';
+        $viewPath = 'views/'.$view.'.blade.php';
         try {
             unlink(resource_path($view));
         } catch (\Exception $e) {
         }
         $this->callArtisanMakeView($view);
         $resultAsText = Artisan::output();
-        $expectedOutput = 'File ' . resource_path($viewPath) . ' created';
+        $expectedOutput = 'File '.resource_path($viewPath).' created';
         $this->assertEquals($expectedOutput, trim($resultAsText));
         $this->assertFileExists(resource_path($viewPath));
         $this->callArtisanMakeView($view);
@@ -285,9 +281,9 @@ class AcachaAdminLTELaravelTest extends BrowserKitTest
             'name' => $view,
         ]);
     }
+
     /**
-     * Test adminlte:admin command
-     *
+     * Test adminlte:admin command.
      */
     public function testAdminlteAdminCommand()
     {
@@ -299,7 +295,6 @@ class AcachaAdminLTELaravelTest extends BrowserKitTest
         $this->callAdminlteAdminCommand();
         $this->assertFileExists($seed);
     }
-
 
     /**
      * Call adminlte:admin command.

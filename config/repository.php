@@ -14,7 +14,7 @@ return [
     |
     */
     'pagination' => [
-        'limit' => 15
+        'limit' => 15,
     ],
     /*
     |--------------------------------------------------------------------------
@@ -28,9 +28,9 @@ return [
     */
     'fractal'    => [
         'params'     => [
-            'include' => 'include'
+            'include' => 'include',
         ],
-        'serializer' => League\Fractal\Serializer\DataArraySerializer::class
+        'serializer' => League\Fractal\Serializer\DataArraySerializer::class,
     ],
     /*
     |--------------------------------------------------------------------------
@@ -96,7 +96,7 @@ return [
                 'create' => true,
                 'update' => true,
                 'delete' => true,
-            ]
+            ],
         ],
         'params'     => [
             /*
@@ -108,7 +108,7 @@ return [
             | Ex: http://prettus.local/?search=lorem&skipCache=true
             |
             */
-            'skipCache' => 'skipCache'
+            'skipCache' => 'skipCache',
         ],
         /*
        |--------------------------------------------------------------------------
@@ -127,8 +127,8 @@ return [
        */
         'allowed'    => [
             'only'   => null,
-            'except' => null
-        ]
+            'except' => null,
+        ],
     ],
     /*
     |--------------------------------------------------------------------------
@@ -156,7 +156,7 @@ return [
         */
         'acceptedConditions' => [
             '=',
-            'like'
+            'like',
         ],
         /*
         |--------------------------------------------------------------------------
@@ -196,8 +196,8 @@ return [
             'filter'       => 'filter',
             'orderBy'      => 'orderBy',
             'sortedBy'     => 'sortedBy',
-            'with'         => 'with'
-        ]
+            'with'         => 'with',
+        ],
     ],
     /*
     |--------------------------------------------------------------------------
@@ -206,11 +206,11 @@ return [
     |
     */
     'generator'  => [
-        'basePath'      => base_path(). '/vendor/scool/inventory/src',
-        'databasePath'  => base_path(). '/vendor/scool/inventory/database',
-        'rootNamespace' => 'Scool\\Inventory\\',
+        'basePath'          => base_path().'/vendor/scool/inventory/src',
+        'databasePath'      => base_path().'/vendor/scool/inventory/database',
+        'rootNamespace'     => 'Scool\\Inventory\\',
         'stubsOverridePath' => app_path(),
-        'paths'         => [
+        'paths'             => [
             'models'       => 'Models',
             'repositories' => 'Repositories',
             'interfaces'   => 'Repositories',
@@ -222,6 +222,6 @@ return [
             'requests'     => 'Http/Requests',
             'provider'     => 'InventoryServiceProvider',
             'criteria'     => 'Criteria',
-        ]
-    ]
+        ],
+    ],
 ];

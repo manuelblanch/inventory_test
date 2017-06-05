@@ -1,5 +1,7 @@
 <?php
+
 use Spatie\Menu\Laravel\Menu;
+
 //Menu::macro('fullsubmenuexample', function () {
 //    return Menu::new()->prepend('<a href="#"><span> Multilevel PROVA </span> <i class="fa fa-angle-left pull-right"></i></a>')
 //        ->addParentClass('treeview')
@@ -8,7 +10,7 @@ use Spatie\Menu\Laravel\Menu;
 //        ->url('http://www.google.com', 'Google');
 //});
 Menu::macro('adminlteSubmenu', function ($submenuName) {
-    return Menu::new()->prepend('<a href="#"><span> ' . $submenuName . '</span> <i class="fa fa-angle-left pull-right"></i></a>')
+    return Menu::new()->prepend('<a href="#"><span> '.$submenuName.'</span> <i class="fa fa-angle-left pull-right"></i></a>')
         ->addParentClass('treeview')->addClass('treeview-menu');
 });
 Menu::macro('adminlteMenu', function () {
@@ -24,7 +26,7 @@ Menu::macro('sidebar', function () {
         ->action('HomeController@index', 'Home')
 //        ->url('http://www.google.com', 'Google')
         ->add(Menu::adminlteSeparator('Acacha Adminlte'))
-        #adminlte_menu
+        //adminlte_menu
         ->add(Link::toUrl('curriculum', 'Curriculum'))
         ->add(Link::toUrl('profile/tokens', 'Profile/tokens'))
         ->add(Link::toUrl('studies', 'Studies'))

@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
-
-use Session;
-
 use App\News;
+use Illuminate\Http\Request;
+use Session;
 
 class NewsController extends Controller
 {
@@ -25,7 +21,7 @@ class NewsController extends Controller
         $itemsPerPage = 3;
         $news = News::orderBy('created_at', 'desc')->paginate($itemsPerPage);
 
-        return view('news.index', array('news' => $news, 'title' => 'News Display'));
+        return view('news.index', ['news' => $news, 'title' => 'News Display']);
     }
 
     /**
@@ -35,23 +31,24 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('news.create', array('title' => 'Add News'));
+        return view('news.create', ['title' => 'Add News']);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $this->validate($request, array(
-                                'title' => 'required',
-                                'slug' => 'required',
+        $this->validate($request, [
+                                'title'             => 'required',
+                                'slug'              => 'required',
                                 'short_description' => 'required',
-                                'full_content' => 'required',
-                            )
+                                'full_content'      => 'required',
+                            ]
                         );
 
         $input = $request->all();
@@ -69,45 +66,49 @@ class NewsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  string  $slug
+     * @param string $slug
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($slug)
     {
         $news = News::where('slug', $slug)->first();
-        return view('news.show', array('news' => $news));
+
+        return view('news.show', ['news' => $news]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $news = News::findOrFail($id);
 
-        return view('news.edit', array('news' => $news, 'title' => 'Edit News'));
+        return view('news.edit', ['news' => $news, 'title' => 'Edit News']);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $news = News::findOrFail($id);
 
-        $this->validate($request, array(
-                                'title' => 'required',
-                                'slug' => 'required',
+        $this->validate($request, [
+                                'title'             => 'required',
+                                'slug'              => 'required',
                                 'short_description' => 'required',
-                                'full_content' => 'required',
-                            )
+                                'full_content'      => 'required',
+                            ]
                         );
 
         $input = $request->all();
@@ -122,7 +123,8 @@ class NewsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Inventory;
-use Excel;
-use Illuminate\Support\Facades\DB;
 use Auth;
+use Excel;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use PDF;
-
 
 class ExportController extends Controller
 {
@@ -32,10 +31,10 @@ class ExportController extends Controller
         date_default_timezone_set('Europe/Madrid');
         $format = 'Y/m/d';
         $now = date($format);
-        $to = date($format, strtotime("+15 days"));
+        $to = date($format, strtotime('+15 days'));
         $constraints = [
           'from' => $now,
-          'to' => $to
+          'to'   => $to,
         ];
 
         $inventories = DB::table('inventories')
@@ -48,62 +47,77 @@ class ExportController extends Controller
         ->select('inventories.*', 'material_type.name as material_type_name', 'material_type.id as material_type_id', 'brand.name as brand_name', 'brand.id as brand_id', 'brand_model.name as brand_model_name', 'brand_model.id as model_id', 'location.name as location_name', 'location.id as location_id', 'moneySource.name as moneySource_name', 'moneySource.id as moneySourceId',
         'provider.name as provider_name', 'provider.id as provider_id')
         ->paginate();
+
         return view('/export/index', ['inventories' =>$inventories, 'searchingVals' => $constraints]);
 
         //$inventories = $this->getItemsInventory($constraints);
         //return view('/export/index', ['inventories' =>$inventories, 'searchingVals' => $constraints]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-     public function exportExcel(Request $request) {
-       $this->prepareExportingData($request)->export('csv');
-       redirect()->intended('mnt-export');
-   }
-   public function exportPDF(Request $request) {
+     /**
+      * Store a newly created resource in storage.
+      *
+      * @param  \Illuminate\Http\Request  $request
+      *
+      * @return \Illuminate\Http\Response
+      */
+     public function exportExcel(Request $request)
+     {
+         $this->prepareExportingData($request)->export('csv');
+         redirect()->intended('mnt-export');
+     }
+
+    public function exportPDF(Request $request)
+    {
         $constraints = [
            'from' => $request['from'],
-           'to' => $request['to']
+           'to'   => $request['to'],
        ];
-       $inventories = $this->getExportingData($constraints);
-       $pdf = PDF::loadView('export/exportpdf', ['inventories' => $inventories, 'searchingVals' => $constraints])->setPaper('a4', 'landscape');
-       return $pdf->download('Exportat_desde_'. $request['from'].'_a_'.$request['to'].'.pdf');
-   }
+        $inventories = $this->getExportingData($constraints);
+        $pdf = PDF::loadView('export/exportpdf', ['inventories' => $inventories, 'searchingVals' => $constraints])->setPaper('a4', 'landscape');
 
-   private function prepareExportingData($request) {
+        return $pdf->download('Exportat_desde_'.$request['from'].'_a_'.$request['to'].'.pdf');
+    }
 
-       $inventories = $this->getExportingData(['from'=> $request['from'], 'to' => $request['to']]);
-       return Excel::create('Exportat_desde_'. $request['from'].'_a_'.$request['to'], function($excel) use($inventories, $request) {
-       // Set the title
-       $excel->setTitle('Inventari from '. $request['from'].' to '. $request['to']);
+    private function prepareExportingData($request)
+    {
+        $inventories = $this->getExportingData(['from'=> $request['from'], 'to' => $request['to']]);
+
+        return Excel::create('Exportat_desde_'.$request['from'].'_a_'.$request['to'], function ($excel) use ($inventories, $request) {
+            // Set the title
+       $excel->setTitle('Inventari from '.$request['from'].' to '.$request['to']);
 
        // Call them separately
        $excel->setDescription('Llista');
-       $excel->sheet('Items', function($sheet) use($inventories) {
-       $sheet->fromArray($inventories);
-           });
-       });
-   }
-   public function search(Request $request) {
-       $constraints = [
+            $excel->sheet('Items', function ($sheet) use ($inventories) {
+                $sheet->fromArray($inventories);
+            });
+        });
+    }
+
+    public function search(Request $request)
+    {
+        $constraints = [
            'from' => $request['from'],
-           'to' => $request['to']
+           'to'   => $request['to'],
        ];
-       $inventories = $this->getItemsInventory($constraints);
-       return view('export/index', ['inventories' => $inventories, 'searchingVals' => $constraints]);
-   }
-   private function getItemsInventory($constraints) {
-       $inventories = Inventory::where('date_entrance', '>=', $constraints['from'])
+        $inventories = $this->getItemsInventory($constraints);
+
+        return view('export/index', ['inventories' => $inventories, 'searchingVals' => $constraints]);
+    }
+
+    private function getItemsInventory($constraints)
+    {
+        $inventories = Inventory::where('date_entrance', '>=', $constraints['from'])
                        ->where('date_entrance', '<=', $constraints['to'])
                        ->get();
-       return $inventories;
-   }
-   private function getExportingData($constraints) {
-       return DB::table('inventories')
+
+        return $inventories;
+    }
+
+    private function getExportingData($constraints)
+    {
+        return DB::table('inventories')
        ->leftJoin('brand', 'inventories.brand_id', '=', 'brand.id')
        ->leftJoin('material_type', 'inventories.material_type_id', '=', 'material_type.id')
        ->leftJoin('brand_model', 'inventories.model_id', '=', 'brand_model.id')
@@ -115,8 +129,8 @@ class ExportController extends Controller
 
        ->get()
        ->map(function ($item, $key) {
-       return (array) $item;
+           return (array) $item;
        })
        ->all();
-   }
+    }
 }

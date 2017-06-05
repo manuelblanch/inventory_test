@@ -3,24 +3,16 @@
  * Created by PhpStorm.
  * User: manuel
  * Date: 9/05/17
- * Time: 17:40
+ * Time: 17:40.
  */
 
 namespace App\Http\Controllers;
 
-
+use App\Item;
 use Illuminate\Http\Request;
 
-use App\Http\Controllers\Controller;
-
-use App\Item;
-
-
 class ItemCRUDController extends Controller
-
 {
-
-
     /**
 
      * Display a listing of the resource.
@@ -28,21 +20,15 @@ class ItemCRUDController extends Controller
      *
 
      * @return \Illuminate\Http\Response
-
      */
-
     public function index(Request $request)
-
     {
+        $items = Item::orderBy('id', 'DESC')->paginate(5);
 
-        $items = Item::orderBy('id','DESC')->paginate(5);
-
-        return view('ItemCRUD.index',compact('items'))
+        return view('ItemCRUD.index', compact('items'))
 
             ->with('i', ($request->input('page', 1) - 1) * 5);
-
     }
-
 
     /**
 
@@ -51,17 +37,11 @@ class ItemCRUDController extends Controller
      *
 
      * @return \Illuminate\Http\Response
-
      */
-
     public function create()
-
     {
-
         return view('ItemCRUD.create');
-
     }
-
 
     /**
 
@@ -69,16 +49,12 @@ class ItemCRUDController extends Controller
 
      *
 
-     * @param  \Illuminate\Http\Request  $request
-
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
-
      */
-
     public function store(Request $request)
-
     {
-
         $this->validate($request, [
 
             'title' => 'required',
@@ -87,15 +63,12 @@ class ItemCRUDController extends Controller
 
         ]);
 
-
         Item::create($request->all());
 
         return redirect()->route('itemCRUD.index')
 
-            ->with('success','Item created successfully');
-
+            ->with('success', 'Item created successfully');
     }
-
 
     /**
 
@@ -103,22 +76,16 @@ class ItemCRUDController extends Controller
 
      *
 
-     * @param  int  $id
-
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
-
      */
-
     public function show($id)
-
     {
-
         $item = Item::find($id);
 
-        return view('ItemCRUD.show',compact('item'));
-
+        return view('ItemCRUD.show', compact('item'));
     }
-
 
     /**
 
@@ -126,22 +93,16 @@ class ItemCRUDController extends Controller
 
      *
 
-     * @param  int  $id
-
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
-
      */
-
     public function edit($id)
-
     {
-
         $item = Item::find($id);
 
-        return view('ItemCRUD.edit',compact('item'));
-
+        return view('ItemCRUD.edit', compact('item'));
     }
-
 
     /**
 
@@ -149,18 +110,13 @@ class ItemCRUDController extends Controller
 
      *
 
-     * @param  \Illuminate\Http\Request  $request
-
-     * @param  int  $id
-
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
-
      */
-
     public function update(Request $request, $id)
-
     {
-
         $this->validate($request, [
 
             'title' => 'required',
@@ -169,15 +125,12 @@ class ItemCRUDController extends Controller
 
         ]);
 
-
         Item::find($id)->update($request->all());
 
         return redirect()->route('itemCRUD.index')
 
-            ->with('success','Item updated successfully');
-
+            ->with('success', 'Item updated successfully');
     }
-
 
     /**
 
@@ -185,22 +138,16 @@ class ItemCRUDController extends Controller
 
      *
 
-     * @param  int  $id
-
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
-
      */
-
     public function destroy($id)
-
     {
-
         Item::find($id)->delete();
 
         return redirect()->route('itemCRUD.index')
 
-            ->with('success','Item deleted successfully');
-
+            ->with('success', 'Item deleted successfully');
     }
-
 }
