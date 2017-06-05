@@ -20,7 +20,7 @@ Route::get('/inventory', function () {
 });
 
 Route::get('/manteniments', function () {
-        return view('manteniments');
+    return view('manteniments');
 });
 
 Route::get('/providers', function () {
@@ -43,8 +43,8 @@ Route::get('/brand', function () {
     return view('brand');
 });
 
-Route::get('/vue', function() {
-  return view('vue');
+Route::get('/vue', function () {
+    return view('vue');
 });
 
 Route::resource('inventory', 'InventoryController');
@@ -57,19 +57,19 @@ Route::get('/mnt/provider/create', function () {
     return view('create');
 });
 
-Route::post('/test/save', ['as' => 'save-date',
+Route::post('/test/save', ['as'   => 'save-date',
                            'uses' => 'DateController@showDate',
                             function () {
                                 return '';
-                            }]);
+                            }, ]);
 
-Route::get('news', array('as' => 'news.index', 'uses' => 'NewsController@index'));
-Route::get('news/add', array('as' => 'news.create', 'uses' => 'NewsController@create'));
-Route::post('news/store', array('as' => 'news.store', 'uses' => 'NewsController@store'));
-Route::get('news/edit/{id}', array('as' => 'news.edit', 'uses' => 'NewsController@edit'));
-Route::patch('news/update/{id}', array('as' => 'news.update', 'uses' => 'NewsController@update'));
-Route::delete('news/delete/{id}', array('as' => 'news.destroy', 'uses' => 'NewsController@destroy'));
-Route::get('news/{slug}', array('as' => 'news.show', 'uses' => 'NewsController@show'));
+Route::get('news', ['as' => 'news.index', 'uses' => 'NewsController@index']);
+Route::get('news/add', ['as' => 'news.create', 'uses' => 'NewsController@create']);
+Route::post('news/store', ['as' => 'news.store', 'uses' => 'NewsController@store']);
+Route::get('news/edit/{id}', ['as' => 'news.edit', 'uses' => 'NewsController@edit']);
+Route::patch('news/update/{id}', ['as' => 'news.update', 'uses' => 'NewsController@update']);
+Route::delete('news/delete/{id}', ['as' => 'news.destroy', 'uses' => 'NewsController@destroy']);
+Route::get('news/{slug}', ['as' => 'news.show', 'uses' => 'NewsController@show']);
 
 Route::resource('system-management/country', 'CountryController');
 Route::post('system-management/country/search', 'CountryController@search')->name('country.search');
@@ -106,7 +106,6 @@ Route::post('mnt-export/excel', 'ExportController@exportExcel')->name('export.ex
 Route::post('mnt-export/pdf', 'ExportController@exportPDF')->name('export.pdf');
 
 Route::group(['middleware' => 'web'], function () {
-Route::get('/vuejscrud', 'BlogController@vueCrud');
-Route::resource('vueitems','BlogController');
-
+    Route::get('/vuejscrud', 'BlogController@vueCrud');
+    Route::resource('vueitems', 'BlogController');
 });

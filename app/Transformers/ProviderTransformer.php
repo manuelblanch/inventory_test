@@ -2,18 +2,17 @@
 
 namespace App\Transformers;
 
-use League\Fractal\TransformerAbstract;
 use App\Entities\Provider;
+use League\Fractal\TransformerAbstract;
 
 /**
- * Class ProviderTransformer
- * @package namespace App\Transformers;
+ * Class ProviderTransformer.
  */
 class ProviderTransformer extends TransformerAbstract
 {
-
     /**
-     * Transform the \Provider entity
+     * Transform the \Provider entity.
+     *
      * @param \Provider $model
      *
      * @return array
@@ -26,7 +25,7 @@ class ProviderTransformer extends TransformerAbstract
             /* place your other model properties here */
 
             'created_at' => $model->created_at,
-            'updated_at' => $model->updated_at
+            'updated_at' => $model->updated_at,
         ];
     }
 }

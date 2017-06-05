@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Provider extends Model
+class Providers extends Model
 {
-  /**
+    /**
    * The table associated with the model.
    *
    * @var string

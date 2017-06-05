@@ -2,20 +2,18 @@
 
 namespace App\Repositories;
 
-use Prettus\Repository\Eloquent\BaseRepository;
-use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\ProviderRepository;
 use App\Entities\Provider;
 use App\Validators\ProviderValidator;
+use Prettus\Repository\Criteria\RequestCriteria;
+use Prettus\Repository\Eloquent\BaseRepository;
 
 /**
- * Class ProviderRepositoryEloquent
- * @package namespace App\Repositories;
+ * Class ProviderRepositoryEloquent.
  */
 class ProviderRepositoryEloquent extends BaseRepository implements ProviderRepository
 {
     /**
-     * Specify Model class name
+     * Specify Model class name.
      *
      * @return string
      */
@@ -25,19 +23,17 @@ class ProviderRepositoryEloquent extends BaseRepository implements ProviderRepos
     }
 
     /**
-    * Specify Validator class name
-    *
-    * @return mixed
-    */
+     * Specify Validator class name.
+     *
+     * @return mixed
+     */
     public function validator()
     {
-
         return ProviderValidator::class;
     }
 
-
     /**
-     * Boot up the repository, pushing criteria
+     * Boot up the repository, pushing criteria.
      */
     public function boot()
     {
