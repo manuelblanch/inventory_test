@@ -23,7 +23,7 @@
         <div class="col-sm-6"></div>
         <div class="col-sm-6"></div>
       </div>
-      <form method="POST" action="{{ route('provider.search') }}">
+      <form method="POST" action="{{ route('moneySource.search') }}">
          {{ csrf_field() }}
          @component('layouts.search', ['title' => 'Busqueda'])
           @component('layouts.two-cols-search-row', ['items' => ['Name', 'ShortName'],

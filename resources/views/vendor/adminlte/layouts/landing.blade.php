@@ -23,7 +23,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     <meta name="twitter:site" content="@acachawiki" />
     <meta name="twitter:creator" content="@acacha1" />
 
-    <title>{{ trans('adminlte_lang::message.landingdescriptionpratt') }}</title>
+    <title>{{ trans('Inventory AdminLte with Spot – Freelance & Agency Theme') }}</title>
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('/css/all-landing.css') }}" rel="stylesheet">
@@ -55,7 +55,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#home" class="smoothScroll">{{ trans('adminlte_lang::message.home') }}</a></li>
+                    <li class="active"><a href="#home" class="smoothScroll">{{ trans('Inici') }}</a></li>
                     <li><a href="#desc" class="smoothScroll">{{ trans('Descripcio') }}</a></li>
                     <li><a href="#showcase" class="smoothScroll">{{ trans('Captures') }}</a></li>
                 </ul>
