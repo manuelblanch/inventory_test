@@ -14,7 +14,7 @@
 				<div class="box">
 					<div class="box-header with-border">
 						<h3 class="box-title">Pagina Inicial</h3><br><br>
-						Benvingut a la pagina inicial de l'inventari adminlte, pots accedir a la secció que vulguis desde aquesta pàgina o amb el sidebar que hi ha a la esquerra.
+						{{ trans('adminlte_lang::message.logged') }}. Benvingut a la pagina inicial de l'inventari adminlte!Benvingut a la pagina inicial de l'inventari adminlte, pots accedir a la secció que vulguis desde aquesta pàgina o amb el sidebar que hi ha a la esquerra.
 						<div class="box-tools pull-right">
 							<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
 								<i class="fa fa-minus"></i></button>
