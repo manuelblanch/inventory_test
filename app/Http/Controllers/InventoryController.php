@@ -61,7 +61,7 @@ class InventoryController extends Controller
         $providers = Provider::all();
 
         return view('inventory/create', ['material_types' => $material_types, 'brands' => $brands, 'brand_models' => $brand_models,
-      'moneySources'                                    => $moneySources, 'locations' => $locations, 'providers' => $providers, ]);
+      'moneySources'                                      => $moneySources, 'locations' => $locations, 'providers' => $providers, ]);
     }
 
     /**
@@ -80,7 +80,7 @@ class InventoryController extends Controller
         'moneysourceId', 'provider_id', 'date_entrance', 'last_update', ];
         $input = $this->createQueryInput($keys, $request);
         $input['picture'] = $path;
-      
+
         Inventory::create($input);
 
         return redirect()->intended('/inventory-mnt');
