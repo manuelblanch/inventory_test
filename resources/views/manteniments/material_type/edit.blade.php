@@ -11,7 +11,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Actualitza Tipus de materials</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('material_type.update', ['id' => $material_type->id]) }}">
+                    <form class="form-horizontal" role="form" method="POST" onsubmit = "return confirm('Estas segur?')" action="{{ route('material_type.update', ['id' => $material_type->id]) }}">
                         <input type="hidden" name="_method" value="PATCH">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
