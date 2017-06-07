@@ -11,7 +11,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Actualitza Inventari</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('inventory.update', ['id' => $inventory->id]) }}">
+                    <form class="form-horizontal" role="form" method="POST" onsubmit = "return confirm('Estas segur?')" action="{{ route('inventory.update', ['id' => $inventory->id]) }}">
                         <input type="hidden" name="_method" value="PATCH">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
