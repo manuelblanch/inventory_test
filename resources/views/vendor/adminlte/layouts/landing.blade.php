@@ -77,8 +77,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
   <div class="container">
     <div class="row centered">
       <div class="col-lg-8 col-lg-offset-2">
-      <h1>Administració Inventari <b>Adminlte</b></h1>
-      <h2>Laravel</h2>
+
+      <h1>Inventary AdminLTE <b><a href="https://manuelblanch.github.io/presentation_inventory/">Aplicació Github</a></b></h1><br>
+          <h2><a href="{{ url('/register') }}" class="btn btn-lg btn-success">{{ 'Registrat' }}</a></h2>
+          <h2><a href="{{ url('/login') }}" class="btn btn-lg btn-success">{{ 'Login' }}</a><h2>
+                    </div>
       </div>
     </div><!-- row -->
   </div><!-- container -->
