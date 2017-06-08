@@ -78,8 +78,9 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     <div class="row centered">
       <div class="col-lg-8 col-lg-offset-2">
 
-      <h1>Inventary AdminLTE <b><a href="https://manuelblanch.github.io/presentation_inventory/">Presentació</a></b></h1>
-      <h1>Laravel<b><a href="https://github.com/manuelblanch/inventory_test">Repositori Github</a></b></h1><br>
+      <h1>Inventari AdminLTE <b><a href="https://manuelblanch.github.io/presentation_inventory/">Presentació</a></b></h1>
+      <h2><b><a href="https://github.com/manuelblanch/inventory_test">Repositori Github</a></h2>
+      <h2><b><a href="https://github.com/manuelblanch/inventory">Repositori Packet</a></h2>
           <h2><a href="{{ url('/register') }}" class="btn btn-lg btn-success">{{ 'Registrat' }}</a></h2>
           <h2><a href="{{ url('/login') }}" class="btn btn-lg btn-success">{{ 'Login' }}</a><h2>
                     </div>
@@ -151,7 +152,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
             <div class="container">
                 <p>
                     <a href="https://github.com/acacha/adminlte-laravel"></a><b>admin-lte-laravel</b></a>. {{ trans('adminlte_lang::message.descriptionpackage') }}.<br/>
-                    <strong>Copyright &copy; 2017 <a href="https://manuelblanch.github.io/presentation_inventory/">Github Page</a>.</strong> {{ trans('adminlte_lang::message.createdby') }} <a href="http://acacha.org/sergitur">Manuel Blanch garzon</a>. {{ trans('adminlte_lang::message.seecode') }} <a href="https://github.com/manuelblanch/inventory_test">Github</a>
+                    <strong>Copyright &copy; 2017 <a href="https://manuelblanch.github.io/presentation_inventory/">Github Page</a>.</strong> {{ trans('adminlte_lang::message.createdby') }} <a href="http://acacha.org/sergitur">Manuel Blanch Garzon</a>. {{ trans('adminlte_lang::message.seecode') }} <a href="https://github.com/manuelblanch/inventory_test">Github</a>
                     <br/>
                     AdminLTE {{ trans('adminlte_lang::message.createdby') }} Abdullah Almsaeed <a href="https://almsaeedstudio.com/">almsaeedstudio.com</a>
                     <br/>
