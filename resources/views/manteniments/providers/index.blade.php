@@ -54,7 +54,7 @@
                   <td>{{ $provider->date_entrance }}</td>
                   <td>{{ $provider->last_update }}</td>
                   <td>
-                    <form class="row" method="POST" action="{{ route('provider.destroy', ['id' => $provider->id]) }}" onsubmit = "return confirm('Are you sure?')">
+                    <form class="row" method="POST" action="{{ route('provider.destroy', ['id' => $provider->id]) }}" onsubmit = "return confirm('Estas segur?')">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <a href="{{ route('provider.edit', ['id' => $provider->id]) }}" class="btn btn-success col-sm-12 col-xs-12 btn-margin">

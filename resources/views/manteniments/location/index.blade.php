@@ -55,7 +55,7 @@
                   <td>{{ $location->date_entrance }}</td>
                   <td>{{ $location->last_update }}</td>
                   <td>
-                    <form class="row" method="POST" action="{{ route('location.destroy', ['id' => $location->id]) }}" onsubmit = "return confirm('Are you sure?')">
+                    <form class="row" method="POST" action="{{ route('location.destroy', ['id' => $location->id]) }}" onsubmit = "return confirm('Estas segur?')">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <a href="{{ route('location.edit', ['id' => $location->id]) }}" class="btn btn-success col-sm-12 col-xs-12 btn-margin">
