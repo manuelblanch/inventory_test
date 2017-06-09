@@ -3,8 +3,6 @@
 @section('htmlheader_title')
     Inventory
 @endsection
-
-
 @section('main-content')
     <!-- Main content -->
     <section class="content">

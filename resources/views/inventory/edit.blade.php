@@ -43,7 +43,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">Tipus de material</label>
                             <div class="col-md-6">
-                                <select class="form-control" name="material_type_id">
+                                <select id="s1" class="form-control" name="material_type_id" style="width:300px">
                                     @foreach ($material_types as $material_type)
                                         <option {{$inventory->material_type_id == $material_type->id ? 'selected' : ''}} value="{{$material_type->id}}">{{$material_type->name}}</option>
                                     @endforeach

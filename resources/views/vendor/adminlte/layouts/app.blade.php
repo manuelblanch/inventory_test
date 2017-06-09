@@ -34,8 +34,6 @@ desired effect
     <meta charset="utf-8">
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <!-- Optional theme -->
@@ -73,10 +71,50 @@ desired effect
 @section('scripts')
     @include('adminlte::layouts.partials.scripts')
 
-    <link rel="stylesheet" href="{{asset('plugins/datepicker/datepicker3.css')}}">
-    <script src="{{asset('plugins/datepicker/bootstrap-datepicker.js')}}"></script>
+    <script src="{{asset('/plugins/select2/select2.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('/plugins/select2/select2.css')}}">
+    <script src="{{asset('/plugins/select2/i18n/es.js')}}"></script>
+
+    <script>
+    $(document).ready(function() {
+      $("#s1").select2();
+    });
+    </script>
+
+    <script>
+    $(document).ready(function() {
+      $("#s2").select2();
+    });
+    </script>
+
+    <script>
+    $(document).ready(function() {
+      $("#s3").select2();
+    });
+    </script>
+
+    <script>
+    $(document).ready(function() {
+      $("#s4").select2();
+    });
+    </script>
+
+    <script>
+    $(document).ready(function() {
+      $("#s5").select2();
+    });
+    </script>
+
+    <script>
+    $(document).ready(function() {
+      $("#s6").select2();
+    });
+    </script>
+
+    <link rel="stylesheet" href="{{asset('/plugins/datepicker/datepicker3.css')}}">
+    <script src="{{asset('/plugins/datepicker/bootstrap-datepicker.js')}}"></script>
     <!-- Languaje -->
-    <script src="{{asset('plugins/datepicker/locales/bootstrap-datepicker.es.js')}}"></script>
+    <script src="{{asset('/plugins/datepicker/locales/bootstrap-datepicker.es.js')}}"></script>
     <script>
         $(document).ready(function() {
           //Date picker
