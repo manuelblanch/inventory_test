@@ -72,8 +72,6 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <label for="date">Fecha</label>
-                        
                                     <input type="text" placeholder="yyyy-mm-dd" value="{{ old('last_update') }}" name="last_update" class="form-control datepicker" id="lastUpdate" required>
                                 </div>
                             </div>

@@ -62,14 +62,6 @@
                                         <i class="fa fa-calendar"></i>
                                     </div>
                                     <input type="text" placeholder="yyyy-mm-dd" name="date_entrance" class="form-control datepicker" id="dateEntrance" required>
-                                    <script>
-                                        $('.datepicker').datepicker({
-                                            format: "dd/mm/yyyy",
-                                            language: "es",
-                                            autoclose: true
-                                        });
-                                    </script>
-
                                 </div>
                             </div>
                           </div>
@@ -82,14 +74,6 @@
                                         <i class="fa fa-calendar"></i>
                                     </div>
                                     <input type="text" placeholder="yyyy-mm-dd" value="{{ old('last_update') }}" name="last_update" class="form-control datepicker" id="lastUpdate" required>
-                                    <script>
-                                        $('.datepicker').datepicker({
-                                            format: "dd/mm/yyyy",
-                                            language: "es",
-                                            autoclose: true
-                                        });
-                                    </script>
-
                                 </div>
                             </div>
                           </div>
