@@ -134,7 +134,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" value="{{ $inventory->date_entrance }}" name="date_entrance" class="form-control pull-right" id="date_entrance" required>
+                                    <input type="text" value="{{ $inventory->date_entrance }}" name="date_entrance" class="form-control pull-right" id="dateEntrance" required>
                                 </div>
                             </div>
                         </div>

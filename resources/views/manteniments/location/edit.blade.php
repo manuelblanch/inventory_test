@@ -57,7 +57,7 @@
                           <label for="date_entrance" class="col-md-4 control-label">Data Entrada</label>
 
                           <div class="col-md-6">
-                              <input id="date_entrance" type="text" class="form-control" name="date_entrance" value="{{ $location->date_entrance }}" required>
+                              <input id="dateEntrance" type="text" class="form-control" name="date_entrance" value="{{ $location->date_entrance }}" required>
 
                               @if ($errors->has('date_entrance'))
                                   <span class="help-block">
@@ -70,7 +70,7 @@
                          <label for="last_update" class="col-md-4 control-label">Ultima Actualització</label>
 
                          <div class="col-md-6">
-                             <input id="last_update" type="text" class="form-control" name="last_update" value="{{ $location->last_update }}" required>
+                             <input id="lastUpdate" type="text" class="form-control" name="last_update" value="{{ $location->last_update }}" required>
 
                              @if ($errors->has('last_update'))
                                  <span class="help-block">

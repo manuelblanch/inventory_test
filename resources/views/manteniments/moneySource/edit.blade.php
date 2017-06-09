@@ -54,7 +54,7 @@
                            </div>
                        </div>
                        <div class="form-group{{ $errors->has('date_entrance') ? ' has-error' : '' }}">
-                          <label for="date_entrance" class="col-md-4 control-label">Data Entrada</label>
+                          <label for="dateEntrance" class="col-md-4 control-label">Data Entrada</label>
 
                           <div class="col-md-6">
                               <input id="date_entrance" type="text" class="form-control" name="date_entrance" value="{{ $moneySource->date_entrance }}" required>
@@ -70,7 +70,7 @@
                          <label for="last_update" class="col-md-4 control-label">Ultima Actualització</label>
 
                          <div class="col-md-6">
-                             <input id="last_update" type="text" class="form-control" name="last_update" value="{{ $moneySource->last_update }}" required>
+                             <input id="lastUpdate" type="text" class="form-control" name="last_update" value="{{ $moneySource->last_update }}" required>
 
                              @if ($errors->has('last_update'))
                                  <span class="help-block">
