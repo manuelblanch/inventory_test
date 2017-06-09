@@ -214,9 +214,9 @@ class InventoryController extends Controller
     private function validateInput($request)
     {
         $this->validate($request, [
-            'name' => 'required|max:60',
+            'name'        => 'required|max:60',
             'description' => 'required|max:300',
-            
+
         ]);
     }
 
