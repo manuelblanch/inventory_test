@@ -57,11 +57,9 @@ Route::get('/mnt/provider/create', function () {
     return view('create');
 });
 
-Route::post('/test/save', ['as'   => 'save-date',
-                           'uses' => 'DateController@showDate',
-                            function () {
-                                return '';
-                            }, ]);
+Route::get('/test/datepicker', function () {
+    return view('datepicker');
+});
 
 Route::get('news', ['as' => 'news.index', 'uses' => 'NewsController@index']);
 Route::get('news/add', ['as' => 'news.create', 'uses' => 'NewsController@create']);

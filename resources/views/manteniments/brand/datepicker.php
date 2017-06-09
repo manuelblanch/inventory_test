@@ -42,7 +42,7 @@
     </div>
 </div>
 <script>
-    $('.datepicker').datepicker({
+    $('.dateEntrance').datepicker({
         format: "dd/mm/yyyy",
         language: "es",
         autoclose: true

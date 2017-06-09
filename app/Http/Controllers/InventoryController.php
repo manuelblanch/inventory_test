@@ -215,6 +215,8 @@ class InventoryController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|max:60',
+            'description' => 'required|max:300',
+            
         ]);
     }
 
