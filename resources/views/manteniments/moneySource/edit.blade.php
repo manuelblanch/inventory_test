@@ -57,7 +57,7 @@
                           <label for="dateEntrance" class="col-md-4 control-label">Data Entrada</label>
 
                           <div class="col-md-6">
-                              <input id="date_entrance" type="text" class="form-control" name="date_entrance" value="{{ $moneySource->date_entrance }}" required>
+                              <input id="dateEntrance" type="text" class="form-control" name="date_entrance" value="{{ $moneySource->date_entrance }}" required>
 
                               @if ($errors->has('date_entrance'))
                                   <span class="help-block">
