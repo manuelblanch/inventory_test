@@ -43,7 +43,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">Tipus de material</label>
                             <div class="col-md-6">
-                                <select id="s1" class="form-control" name="material_type_id" style="width:300px">
+                                <select id="s1" class="form-control" name="material_type_id" style="width:345px">
                                     @foreach ($material_types as $material_type)
                                         <option {{$inventory->material_type_id == $material_type->id ? 'selected' : ''}} value="{{$material_type->id}}">{{$material_type->name}}</option>
                                     @endforeach
@@ -53,7 +53,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">Marca</label>
                             <div class="col-md-6">
-                                <select class="form-control" name="brand_id">
+                                <select id="s2" class="form-control" name="brand_id" style="width:345px">
                                     @foreach ($brands as $brand)
                                         <option {{$inventory->brand_id == $brand->id ? 'selected' : ''}} value="{{$brand->id}}">{{$brand->name}}</option>
                                     @endforeach
@@ -63,7 +63,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">Model</label>
                             <div class="col-md-6">
-                                <select class="form-control" name="model_id">
+                                <select id="s3" class="form-control" name="model_id" style="width:345px">
                                     @foreach ($brand_models as $brand_model)
                                         <option {{$inventory->model_id == $brand_model->id ? 'selected' : ''}} value="{{$brand_model->id}}">{{$brand_model->name}}</option>
                                     @endforeach
@@ -73,7 +73,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">Localització</label>
                             <div class="col-md-6">
-                                <select class="form-control" name="location_id">
+                                <select id="s4" class="form-control" name="location_id" style="width:345px">
                                     @foreach ($locations as $location)
                                         <option {{$inventory->location_id == $location->id ? 'selected' : ''}} value="{{$location->id}}">{{$location->name}}</option>
                                     @endforeach
@@ -110,7 +110,7 @@
                               <div class="form-group">
                             <label class="col-md-4 control-label">Procedencia dels diners</label>
                             <div class="col-md-6">
-                                <select class="form-control" name="moneysourceId">
+                                <select id="s5" class="form-control" name="moneysourceId" style="width:345px">
                                     @foreach ($moneySources as $moneySource)
                                         <option {{$inventory->moneysourceId == $moneySource->id ? 'selected' : ''}} value="{{$moneySource->id}}">{{$moneySource->name}}</option>
                                     @endforeach
@@ -120,7 +120,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">Proveidors</label>
                             <div class="col-md-6">
-                                <select class="form-control" name="provider_id">
+                                <select id="s6" class="form-control" name="provider_id" style="width:345px">
                                     @foreach ($providers as $provider)
                                         <option {{$inventory->provider_id == $provider->id ? 'selected' : ''}} value="{{$provider->id}}">{{$provider->name}}</option>
                                     @endforeach
@@ -161,6 +161,11 @@
                                 <button type="submit" class="btn btn-primary">
                                     Actualitzar
                                 </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                              <a href="{{ URL::previous() }}">Cancel·lar</a>
                             </div>
                         </div>
                     </form>
