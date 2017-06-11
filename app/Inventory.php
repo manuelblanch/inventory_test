@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Events\InventoryCreated;
 use Illuminate\Database\Eloquent\Model;
 
 class Inventory extends Model
@@ -11,5 +12,17 @@ class Inventory extends Model
   *
   * @var array
   */
- protected $guarded = [];
+ protected $events = [
+        'created' => InventoryCreated::class
+    ];
+
+    /**
+     * A task belongs to a creator.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function creator()
+    {
+        return $this->belongsTo(Inventory::class, 'id');
+    }
 }
