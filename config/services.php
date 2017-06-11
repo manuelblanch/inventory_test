@@ -54,9 +54,9 @@ return [
         'redirect'      => env('FACEBOOK_OAUTH_APP_REDIRECT_URL'),
     ],
     'github' => [
-        'client_id'     => env('GITHUB_OAUTH_APP_ID'),
-        'client_secret' => env('GITHUB_OAUTH_APP_SECRET'),
-        'redirect'      => env('GITHUB_OAUTH_APP_REDIRECT_URL'),
+        'client_id'     => env('GITHUB_ID'),
+        'client_secret' => env('GITHUB_SECRET'),
+        'redirect'      => env('GITHUB_URL'),
     ],
 
     'twitter' => [

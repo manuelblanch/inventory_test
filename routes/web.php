@@ -99,8 +99,8 @@ Route::post('inventory-mnt/search', 'InventoryController@search')->name('invento
 
 Auth::routes();
 
-Route::get('socialauth/github', 'Auth\SocialAuthController@redirectToProvider');
-Route::get('socialauth/github/callback', 'Auth\SocialAuthController@handleProviderCallback');
+Route::get('auth/{provider}', 'Auth\SocialAuthController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'Auth\SocialAuthController@handleProviderCallback');
 
 Route::get('app/public/', 'InventoryController@load');
 
