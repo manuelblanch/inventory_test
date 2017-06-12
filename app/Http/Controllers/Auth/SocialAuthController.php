@@ -21,7 +21,7 @@ class SocialAuthController extends Controller
       public function handleProviderCallback()
       {
           try {
-              $user = Socialite::driver('github')->user();
+              $user = Socialite::driver('github')->stateless()->user();
           } catch (Exception $e) {
               return Redirect::to('auth/github');
           }
