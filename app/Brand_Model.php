@@ -18,4 +18,5 @@ class Brand_Model extends Model
    * @var array
    */
   protected $guarded = [];
+  
 }
