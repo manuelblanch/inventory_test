@@ -1,0 +1,25 @@
+{
+    "name": "App\\proveidors",
+    "line": 7,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App",
+    "file": "app\/\/proveidors.php",
+    "relative_file": null,
+    "hash": "ca448940b105ccb1ebfa7ff7d96d0df767f87d15",
+    "parent": "Illuminate\\Database\\Eloquent\\Model",
+    "modifiers": null,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Model": "Illuminate\\Database\\Eloquent\\Model"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": [],
+    "constants": []
+}

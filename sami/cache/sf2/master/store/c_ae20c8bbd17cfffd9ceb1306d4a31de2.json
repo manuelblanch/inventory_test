@@ -1,0 +1,76 @@
+{
+    "name": "App\\Location",
+    "line": 7,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App",
+    "file": "app\/\/Location.php",
+    "relative_file": null,
+    "hash": "fee06d0bd32cc8012a5e0826dc97760c3d51e85c",
+    "parent": "Illuminate\\Database\\Eloquent\\Model",
+    "modifiers": null,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Model": "Illuminate\\Database\\Eloquent\\Model"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "table": {
+            "name": "table",
+            "line": 14,
+            "short_desc": "The table associated with the model.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "string",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Scalar_String",
+                "value": "location",
+                "attributes": {
+                    "startLine": 14,
+                    "endLine": 14,
+                    "kind": 1
+                }
+            },
+            "errors": []
+        },
+        "guarded": {
+            "name": "guarded",
+            "line": 20,
+            "short_desc": "The attributes that aren't mass assignable.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_Array",
+                "items": [],
+                "attributes": {
+                    "startLine": 20,
+                    "endLine": 20,
+                    "kind": 2
+                }
+            },
+            "errors": []
+        }
+    },
+    "methods": [],
+    "constants": []
+}

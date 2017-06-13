@@ -1,0 +1,80 @@
+{
+    "name": "App\\Events\\InventoryCreated",
+    "line": 13,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Events",
+    "file": "app\/\/Events\/InventoryCreated.php",
+    "relative_file": null,
+    "hash": "e461193b963848866a6b152d45e41a11dc46e74d",
+    "parent": null,
+    "modifiers": null,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Channel": "Illuminate\\Broadcasting\\Channel",
+        "SerializesModels": "Illuminate\\Queue\\SerializesModels",
+        "PrivateChannel": "Illuminate\\Broadcasting\\PrivateChannel",
+        "PresenceChannel": "Illuminate\\Broadcasting\\PresenceChannel",
+        "Dispatchable": "Illuminate\\Foundation\\Events\\Dispatchable",
+        "InteractsWithSockets": "Illuminate\\Broadcasting\\InteractsWithSockets",
+        "ShouldBroadcast": "Illuminate\\Contracts\\Broadcasting\\ShouldBroadcast"
+    },
+    "errors": [],
+    "interfaces": {
+        "Illuminate\\Contracts\\Broadcasting\\ShouldBroadcast": "Illuminate\\Contracts\\Broadcasting\\ShouldBroadcast"
+    },
+    "traits": {
+        "Illuminate\\Foundation\\Events\\Dispatchable": "Illuminate\\Foundation\\Events\\Dispatchable",
+        "Illuminate\\Broadcasting\\InteractsWithSockets": "Illuminate\\Broadcasting\\InteractsWithSockets",
+        "Illuminate\\Queue\\SerializesModels": "Illuminate\\Queue\\SerializesModels"
+    },
+    "properties": [],
+    "methods": {
+        "__construct": {
+            "name": "__construct",
+            "line": 22,
+            "short_desc": "Create a new event instance.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "broadcastOn": {
+            "name": "broadcastOn",
+            "line": 32,
+            "short_desc": "Get the channels the event should broadcast on.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Broadcasting\\Channel",
+                    false
+                ],
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

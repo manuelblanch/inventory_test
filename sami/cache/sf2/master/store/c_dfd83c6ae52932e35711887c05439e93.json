@@ -1,0 +1,124 @@
+{
+    "name": "App\\Validators\\ProviderValidator",
+    "line": 8,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Validators",
+    "file": "app\/\/Validators\/ProviderValidator.php",
+    "relative_file": null,
+    "hash": "b7a57864a75d6d1660af396702feca8d1af3c988",
+    "parent": "Prettus\\Validator\\LaravelValidator",
+    "modifiers": null,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "ValidatorInterface": "Prettus\\Validator\\Contracts\\ValidatorInterface",
+        "LaravelValidator": "Prettus\\Validator\\LaravelValidator"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "rules": {
+            "name": "rules",
+            "line": 10,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_Array",
+                "items": [
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": {
+                            "nodeType": "Expr_ClassConstFetch",
+                            "class": {
+                                "nodeType": "Name_FullyQualified",
+                                "parts": [
+                                    "Prettus",
+                                    "Validator",
+                                    "Contracts",
+                                    "ValidatorInterface"
+                                ],
+                                "attributes": {
+                                    "startLine": 11,
+                                    "endLine": 11
+                                }
+                            },
+                            "name": "RULE_CREATE",
+                            "attributes": {
+                                "startLine": 11,
+                                "endLine": 11
+                            }
+                        },
+                        "value": {
+                            "nodeType": "Expr_Array",
+                            "items": [],
+                            "attributes": {
+                                "startLine": 11,
+                                "endLine": 11,
+                                "kind": 2
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 11,
+                            "endLine": 11
+                        }
+                    },
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": {
+                            "nodeType": "Expr_ClassConstFetch",
+                            "class": {
+                                "nodeType": "Name_FullyQualified",
+                                "parts": [
+                                    "Prettus",
+                                    "Validator",
+                                    "Contracts",
+                                    "ValidatorInterface"
+                                ],
+                                "attributes": {
+                                    "startLine": 12,
+                                    "endLine": 12
+                                }
+                            },
+                            "name": "RULE_UPDATE",
+                            "attributes": {
+                                "startLine": 12,
+                                "endLine": 12
+                            }
+                        },
+                        "value": {
+                            "nodeType": "Expr_Array",
+                            "items": [],
+                            "attributes": {
+                                "startLine": 12,
+                                "endLine": 12,
+                                "kind": 2
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 12,
+                            "endLine": 12
+                        }
+                    }
+                ],
+                "attributes": {
+                    "startLine": 10,
+                    "endLine": 13,
+                    "kind": 2
+                }
+            },
+            "errors": []
+        }
+    },
+    "methods": [],
+    "constants": []
+}

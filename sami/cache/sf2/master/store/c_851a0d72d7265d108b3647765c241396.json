@@ -1,0 +1,52 @@
+{
+    "name": "App\\Entities\\Provider",
+    "line": 9,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Entities",
+    "file": "app\/\/Entities\/Provider.php",
+    "relative_file": null,
+    "hash": "149d5529902b9d249a2be336c5317bd27164809e",
+    "parent": "Illuminate\\Database\\Eloquent\\Model",
+    "modifiers": null,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Model": "Illuminate\\Database\\Eloquent\\Model",
+        "Transformable": "Prettus\\Repository\\Contracts\\Transformable",
+        "TransformableTrait": "Prettus\\Repository\\Traits\\TransformableTrait"
+    },
+    "errors": [],
+    "interfaces": {
+        "Prettus\\Repository\\Contracts\\Transformable": "Prettus\\Repository\\Contracts\\Transformable"
+    },
+    "traits": {
+        "Prettus\\Repository\\Traits\\TransformableTrait": "Prettus\\Repository\\Traits\\TransformableTrait"
+    },
+    "properties": {
+        "fillable": {
+            "name": "fillable",
+            "line": 13,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_Array",
+                "items": [],
+                "attributes": {
+                    "startLine": 13,
+                    "endLine": 13,
+                    "kind": 2
+                }
+            },
+            "errors": []
+        }
+    },
+    "methods": [],
+    "constants": []
+}

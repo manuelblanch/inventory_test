@@ -1,0 +1,74 @@
+{
+    "name": "App\\Transformers\\ProviderTransformer",
+    "line": 11,
+    "short_desc": "Class ProviderTransformer.",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Transformers",
+    "file": "app\/\/Transformers\/ProviderTransformer.php",
+    "relative_file": null,
+    "hash": "0704805b43635e68f9ba2eee25eee5e452eb5699",
+    "parent": "League\\Fractal\\TransformerAbstract",
+    "modifiers": null,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Provider": "App\\Entities\\Provider",
+        "TransformerAbstract": "League\\Fractal\\TransformerAbstract"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "transform": {
+            "name": "transform",
+            "line": 20,
+            "short_desc": "Transform the \\Provider entity.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "model": {
+                    "name": "model",
+                    "line": 20,
+                    "short_desc": "",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Entities\\Provider",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": {
+                        "nodeType": "Name_FullyQualified",
+                        "parts": [
+                            "App",
+                            "Entities",
+                            "Provider"
+                        ],
+                        "attributes": {
+                            "startLine": 20,
+                            "endLine": 20
+                        }
+                    },
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

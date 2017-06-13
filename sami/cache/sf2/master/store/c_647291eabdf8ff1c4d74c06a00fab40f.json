@@ -1,0 +1,61 @@
+{
+    "name": "App\\Http\\Controllers\\Auth\\LoginServices\\GithubAuth",
+    "line": 4,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers\\Auth\\LoginServices",
+    "file": "app\/\/Http\/Controllers\/Auth\/LoginServices\/GithubAuth.php",
+    "relative_file": null,
+    "hash": "7248ced58c346c98a7e536dfded2304b16b8a28f",
+    "parent": null,
+    "modifiers": null,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "User": "App\\User"
+    },
+    "errors": [],
+    "interfaces": {
+        "App\\Http\\Controllers\\Auth\\LoginServices\\LoginAuth": "App\\Http\\Controllers\\Auth\\LoginServices\\LoginAuth"
+    },
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "findOrCreateUser": {
+            "name": "findOrCreateUser",
+            "line": 12,
+            "short_desc": "Finds the user from the provider in the database.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "mixed",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 9,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [
+                "The \"user\" @param tag variable name is wrong (should be \"githubUser\")"
+            ],
+            "parameters": {
+                "githubUser": {
+                    "name": "githubUser",
+                    "line": 12,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

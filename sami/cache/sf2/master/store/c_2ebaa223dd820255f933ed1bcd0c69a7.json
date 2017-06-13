@@ -1,0 +1,46 @@
+{
+    "name": "App\\Presenters\\ProviderPresenter",
+    "line": 11,
+    "short_desc": "Class ProviderPresenter.",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Presenters",
+    "file": "app\/\/Presenters\/ProviderPresenter.php",
+    "relative_file": null,
+    "hash": "1594a646dfddcd812acd63932b38154bba1b173d",
+    "parent": "Prettus\\Repository\\Presenter\\FractalPresenter",
+    "modifiers": null,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "ProviderTransformer": "App\\Transformers\\ProviderTransformer",
+        "FractalPresenter": "Prettus\\Repository\\Presenter\\FractalPresenter"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "getTransformer": {
+            "name": "getTransformer",
+            "line": 18,
+            "short_desc": "Transformer.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\League\\Fractal\\TransformerAbstract",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}
