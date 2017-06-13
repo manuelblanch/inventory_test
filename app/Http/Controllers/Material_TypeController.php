@@ -74,7 +74,6 @@ class Material_TypeController extends Controller
     public function edit($id)
     {
         $material_type = Material_type::find($id);
-      // Redirect to country list if updating country wasn't existed
       if ($material_type == null || count($material_type) == 0) {
           return redirect()->intended('/mnt/material_type');
       }

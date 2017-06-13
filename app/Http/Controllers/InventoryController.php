@@ -109,7 +109,6 @@ class InventoryController extends Controller
     public function edit($id)
     {
         $inventory = Inventory::find($id);
-        // Redirect to state list if updating state wasn't existed
         if ($inventory == null || count($inventory) == 0) {
             return redirect()->intended('/inventory-mnt');
         }

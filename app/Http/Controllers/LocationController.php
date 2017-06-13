@@ -77,7 +77,6 @@ class LocationController extends Controller
     public function edit($id)
     {
         $location = Location::find($id);
-      // Redirect to country list if updating country wasn't existed
       if ($location == null || count($location) == 0) {
           return redirect()->intended('/mnt/location');
       }
@@ -156,7 +155,7 @@ class LocationController extends Controller
     {
         $this->validate($request, [
         'name'      => 'required|max:60|unique:provider',
-        'shortName' => 'required|max:6|unique:provider',
+        'shortName' => 'required|max:4|unique:provider',
     ]);
     }
 }

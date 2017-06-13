@@ -77,7 +77,6 @@ class BrandController extends Controller
     public function edit($id)
     {
         $brand = Brand::find($id);
-      // Redirect to country list if updating country wasn't existed
       if ($brand == null || count($brand) == 0) {
           return redirect()->intended('/mnt/brand');
       }

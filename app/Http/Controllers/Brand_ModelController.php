@@ -74,7 +74,6 @@ class Brand_ModelController extends Controller
     public function edit($id)
     {
         $brand_model = Brand_model::find($id);
-      // Redirect to country list if updating country wasn't existed
       if ($brand_model == null || count($brand_model) == 0) {
           return redirect()->intended('/mnt/brand_model');
       }
