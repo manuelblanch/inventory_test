@@ -61,14 +61,6 @@ Route::get('/test/datepicker', function () {
     return view('datepicker');
 });
 
-Route::get('news', ['as' => 'news.index', 'uses' => 'NewsController@index']);
-Route::get('news/add', ['as' => 'news.create', 'uses' => 'NewsController@create']);
-Route::post('news/store', ['as' => 'news.store', 'uses' => 'NewsController@store']);
-Route::get('news/edit/{id}', ['as' => 'news.edit', 'uses' => 'NewsController@edit']);
-Route::patch('news/update/{id}', ['as' => 'news.update', 'uses' => 'NewsController@update']);
-Route::delete('news/delete/{id}', ['as' => 'news.destroy', 'uses' => 'NewsController@destroy']);
-Route::get('news/{slug}', ['as' => 'news.show', 'uses' => 'NewsController@show']);
-
 Route::resource('system-management/country', 'CountryController');
 Route::post('system-management/country/search', 'CountryController@search')->name('country.search');
 

@@ -77,7 +77,7 @@ class ProviderController extends Controller
     public function edit($id)
     {
         $provider = Provider::find($id);
-      // Redirect to country list if updating country wasn't existed
+
       if ($provider == null || count($provider) == 0) {
           return redirect()->intended('/mnt/provider');
       }
@@ -156,7 +156,7 @@ class ProviderController extends Controller
     {
         $this->validate($request, [
         'name'      => 'required|max:60|unique:provider',
-        'shortName' => 'required|max:6|unique:provider',
+        'shortName' => 'required|max:4|unique:provider',
     ]);
     }
 }
