@@ -61,9 +61,6 @@ Route::get('/test/datepicker', function () {
     return view('datepicker');
 });
 
-Route::resource('system-management/country', 'CountryController');
-Route::post('system-management/country/search', 'CountryController@search')->name('country.search');
-
 Route:: get('dashboard', function () {
     return view('dashboard');
 });
@@ -96,9 +93,6 @@ Route::get('auth/{provider}/callback', 'Auth\SocialAuthController@handleProvider
 
 Route::get('app/public/', 'InventoryController@load');
 
-Route::get('mnt/blog', 'PostsController@index');
-Route::resource('posts', 'PostsController');
-
 Route::get('mnt-export', 'ExportController@index');
 Route::post('mnt-export/search', 'ExportController@search')->name('export.search');
 Route::post('mnt-export/excel', 'ExportController@exportExcel')->name('export.excel');
@@ -109,6 +103,5 @@ Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('tasks', 'DashboardController@tasks')->name('tasks');
 
 Route::group(['middleware' => 'web'], function () {
-    Route::get('/vuejscrud', 'BlogController@vueCrud');
-    Route::resource('vueitems', 'BlogController');
+    
 });
