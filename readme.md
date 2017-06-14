@@ -16,7 +16,9 @@ Inventari es una aplicació framework que serveix per a poder inventariar object
 
 En una carpeta procedim a clonar el repositori
 
-```git clone https://github.com/manuelblanch/inventory_test
+```
+git clone https://github.com/manuelblanch/inventory_test
+
 ```
 
 -Accedir per terminal i realitzar un composer update desde la carpeta inventory_test, s’instal·laran tots els elements que estan inclosos en el composer.json la carpeta vendor, aquesta carpeta conte tot el programari necessari per a que l'alicació funcioni.
