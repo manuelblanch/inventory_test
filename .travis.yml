@@ -1,35 +1,33 @@
 language: php
 
 php:
-  - 5.6
   - 7.0
-  - 7.1
-
-# This triggers builds to run on the new TravisCI infrastructure.
-# See: http://docs.travis-ci.com/user/workers/container-based-infrastructure/
-sudo: false
-
-## Cache composer
-cache:
-  directories:
-    - $HOME/.composer/cache
-
-matrix:
-  include:
-    - php: 5.6
-      env: 'COMPOSER_FLAGS="--prefer-stable --prefer-lowest"'
 
 before_script:
-  - travis_retry composer self-update
-  - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
+  - phpenv config-rm xdebug.ini
+  - cp .env.travis .env
+  - composer self-update
+  - composer install --no-interaction
+  - php artisan key:generate
+  - php artisan migrate
+  - rm -rf ~/.nvm && git clone https://github.com/manuelblanch/inventory_test.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION
+  - npm install --global gulp-cli
+  - npm install
+  - gulp --production
+
+before_install:
+  - mysql -e 'CREATE DATABASE travis;'
 
 script:
-  - vendor/bin/phpcs --standard=psr2 src/
-  - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
+  - phpdbg -qrr vendor/bin/phpunit --coverage-clover=coverage.xml
 
-after_script:
-  - |
-    if [[ "$TRAVIS_PHP_VERSION" != 'hhvm' && "$TRAVIS_PHP_VERSION" != '7.0' ]]; then
-      wget https://scrutinizer-ci.com/ocular.phar
-      php ocular.phar code-coverage:upload --format=php-clover coverage.clover
-    fi
+services:
+  - mysql
+
+cache:
+  directories:
+    - node_modules
+    - vendor
+
+env:
+  - TRAVIS_NODE_VERSION="4"
