@@ -30,14 +30,6 @@ Crear la base de dades inventory mitjançant algun administrador de bases de dad
 
 Accedim per terminal a la carpeta inventory_test, en aquesta carpeta esta tot els arxius necessaris de l'aplicació per al correcte funcionament.
 
--## Taula de continguts
-
-- [Instal·lació/Actualització](#instal·lació/actualitzacio)
-- [Setup](#setup)
-- [Llicencia](#llicencia)
-- [Enllaços](#enllaços)
-
-
 ## Instal·lació/Actualització
 
 Accedir per terminal i realitzar un php artisan key:generate.
@@ -48,10 +40,29 @@ php artisan key:generate
 
 ```
 Application key [xxxxxxx] set successfully.
+```
+Haurem de configurar el fitxer .env, pero abans copiem el fitxer .env.example i el renombrem a .env
+
+```
+APP_ENV=local
+APP_KEY=
+APP_DEBUG=true
+APP_LOG_LEVEL=debug
+APP_URL=http://localhost
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravelu
+DB_USERNAME=root
+DB_PASSWORD=''
+```
+Introduirem les nostres dades de configuració.
+
+
 
 ```
 php artisan migrate
-
 ```
 
 
