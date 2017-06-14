@@ -74,9 +74,9 @@ class Material_TypeController extends Controller
     public function edit($id)
     {
         $material_type = Material_type::find($id);
-      if ($material_type == null || count($material_type) == 0) {
-          return redirect()->intended('/mnt/material_type');
-      }
+        if ($material_type == null || count($material_type) == 0) {
+            return redirect()->intended('/mnt/material_type');
+        }
 
         return view('manteniments/material_type/edit', ['material_type' => $material_type]);
     }

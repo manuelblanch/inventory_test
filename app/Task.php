@@ -1,7 +1,10 @@
 <?php
+
 namespace App;
+
 use App\Events\TaskCreated;
 use Illuminate\Database\Eloquent\Model;
+
 class Task extends Model
 {
     use RecordsActivity;
@@ -11,8 +14,9 @@ class Task extends Model
      * @var array
      */
     protected $events = [
-        'created' => TaskCreated::class
+        'created' => TaskCreated::class,
     ];
+
     /**
      * A task belongs to a creator.
      *
@@ -23,5 +27,3 @@ class Task extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 }
-
-  

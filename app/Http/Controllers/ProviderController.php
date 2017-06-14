@@ -78,9 +78,9 @@ class ProviderController extends Controller
     {
         $provider = Provider::find($id);
 
-      if ($provider == null || count($provider) == 0) {
-          return redirect()->intended('/mnt/provider');
-      }
+        if ($provider == null || count($provider) == 0) {
+            return redirect()->intended('/mnt/provider');
+        }
 
         return view('manteniments/providers/edit', ['provider' => $provider]);
     }

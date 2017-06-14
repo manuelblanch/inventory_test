@@ -8,252 +8,316 @@ class __TwigTemplate_8e6218bd36f7b76d195624c2a59ca3e927beb46975683a269365c81ec62
         parent::__construct($env);
 
         // line 1
-        $this->parent = $this->loadTemplate("layout/layout.twig", "class.twig", 1);
-        $this->blocks = array(
-            'title' => array($this, 'block_title'),
-            'body_class' => array($this, 'block_body_class'),
-            'page_id' => array($this, 'block_page_id'),
-            'below_menu' => array($this, 'block_below_menu'),
-            'page_content' => array($this, 'block_page_content'),
-            'class_signature' => array($this, 'block_class_signature'),
-            'method_signature' => array($this, 'block_method_signature'),
-            'method_parameters_signature' => array($this, 'block_method_parameters_signature'),
-            'parameters' => array($this, 'block_parameters'),
-            'return' => array($this, 'block_return'),
-            'exceptions' => array($this, 'block_exceptions'),
-            'see' => array($this, 'block_see'),
-            'constants' => array($this, 'block_constants'),
-            'properties' => array($this, 'block_properties'),
-            'methods' => array($this, 'block_methods'),
-            'methods_details' => array($this, 'block_methods_details'),
-            'method' => array($this, 'block_method'),
-        );
+        $this->parent = $this->loadTemplate('layout/layout.twig', 'class.twig', 1);
+        $this->blocks = [
+            'title'                       => [$this, 'block_title'],
+            'body_class'                  => [$this, 'block_body_class'],
+            'page_id'                     => [$this, 'block_page_id'],
+            'below_menu'                  => [$this, 'block_below_menu'],
+            'page_content'                => [$this, 'block_page_content'],
+            'class_signature'             => [$this, 'block_class_signature'],
+            'method_signature'            => [$this, 'block_method_signature'],
+            'method_parameters_signature' => [$this, 'block_method_parameters_signature'],
+            'parameters'                  => [$this, 'block_parameters'],
+            'return'                      => [$this, 'block_return'],
+            'exceptions'                  => [$this, 'block_exceptions'],
+            'see'                         => [$this, 'block_see'],
+            'constants'                   => [$this, 'block_constants'],
+            'properties'                  => [$this, 'block_properties'],
+            'methods'                     => [$this, 'block_methods'],
+            'methods_details'             => [$this, 'block_methods_details'],
+            'method'                      => [$this, 'block_method'],
+        ];
     }
 
     protected function doGetParent(array $context)
     {
-        return "layout/layout.twig";
+        return 'layout/layout.twig';
     }
 
-    protected function doDisplay(array $context, array $blocks = array())
+    protected function doDisplay(array $context, array $blocks = [])
     {
         // line 2
-        $context["__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67"] = $this->loadTemplate("macros.twig", "class.twig", 2);
+        $context['__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67'] = $this->loadTemplate('macros.twig', 'class.twig', 2);
         // line 1
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
     // line 3
-    public function block_title($context, array $blocks = array())
+    public function block_title($context, array $blocks = [])
     {
-        echo (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 3, $this->getSourceContext()); })());
-        echo " | ";
-        $this->displayParentBlock("title", $context, $blocks);
+        echo isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+            throw new Twig_Error_Runtime('Variable "class" does not exist.', 3, $this->getSourceContext());
+        })();
+        echo ' | ';
+        $this->displayParentBlock('title', $context, $blocks);
     }
 
     // line 4
-    public function block_body_class($context, array $blocks = array())
+    public function block_body_class($context, array $blocks = [])
     {
-        echo "class";
+        echo 'class';
     }
 
     // line 5
-    public function block_page_id($context, array $blocks = array())
+    public function block_page_id($context, array $blocks = [])
     {
-        echo twig_escape_filter($this->env, ("class:" . twig_replace_filter(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 5, $this->getSourceContext()); })()), "name", array()), array("\\" => "_"))), "html", null, true);
+        echo twig_escape_filter($this->env, ('class:'.twig_replace_filter(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+            throw new Twig_Error_Runtime('Variable "class" does not exist.', 5, $this->getSourceContext());
+        })()), 'name', []), ['\\' => '_'])), 'html', null, true);
     }
 
     // line 7
-    public function block_below_menu($context, array $blocks = array())
+    public function block_below_menu($context, array $blocks = [])
     {
         // line 8
-        echo "    ";
-        if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 8, $this->getSourceContext()); })()), "namespace", array())) {
+        echo '    ';
+        if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+            throw new Twig_Error_Runtime('Variable "class" does not exist.', 8, $this->getSourceContext());
+        })()), 'namespace', [])) {
             // line 9
-            echo "        <div class=\"namespace-breadcrumbs\">
-            <ol class=\"breadcrumb\">
-                <li><span class=\"label label-default\">";
+            echo '        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">';
             // line 11
-            echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 11, $this->getSourceContext()); })()), "categoryName", array());
-            echo "</span></li>
-                ";
+            echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+                throw new Twig_Error_Runtime('Variable "class" does not exist.', 11, $this->getSourceContext());
+            })()), 'categoryName', []);
+            echo '</span></li>
+                ';
             // line 12
-            echo $context["__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67"]->macro_breadcrumbs(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 12, $this->getSourceContext()); })()), "namespace", array()));
+            echo $context['__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67']->macro_breadcrumbs(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+                throw new Twig_Error_Runtime('Variable "class" does not exist.', 12, $this->getSourceContext());
+            })()), 'namespace', []));
             // line 13
-            echo "<li>";
-            echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 13, $this->getSourceContext()); })()), "shortname", array());
-            echo "</li>
+            echo '<li>';
+            echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+                throw new Twig_Error_Runtime('Variable "class" does not exist.', 13, $this->getSourceContext());
+            })()), 'shortname', []);
+            echo '</li>
             </ol>
         </div>
-    ";
+    ';
         }
     }
 
     // line 19
-    public function block_page_content($context, array $blocks = array())
+    public function block_page_content($context, array $blocks = [])
     {
         // line 20
-        echo "
-    <div class=\"page-header\">
+        echo '
+    <div class="page-header">
         <h1>
-            ";
+            ';
         // line 23
-        echo twig_last($this->env, twig_split_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 23, $this->getSourceContext()); })()), "name", array()), "\\"));
-        echo "
-            ";
+        echo twig_last($this->env, twig_split_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+            throw new Twig_Error_Runtime('Variable "class" does not exist.', 23, $this->getSourceContext());
+        })()), 'name', []), '\\'));
+        echo '
+            ';
         // line 24
-        echo $context["__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67"]->macro_deprecated((isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 24, $this->getSourceContext()); })()));
-        echo "
+        echo $context['__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67']->macro_deprecated((isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+            throw new Twig_Error_Runtime('Variable "class" does not exist.', 24, $this->getSourceContext());
+        })()));
+        echo '
         </h1>
     </div>
 
-    <p>";
+    <p>';
         // line 28
-        $this->displayBlock("class_signature", $context, $blocks);
-        echo "</p>
+        $this->displayBlock('class_signature', $context, $blocks);
+        echo '</p>
 
-    ";
+    ';
         // line 30
-        echo $context["__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67"]->macro_deprecations((isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 30, $this->getSourceContext()); })()));
-        echo "
+        echo $context['__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67']->macro_deprecations((isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+            throw new Twig_Error_Runtime('Variable "class" does not exist.', 30, $this->getSourceContext());
+        })()));
+        echo '
 
-    ";
+    ';
         // line 32
-        if ((twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 32, $this->getSourceContext()); })()), "shortdesc", array()) || twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 32, $this->getSourceContext()); })()), "longdesc", array()))) {
+        if ((twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+            throw new Twig_Error_Runtime('Variable "class" does not exist.', 32, $this->getSourceContext());
+        })()), 'shortdesc', []) || twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+            throw new Twig_Error_Runtime('Variable "class" does not exist.', 32, $this->getSourceContext());
+        })()), 'longdesc', []))) {
             // line 33
-            echo "        <div class=\"description\">
-            ";
+            echo '        <div class="description">
+            ';
             // line 34
-            if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 34, $this->getSourceContext()); })()), "shortdesc", array())) {
+            if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+                throw new Twig_Error_Runtime('Variable "class" does not exist.', 34, $this->getSourceContext());
+            })()), 'shortdesc', [])) {
                 // line 35
-                echo "<p>";
-                echo $this->env->getExtension('Sami\Renderer\TwigExtension')->parseDesc($context, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 35, $this->getSourceContext()); })()), "shortdesc", array()), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 35, $this->getSourceContext()); })()));
-                echo "</p>";
+                echo '<p>';
+                echo $this->env->getExtension('Sami\Renderer\TwigExtension')->parseDesc($context, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+                    throw new Twig_Error_Runtime('Variable "class" does not exist.', 35, $this->getSourceContext());
+                })()), 'shortdesc', []), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+                    throw new Twig_Error_Runtime('Variable "class" does not exist.', 35, $this->getSourceContext());
+                })()));
+                echo '</p>';
             }
             // line 37
-            echo "            ";
-            if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 37, $this->getSourceContext()); })()), "longdesc", array())) {
+            echo '            ';
+            if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+                throw new Twig_Error_Runtime('Variable "class" does not exist.', 37, $this->getSourceContext());
+            })()), 'longdesc', [])) {
                 // line 38
-                echo "<p>";
-                echo $this->env->getExtension('Sami\Renderer\TwigExtension')->parseDesc($context, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 38, $this->getSourceContext()); })()), "longdesc", array()), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 38, $this->getSourceContext()); })()));
-                echo "</p>";
+                echo '<p>';
+                echo $this->env->getExtension('Sami\Renderer\TwigExtension')->parseDesc($context, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+                    throw new Twig_Error_Runtime('Variable "class" does not exist.', 38, $this->getSourceContext());
+                })()), 'longdesc', []), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+                    throw new Twig_Error_Runtime('Variable "class" does not exist.', 38, $this->getSourceContext());
+                })()));
+                echo '</p>';
             }
             // line 40
-            echo "            ";
-            if ((twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["project"]) || array_key_exists("project", $context) ? $context["project"] : (function () { throw new Twig_Error_Runtime('Variable "project" does not exist.', 40, $this->getSourceContext()); })()), "config", array(0 => "insert_todos"), "method") == true)) {
+            echo '            ';
+            if ((twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['project']) || array_key_exists('project', $context) ? $context['project'] : (function () {
+                throw new Twig_Error_Runtime('Variable "project" does not exist.', 40, $this->getSourceContext());
+            })()), 'config', [0 => 'insert_todos'], 'method') == true)) {
                 // line 41
-                echo "                ";
-                echo $context["__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67"]->macro_todos((isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 41, $this->getSourceContext()); })()));
-                echo "
-            ";
+                echo '                ';
+                echo $context['__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67']->macro_todos((isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+                    throw new Twig_Error_Runtime('Variable "class" does not exist.', 41, $this->getSourceContext());
+                })()));
+                echo '
+            ';
             }
             // line 43
-            echo "        </div>
-    ";
+            echo '        </div>
+    ';
         }
         // line 45
-        echo "
-    ";
+        echo '
+    ';
         // line 46
-        if ((isset($context["traits"]) || array_key_exists("traits", $context) ? $context["traits"] : (function () { throw new Twig_Error_Runtime('Variable "traits" does not exist.', 46, $this->getSourceContext()); })())) {
+        if ((isset($context['traits']) || array_key_exists('traits', $context) ? $context['traits'] : (function () {
+            throw new Twig_Error_Runtime('Variable "traits" does not exist.', 46, $this->getSourceContext());
+        })())) {
             // line 47
-            echo "        <h2>Traits</h2>
+            echo '        <h2>Traits</h2>
 
-        ";
+        ';
             // line 49
-            echo $context["__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67"]->macro_render_classes((isset($context["traits"]) || array_key_exists("traits", $context) ? $context["traits"] : (function () { throw new Twig_Error_Runtime('Variable "traits" does not exist.', 49, $this->getSourceContext()); })()));
-            echo "
-    ";
+            echo $context['__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67']->macro_render_classes((isset($context['traits']) || array_key_exists('traits', $context) ? $context['traits'] : (function () {
+                throw new Twig_Error_Runtime('Variable "traits" does not exist.', 49, $this->getSourceContext());
+            })()));
+            echo '
+    ';
         }
         // line 51
-        echo "
-    ";
+        echo '
+    ';
         // line 52
-        if ((isset($context["constants"]) || array_key_exists("constants", $context) ? $context["constants"] : (function () { throw new Twig_Error_Runtime('Variable "constants" does not exist.', 52, $this->getSourceContext()); })())) {
+        if ((isset($context['constants']) || array_key_exists('constants', $context) ? $context['constants'] : (function () {
+            throw new Twig_Error_Runtime('Variable "constants" does not exist.', 52, $this->getSourceContext());
+        })())) {
             // line 53
-            echo "        <h2>Constants</h2>
+            echo '        <h2>Constants</h2>
 
-        ";
+        ';
             // line 55
-            $this->displayBlock("constants", $context, $blocks);
-            echo "
-    ";
+            $this->displayBlock('constants', $context, $blocks);
+            echo '
+    ';
         }
         // line 57
-        echo "
-    ";
+        echo '
+    ';
         // line 58
-        if ((isset($context["properties"]) || array_key_exists("properties", $context) ? $context["properties"] : (function () { throw new Twig_Error_Runtime('Variable "properties" does not exist.', 58, $this->getSourceContext()); })())) {
+        if ((isset($context['properties']) || array_key_exists('properties', $context) ? $context['properties'] : (function () {
+            throw new Twig_Error_Runtime('Variable "properties" does not exist.', 58, $this->getSourceContext());
+        })())) {
             // line 59
-            echo "        <h2>Properties</h2>
+            echo '        <h2>Properties</h2>
 
-        ";
+        ';
             // line 61
-            $this->displayBlock("properties", $context, $blocks);
-            echo "
-    ";
+            $this->displayBlock('properties', $context, $blocks);
+            echo '
+    ';
         }
         // line 63
-        echo "
-    ";
+        echo '
+    ';
         // line 64
-        if ((isset($context["methods"]) || array_key_exists("methods", $context) ? $context["methods"] : (function () { throw new Twig_Error_Runtime('Variable "methods" does not exist.', 64, $this->getSourceContext()); })())) {
+        if ((isset($context['methods']) || array_key_exists('methods', $context) ? $context['methods'] : (function () {
+            throw new Twig_Error_Runtime('Variable "methods" does not exist.', 64, $this->getSourceContext());
+        })())) {
             // line 65
-            echo "        <h2>Methods</h2>
+            echo '        <h2>Methods</h2>
 
-        ";
+        ';
             // line 67
-            $this->displayBlock("methods", $context, $blocks);
-            echo "
+            $this->displayBlock('methods', $context, $blocks);
+            echo '
 
         <h2>Details</h2>
 
-        ";
+        ';
             // line 71
-            $this->displayBlock("methods_details", $context, $blocks);
-            echo "
-    ";
+            $this->displayBlock('methods_details', $context, $blocks);
+            echo '
+    ';
         }
         // line 73
-        echo "
-";
+        echo '
+';
     }
 
     // line 76
-    public function block_class_signature($context, array $blocks = array())
+    public function block_class_signature($context, array $blocks = [])
     {
         // line 77
-        if (( !twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 77, $this->getSourceContext()); })()), "interface", array()) && twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 77, $this->getSourceContext()); })()), "abstract", array()))) {
-            echo "abstract ";
+        if ((!twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+            throw new Twig_Error_Runtime('Variable "class" does not exist.', 77, $this->getSourceContext());
+        })()), 'interface', []) && twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+            throw new Twig_Error_Runtime('Variable "class" does not exist.', 77, $this->getSourceContext());
+        })()), 'abstract', []))) {
+            echo 'abstract ';
         }
         // line 78
-        echo "    ";
-        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 78, $this->getSourceContext()); })()), "categoryName", array());
-        echo "
-    <strong>";
+        echo '    ';
+        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+            throw new Twig_Error_Runtime('Variable "class" does not exist.', 78, $this->getSourceContext());
+        })()), 'categoryName', []);
+        echo '
+    <strong>';
         // line 79
-        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 79, $this->getSourceContext()); })()), "shortname", array());
-        echo "</strong>";
+        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+            throw new Twig_Error_Runtime('Variable "class" does not exist.', 79, $this->getSourceContext());
+        })()), 'shortname', []);
+        echo '</strong>';
         // line 80
-        if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 80, $this->getSourceContext()); })()), "parent", array())) {
+        if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+            throw new Twig_Error_Runtime('Variable "class" does not exist.', 80, $this->getSourceContext());
+        })()), 'parent', [])) {
             // line 81
-            echo "        extends ";
-            echo $context["__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67"]->macro_class_link(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 81, $this->getSourceContext()); })()), "parent", array()));
+            echo '        extends ';
+            echo $context['__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67']->macro_class_link(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+                throw new Twig_Error_Runtime('Variable "class" does not exist.', 81, $this->getSourceContext());
+            })()), 'parent', []));
         }
         // line 83
-        if ((twig_length_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 83, $this->getSourceContext()); })()), "interfaces", array())) > 0)) {
+        if ((twig_length_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+            throw new Twig_Error_Runtime('Variable "class" does not exist.', 83, $this->getSourceContext());
+        })()), 'interfaces', [])) > 0)) {
             // line 84
-            echo "        implements
-        ";
+            echo '        implements
+        ';
             // line 85
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 85, $this->getSourceContext()); })()), "interfaces", array()));
-            $context['loop'] = array(
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+                throw new Twig_Error_Runtime('Variable "class" does not exist.', 85, $this->getSourceContext());
+            })()), 'interfaces', []));
+            $context['loop'] = [
               'parent' => $context['_parent'],
               'index0' => 0,
               'index'  => 1,
               'first'  => true,
-            );
+            ];
             if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof Countable)) {
                 $length = count($context['_seq']);
                 $context['loop']['revindex0'] = $length - 1;
@@ -261,12 +325,12 @@ class __TwigTemplate_8e6218bd36f7b76d195624c2a59ca3e927beb46975683a269365c81ec62
                 $context['loop']['length'] = $length;
                 $context['loop']['last'] = 1 === $length;
             }
-            foreach ($context['_seq'] as $context["_key"] => $context["interface"]) {
+            foreach ($context['_seq'] as $context['_key'] => $context['interface']) {
                 // line 86
-                echo $context["__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67"]->macro_class_link($context["interface"]);
+                echo $context['__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67']->macro_class_link($context['interface']);
                 // line 87
-                if ( !twig_get_attribute($this->env, $this->getSourceContext(), $context["loop"], "last", array())) {
-                    echo ", ";
+                if (!twig_get_attribute($this->env, $this->getSourceContext(), $context['loop'], 'last', [])) {
+                    echo ', ';
                 }
                 ++$context['loop']['index0'];
                 ++$context['loop']['index'];
@@ -282,297 +346,349 @@ class __TwigTemplate_8e6218bd36f7b76d195624c2a59ca3e927beb46975683a269365c81ec62
             $context = array_intersect_key($context, $_parent) + $_parent;
         }
         // line 90
-        echo $context["__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67"]->macro_source_link((isset($context["project"]) || array_key_exists("project", $context) ? $context["project"] : (function () { throw new Twig_Error_Runtime('Variable "project" does not exist.', 90, $this->getSourceContext()); })()), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 90, $this->getSourceContext()); })()));
-        echo "
-";
+        echo $context['__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67']->macro_source_link((isset($context['project']) || array_key_exists('project', $context) ? $context['project'] : (function () {
+            throw new Twig_Error_Runtime('Variable "project" does not exist.', 90, $this->getSourceContext());
+        })()), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+            throw new Twig_Error_Runtime('Variable "class" does not exist.', 90, $this->getSourceContext());
+        })()));
+        echo '
+';
     }
 
     // line 93
-    public function block_method_signature($context, array $blocks = array())
+    public function block_method_signature($context, array $blocks = [])
     {
         // line 94
-        if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 94, $this->getSourceContext()); })()), "final", array())) {
-            echo "final";
+        if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 94, $this->getSourceContext());
+        })()), 'final', [])) {
+            echo 'final';
         }
         // line 95
-        echo "    ";
-        if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 95, $this->getSourceContext()); })()), "abstract", array())) {
-            echo "abstract";
+        echo '    ';
+        if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 95, $this->getSourceContext());
+        })()), 'abstract', [])) {
+            echo 'abstract';
         }
         // line 96
-        echo "    ";
-        if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 96, $this->getSourceContext()); })()), "static", array())) {
-            echo "static";
+        echo '    ';
+        if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 96, $this->getSourceContext());
+        })()), 'static', [])) {
+            echo 'static';
         }
         // line 97
-        echo "    ";
-        if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 97, $this->getSourceContext()); })()), "protected", array())) {
-            echo "protected";
+        echo '    ';
+        if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 97, $this->getSourceContext());
+        })()), 'protected', [])) {
+            echo 'protected';
         }
         // line 98
-        echo "    ";
-        if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 98, $this->getSourceContext()); })()), "private", array())) {
-            echo "private";
+        echo '    ';
+        if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 98, $this->getSourceContext());
+        })()), 'private', [])) {
+            echo 'private';
         }
         // line 99
-        echo "    ";
-        echo $context["__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67"]->macro_hint_link(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 99, $this->getSourceContext()); })()), "hint", array()));
-        echo "
-    <strong>";
+        echo '    ';
+        echo $context['__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67']->macro_hint_link(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 99, $this->getSourceContext());
+        })()), 'hint', []));
+        echo '
+    <strong>';
         // line 100
-        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 100, $this->getSourceContext()); })()), "name", array());
-        echo "</strong>";
-        $this->displayBlock("method_parameters_signature", $context, $blocks);
+        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 100, $this->getSourceContext());
+        })()), 'name', []);
+        echo '</strong>';
+        $this->displayBlock('method_parameters_signature', $context, $blocks);
     }
 
     // line 103
-    public function block_method_parameters_signature($context, array $blocks = array())
+    public function block_method_parameters_signature($context, array $blocks = [])
     {
         // line 104
-        $context["__internal_c9c28cb834a3373f3127f2d83e59227aedc813670ce7e9d0b4aacf4bdfa4a3b1"] = $this->loadTemplate("macros.twig", "class.twig", 104);
+        $context['__internal_c9c28cb834a3373f3127f2d83e59227aedc813670ce7e9d0b4aacf4bdfa4a3b1'] = $this->loadTemplate('macros.twig', 'class.twig', 104);
         // line 105
-        echo $context["__internal_c9c28cb834a3373f3127f2d83e59227aedc813670ce7e9d0b4aacf4bdfa4a3b1"]->macro_method_parameters_signature((isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 105, $this->getSourceContext()); })()));
-        echo "
-    ";
+        echo $context['__internal_c9c28cb834a3373f3127f2d83e59227aedc813670ce7e9d0b4aacf4bdfa4a3b1']->macro_method_parameters_signature((isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 105, $this->getSourceContext());
+        })()));
+        echo '
+    ';
         // line 106
-        echo $context["__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67"]->macro_deprecated((isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 106, $this->getSourceContext()); })()));
+        echo $context['__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67']->macro_deprecated((isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 106, $this->getSourceContext());
+        })()));
     }
 
     // line 109
-    public function block_parameters($context, array $blocks = array())
+    public function block_parameters($context, array $blocks = [])
     {
         // line 110
-        echo "    <table class=\"table table-condensed\">
-        ";
+        echo '    <table class="table table-condensed">
+        ';
         // line 111
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 111, $this->getSourceContext()); })()), "parameters", array()));
-        foreach ($context['_seq'] as $context["_key"] => $context["parameter"]) {
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 111, $this->getSourceContext());
+        })()), 'parameters', []));
+        foreach ($context['_seq'] as $context['_key'] => $context['parameter']) {
             // line 112
-            echo "            <tr>
-                <td>";
+            echo '            <tr>
+                <td>';
             // line 113
-            if (twig_get_attribute($this->env, $this->getSourceContext(), $context["parameter"], "hint", array())) {
-                echo $context["__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67"]->macro_hint_link(twig_get_attribute($this->env, $this->getSourceContext(), $context["parameter"], "hint", array()));
+            if (twig_get_attribute($this->env, $this->getSourceContext(), $context['parameter'], 'hint', [])) {
+                echo $context['__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67']->macro_hint_link(twig_get_attribute($this->env, $this->getSourceContext(), $context['parameter'], 'hint', []));
             }
-            echo "</td>
-                <td>\$";
+            echo '</td>
+                <td>$';
             // line 114
-            echo twig_get_attribute($this->env, $this->getSourceContext(), $context["parameter"], "name", array());
-            echo "</td>
-                <td>";
+            echo twig_get_attribute($this->env, $this->getSourceContext(), $context['parameter'], 'name', []);
+            echo '</td>
+                <td>';
             // line 115
-            echo $this->env->getExtension('Sami\Renderer\TwigExtension')->parseDesc($context, twig_get_attribute($this->env, $this->getSourceContext(), $context["parameter"], "shortdesc", array()), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 115, $this->getSourceContext()); })()));
-            echo "</td>
+            echo $this->env->getExtension('Sami\Renderer\TwigExtension')->parseDesc($context, twig_get_attribute($this->env, $this->getSourceContext(), $context['parameter'], 'shortdesc', []), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+                throw new Twig_Error_Runtime('Variable "class" does not exist.', 115, $this->getSourceContext());
+            })()));
+            echo '</td>
             </tr>
-        ";
+        ';
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['parameter'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 118
-        echo "    </table>
-";
+        echo '    </table>
+';
     }
 
     // line 121
-    public function block_return($context, array $blocks = array())
+    public function block_return($context, array $blocks = [])
     {
         // line 122
-        echo "    <table class=\"table table-condensed\">
+        echo '    <table class="table table-condensed">
         <tr>
-            <td>";
+            <td>';
         // line 124
-        echo $context["__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67"]->macro_hint_link(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 124, $this->getSourceContext()); })()), "hint", array()));
-        echo "</td>
-            <td>";
+        echo $context['__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67']->macro_hint_link(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 124, $this->getSourceContext());
+        })()), 'hint', []));
+        echo '</td>
+            <td>';
         // line 125
-        echo $this->env->getExtension('Sami\Renderer\TwigExtension')->parseDesc($context, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 125, $this->getSourceContext()); })()), "hintDesc", array()), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 125, $this->getSourceContext()); })()));
-        echo "</td>
+        echo $this->env->getExtension('Sami\Renderer\TwigExtension')->parseDesc($context, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 125, $this->getSourceContext());
+        })()), 'hintDesc', []), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+            throw new Twig_Error_Runtime('Variable "class" does not exist.', 125, $this->getSourceContext());
+        })()));
+        echo '</td>
         </tr>
     </table>
-";
+';
     }
 
     // line 130
-    public function block_exceptions($context, array $blocks = array())
+    public function block_exceptions($context, array $blocks = [])
     {
         // line 131
-        echo "    <table class=\"table table-condensed\">
-        ";
+        echo '    <table class="table table-condensed">
+        ';
         // line 132
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 132, $this->getSourceContext()); })()), "exceptions", array()));
-        foreach ($context['_seq'] as $context["_key"] => $context["exception"]) {
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 132, $this->getSourceContext());
+        })()), 'exceptions', []));
+        foreach ($context['_seq'] as $context['_key'] => $context['exception']) {
             // line 133
-            echo "            <tr>
-                <td>";
+            echo '            <tr>
+                <td>';
             // line 134
-            echo $context["__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67"]->macro_class_link(twig_get_attribute($this->env, $this->getSourceContext(), $context["exception"], 0, array(), "array"));
-            echo "</td>
-                <td>";
+            echo $context['__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67']->macro_class_link(twig_get_attribute($this->env, $this->getSourceContext(), $context['exception'], 0, [], 'array'));
+            echo '</td>
+                <td>';
             // line 135
-            echo $this->env->getExtension('Sami\Renderer\TwigExtension')->parseDesc($context, twig_get_attribute($this->env, $this->getSourceContext(), $context["exception"], 1, array(), "array"), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 135, $this->getSourceContext()); })()));
-            echo "</td>
+            echo $this->env->getExtension('Sami\Renderer\TwigExtension')->parseDesc($context, twig_get_attribute($this->env, $this->getSourceContext(), $context['exception'], 1, [], 'array'), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+                throw new Twig_Error_Runtime('Variable "class" does not exist.', 135, $this->getSourceContext());
+            })()));
+            echo '</td>
             </tr>
-        ";
+        ';
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['exception'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 138
-        echo "    </table>
-";
+        echo '    </table>
+';
     }
 
     // line 141
-    public function block_see($context, array $blocks = array())
+    public function block_see($context, array $blocks = [])
     {
         // line 142
-        echo "    <table class=\"table table-condensed\">
-        ";
+        echo '    <table class="table table-condensed">
+        ';
         // line 143
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 143, $this->getSourceContext()); })()), "tags", array(0 => "see"), "method"));
-        foreach ($context['_seq'] as $context["_key"] => $context["tag"]) {
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 143, $this->getSourceContext());
+        })()), 'tags', [0 => 'see'], 'method'));
+        foreach ($context['_seq'] as $context['_key'] => $context['tag']) {
             // line 144
-            echo "            <tr>
-                <td>";
+            echo '            <tr>
+                <td>';
             // line 145
-            echo twig_get_attribute($this->env, $this->getSourceContext(), $context["tag"], 0, array(), "array");
-            echo "</td>
-                <td>";
+            echo twig_get_attribute($this->env, $this->getSourceContext(), $context['tag'], 0, [], 'array');
+            echo '</td>
+                <td>';
             // line 146
-            echo twig_join_filter(twig_slice($this->env, $context["tag"], 1, null), " ");
-            echo "</td>
+            echo twig_join_filter(twig_slice($this->env, $context['tag'], 1, null), ' ');
+            echo '</td>
             </tr>
-        ";
+        ';
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['tag'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 149
-        echo "    </table>
-";
+        echo '    </table>
+';
     }
 
     // line 152
-    public function block_constants($context, array $blocks = array())
+    public function block_constants($context, array $blocks = [])
     {
         // line 153
-        echo "    <table class=\"table table-condensed\">
-        ";
+        echo '    <table class="table table-condensed">
+        ';
         // line 154
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["constants"]) || array_key_exists("constants", $context) ? $context["constants"] : (function () { throw new Twig_Error_Runtime('Variable "constants" does not exist.', 154, $this->getSourceContext()); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["constant"]) {
+        $context['_seq'] = twig_ensure_traversable((isset($context['constants']) || array_key_exists('constants', $context) ? $context['constants'] : (function () {
+            throw new Twig_Error_Runtime('Variable "constants" does not exist.', 154, $this->getSourceContext());
+        })()));
+        foreach ($context['_seq'] as $context['_key'] => $context['constant']) {
             // line 155
-            echo "            <tr>
-                <td>";
+            echo '            <tr>
+                <td>';
             // line 156
-            echo twig_get_attribute($this->env, $this->getSourceContext(), $context["constant"], "name", array());
-            echo "</td>
-                <td class=\"last\">
-                    <p><em>";
+            echo twig_get_attribute($this->env, $this->getSourceContext(), $context['constant'], 'name', []);
+            echo '</td>
+                <td class="last">
+                    <p><em>';
             // line 158
-            echo $this->env->getExtension('Sami\Renderer\TwigExtension')->parseDesc($context, twig_get_attribute($this->env, $this->getSourceContext(), $context["constant"], "shortdesc", array()), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 158, $this->getSourceContext()); })()));
-            echo "</em></p>
-                    <p>";
+            echo $this->env->getExtension('Sami\Renderer\TwigExtension')->parseDesc($context, twig_get_attribute($this->env, $this->getSourceContext(), $context['constant'], 'shortdesc', []), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+                throw new Twig_Error_Runtime('Variable "class" does not exist.', 158, $this->getSourceContext());
+            })()));
+            echo '</em></p>
+                    <p>';
             // line 159
-            echo $this->env->getExtension('Sami\Renderer\TwigExtension')->parseDesc($context, twig_get_attribute($this->env, $this->getSourceContext(), $context["constant"], "longdesc", array()), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 159, $this->getSourceContext()); })()));
-            echo "</p>
+            echo $this->env->getExtension('Sami\Renderer\TwigExtension')->parseDesc($context, twig_get_attribute($this->env, $this->getSourceContext(), $context['constant'], 'longdesc', []), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+                throw new Twig_Error_Runtime('Variable "class" does not exist.', 159, $this->getSourceContext());
+            })()));
+            echo '</p>
                 </td>
             </tr>
-        ";
+        ';
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['constant'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 163
-        echo "    </table>
-";
+        echo '    </table>
+';
     }
 
     // line 166
-    public function block_properties($context, array $blocks = array())
+    public function block_properties($context, array $blocks = [])
     {
         // line 167
-        echo "    <table class=\"table table-condensed\">
-        ";
+        echo '    <table class="table table-condensed">
+        ';
         // line 168
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["properties"]) || array_key_exists("properties", $context) ? $context["properties"] : (function () { throw new Twig_Error_Runtime('Variable "properties" does not exist.', 168, $this->getSourceContext()); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["property"]) {
+        $context['_seq'] = twig_ensure_traversable((isset($context['properties']) || array_key_exists('properties', $context) ? $context['properties'] : (function () {
+            throw new Twig_Error_Runtime('Variable "properties" does not exist.', 168, $this->getSourceContext());
+        })()));
+        foreach ($context['_seq'] as $context['_key'] => $context['property']) {
             // line 169
-            echo "            <tr>
-                <td class=\"type\" id=\"property_";
+            echo '            <tr>
+                <td class="type" id="property_';
             // line 170
-            echo twig_get_attribute($this->env, $this->getSourceContext(), $context["property"], "name", array());
-            echo "\">
-                    ";
+            echo twig_get_attribute($this->env, $this->getSourceContext(), $context['property'], 'name', []);
+            echo '">
+                    ';
             // line 171
-            if (twig_get_attribute($this->env, $this->getSourceContext(), $context["property"], "static", array())) {
-                echo "static";
+            if (twig_get_attribute($this->env, $this->getSourceContext(), $context['property'], 'static', [])) {
+                echo 'static';
             }
             // line 172
-            echo "                    ";
-            if (twig_get_attribute($this->env, $this->getSourceContext(), $context["property"], "protected", array())) {
-                echo "protected";
+            echo '                    ';
+            if (twig_get_attribute($this->env, $this->getSourceContext(), $context['property'], 'protected', [])) {
+                echo 'protected';
             }
             // line 173
-            echo "                    ";
-            if (twig_get_attribute($this->env, $this->getSourceContext(), $context["property"], "private", array())) {
-                echo "private";
+            echo '                    ';
+            if (twig_get_attribute($this->env, $this->getSourceContext(), $context['property'], 'private', [])) {
+                echo 'private';
             }
             // line 174
-            echo "                    ";
-            echo $context["__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67"]->macro_hint_link(twig_get_attribute($this->env, $this->getSourceContext(), $context["property"], "hint", array()));
-            echo "
+            echo '                    ';
+            echo $context['__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67']->macro_hint_link(twig_get_attribute($this->env, $this->getSourceContext(), $context['property'], 'hint', []));
+            echo '
                 </td>
-                <td>\$";
+                <td>$';
             // line 176
-            echo twig_get_attribute($this->env, $this->getSourceContext(), $context["property"], "name", array());
-            echo "</td>
-                <td class=\"last\">";
+            echo twig_get_attribute($this->env, $this->getSourceContext(), $context['property'], 'name', []);
+            echo '</td>
+                <td class="last">';
             // line 177
-            echo $this->env->getExtension('Sami\Renderer\TwigExtension')->parseDesc($context, twig_get_attribute($this->env, $this->getSourceContext(), $context["property"], "shortdesc", array()), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 177, $this->getSourceContext()); })()));
-            echo "</td>
-                <td>";
+            echo $this->env->getExtension('Sami\Renderer\TwigExtension')->parseDesc($context, twig_get_attribute($this->env, $this->getSourceContext(), $context['property'], 'shortdesc', []), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+                throw new Twig_Error_Runtime('Variable "class" does not exist.', 177, $this->getSourceContext());
+            })()));
+            echo '</td>
+                <td>';
             // line 179
-            if ( !(twig_get_attribute($this->env, $this->getSourceContext(), $context["property"], "class", array()) === (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 179, $this->getSourceContext()); })()))) {
+            if (!(twig_get_attribute($this->env, $this->getSourceContext(), $context['property'], 'class', []) === (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+                throw new Twig_Error_Runtime('Variable "class" does not exist.', 179, $this->getSourceContext());
+            })()))) {
                 // line 180
-                echo "<small>from&nbsp;";
-                echo $context["__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67"]->macro_property_link($context["property"], false, true);
-                echo "</small>";
+                echo '<small>from&nbsp;';
+                echo $context['__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67']->macro_property_link($context['property'], false, true);
+                echo '</small>';
             }
             // line 182
-            echo "</td>
+            echo '</td>
             </tr>
-        ";
+        ';
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['property'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 185
-        echo "    </table>
-";
+        echo '    </table>
+';
     }
 
     // line 188
-    public function block_methods($context, array $blocks = array())
+    public function block_methods($context, array $blocks = [])
     {
         // line 189
-        echo "    <div class=\"container-fluid underlined\">
-        ";
+        echo '    <div class="container-fluid underlined">
+        ';
         // line 190
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["methods"]) || array_key_exists("methods", $context) ? $context["methods"] : (function () { throw new Twig_Error_Runtime('Variable "methods" does not exist.', 190, $this->getSourceContext()); })()));
-        $context['loop'] = array(
+        $context['_seq'] = twig_ensure_traversable((isset($context['methods']) || array_key_exists('methods', $context) ? $context['methods'] : (function () {
+            throw new Twig_Error_Runtime('Variable "methods" does not exist.', 190, $this->getSourceContext());
+        })()));
+        $context['loop'] = [
           'parent' => $context['_parent'],
           'index0' => 0,
           'index'  => 1,
           'first'  => true,
-        );
+        ];
         if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof Countable)) {
             $length = count($context['_seq']);
             $context['loop']['revindex0'] = $length - 1;
@@ -580,53 +696,57 @@ class __TwigTemplate_8e6218bd36f7b76d195624c2a59ca3e927beb46975683a269365c81ec62
             $context['loop']['length'] = $length;
             $context['loop']['last'] = 1 === $length;
         }
-        foreach ($context['_seq'] as $context["_key"] => $context["method"]) {
+        foreach ($context['_seq'] as $context['_key'] => $context['method']) {
             // line 191
-            echo "            <div class=\"row\">
-                <div class=\"col-md-2 type\">
-                    ";
+            echo '            <div class="row">
+                <div class="col-md-2 type">
+                    ';
             // line 193
-            if (twig_get_attribute($this->env, $this->getSourceContext(), $context["method"], "static", array())) {
-                echo "static&nbsp;";
+            if (twig_get_attribute($this->env, $this->getSourceContext(), $context['method'], 'static', [])) {
+                echo 'static&nbsp;';
             }
-            echo $context["__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67"]->macro_hint_link(twig_get_attribute($this->env, $this->getSourceContext(), $context["method"], "hint", array()));
-            echo "
+            echo $context['__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67']->macro_hint_link(twig_get_attribute($this->env, $this->getSourceContext(), $context['method'], 'hint', []));
+            echo '
                 </div>
-                <div class=\"col-md-8 type\">
-                    <a href=\"#method_";
+                <div class="col-md-8 type">
+                    <a href="#method_';
             // line 196
-            echo twig_get_attribute($this->env, $this->getSourceContext(), $context["method"], "name", array());
-            echo "\">";
-            echo twig_get_attribute($this->env, $this->getSourceContext(), $context["method"], "name", array());
-            echo "</a>";
-            $this->displayBlock("method_parameters_signature", $context, $blocks);
-            echo "
-                    ";
+            echo twig_get_attribute($this->env, $this->getSourceContext(), $context['method'], 'name', []);
+            echo '">';
+            echo twig_get_attribute($this->env, $this->getSourceContext(), $context['method'], 'name', []);
+            echo '</a>';
+            $this->displayBlock('method_parameters_signature', $context, $blocks);
+            echo '
+                    ';
             // line 197
-            if ( !twig_get_attribute($this->env, $this->getSourceContext(), $context["method"], "shortdesc", array())) {
+            if (!twig_get_attribute($this->env, $this->getSourceContext(), $context['method'], 'shortdesc', [])) {
                 // line 198
-                echo "                        <p class=\"no-description\">No description</p>
-                    ";
+                echo '                        <p class="no-description">No description</p>
+                    ';
             } else {
                 // line 200
-                echo "                        <p>";
-                echo $this->env->getExtension('Sami\Renderer\TwigExtension')->parseDesc($context, twig_get_attribute($this->env, $this->getSourceContext(), $context["method"], "shortdesc", array()), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 200, $this->getSourceContext()); })()));
-                echo "</p>";
+                echo '                        <p>';
+                echo $this->env->getExtension('Sami\Renderer\TwigExtension')->parseDesc($context, twig_get_attribute($this->env, $this->getSourceContext(), $context['method'], 'shortdesc', []), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+                    throw new Twig_Error_Runtime('Variable "class" does not exist.', 200, $this->getSourceContext());
+                })()));
+                echo '</p>';
             }
             // line 202
-            echo "                </div>
-                <div class=\"col-md-2\">";
+            echo '                </div>
+                <div class="col-md-2">';
             // line 204
-            if ( !(twig_get_attribute($this->env, $this->getSourceContext(), $context["method"], "class", array()) === (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 204, $this->getSourceContext()); })()))) {
+            if (!(twig_get_attribute($this->env, $this->getSourceContext(), $context['method'], 'class', []) === (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+                throw new Twig_Error_Runtime('Variable "class" does not exist.', 204, $this->getSourceContext());
+            })()))) {
                 // line 205
-                echo "<small>from&nbsp;";
-                echo $context["__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67"]->macro_method_link($context["method"], false, true);
-                echo "</small>";
+                echo '<small>from&nbsp;';
+                echo $context['__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67']->macro_method_link($context['method'], false, true);
+                echo '</small>';
             }
             // line 207
-            echo "</div>
+            echo '</div>
             </div>
-        ";
+        ';
             ++$context['loop']['index0'];
             ++$context['loop']['index'];
             $context['loop']['first'] = false;
@@ -640,25 +760,27 @@ class __TwigTemplate_8e6218bd36f7b76d195624c2a59ca3e927beb46975683a269365c81ec62
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['method'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 210
-        echo "    </div>
-";
+        echo '    </div>
+';
     }
 
     // line 213
-    public function block_methods_details($context, array $blocks = array())
+    public function block_methods_details($context, array $blocks = [])
     {
         // line 214
-        echo "    <div id=\"method-details\">
-        ";
+        echo '    <div id="method-details">
+        ';
         // line 215
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["methods"]) || array_key_exists("methods", $context) ? $context["methods"] : (function () { throw new Twig_Error_Runtime('Variable "methods" does not exist.', 215, $this->getSourceContext()); })()));
-        $context['loop'] = array(
+        $context['_seq'] = twig_ensure_traversable((isset($context['methods']) || array_key_exists('methods', $context) ? $context['methods'] : (function () {
+            throw new Twig_Error_Runtime('Variable "methods" does not exist.', 215, $this->getSourceContext());
+        })()));
+        $context['loop'] = [
           'parent' => $context['_parent'],
           'index0' => 0,
           'index'  => 1,
           'first'  => true,
-        );
+        ];
         if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof Countable)) {
             $length = count($context['_seq']);
             $context['loop']['revindex0'] = $length - 1;
@@ -666,15 +788,15 @@ class __TwigTemplate_8e6218bd36f7b76d195624c2a59ca3e927beb46975683a269365c81ec62
             $context['loop']['length'] = $length;
             $context['loop']['last'] = 1 === $length;
         }
-        foreach ($context['_seq'] as $context["_key"] => $context["method"]) {
+        foreach ($context['_seq'] as $context['_key'] => $context['method']) {
             // line 216
-            echo "            <div class=\"method-item\">
-                ";
+            echo '            <div class="method-item">
+                ';
             // line 217
-            $this->displayBlock("method", $context, $blocks);
-            echo "
+            $this->displayBlock('method', $context, $blocks);
+            echo '
             </div>
-        ";
+        ';
             ++$context['loop']['index0'];
             ++$context['loop']['index'];
             $context['loop']['first'] = false;
@@ -688,145 +810,191 @@ class __TwigTemplate_8e6218bd36f7b76d195624c2a59ca3e927beb46975683a269365c81ec62
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['method'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 220
-        echo "    </div>
-";
+        echo '    </div>
+';
     }
 
     // line 223
-    public function block_method($context, array $blocks = array())
+    public function block_method($context, array $blocks = [])
     {
         // line 224
-        echo "    <h3 id=\"method_";
-        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 224, $this->getSourceContext()); })()), "name", array());
-        echo "\">
-        <div class=\"location\">";
+        echo '    <h3 id="method_';
+        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 224, $this->getSourceContext());
+        })()), 'name', []);
+        echo '">
+        <div class="location">';
         // line 225
-        if ( !(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 225, $this->getSourceContext()); })()), "class", array()) === (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 225, $this->getSourceContext()); })()))) {
-            echo "in ";
-            echo $context["__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67"]->macro_method_link((isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 225, $this->getSourceContext()); })()), false, true);
-            echo " ";
+        if (!(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 225, $this->getSourceContext());
+        })()), 'class', []) === (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+            throw new Twig_Error_Runtime('Variable "class" does not exist.', 225, $this->getSourceContext());
+        })()))) {
+            echo 'in ';
+            echo $context['__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67']->macro_method_link((isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+                throw new Twig_Error_Runtime('Variable "method" does not exist.', 225, $this->getSourceContext());
+            })()), false, true);
+            echo ' ';
         }
-        echo "at ";
-        echo $context["__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67"]->macro_method_source_link((isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 225, $this->getSourceContext()); })()));
-        echo "</div>
-        <code>";
+        echo 'at ';
+        echo $context['__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67']->macro_method_source_link((isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 225, $this->getSourceContext());
+        })()));
+        echo '</div>
+        <code>';
         // line 226
-        $this->displayBlock("method_signature", $context, $blocks);
-        echo "</code>
+        $this->displayBlock('method_signature', $context, $blocks);
+        echo '</code>
     </h3>
-    <div class=\"details\">
-        ";
+    <div class="details">
+        ';
         // line 229
-        echo $context["__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67"]->macro_deprecations((isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 229, $this->getSourceContext()); })()));
-        echo "
+        echo $context['__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67']->macro_deprecations((isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 229, $this->getSourceContext());
+        })()));
+        echo '
 
-        ";
+        ';
         // line 231
-        if ((twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 231, $this->getSourceContext()); })()), "shortdesc", array()) || twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 231, $this->getSourceContext()); })()), "longdesc", array()))) {
+        if ((twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 231, $this->getSourceContext());
+        })()), 'shortdesc', []) || twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 231, $this->getSourceContext());
+        })()), 'longdesc', []))) {
             // line 232
-            echo "            <div class=\"method-description\">
-                ";
+            echo '            <div class="method-description">
+                ';
             // line 233
-            if (( !twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 233, $this->getSourceContext()); })()), "shortdesc", array()) &&  !twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 233, $this->getSourceContext()); })()), "longdesc", array()))) {
+            if ((!twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+                throw new Twig_Error_Runtime('Variable "method" does not exist.', 233, $this->getSourceContext());
+            })()), 'shortdesc', []) && !twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+                throw new Twig_Error_Runtime('Variable "method" does not exist.', 233, $this->getSourceContext());
+            })()), 'longdesc', []))) {
                 // line 234
-                echo "                    <p class=\"no-description\">No description</p>
-                ";
+                echo '                    <p class="no-description">No description</p>
+                ';
             } else {
                 // line 236
-                echo "                    ";
-                if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 236, $this->getSourceContext()); })()), "shortdesc", array())) {
+                echo '                    ';
+                if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+                    throw new Twig_Error_Runtime('Variable "method" does not exist.', 236, $this->getSourceContext());
+                })()), 'shortdesc', [])) {
                     // line 237
-                    echo "<p>";
-                    echo $this->env->getExtension('Sami\Renderer\TwigExtension')->parseDesc($context, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 237, $this->getSourceContext()); })()), "shortdesc", array()), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 237, $this->getSourceContext()); })()));
-                    echo "</p>";
+                    echo '<p>';
+                    echo $this->env->getExtension('Sami\Renderer\TwigExtension')->parseDesc($context, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+                        throw new Twig_Error_Runtime('Variable "method" does not exist.', 237, $this->getSourceContext());
+                    })()), 'shortdesc', []), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+                        throw new Twig_Error_Runtime('Variable "class" does not exist.', 237, $this->getSourceContext());
+                    })()));
+                    echo '</p>';
                 }
                 // line 239
-                echo "                    ";
-                if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 239, $this->getSourceContext()); })()), "longdesc", array())) {
+                echo '                    ';
+                if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+                    throw new Twig_Error_Runtime('Variable "method" does not exist.', 239, $this->getSourceContext());
+                })()), 'longdesc', [])) {
                     // line 240
-                    echo "<p>";
-                    echo $this->env->getExtension('Sami\Renderer\TwigExtension')->parseDesc($context, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 240, $this->getSourceContext()); })()), "longdesc", array()), (isset($context["class"]) || array_key_exists("class", $context) ? $context["class"] : (function () { throw new Twig_Error_Runtime('Variable "class" does not exist.', 240, $this->getSourceContext()); })()));
-                    echo "</p>";
+                    echo '<p>';
+                    echo $this->env->getExtension('Sami\Renderer\TwigExtension')->parseDesc($context, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+                        throw new Twig_Error_Runtime('Variable "method" does not exist.', 240, $this->getSourceContext());
+                    })()), 'longdesc', []), (isset($context['class']) || array_key_exists('class', $context) ? $context['class'] : (function () {
+                        throw new Twig_Error_Runtime('Variable "class" does not exist.', 240, $this->getSourceContext());
+                    })()));
+                    echo '</p>';
                 }
             }
             // line 243
-            echo "                ";
-            if ((twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["project"]) || array_key_exists("project", $context) ? $context["project"] : (function () { throw new Twig_Error_Runtime('Variable "project" does not exist.', 243, $this->getSourceContext()); })()), "config", array(0 => "insert_todos"), "method") == true)) {
+            echo '                ';
+            if ((twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['project']) || array_key_exists('project', $context) ? $context['project'] : (function () {
+                throw new Twig_Error_Runtime('Variable "project" does not exist.', 243, $this->getSourceContext());
+            })()), 'config', [0 => 'insert_todos'], 'method') == true)) {
                 // line 244
-                echo "                    ";
-                echo $context["__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67"]->macro_todos((isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 244, $this->getSourceContext()); })()));
-                echo "
-                ";
+                echo '                    ';
+                echo $context['__internal_1650be1b7837ead49e8e1b03252a53b95875105499c23585aa6a216a70804e67']->macro_todos((isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+                    throw new Twig_Error_Runtime('Variable "method" does not exist.', 244, $this->getSourceContext());
+                })()));
+                echo '
+                ';
             }
             // line 246
-            echo "            </div>
-        ";
+            echo '            </div>
+        ';
         }
         // line 248
-        echo "        <div class=\"tags\">
-            ";
+        echo '        <div class="tags">
+            ';
         // line 249
-        if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 249, $this->getSourceContext()); })()), "parameters", array())) {
+        if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 249, $this->getSourceContext());
+        })()), 'parameters', [])) {
             // line 250
-            echo "                <h4>Parameters</h4>
+            echo '                <h4>Parameters</h4>
 
-                ";
+                ';
             // line 252
-            $this->displayBlock("parameters", $context, $blocks);
-            echo "
-            ";
+            $this->displayBlock('parameters', $context, $blocks);
+            echo '
+            ';
         }
         // line 254
-        echo "
-            ";
+        echo '
+            ';
         // line 255
-        if ((twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 255, $this->getSourceContext()); })()), "hintDesc", array()) || twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 255, $this->getSourceContext()); })()), "hint", array()))) {
+        if ((twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 255, $this->getSourceContext());
+        })()), 'hintDesc', []) || twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 255, $this->getSourceContext());
+        })()), 'hint', []))) {
             // line 256
-            echo "                <h4>Return Value</h4>
+            echo '                <h4>Return Value</h4>
 
-                ";
+                ';
             // line 258
-            $this->displayBlock("return", $context, $blocks);
-            echo "
-            ";
+            $this->displayBlock('return', $context, $blocks);
+            echo '
+            ';
         }
         // line 260
-        echo "
-            ";
+        echo '
+            ';
         // line 261
-        if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 261, $this->getSourceContext()); })()), "exceptions", array())) {
+        if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 261, $this->getSourceContext());
+        })()), 'exceptions', [])) {
             // line 262
-            echo "                <h4>Exceptions</h4>
+            echo '                <h4>Exceptions</h4>
 
-                ";
+                ';
             // line 264
-            $this->displayBlock("exceptions", $context, $blocks);
-            echo "
-            ";
+            $this->displayBlock('exceptions', $context, $blocks);
+            echo '
+            ';
         }
         // line 266
-        echo "
-            ";
+        echo '
+            ';
         // line 267
-        if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["method"]) || array_key_exists("method", $context) ? $context["method"] : (function () { throw new Twig_Error_Runtime('Variable "method" does not exist.', 267, $this->getSourceContext()); })()), "tags", array(0 => "see"), "method")) {
+        if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['method']) || array_key_exists('method', $context) ? $context['method'] : (function () {
+            throw new Twig_Error_Runtime('Variable "method" does not exist.', 267, $this->getSourceContext());
+        })()), 'tags', [0 => 'see'], 'method')) {
             // line 268
-            echo "                <h4>See also</h4>
+            echo '                <h4>See also</h4>
 
-                ";
+                ';
             // line 270
-            $this->displayBlock("see", $context, $blocks);
-            echo "
-            ";
+            $this->displayBlock('see', $context, $blocks);
+            echo '
+            ';
         }
         // line 272
-        echo "        </div>
+        echo '        </div>
     </div>
-";
+';
     }
 
     public function getTemplateName()
     {
-        return "class.twig";
+        return 'class.twig';
     }
 
     public function isTraitable()
@@ -836,7 +1004,7 @@ class __TwigTemplate_8e6218bd36f7b76d195624c2a59ca3e927beb46975683a269365c81ec62
 
     public function getDebugInfo()
     {
-        return array (  822 => 272,  817 => 270,  813 => 268,  811 => 267,  808 => 266,  803 => 264,  799 => 262,  797 => 261,  794 => 260,  789 => 258,  785 => 256,  783 => 255,  780 => 254,  775 => 252,  771 => 250,  769 => 249,  766 => 248,  762 => 246,  756 => 244,  753 => 243,  747 => 240,  744 => 239,  739 => 237,  736 => 236,  732 => 234,  730 => 233,  727 => 232,  725 => 231,  720 => 229,  714 => 226,  704 => 225,  699 => 224,  696 => 223,  691 => 220,  674 => 217,  671 => 216,  654 => 215,  651 => 214,  648 => 213,  643 => 210,  627 => 207,  622 => 205,  620 => 204,  617 => 202,  612 => 200,  608 => 198,  606 => 197,  598 => 196,  589 => 193,  585 => 191,  568 => 190,  565 => 189,  562 => 188,  557 => 185,  549 => 182,  544 => 180,  542 => 179,  538 => 177,  534 => 176,  528 => 174,  523 => 173,  518 => 172,  514 => 171,  510 => 170,  507 => 169,  503 => 168,  500 => 167,  497 => 166,  492 => 163,  482 => 159,  478 => 158,  473 => 156,  470 => 155,  466 => 154,  463 => 153,  460 => 152,  455 => 149,  446 => 146,  442 => 145,  439 => 144,  435 => 143,  432 => 142,  429 => 141,  424 => 138,  415 => 135,  411 => 134,  408 => 133,  404 => 132,  401 => 131,  398 => 130,  390 => 125,  386 => 124,  382 => 122,  379 => 121,  374 => 118,  365 => 115,  361 => 114,  355 => 113,  352 => 112,  348 => 111,  345 => 110,  342 => 109,  338 => 106,  334 => 105,  332 => 104,  329 => 103,  323 => 100,  318 => 99,  313 => 98,  308 => 97,  303 => 96,  298 => 95,  294 => 94,  291 => 93,  285 => 90,  268 => 87,  266 => 86,  249 => 85,  246 => 84,  244 => 83,  240 => 81,  238 => 80,  235 => 79,  230 => 78,  226 => 77,  223 => 76,  218 => 73,  213 => 71,  206 => 67,  202 => 65,  200 => 64,  197 => 63,  192 => 61,  188 => 59,  186 => 58,  183 => 57,  178 => 55,  174 => 53,  172 => 52,  169 => 51,  164 => 49,  160 => 47,  158 => 46,  155 => 45,  151 => 43,  145 => 41,  142 => 40,  137 => 38,  134 => 37,  129 => 35,  127 => 34,  124 => 33,  122 => 32,  117 => 30,  112 => 28,  105 => 24,  101 => 23,  96 => 20,  93 => 19,  83 => 13,  81 => 12,  77 => 11,  73 => 9,  70 => 8,  67 => 7,  61 => 5,  55 => 4,  47 => 3,  43 => 1,  41 => 2,  11 => 1,);
+        return [822 => 272,  817 => 270,  813 => 268,  811 => 267,  808 => 266,  803 => 264,  799 => 262,  797 => 261,  794 => 260,  789 => 258,  785 => 256,  783 => 255,  780 => 254,  775 => 252,  771 => 250,  769 => 249,  766 => 248,  762 => 246,  756 => 244,  753 => 243,  747 => 240,  744 => 239,  739 => 237,  736 => 236,  732 => 234,  730 => 233,  727 => 232,  725 => 231,  720 => 229,  714 => 226,  704 => 225,  699 => 224,  696 => 223,  691 => 220,  674 => 217,  671 => 216,  654 => 215,  651 => 214,  648 => 213,  643 => 210,  627 => 207,  622 => 205,  620 => 204,  617 => 202,  612 => 200,  608 => 198,  606 => 197,  598 => 196,  589 => 193,  585 => 191,  568 => 190,  565 => 189,  562 => 188,  557 => 185,  549 => 182,  544 => 180,  542 => 179,  538 => 177,  534 => 176,  528 => 174,  523 => 173,  518 => 172,  514 => 171,  510 => 170,  507 => 169,  503 => 168,  500 => 167,  497 => 166,  492 => 163,  482 => 159,  478 => 158,  473 => 156,  470 => 155,  466 => 154,  463 => 153,  460 => 152,  455 => 149,  446 => 146,  442 => 145,  439 => 144,  435 => 143,  432 => 142,  429 => 141,  424 => 138,  415 => 135,  411 => 134,  408 => 133,  404 => 132,  401 => 131,  398 => 130,  390 => 125,  386 => 124,  382 => 122,  379 => 121,  374 => 118,  365 => 115,  361 => 114,  355 => 113,  352 => 112,  348 => 111,  345 => 110,  342 => 109,  338 => 106,  334 => 105,  332 => 104,  329 => 103,  323 => 100,  318 => 99,  313 => 98,  308 => 97,  303 => 96,  298 => 95,  294 => 94,  291 => 93,  285 => 90,  268 => 87,  266 => 86,  249 => 85,  246 => 84,  244 => 83,  240 => 81,  238 => 80,  235 => 79,  230 => 78,  226 => 77,  223 => 76,  218 => 73,  213 => 71,  206 => 67,  202 => 65,  200 => 64,  197 => 63,  192 => 61,  188 => 59,  186 => 58,  183 => 57,  178 => 55,  174 => 53,  172 => 52,  169 => 51,  164 => 49,  160 => 47,  158 => 46,  155 => 45,  151 => 43,  145 => 41,  142 => 40,  137 => 38,  134 => 37,  129 => 35,  127 => 34,  124 => 33,  122 => 32,  117 => 30,  112 => 28,  105 => 24,  101 => 23,  96 => 20,  93 => 19,  83 => 13,  81 => 12,  77 => 11,  73 => 9,  70 => 8,  67 => 7,  61 => 5,  55 => 4,  47 => 3,  43 => 1,  41 => 2,  11 => 1];
     }
 
     public function getSourceContext()
@@ -1115,6 +1283,6 @@ class __TwigTemplate_8e6218bd36f7b76d195624c2a59ca3e927beb46975683a269365c81ec62
         </div>
     </div>
 {% endblock %}
-", "class.twig", "phar:///home/manuel/Code/scool/inventory_test/sami.phar/Sami/Resources/themes/default/class.twig");
+", 'class.twig', 'phar:///home/manuel/Code/scool/inventory_test/sami.phar/Sami/Resources/themes/default/class.twig');
     }
 }

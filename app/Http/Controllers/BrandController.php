@@ -77,9 +77,9 @@ class BrandController extends Controller
     public function edit($id)
     {
         $brand = Brand::find($id);
-      if ($brand == null || count($brand) == 0) {
-          return redirect()->intended('/mnt/brand');
-      }
+        if ($brand == null || count($brand) == 0) {
+            return redirect()->intended('/mnt/brand');
+        }
 
         return view('manteniments/brand/edit', ['brand' => $brand]);
     }

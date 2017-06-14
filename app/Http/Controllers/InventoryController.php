@@ -41,7 +41,7 @@ class InventoryController extends Controller
         ->leftJoin('provider', 'inventories.provider_id', '=', 'provider.id')
         ->select('inventories.*', 'material_type.name as material_type_name', 'material_type.id as material_type_id', 'brand.name as brand_name', 'brand.id as brand_id',
         'brand_model.name as brand_model_name', 'brand_model.id as model_id', 'location.name as location_name', 'location.id as location_id',
-        'moneySource.name as moneySource_name', 'moneySource.id as moneySourceId','provider.name as provider_name', 'provider.id as provider_id')
+        'moneySource.name as moneySource_name', 'moneySource.id as moneySourceId', 'provider.name as provider_name', 'provider.id as provider_id')
         ->paginate(5);
 
         return view('inventory/index', ['inventories' => $inventories]);
@@ -121,7 +121,7 @@ class InventoryController extends Controller
         $providers = Provider::all();
 
         return view('inventory/edit', ['inventory' => $inventory, 'material_types' => $material_types, 'brands' => $brands,  'brand_models' => $brand_models,
-        'moneySources' => $moneySources,'locations'=> $locations, 'providers' => $providers, ]);
+        'moneySources'                             => $moneySources, 'locations'=> $locations, 'providers' => $providers, ]);
     }
 
     /**
@@ -214,18 +214,18 @@ class InventoryController extends Controller
     private function validateInput($request)
     {
         $this->validate($request, [
-            'name'        => 'required|max:60',
-            'description' => 'required|max:300',
+            'name'             => 'required|max:60',
+            'description'      => 'required|max:300',
             'material_type_id' => 'required|max:60',
-            'brand_id' => 'required',
-            'model_id' => 'required',
-            'location_id' => 'required',
-            'quantity' => 'required',
-            'price' => 'required',
-            'moneysourceId' => 'required',
-            'provider_id' => 'required',
-            'date_entrance' => 'required',
-            'last_update' => 'required'
+            'brand_id'         => 'required',
+            'model_id'         => 'required',
+            'location_id'      => 'required',
+            'quantity'         => 'required',
+            'price'            => 'required',
+            'moneysourceId'    => 'required',
+            'provider_id'      => 'required',
+            'date_entrance'    => 'required',
+            'last_update'      => 'required',
 
         ]);
     }

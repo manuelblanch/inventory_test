@@ -77,9 +77,9 @@ class MoneySourceController extends Controller
     public function edit($id)
     {
         $moneySource = MoneySource::find($id);
-      if ($moneySource == null || count($moneySource) == 0) {
-          return redirect()->intended('/mnt/moneySource');
-      }
+        if ($moneySource == null || count($moneySource) == 0) {
+            return redirect()->intended('/mnt/moneySource');
+        }
 
         return view('manteniments/moneySource/edit', ['moneySource' => $moneySource]);
     }
