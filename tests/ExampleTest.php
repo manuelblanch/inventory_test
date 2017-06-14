@@ -1,6 +1,7 @@
 <?php
 
-
+namespace Tests;
+use Laravel\BrowserKitTesting\TestCase as BaseTestCase;
 class ExampleTest extends TestCase
 {
     /**

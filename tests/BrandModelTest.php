@@ -1,8 +1,10 @@
 <?php
 
 # app/tests/controllers/PostsControllerTest.php
-
-class BrandModelTest extends TestCase {
+namespace Tests;
+use Laravel\BrowserKitTesting\TestCase as BaseTestCase;
+abstract class BrandModelTest extends TestCase
+ {
 
   public function __construct()
   {
