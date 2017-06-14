@@ -1,33 +1,21 @@
 language: php
 
 php:
+  - 5.6
   - 7.0
-
+  - 7.1
 before_script:
-  - phpenv config-rm xdebug.ini
+  - composer install --prefer-source --no-interaction --dev
   - cp .env.travis .env
-  - composer self-update
-  - composer install --no-interaction
-  - php artisan key:generate
-  - php artisan migrate
-  - rm -rf ~/.nvm && git clone https://github.com/manuelblanch/inventory_test.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION
-  - npm install --global gulp-cli
-  - npm install
-  - gulp --production
+  - touch database/database.sqlite
+  - php artisan migrate && php artisan passport:install
 
-before_install:
-  - mysql -e 'CREATE DATABASE travis;'
+script: phpunit --coverage-text --coverage-clover=coverage.clover
 
-script:
-  - phpdbg -qrr vendor/bin/phpunit --coverage-clover=coverage.xml
 
-services:
-  - mysql
-
-cache:
-  directories:
-    - node_modules
-    - vendor
-
-env:
-  - TRAVIS_NODE_VERSION="4"
+after_script:
+  - |
+    if [[ "$TRAVIS_PHP_VERSION" != 'hhvm' && "$TRAVIS_PHP_VERSION" != '7.0' ]]; then
+      wget https://scrutinizer-ci.com/ocular.phar
+      php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+    fi
