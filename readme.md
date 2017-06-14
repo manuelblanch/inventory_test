@@ -1,7 +1,7 @@
 <p align="center">
 <img src="https://scrutinizer-ci.com/g/manuelblanch/inventory_test/badges/quality-score.png?b=master" alt="Scrutinizer"></a>
 <a href="https://styleci.io/repos/74695706"><img src="https://styleci.io/repos/74695706/shield?branch=master" alt="StyleCI"></a>
-[![Build Status](https://travis-ci.org/manuelblanch/inventory_test.svg?branch=master)](https://travis-ci.org/manuelblanch/inventory_test)
+<a href="https://travis-ci.org/manuelblanch/inventory_test"<img src="https://travis-ci.org/manuelblanch/inventory_test.svg?branch=master" alt="Build Status"></a>
 
 
 </p>
