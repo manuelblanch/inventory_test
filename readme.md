@@ -30,7 +30,7 @@ Crear la base de dades inventory mitjançant algun administrador de bases de dad
 
 Accedim per terminal a la carpeta inventory_test, en aquesta carpeta esta tot els arxius necessaris de l'aplicació per al correcte funcionament.
 
-## Instal·lació/Actualització
+## Setup
 
 Accedir per terminal i realitzar un php artisan key:generate.
 
@@ -59,16 +59,30 @@ DB_PASSWORD=''
 ```
 Introduirem les nostres dades de configuració.
 
-
-
 ```
 php artisan migrate
 ```
 
+```
+Migrating: 2017_05_24_161721_create_inventory_object_table
+Migrated:  2017_05_24_161721_create_inventory_object_table
+Migrating: 2017_05_24_162051_create_brand_type_table
+Migrated:  2017_05_24_162051_create_brand_type_table
+Migrating: 2017_05_24_162058_create_brand_model_table
+Migrated:  2017_05_24_162058_create_brand_model_table
+Migrating: 2017_05_24_163656_create_material_type_table
+Migrated:  2017_05_24_163656_create_material_type_table
+Migrating: 2017_05_24_201201_create_properties_table
+Migrated:  2017_05_24_201201_create_properties_table
+Migrating: 2017_05_27_125740_create_blog_table
+Migrated:  2017_05_27_125740_create_blog_table
+```
+Ja tenim realitzades les migracions i amb això ja s'han creat les taules.
 
-
-## Setup
-
+```
+llum serve
+```
+Ja podem iniciar l'aplicació i registrarnos.
 
 ## License
 
