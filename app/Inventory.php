@@ -12,9 +12,7 @@ class Inventory extends Model
   *
   * @var array
   */
- protected $events = [
-        'created' => InventoryCreated::class
-    ];
+ protected $guarded = array();
 
     /**
      * A task belongs to a creator.
