@@ -23,7 +23,6 @@ En una carpeta procedim a clonar el repositori
 
 -Crear la base de dades inventory mitjançant algun administrador de bases de dades (phpmyadmin).
 
-
 -Accedim per terminal a la carpeta inventory_test, en aquesta carpeta esta tot els arxius necessaris de l'aplicació per al correcte funcionament.
 
 -## Taula de continguts
