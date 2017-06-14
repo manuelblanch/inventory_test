@@ -18,43 +18,43 @@ En una carpeta procedim a clonar el repositori
 
 ```
 git clone https://github.com/manuelblanch/inventory_test
-
 ```
 
--Accedir per terminal i realitzar un composer update desde la carpeta inventory_test, s’instal·laran tots els elements que estan inclosos en el composer.json la carpeta vendor, aquesta carpeta conte tot el programari necessari per a que l'alicació funcioni.
+Accedir per terminal i realitzar un composer install desde la carpeta inventory_test, s’instal·laran tots els elements que estan inclosos en el composer.json i es creara la carpeta vendor, aquesta carpeta conte tot el programari necessari per a que l'alicació funcioni.
 
--Crear la base de dades inventory mitjançant algun administrador de bases de dades (phpmyadmin).
+```
+composer update
+```
 
--Accedim per terminal a la carpeta inventory_test, en aquesta carpeta esta tot els arxius necessaris de l'aplicació per al correcte funcionament.
+Crear la base de dades inventory mitjançant algun administrador de bases de dades (phpmyadmin).
+
+Accedim per terminal a la carpeta inventory_test, en aquesta carpeta esta tot els arxius necessaris de l'aplicació per al correcte funcionament.
 
 -## Taula de continguts
 
-- [Instal·lació/Actualització](#instal·lació-o-actualitzacio)
+- [Instal·lació/Actualització](#instal·lació/actualitzacio)
 - [Setup](#setup)
 - [Llicencia](#llicencia)
 - [Enllaços](#enllaços)
 
 
-## Installation or update
+## Instal·lació/Actualització
 
-Accedir per terminal i realitzar un composer update desde la carpeta inventory_test, s’instal·laran tots els elements a la carpeta vendor.
-
-```
-composer create-project --prefer-dist laravel/laravel myshop
-```
-
-`composer update`
-
+Accedir per terminal i realitzar un php artisan key:generate.
 
 ```
+php artisan key:generate
+```
 
-In the last step you must now execute these artisan commands to get a working
-or updated Aimeos installation:
+```
+Application key [xxxxxxx] set successfully.
 
 ```
 php artisan migrate
 
 ```
+
+
 
 ## Setup
 
