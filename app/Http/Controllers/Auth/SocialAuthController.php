@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Laravel\Socialite\Facades\Socialite;
 
 class SocialAuthController extends Controller
 {
-  public function redirectToProvider()
-      {
-          return Socialite::driver('github')->redirect();
-      }
+    public function redirectToProvider()
+    {
+        return Socialite::driver('github')->redirect();
+    }
 
       /**
        * Obtain the user information from GitHub.
@@ -34,9 +33,10 @@ class SocialAuthController extends Controller
       }
 
       /**
-       * Return user if exists; create and return if doesn't
+       * Return user if exists; create and return if doesn't.
        *
        * @param $githubUser
+       *
        * @return User
        */
       private function findOrCreateUser($githubUser)
@@ -46,10 +46,10 @@ class SocialAuthController extends Controller
           }
 
           return User::create([
-              'name' => $githubUser->name,
-              'email' => $githubUser->email,
+              'name'      => $githubUser->name,
+              'email'     => $githubUser->email,
               'github_id' => $githubUser->id,
-              'avatar' => $githubUser->avatar
+              'avatar'    => $githubUser->avatar,
           ]);
       }
-    }
+}

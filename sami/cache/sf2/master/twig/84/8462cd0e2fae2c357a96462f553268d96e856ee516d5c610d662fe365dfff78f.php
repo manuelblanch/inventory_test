@@ -9,56 +9,76 @@ class __TwigTemplate_43966e3f79fa7452c2ba5fcb88e594d434b16a65078c6a1ed7a677051f5
 
         $this->parent = false;
 
-        $this->blocks = array(
-        );
+        $this->blocks = [
+        ];
     }
 
-    protected function doDisplay(array $context, array $blocks = array())
+    protected function doDisplay(array $context, array $blocks = [])
     {
         // line 1
-        if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["project"]) || array_key_exists("project", $context) ? $context["project"] : (function () { throw new Twig_Error_Runtime('Variable "project" does not exist.', 1, $this->getSourceContext()); })()), "config", array(0 => "base_url"), "method")) {
+        if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['project']) || array_key_exists('project', $context) ? $context['project'] : (function () {
+            throw new Twig_Error_Runtime('Variable "project" does not exist.', 1, $this->getSourceContext());
+        })()), 'config', [0 => 'base_url'], 'method')) {
             // line 2
-            echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-    <OpenSearchDescription xmlns=\"http://a9.com/-/spec/opensearch/1.1/\" xmlns:referrer=\"http://a9.com/-/opensearch/extensions/referrer/\">
-        <ShortName>";
+            echo '<?xml version="1.0" encoding="UTF-8"?>
+    <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:referrer="http://a9.com/-/opensearch/extensions/referrer/">
+        <ShortName>';
             // line 4
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["project"]) || array_key_exists("project", $context) ? $context["project"] : (function () { throw new Twig_Error_Runtime('Variable "project" does not exist.', 4, $this->getSourceContext()); })()), "config", array(0 => "title"), "method"), "html", null, true);
-            echo " (";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["project"]) || array_key_exists("project", $context) ? $context["project"] : (function () { throw new Twig_Error_Runtime('Variable "project" does not exist.', 4, $this->getSourceContext()); })()), "version", array()), "html", null, true);
-            echo ")</ShortName>
-        <Description>Searches ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['project']) || array_key_exists('project', $context) ? $context['project'] : (function () {
+                throw new Twig_Error_Runtime('Variable "project" does not exist.', 4, $this->getSourceContext());
+            })()), 'config', [0 => 'title'], 'method'), 'html', null, true);
+            echo ' (';
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['project']) || array_key_exists('project', $context) ? $context['project'] : (function () {
+                throw new Twig_Error_Runtime('Variable "project" does not exist.', 4, $this->getSourceContext());
+            })()), 'version', []), 'html', null, true);
+            echo ')</ShortName>
+        <Description>Searches ';
             // line 5
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["project"]) || array_key_exists("project", $context) ? $context["project"] : (function () { throw new Twig_Error_Runtime('Variable "project" does not exist.', 5, $this->getSourceContext()); })()), "config", array(0 => "title"), "method"), "html", null, true);
-            echo " (";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["project"]) || array_key_exists("project", $context) ? $context["project"] : (function () { throw new Twig_Error_Runtime('Variable "project" does not exist.', 5, $this->getSourceContext()); })()), "version", array()), "html", null, true);
-            echo ")</Description>
-        <Tags>";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['project']) || array_key_exists('project', $context) ? $context['project'] : (function () {
+                throw new Twig_Error_Runtime('Variable "project" does not exist.', 5, $this->getSourceContext());
+            })()), 'config', [0 => 'title'], 'method'), 'html', null, true);
+            echo ' (';
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['project']) || array_key_exists('project', $context) ? $context['project'] : (function () {
+                throw new Twig_Error_Runtime('Variable "project" does not exist.', 5, $this->getSourceContext());
+            })()), 'version', []), 'html', null, true);
+            echo ')</Description>
+        <Tags>';
             // line 6
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["project"]) || array_key_exists("project", $context) ? $context["project"] : (function () { throw new Twig_Error_Runtime('Variable "project" does not exist.', 6, $this->getSourceContext()); })()), "config", array(0 => "title"), "method"), "html", null, true);
-            echo "</Tags>
-        ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['project']) || array_key_exists('project', $context) ? $context['project'] : (function () {
+                throw new Twig_Error_Runtime('Variable "project" does not exist.', 6, $this->getSourceContext());
+            })()), 'config', [0 => 'title'], 'method'), 'html', null, true);
+            echo '</Tags>
+        ';
             // line 7
-            if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["project"]) || array_key_exists("project", $context) ? $context["project"] : (function () { throw new Twig_Error_Runtime('Variable "project" does not exist.', 7, $this->getSourceContext()); })()), "config", array(0 => "favicon"), "method")) {
+            if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['project']) || array_key_exists('project', $context) ? $context['project'] : (function () {
+                throw new Twig_Error_Runtime('Variable "project" does not exist.', 7, $this->getSourceContext());
+            })()), 'config', [0 => 'favicon'], 'method')) {
                 // line 8
-                echo "<Image height=\"16\" width=\"16\" type=\"image/x-icon\">";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["project"]) || array_key_exists("project", $context) ? $context["project"] : (function () { throw new Twig_Error_Runtime('Variable "project" does not exist.', 8, $this->getSourceContext()); })()), "config", array(0 => "favicon"), "method"), "html", null, true);
-                echo "</Image>
-        ";
+                echo '<Image height="16" width="16" type="image/x-icon">';
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['project']) || array_key_exists('project', $context) ? $context['project'] : (function () {
+                    throw new Twig_Error_Runtime('Variable "project" does not exist.', 8, $this->getSourceContext());
+                })()), 'config', [0 => 'favicon'], 'method'), 'html', null, true);
+                echo '</Image>
+        ';
             }
             // line 10
-            echo "        <Url type=\"text/html\" method=\"GET\" template=\"";
-            echo twig_escape_filter($this->env, (twig_replace_filter(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["project"]) || array_key_exists("project", $context) ? $context["project"] : (function () { throw new Twig_Error_Runtime('Variable "project" does not exist.', 10, $this->getSourceContext()); })()), "config", array(0 => "base_url"), "method"), array("%version%" => twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["project"]) || array_key_exists("project", $context) ? $context["project"] : (function () { throw new Twig_Error_Runtime('Variable "project" does not exist.', 10, $this->getSourceContext()); })()), "version", array()))) . "/index.html?q={searchTerms}&src={referrer:source?}"), "html", null, true);
-            echo "\"/>
+            echo '        <Url type="text/html" method="GET" template="';
+            echo twig_escape_filter($this->env, (twig_replace_filter(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['project']) || array_key_exists('project', $context) ? $context['project'] : (function () {
+                throw new Twig_Error_Runtime('Variable "project" does not exist.', 10, $this->getSourceContext());
+            })()), 'config', [0 => 'base_url'], 'method'), ['%version%' => twig_get_attribute($this->env, $this->getSourceContext(), (isset($context['project']) || array_key_exists('project', $context) ? $context['project'] : (function () {
+                throw new Twig_Error_Runtime('Variable "project" does not exist.', 10, $this->getSourceContext());
+            })()), 'version', [])]).'/index.html?q={searchTerms}&src={referrer:source?}'), 'html', null, true);
+            echo '"/>
         <InputEncoding>UTF-8</InputEncoding>
         <AdultContent>false</AdultContent>
     </OpenSearchDescription>
-";
+';
         }
     }
 
     public function getTemplateName()
     {
-        return "opensearch.twig";
+        return 'opensearch.twig';
     }
 
     public function isTraitable()
@@ -68,7 +88,7 @@ class __TwigTemplate_43966e3f79fa7452c2ba5fcb88e594d434b16a65078c6a1ed7a677051f5
 
     public function getDebugInfo()
     {
-        return array (  49 => 10,  43 => 8,  41 => 7,  37 => 6,  31 => 5,  25 => 4,  21 => 2,  19 => 1,);
+        return [49 => 10,  43 => 8,  41 => 7,  37 => 6,  31 => 5,  25 => 4,  21 => 2,  19 => 1];
     }
 
     public function getSourceContext()
@@ -87,6 +107,6 @@ class __TwigTemplate_43966e3f79fa7452c2ba5fcb88e594d434b16a65078c6a1ed7a677051f5
         <AdultContent>false</AdultContent>
     </OpenSearchDescription>
 {% endif %}
-", "opensearch.twig", "phar:///home/manuel/Code/scool/inventory_test/sami.phar/Sami/Resources/themes/default/opensearch.twig");
+", 'opensearch.twig', 'phar:///home/manuel/Code/scool/inventory_test/sami.phar/Sami/Resources/themes/default/opensearch.twig');
     }
 }

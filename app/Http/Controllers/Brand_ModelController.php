@@ -74,9 +74,9 @@ class Brand_ModelController extends Controller
     public function edit($id)
     {
         $brand_model = Brand_model::find($id);
-      if ($brand_model == null || count($brand_model) == 0) {
-          return redirect()->intended('/mnt/brand_model');
-      }
+        if ($brand_model == null || count($brand_model) == 0) {
+            return redirect()->intended('/mnt/brand_model');
+        }
 
         return view('manteniments/brand_model/edit', ['brand_model' => $brand_model]);
     }

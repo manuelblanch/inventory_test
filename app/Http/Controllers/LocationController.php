@@ -77,9 +77,9 @@ class LocationController extends Controller
     public function edit($id)
     {
         $location = Location::find($id);
-      if ($location == null || count($location) == 0) {
-          return redirect()->intended('/mnt/location');
-      }
+        if ($location == null || count($location) == 0) {
+            return redirect()->intended('/mnt/location');
+        }
 
         return view('manteniments/location/edit', ['location' => $location]);
     }
