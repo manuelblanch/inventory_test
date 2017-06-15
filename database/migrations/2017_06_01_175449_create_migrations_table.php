@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateMigrationsTable extends Migration
 {
@@ -33,14 +33,14 @@ class CreateMigrationsTable extends Migration
             $table->softDeletes();
         });
 
-        Schema::table('inventories', function($table) {
-          $table->foreign('material_type_id')->references('id')->on('material_type')->onDelete('cascade');
-          $table->foreign('brand_id')->references('id')->on('brand')->onDelete('cascade');
-          $table->foreign('model_id')->references('id')->on('brand_model')->onDelete('cascade');
-          $table->foreign('location_id')->references('id')->on('location')->onDelete('cascade');
-          $table->foreign('moneySourceId')->references('id')->on('moneySource')->onDelete('cascade');
-          $table->foreign('provider_id')->references('id')->on('providers')->onDelete('cascade');
-  });
+        Schema::table('inventories', function ($table) {
+            $table->foreign('material_type_id')->references('id')->on('material_type')->onDelete('cascade');
+            $table->foreign('brand_id')->references('id')->on('brand')->onDelete('cascade');
+            $table->foreign('model_id')->references('id')->on('brand_model')->onDelete('cascade');
+            $table->foreign('location_id')->references('id')->on('location')->onDelete('cascade');
+            $table->foreign('moneySourceId')->references('id')->on('moneySource')->onDelete('cascade');
+            $table->foreign('provider_id')->references('id')->on('providers')->onDelete('cascade');
+        });
     }
 
     /**
