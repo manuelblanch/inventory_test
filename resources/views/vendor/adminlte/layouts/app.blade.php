@@ -131,12 +131,12 @@ desired effect
           $('#from').datepicker({
             autoclose: true,
             language: "es",
-            format: 'yyyy-mm-dd'
+            format: 'yyyy/mm/dd'
           });
           $('#to').datepicker({
             autoclose: true,
             language: "es",
-            format: 'yyyy-mm-dd'
+            format: 'yyyy/mm/dd'
           });
       });
   </script>
