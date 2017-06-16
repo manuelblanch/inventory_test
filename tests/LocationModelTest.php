@@ -1,6 +1,9 @@
 <?php
+
 // app/tests/controllers/PostsControllerTest.php
+
 namespace Tests;
+
 abstract class LocationModelTest extends TestCase
 {
     public function __construct()
@@ -8,10 +11,12 @@ abstract class LocationModelTest extends TestCase
         // We have no interest in testing Eloquent
       $this->mock = Mockery::mock('Eloquent', 'Location');
     }
+
     public function tearDown()
     {
         Mockery::close();
     }
+
     public function testIndex()
     {
         $this->mock

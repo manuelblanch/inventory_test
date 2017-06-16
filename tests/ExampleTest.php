@@ -2,11 +2,6 @@
 
 namespace Tests;
 
-use App;
-use Artisan;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Support\Facades\Hash;
-
 class ExampleTest extends TestCase
 {
     /**
