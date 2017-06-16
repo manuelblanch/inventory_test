@@ -1,6 +1,6 @@
 Vue.http.headers.common['X-CSRF-TOKEN'] = $("#token").attr("value");
 new Vue({
-  el : '#manage-vue',
+  el : '#app',
   data : {
     items: [],
     pagination: {

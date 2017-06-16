@@ -40,6 +40,7 @@ desired effect
 
     <title></title>
 </head>
+
 <body class="skin-blue sidebar-mini">
 
 
@@ -70,6 +71,21 @@ desired effect
 </div>
 @section('scripts')
     @include('adminlte::layouts.partials.scripts')
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+    var app5 = new Vue({
+    el: '#app-5',
+    data: {
+      message: 'Hello Vue.js!'
+    },
+    methods: {
+      reverseMessage: function () {
+        this.message = this.message.split('').reverse().join('')
+      }
+    }
+  })
+    </script>
+
 
     <script src="{{asset('/plugins/select2/select2.js')}}"></script>
     <link rel="stylesheet" href="{{asset('/plugins/select2/select2.css')}}">
@@ -140,6 +156,7 @@ desired effect
           });
       });
   </script>
+
 
 @show
 

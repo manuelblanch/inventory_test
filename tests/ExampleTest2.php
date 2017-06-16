@@ -7,7 +7,7 @@ use Artisan;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\Hash;
 
-class ExampleTest extends TestCase
+class ExampleTest2 extends TestCase
 {
     /**
      * A basic functional test example.
