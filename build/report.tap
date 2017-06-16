@@ -1,0 +1,37 @@
+TAP version 13
+not ok 1 - Error: Tests\AcachaAdminLTELaravelTest::testLandingPage
+# 
+not ok 2 - Error: Tests\AcachaAdminLTELaravelTest::testLandingPageWithUserLogged
+# 
+not ok 3 - Error: Tests\AcachaAdminLTELaravelTest::testLoginPage
+# 
+not ok 4 - Error: Tests\AcachaAdminLTELaravelTest::testLogin
+# 
+not ok 5 - Error: Tests\AcachaAdminLTELaravelTest::testLoginRequiredFields
+# 
+not ok 6 - Error: Tests\AcachaAdminLTELaravelTest::testRegisterPage
+# 
+not ok 7 - Error: Tests\AcachaAdminLTELaravelTest::testPasswordResetPage
+# 
+not ok 8 - Error: Tests\AcachaAdminLTELaravelTest::testHomePageForUnauthenticatedUsers
+# 
+not ok 9 - Error: Tests\AcachaAdminLTELaravelTest::testHomePageForAuthenticatedUsers
+# 
+not ok 10 - Error: Tests\AcachaAdminLTELaravelTest::testLogout
+# 
+not ok 11 - Error: Tests\AcachaAdminLTELaravelTest::test404Page
+# 
+not ok 12 - Error: Tests\AcachaAdminLTELaravelTest::testNewUserRegistration
+# 
+not ok 13 - Error: Tests\AcachaAdminLTELaravelTest::testRequiredFieldsOnRegistrationPage
+# 
+not ok 14 - Error: Tests\AcachaAdminLTELaravelTest::testSendPasswordReset
+# 
+not ok 15 - Error: Tests\AcachaAdminLTELaravelTest::testSendPasswordResetUserNotExists
+# 
+not ok 16 - Error: Tests\AcachaAdminLTELaravelTest::testMakeViewCommand
+# 
+not ok 17 - Error: Tests\AcachaAdminLTELaravelTest::testAdminlteAdminCommand
+# 
+ok 18 - Tests\FirstTest::testPushAndPop
+1..18
