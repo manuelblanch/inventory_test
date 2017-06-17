@@ -10,9 +10,9 @@ use App\Material_Type;
 use App\MoneySource;
 use App\Provider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Response;
-use Illuminate\Support\Facades\Cache;
 
 class InventoryController extends Controller
 {
@@ -33,12 +33,11 @@ class InventoryController extends Controller
      */
     public function index()
     {
+        $start = microtime(true);
 
-      $start = microtime(true);
-
-      $result = Cache::remember('inventories', 10, function(){
-        return Inventory::all();
-      });
+        $result = Cache::remember('inventories', 10, function () {
+            return Inventory::all();
+        });
         $inventories = DB::table('inventories')
         ->leftJoin('brand', 'inventories.brand_id', '=', 'brand.id')
         ->leftJoin('material_type', 'inventories.material_type_id', '=', 'material_type.id')

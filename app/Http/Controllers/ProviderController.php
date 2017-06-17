@@ -20,12 +20,11 @@ class ProviderController extends Controller
 
     public function index()
     {
+        $start = microtime(true);
 
-      $start = microtime(true);
-
-      $result = Cache::remember('providers', 10, function(){
-        return Provider::all();
-      });
+        $result = Cache::remember('providers', 10, function () {
+            return Provider::all();
+        });
         $providers = Provider::paginate(5);
 
         $duration = (microtime(true) - $start) * 1000;

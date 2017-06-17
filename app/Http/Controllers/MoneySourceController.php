@@ -22,8 +22,8 @@ class MoneySourceController extends Controller
     {
         $start = microtime(true);
 
-        $result = Cache::remember('moneysources', 10, function(){
-          return MoneySource::all();
+        $result = Cache::remember('moneysources', 10, function () {
+            return MoneySource::all();
         });
 
         $moneySources = MoneySource::paginate(5);

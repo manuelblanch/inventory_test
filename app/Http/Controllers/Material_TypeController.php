@@ -20,11 +20,11 @@ class Material_TypeController extends Controller
 
     public function index()
     {
-      $start = microtime(true);
+        $start = microtime(true);
 
-      $result = Cache::remember('material_types', 10, function(){
-        return Material_Type::all();
-      });
+        $result = Cache::remember('material_types', 10, function () {
+            return Material_Type::all();
+        });
         $material_types = Material_type::paginate(5);
 
         $duration = (microtime(true) - $start) * 1000;

@@ -20,12 +20,11 @@ class BrandController extends Controller
 
     public function index()
     {
+        $start = microtime(true);
 
-      $start = microtime(true);
-
-      $result = Cache::remember('brands', 10, function(){
-        return Brand::all();
-      });
+        $result = Cache::remember('brands', 10, function () {
+            return Brand::all();
+        });
         $brands = Brand::paginate(5);
 
         $duration = (microtime(true) - $start) * 1000;
