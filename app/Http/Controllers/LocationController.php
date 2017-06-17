@@ -20,11 +20,11 @@ class LocationController extends Controller
 
     public function index()
     {
-      $start = microtime(true);
+        $start = microtime(true);
 
-      $result = Cache::remember('locations', 10, function(){
-        return Location::all();
-      });
+        $result = Cache::remember('locations', 10, function () {
+            return Location::all();
+        });
         $locations = Location::paginate(5);
 
         $duration = (microtime(true) - $start) * 1000;

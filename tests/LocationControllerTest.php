@@ -2,8 +2,6 @@
 
 namespace Tests;
 
-
-
 class LocationControllerTest extends TestCase
 {
     /**
