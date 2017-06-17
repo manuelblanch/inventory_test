@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Material_Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class Material_TypeController extends Controller
 {
@@ -19,7 +20,16 @@ class Material_TypeController extends Controller
 
     public function index()
     {
+      $start = microtime(true);
+
+      $result = Cache::remember('material_types', 10, function(){
+        return Material_Type::all();
+      });
         $material_types = Material_type::paginate(5);
+
+        $duration = (microtime(true) - $start) * 1000;
+
+        \Log::info('With cache: '.$duration.' ms.');
 
         return view('manteniments/material_type/index', ['material_types' => $material_types]);
     }

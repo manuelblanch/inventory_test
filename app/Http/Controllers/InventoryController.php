@@ -12,6 +12,7 @@ use App\Provider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Response;
+use Illuminate\Support\Facades\Cache;
 
 class InventoryController extends Controller
 {
@@ -32,6 +33,12 @@ class InventoryController extends Controller
      */
     public function index()
     {
+
+      $start = microtime(true);
+
+      $result = Cache::remember('inventories', 10, function(){
+        return Inventory::all();
+      });
         $inventories = DB::table('inventories')
         ->leftJoin('brand', 'inventories.brand_id', '=', 'brand.id')
         ->leftJoin('material_type', 'inventories.material_type_id', '=', 'material_type.id')
@@ -43,6 +50,10 @@ class InventoryController extends Controller
         'brand_model.name as brand_model_name', 'brand_model.id as model_id', 'location.name as location_name', 'location.id as location_id',
         'moneySource.name as moneySource_name', 'moneySource.id as moneySourceId', 'provider.name as provider_name', 'provider.id as provider_id')
         ->paginate(5);
+
+        $duration = (microtime(true) - $start) * 1000;
+
+        \Log::info('With cache: '.$duration.' ms.');
 
         return view('inventory/index', ['inventories' => $inventories]);
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Location;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class LocationController extends Controller
 {
@@ -19,7 +20,16 @@ class LocationController extends Controller
 
     public function index()
     {
+      $start = microtime(true);
+
+      $result = Cache::remember('locations', 10, function(){
+        return Location::all();
+      });
         $locations = Location::paginate(5);
+
+        $duration = (microtime(true) - $start) * 1000;
+
+        \Log::info('With cache: '.$duration.' ms.');
 
         return view('manteniments/location/index', ['locations' => $locations]);
     }
