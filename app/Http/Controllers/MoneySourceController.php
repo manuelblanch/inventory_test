@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\MoneySource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class MoneySourceController extends Controller
 {
@@ -19,7 +20,17 @@ class MoneySourceController extends Controller
 
     public function index()
     {
+        $start = microtime(true);
+
+        $result = Cache::remember('moneysources', 10, function(){
+          return MoneySource::all();
+        });
+
         $moneySources = MoneySource::paginate(5);
+
+        $duration = (microtime(true) - $start) * 1000;
+
+        \Log::info('With cache: '.$duration.' ms.');
 
         return view('manteniments/moneySource/index', ['moneySources' => $moneySources]);
     }

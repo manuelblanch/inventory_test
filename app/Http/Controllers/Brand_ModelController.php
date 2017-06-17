@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Brand_Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class Brand_ModelController extends Controller
 {
@@ -19,7 +20,17 @@ class Brand_ModelController extends Controller
 
     public function index()
     {
+
+      $start = microtime(true);
+
+      $result = Cache::remember('brand_models', 10, function(){
+        return Brand_Model::all();
+      });
         $brand_models = Brand_model::paginate(5);
+
+        $duration = (microtime(true) - $start) * 1000;
+
+        \Log::info('With cache: '.$duration.' ms.');
 
         return view('manteniments/brand_model/index', ['brand_models' => $brand_models]);
     }
