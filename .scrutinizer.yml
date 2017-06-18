@@ -1,8 +1,6 @@
 filter:
-    paths: ["app/*"]
-    excluded_paths:
-      - "tests/*"
-      - "public/plugins/*"
+    excluded_paths: [tests/*]
+
 checks:
     php:
         remove_extra_empty_lines: true
@@ -21,9 +19,5 @@ checks:
 
 tools:
     external_code_coverage:
-        timeout: 600
-        runs: 3
-
-build:
-    environment:
-php: 7.0.6
+        timeout: 1500
+runs: 3
