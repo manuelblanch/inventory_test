@@ -6,7 +6,6 @@
  */
 
 namespace App\Http\Controllers;
-use MaddHatter\LaravelFullcalendar\Facades;
 
 /**
  * Class HomeController.
@@ -30,12 +29,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $events = [];
 
-
-      $events = [];
-
-      $events[] = \Calendar::event(
-          "Event one",
+        $events[] = \Calendar::event(
+          'Event one',
           true,
           '2017-06-02T0900',
           '2017-06-06T0800',
@@ -43,12 +40,13 @@ class HomeController extends Controller
 
       );
 
-      $calendar = \Calendar::addEvents($events)
+        $calendar = \Calendar::addEvents($events)
                     ->setOptions([
-                      'firstDay' => 1
+                      'firstDay' => 1,
                     ])->setCallbacks([
 
                     ]);
-        return view('adminlte::home', array('calendar' => $calendar));
+
+        return view('adminlte::home', ['calendar' => $calendar]);
     }
 }
