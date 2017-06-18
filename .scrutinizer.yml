@@ -3,6 +3,7 @@ filter:
       - "tests/"
       - "public/"
       - "storage/"
+      - "sami/"
 checks:
     php:
         code_rating: true
