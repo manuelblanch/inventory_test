@@ -157,7 +157,6 @@ desired effect
       });
   </script>
 
-
 @show
 
 </body>
