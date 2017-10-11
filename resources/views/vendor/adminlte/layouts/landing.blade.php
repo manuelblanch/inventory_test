@@ -23,7 +23,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     <meta name="twitter:site" content="@acachawiki" />
     <meta name="twitter:creator" content="@acacha1" />
 
-    <title>{{ trans('Inventory AdminLte with Spot – Freelance & Agency Theme') }}</title>
+    <title>{{ trans('Inventory Application AdminLte with Spot – Freelance & Agency Theme') }}</title>
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('/css/all-landing.css') }}" rel="stylesheet">
