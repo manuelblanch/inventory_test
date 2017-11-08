@@ -102,5 +102,7 @@ Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::get('tasks', 'DashboardController@tasks')->name('tasks');
 
+Route::resource('/task', 'TaskController');
+
 Route::group(['middleware' => 'web'], function () {
 });
