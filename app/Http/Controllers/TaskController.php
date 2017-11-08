@@ -38,10 +38,24 @@ class TaskController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+     public function store(Request $request)
+ {
+     $this->validate($request, [
+         'name'        => 'required|max:255',
+         'description' => 'required',
+     ]);
+
+     $task = Task::create([
+         'name'        => request('name'),
+         'description' => request('description'),
+         'user_id'     => Auth::user()->id
+     ]);
+
+     return response()->json([
+         'task'    => $task,
+         'message' => 'Success'
+     ], 200);
+ }
 
     /**
      * Display the specified resource.
