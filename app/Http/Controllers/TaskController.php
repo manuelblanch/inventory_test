@@ -89,10 +89,21 @@ class TaskController extends Controller
      * @param  \App\task  $task
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, task $task)
-    {
-        //
-    }
+     public function update(Request $request, Task $task)
+     {
+         $this->validate($request, [
+             'name'        => 'required|max:255',
+             'description' => 'required',
+         ]);
+
+         $task->name = request('name');
+         $task->description = request('description');
+         $task->save();
+
+         return response()->json([
+             'message' => 'Task updated successfully!'
+         ], 200);
+     }
 
     /**
      * Remove the specified resource from storage.
