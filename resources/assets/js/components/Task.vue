@@ -11,7 +11,37 @@
                     </div>
 
                     <div class="panel-body">
-
+                        <table class="table table-bordered table-striped table-responsive" v-if="tasks.length > 0">
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        No.
+                                    </th>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Description
+                                    </th>
+                                    <th>
+                                        Action
+                                    </th>
+                                </tr>
+                                <tr v-for="(task, index) in tasks">
+                                    <td>{{ index + 1 }}</td>
+                                    <td>
+                                        {{ task.name }}
+                                    </td>
+                                    <td>
+                                        {{ task.description }}
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-success btn-xs">Edit</button>
+                                        <button class="btn btn-danger btn-xs">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -63,13 +93,17 @@
                     name: '',
                     description: ''
                 },
-                errors: []
+                errors: [],
+                tasks: []
             }
+        },
+        mounted()
+        {
+            this.readTasks();
         },
         methods: {
             initAddTask()
             {
-                this.errors = [];
                 $("#add_task_model").modal("show");
             },
             createTask()
@@ -81,6 +115,8 @@
                     .then(response => {
 
                         this.reset();
+
+                        this.tasks.push(response.data.task);
 
                         $("#add_task_model").modal("hide");
 
@@ -101,6 +137,15 @@
                 this.task.name = '';
                 this.task.description = '';
             },
+            readTasks()
+            {
+                axios.get('/task')
+                    .then(response => {
+
+                        this.tasks = response.data.tasks;
+
+                    });
+            }
         }
     }
 </script>
