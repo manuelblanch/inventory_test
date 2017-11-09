@@ -37,7 +37,23 @@
                                 </td>
                                 <td>
                                     <button @click="initUpdate(index)" class="btn btn-success btn-xs">Edit</button>
-                                    <button class="btn btn-danger btn-xs">Delete</button>
+                                    <button @click="deleteTask(index)" class="btn btn-danger btn-xs">Delete</button>
+                                    deleteTask(index)
+                                    {
+                                    let conf = confirm("Do you ready want to delete this task?");
+                                      if (conf === true) {
+
+                                      axios.delete('/task/' + this.tasks[index].id)
+                                      .then(response => {
+
+                this.tasks.splice(index, 1);
+
+            })
+            .catch(error => {
+
+            });
+    }
+}
                                 </td>
                             </tr>
                             </tbody>
