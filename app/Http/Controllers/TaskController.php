@@ -12,10 +12,13 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
+     public function index()
+ {
+     $tasks = Task::where(['user_id' => Auth::user()->id])->get();
+     return response()->json([
+         'tasks'    => $tasks,
+     ], 200);
+ }
 
     public function __construct()
    {
