@@ -104,5 +104,8 @@ Route::get('tasks', 'DashboardController@tasks')->name('tasks');
 
 Route::resource('/task', 'TaskController');
 
+Route::get('/redirect', 'SocialAuthTwitterController@redirect');
+Route::get('/callback', 'SocialAuthTwitterController@callback');
+
 Route::group(['middleware' => 'web'], function () {
 });
