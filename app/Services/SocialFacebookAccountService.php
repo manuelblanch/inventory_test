@@ -1,15 +1,15 @@
 <?php
 
 namespace App\Services;
-use App\SocialTwitterAccount;
+use App\SocialFacebookAccount;
 use App\User;
 use Laravel\Socialite\Contracts\User as ProviderUser;
 
-class SocialTwitterAccountService
+class SocialFacebookAccountService
 {
     public function createOrGetUser(ProviderUser $providerUser)
     {
-        $account = SocialTwitterAccount::whereProvider('twitter')
+        $account = SocialFacebookAccount::whereProvider('facebook')
             ->whereProviderUserId($providerUser->getId())
             ->first();
 
@@ -17,9 +17,9 @@ class SocialTwitterAccountService
             return $account->user;
         } else {
 
-            $account = new SocialTwitterAccount([
+            $account = new SocialFacebookAccount([
                 'provider_user_id' => $providerUser->getId(),
-                'provider' => 'twitter'
+                'provider' => 'facebook'
             ]);
 
             $user = User::whereEmail($providerUser->getEmail())->first();
