@@ -1,14 +1,14 @@
 <?php
 
-// SocialAuthTwitterController.php
+// SocialAuthFacebookController.php
 
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Socialite;
-use App\Services\SocialTwitterAccountService;
+use App\Services\SocialFacebookAccountService;
 
-class SocialAuthTwitterController extends Controller
+class SocialAuthFacebookController extends Controller
 {
   /**
    * Create a redirect method to twitter api.
@@ -17,7 +17,7 @@ class SocialAuthTwitterController extends Controller
    */
     public function redirect()
     {
-        return Socialite::driver('twitter')->redirect();
+        return Socialite::driver('facebook')->redirect();
     }
 
     /**
@@ -25,9 +25,9 @@ class SocialAuthTwitterController extends Controller
      *
      * @return callback URL from twitter
      */
-    public function callback(SocialTwitterAccountService $service)
+    public function callback(SocialFacebookAccountService $service)
     {
-        $user = $service->createOrGetUser(Socialite::driver('twitter')->user());
+        $user = $service->createOrGetUser(Socialite::driver('facebook')->user());
         auth()->login($user);
         return redirect()->to('/home');
     }
