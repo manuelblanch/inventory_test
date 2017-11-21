@@ -38,4 +38,11 @@ class TestController extends Controller {
         return view('test')->with($data);
     }
 
+    public function update(Request $request)
+   {
+       $path = $request->file('avatar')->store('avatars');
+
+       return $path;
+   }
+
 }
