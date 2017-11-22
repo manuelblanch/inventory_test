@@ -1,7 +1,7 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-    Model Marca
+    Model Test
 @endsection
     <!-- Main content -->
     @section('main-content')
@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Actualitza Marques</div>
+                <div class="panel-heading">Actualitza Test</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" onsubmit = "return confirm('Estas segur?')" action="{{ route('brand.update', ['id' => $brand->id]) }}" >
                         <input type="hidden" name="_method" value="PATCH">

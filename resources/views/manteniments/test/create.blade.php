@@ -1,7 +1,7 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-    <h2>Model Brand</h2>
+    <h2>Test</h2>
 
 @endsection
     <!-- Main content -->
