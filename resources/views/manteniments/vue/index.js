@@ -68,4 +68,25 @@ styles () {
   z-index: 5000;
 }
 
+.vue-notification {
+  font-size: 10px;
+  padding: 10px;
+  margin: 0 5px 5px;
+  color: white;
+  background: #;
+  border-left: 5px solid #;
+}
+.vue-notification.warn {
+  background: #ffb648;
+  border-left-color: #f48a06;
+}
+.vue-notification.error {
+  background: #;
+  border-left-color: #;
+}
+.vue-notification.success {
+  background: #;
+  border-left-color: #;
+}
+
 export default Notify
