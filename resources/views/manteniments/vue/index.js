@@ -59,4 +59,13 @@ styles () {
      ]
    },
 
+   export default Component
+</script>
+<style>
+.notifications {
+  display: block;
+  position: fixed;
+  z-index: 5000;
+}
+
 export default Notify

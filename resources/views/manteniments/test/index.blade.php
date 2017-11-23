@@ -13,7 +13,7 @@
           <h3 class="box-title">Llista de Test</h3>
         </div>
         <div class="col-sm-4">
-          <a class="btn btn-primary" href="{{ route('brand.create') }}">Afegeix una nova marca</a>
+          <a class="btn btn-primary" href="{{ route('brand.create') }}">Afegeix</a>
         </div>
     </div>
   </div>
@@ -73,7 +73,7 @@
             <tfoot>
               <tr>
                 <th width="20%" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="provider: activate to sort column ascending">Nom</th>
-                <th width="20%" rowspan="1" colspan="1">Nom Curt</th>
+                <th width="20%" rowspan="1" colspan="1">Nom</th>
                 <th width="20%" rowspan="1" colspan="1">Descripció</th>
                 <th width="20%" rowspan="1" colspan="1">Data Entrada</th>
                 <th width="20%" rowspan="1" colspan="1">Ultima Actualització</th>

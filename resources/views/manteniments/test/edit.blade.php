@@ -15,7 +15,7 @@
                         <input type="hidden" name="_method" value="PATCH">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Nom de Marca</label>
+                            <label for="name" class="col-md-4 control-label">Marca</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ $brand->name }}" required autofocus>
@@ -28,7 +28,7 @@
                             </div>
                         </div>
                          <div class="form-group{{ $errors->has('shortName') ? ' has-error' : '' }}">
-                            <label for="shortName" class="col-md-4 control-label">Nom Curt</label>
+                            <label for="shortName" class="col-md-4 control-label">Curt</label>
 
                             <div class="col-md-6">
                                 <input id="shortName" type="text" class="form-control" name="shortName" value="{{ $brand->shortName }}" required>
