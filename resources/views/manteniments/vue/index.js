@@ -40,5 +40,23 @@ styles () {
       return styles
     },
 
+    methods: {
+        addItem (event) {
+          event.group = event.group || ''
+          if (this.group !== event.group) {
+            return
+          }
+          if (event.clean || event.clear) {
+            this.destroyAll()
+            return
+          }
+
+          notifyClass (item) {
+     return [
+       'notification',
+       this.classes,
+       item.type
+     ]
+   },
 
 export default Notify
