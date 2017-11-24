@@ -22,7 +22,7 @@ class TestController extends Controller
     {
         $start = microtime(true);
 
-        $result = Cache::remember('locations', 10, function () {
+        $result = Cache::remember('tests', 10, function () {
             return Location::all();
         });
         $locations = Location::paginate(5);
@@ -31,7 +31,7 @@ class TestController extends Controller
 
         \Log::info('With cache: '.$duration.' ms.');
 
-        return view('manteniments/location/index', ['locations' => $locations]);
+        return view('manteniments/test/index', ['tests' => $tests]);
     }
 
     /**
@@ -41,7 +41,7 @@ class TestController extends Controller
      */
     public function create()
     {
-        return view('manteniments/location/create');
+        return view('manteniments/test/create');
     }
 
     /**
