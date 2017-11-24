@@ -54,7 +54,7 @@ class TestController extends Controller
     public function store(Request $request)
     {
         $this->validateInput($request);
-        Location::create([
+        Test::create([
          'name'          => $request['name'],
          'shortName'     => $request['shortName'],
          'description'   => $request['description'],
@@ -62,7 +62,7 @@ class TestController extends Controller
          'last_update'   => $request['last_update'],
            ]);
 
-        return redirect()->intended('mnt/location');
+        return redirect()->intended('mnt/test');
     }
 
     /**
@@ -86,12 +86,12 @@ class TestController extends Controller
      */
     public function edit($id)
     {
-        $location = Location::find($id);
-        if ($location == null || count($location) == 0) {
-            return redirect()->intended('/mnt/location');
+        $test = Test::find($id);
+        if ($test == null || count($test) == 0) {
+            return redirect()->intended('/mnt/test');
         }
 
-        return view('manteniments/location/edit', ['location' => $location]);
+        return view('manteniments/test/edit', ['test' => $test]);
     }
 
     /**
@@ -104,7 +104,7 @@ class TestController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $location = Location::findOrFail($id);
+        $test = Test::findOrFail($id);
         $input = [
         'name'          => $request['name'],
         'shortName'     => $request['shortName'],
@@ -115,10 +115,10 @@ class TestController extends Controller
         $this->validate($request, [
       'name' => 'required|max:60',
       ]);
-        Location::where('id', $id)
+        Test::where('id', $id)
           ->update($input);
 
-        return redirect()->intended('mnt/location');
+        return redirect()->intended('mnt/test');
     }
 
     /**
@@ -128,6 +128,7 @@ class TestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     
     public function destroy($id)
     {
         Location::where('id', $id)->delete();
