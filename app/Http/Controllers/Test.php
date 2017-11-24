@@ -128,12 +128,12 @@ class TestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     
+
     public function destroy($id)
     {
-        Location::where('id', $id)->delete();
+        Test::where('id', $id)->delete();
 
-        return redirect()->intended('mnt/location');
+        return redirect()->intended('mnt/test');
     }
 
     public function search(Request $request)
@@ -144,12 +144,12 @@ class TestController extends Controller
             ];
         $locations = $this->doSearchingQuery($constraints);
 
-        return view('manteniments/location/index', ['locations' => $locations, 'searchingVals' => $constraints]);
+        return view('manteniments/test/index', ['tests' => $tests, 'searchingVals' => $constraints]);
     }
 
     private function doSearchingQuery($constraints)
     {
-        $query = location::query();
+        $query = test::query();
         $fields = array_keys($constraints);
         $index = 0;
         foreach ($constraints as $constraint) {
