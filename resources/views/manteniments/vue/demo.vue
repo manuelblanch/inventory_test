@@ -45,3 +45,46 @@
           </td>
         </tr>
 <tr>
+<tr>
+          <td>progressBarBg</td>
+          <td>
+           <input type="color" v-model="progressBarBg">
+          </td>
+        </tr>
+        <tr>
+          <td>completedBg</td>
+          <td>
+           <input type="color" v-model="completedBg">
+          </td>
+        </tr>
+        <tr>
+          <td>handlerBg</td>
+          <td>
+           <input type="color" v-model="handlerBg">
+          </td>
+        </tr>
+         <tr>
+          <td>textSize</td>
+          <td>
+            <input type="text" v-model="textSize">
+          </td>
+        </tr>
+         <tr>
+          <td>isCircle</td>
+          <td>
+            <select v-model="isCircle">
+              <option>true</option>
+              <option>false</option>
+            </select>
+          </td>
+        </tr>
+
+      </table>
+      </div>
+    </section>
+
+  </div>
+
+
+  </div>
+</template>
