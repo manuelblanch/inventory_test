@@ -13,3 +13,19 @@
   </div>
 
 </template>
+
+<script>
+export default {
+  name: 'ProgressBar',
+  props: {
+    type: {
+      type: String,
+      default: 'primary'
+    },
+    size: {
+      type: String,
+      default: ''
+    }
+}
+
+</script>
