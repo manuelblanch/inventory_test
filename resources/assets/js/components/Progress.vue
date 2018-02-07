@@ -1,5 +1,3 @@
-
-
 <template>
 
 <div class="progress" :class="[progressSize, isVertical?'vertical':'', isActive?'active':'']">
@@ -8,6 +6,22 @@
     </div>
 </div>
 
+</template>
+
+<template>
+    <div class="start">
+        <button v-on:click="toggleText()">ToggleText</button>
+        <button v-on:click="reverseTextMethod()">ReverseText</button>
+        <p v-if="showText">{{ text | reverse }}</p>
+        <p>{{ reverseText }}</p>
+        <hr />
+        <ul>
+            <li v-for="user in users" v-on:click="$emit('clickUser', user)">
+                {{ user }}
+            </li>
+        </ul>
+        <input v-model="text" />
+    </div>
 </template>
 
 <script>
