@@ -25,6 +25,34 @@
 </template>
 
 <script>
+    export default {
+        props: ['users'],
+        data() {
+            return {
+                text: '',
+                showText: false
+            }
+        },
+        methods: {
+            toggleText() {
+                this.showText = !this.showText;
+            },
+            reverseTextMethod: function () {
+                this.text = this.text.split('').reverse().join('')
+            }
+        },
+        computed: {
+            reverseText: function () {
+                return this.text.split('').reverse().join('')
+            }
+        },
+        mounted() {
+            this.text = "Test";
+        }
+    }
+</script>
+
+<script>
 
 export default {
     name: 'ProgressBar',
