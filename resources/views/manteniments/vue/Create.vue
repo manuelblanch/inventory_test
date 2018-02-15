@@ -17,7 +17,7 @@
                     <div class="row">
                         <div class="col-xs-12 form-group">
                             <label class="control-label">Descripció</label>
-                            <input type="text" v-model="brand.address" class="form-control">
+                            <input type="text" v-model="brand.description" class="form-control">
                         </div>
                     </div>
                     <div class="row">
@@ -42,3 +42,33 @@
         </div>
     </div>
 </template>
+
+<script>
+    export default {
+        data: function () {
+            return {
+                brand: {
+                    name: '',
+                    description: '',
+                    date: '',
+                    update: '',
+                }
+            }
+        },
+        methods: {
+            saveForm() {
+                event.preventDefault();
+                var app = this;
+                var newBrand = app.brand;
+                axios.post('/api/v1/brands', newBrand)
+                    .then(function (resp) {
+                        app.$router.push({path: '/'});
+                    })
+                    .catch(function (resp) {
+                        console.log(resp);
+                        alert("No es pot crear");
+                    });
+            }
+        }
+    }
+</script>
