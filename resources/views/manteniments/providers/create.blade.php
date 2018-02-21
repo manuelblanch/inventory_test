@@ -95,4 +95,47 @@
         </div>
     </div>
 </div>
+
+<script>
+    export default {
+        mounted() {
+            let app = this;
+            let id = app.$route.params.id;
+            app.providersId = id;
+            axios.get('/api/v1/provider/' + id)
+                .then(function (resp) {
+                    app.providers = resp.data;
+                })
+                .catch(function () {
+                    alert("No es pot carregar")
+                });
+        },
+        data: function () {
+            return {
+               providerId: null,
+                provider: {
+                    name: '',
+                    description: '',
+                    date_entrance: '',
+                    update: '',
+                }
+            }
+        },
+        methods: {
+            saveForm() {
+                event.preventDefault();
+                var app = this;
+                var newBrand = app.provider;
+                axios.patch('/api/v1/providers/' + app.providersId, newProvider)
+                    .then(function (resp) {
+                        app.$router.replace('/');
+                    })
+                    .catch(function (resp) {
+                        console.log(resp);
+                        alert("No es pot crear");
+                    });
+            }
+        }
+    }
+</script>
 @endsection
