@@ -107,7 +107,7 @@
               let app = this;
               let id = app.$route.params.id;
               app.brandId = id;
-              axios.get('/api/v1/provider/' + id)
+              axios.get('/api/v1/brand/' + id)
                   .then(function (resp) {
                       app.providers = resp.data;
                   })
@@ -130,8 +130,8 @@
               saveForm() {
                   event.preventDefault();
                   var app = this;
-                  var newBrand = app.provider;
-                  axios.patch('/api/v1/providers/' + app.providersId, newProvider)
+                  var newBrand = app.brand;
+                  axios.patch('/api/v1/brands/' + app.brandsId, newBrand)
                       .then(function (resp) {
                           app.$router.replace('/');
                       })
