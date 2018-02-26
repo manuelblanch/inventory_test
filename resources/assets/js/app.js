@@ -42,6 +42,8 @@ const routes = [
     },
     {path: '/manteniments/create', component: TestCreate, name: 'createTest'},
     {path: '/manteniments/edit/:id', component: TestEdit, name: 'editTest'},
+    {path: '/manteniments/brand/edit/:id', component: BrandEdit, name: 'editBrand'},
+    {path: '/manteniments/brand/create/:id', component: CreateEdit, name: 'createBrand'},
 ]
 
 const router = new VueRouter({ routes })
