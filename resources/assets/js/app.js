@@ -29,6 +29,9 @@ window.Vue.use(VueRouter);
 import TestIndex from './manteniments/test/TestIndex.vue';
 import TestCreate from './manteniments/test/TestCreate.vue';
 import TestEdit from './manteniments/test/TestEdit.vue';
+import BrandIndex from './manteniments/brand/BrandIndex.vue';
+import BrandCreate from './manteniments/brand/BrandCreate.vue';
+import BrandEdit from './manteniments/brand/BrandEdit.vue';
 
 const routes = [
     {
