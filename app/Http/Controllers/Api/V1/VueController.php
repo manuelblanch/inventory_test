@@ -35,7 +35,8 @@ class VueController extends Controller
      */
     public function store(Request $request)
     {
-        $brand = Brand::findOrFail($id);
+      $brand = Brand::create($request->all());
+      return $brand;
     }
 
     /**
@@ -83,6 +84,8 @@ class VueController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $brand = Brand::findOrFail($id);
+      $brand->delete();
+      return '';
     }
 }
