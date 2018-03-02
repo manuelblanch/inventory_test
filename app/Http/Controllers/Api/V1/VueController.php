@@ -14,7 +14,7 @@ class VueController extends Controller
      */
     public function index()
     {
-        //
+        return Brand::all();
     }
 
     /**
@@ -35,7 +35,7 @@ class VueController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $brand = Brand::findOrFail($id);
     }
 
     /**
@@ -46,7 +46,7 @@ class VueController extends Controller
      */
     public function show($id)
     {
-        //
+        return Brand::findOrFail($id);
     }
 
     /**
@@ -69,7 +69,10 @@ class VueController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $brand = Brand::findOrFail($id);
+      $brand->update($request->all());
+
+      return $brand;
     }
 
     /**
