@@ -97,4 +97,24 @@
         </div>
     </div>
 </div>
+
+<script>
+export default {
+  props: ['todo'],
+  data() {
+    return {
+      isEditing: false,
+    };
+  },
+  methods: {
+    showForm() {
+      this.isEditing = true;
+    },
+    hideForm() {
+      this.isEditing = false;
+    },
+  },
+};
+</script>
+
 @endsection
