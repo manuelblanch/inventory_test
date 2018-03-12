@@ -1,0 +1,174 @@
+@extends('adminlte::layouts.app')
+
+@section('htmlheader_title')
+    <h2>Model Brand</h2>
+
+@endsection
+    <!-- Main content -->
+    @section('main-content')
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Afegeix nova marca</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('brand.store') }}">
+                        {{ csrf_field() }}
+
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Nom</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('shortName') ? ' has-error' : '' }}">
+                            <label for="shortName" class="col-md-4 control-label">Nom Curt</label>
+
+                            <div class="col-md-6">
+                                <input id="shortName" type="text" class="form-control" name="shortName" value="{{ old('shortName') }}" required>
+                                @if ($errors->has('shortName'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('shortName') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
+                            <label for="description" class="col-md-4 control-label">Descripció</label>
+
+                            <div class="col-md-6">
+                                <input id="description" type="text" class="form-control" name="description" value="{{ old('description') }}" required>
+                                @if ($errors->has('description'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('description') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Data Entrada</label>
+                            <div class="col-md-6">
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" placeholder="yyyy-mm-dd" name="date_entrance" class="form-control datepicker" id="dateEntrance" required>
+                                </div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label class="col-md-4 control-label">Ultima Actualització</label>
+                            <div class="col-md-6">
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" placeholder="yyyy-mm-dd" value="{{ old('last_update') }}" name="last_update" class="form-control datepicker" id="lastUpdate" required>
+                                </div>
+                            </div>
+                          </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Inserta
+                                </button>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                              <a href="{{ URL::previous() }}">Cancel·lar</a>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@endsection
+
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Afegeix Nova Marca</div>
+
+                    <div class="panel-body table-responsive">
+
+                        {!! Form::open(['method' => 'POST', 'route' => ['admin.companies.store']]) !!}
+                        <div class="row">
+                            <div class="col-xs-12 form-group">
+                                {!! Form::label('name', 'Name', ['class' => 'control-label']) !!}
+                                {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                                <p class="help-block"></p>
+                                @if($errors->has('name'))
+                                    <p class="help-block">
+                                        {{ $errors->first('name') }}
+                                    </p>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 form-group">
+                                {!! Form::label('address', 'Address', ['class' => 'control-label']) !!}
+                                {!! Form::text('address', old('address'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                                <p class="help-block"></p>
+                                @if($errors->has('address'))
+                                    <p class="help-block">
+                                        {{ $errors->first('address') }}
+                                    </p>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 form-group">
+                                {!! Form::label('website', 'Website', ['class' => 'control-label']) !!}
+                                {!! Form::text('website', old('website'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                                <p class="help-block"></p>
+                                @if($errors->has('website'))
+                                    <p class="help-block">
+                                        {{ $errors->first('website') }}
+                                    </p>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 form-group">
+                                {!! Form::label('email', 'Email', ['class' => 'control-label']) !!}
+                                {!! Form::text('email', old('email'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                                <p class="help-block"></p>
+                                @if($errors->has('email'))
+                                    <p class="help-block">
+                                        {{ $errors->first('email') }}
+                                    </p>
+                                @endif
+                            </div>
+                        </div>
+
+                        {!! Form::submit('Save', ['class' => 'btn btn-danger']) !!}
+                        {!! Form::close() !!}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+@stop
