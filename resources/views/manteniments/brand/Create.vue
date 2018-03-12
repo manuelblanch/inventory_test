@@ -126,24 +126,24 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-12 form-group">
-                                {!! Form::label('address', 'Address', ['class' => 'control-label']) !!}
-                                {!! Form::text('address', old('address'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                                {!! Form::label('shortname', 'ShortName', ['class' => 'control-label']) !!}
+                                {!! Form::text('shortname', old('shortname'), ['class' => 'form-control', 'placeholder' => '']) !!}
                                 <p class="help-block"></p>
-                                @if($errors->has('address'))
+                                @if($errors->has('shortname'))
                                     <p class="help-block">
-                                        {{ $errors->first('address') }}
+                                        {{ $errors->first('shortname') }}
                                     </p>
                                 @endif
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-12 form-group">
-                                {!! Form::label('website', 'Website', ['class' => 'control-label']) !!}
-                                {!! Form::text('website', old('website'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                                {!! Form::label('description', 'Description', ['class' => 'control-label']) !!}
+                                {!! Form::text('description', old('description'), ['class' => 'form-control', 'placeholder' => '']) !!}
                                 <p class="help-block"></p>
-                                @if($errors->has('website'))
+                                @if($errors->has('description'))
                                     <p class="help-block">
-                                        {{ $errors->first('website') }}
+                                        {{ $errors->first('description') }}
                                     </p>
                                 @endif
                             </div>
