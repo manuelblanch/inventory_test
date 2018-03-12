@@ -98,8 +98,6 @@
     </div>
 </div>
 
-
-
 @endsection
 
 @extends('layouts.app')
@@ -116,12 +114,12 @@
                         {!! Form::open(['method' => 'POST', 'route' => ['admin.companies.store']]) !!}
                         <div class="row">
                             <div class="col-xs-12 form-group">
-                                {!! Form::label('name', 'Name', ['class' => 'control-label']) !!}
-                                {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                                {!! Form::label('nom', 'Nom', ['class' => 'control-label']) !!}
+                                {!! Form::text('endcomponent', old('nom'), ['class' => 'form-control', 'placeholder' => '']) !!}
                                 <p class="help-block"></p>
-                                @if($errors->has('name'))
+                                @if($errors->has('nom'))
                                     <p class="help-block">
-                                        {{ $errors->first('name') }}
+                                        {{ $errors->first('nom') }}
                                     </p>
                                 @endif
                             </div>
