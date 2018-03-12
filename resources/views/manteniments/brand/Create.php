@@ -161,6 +161,19 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-xs-12 form-group">
+                                {!! Form::label('last-update', 'Last-update', ['class' => 'control-label']) !!}
+                                {!! Form::text('last-update', old('last-update'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                                <p class="help-block"></p>
+                                @if($errors->has('last-update'))
+                                    <p class="help-block">
+                                        {{ $errors->first('last-update') }}
+                                    </p>
+                                @endif
+                            </div>
+                        </div>
+
                         {!! Form::submit('Save', ['class' => 'btn btn-danger']) !!}
                         {!! Form::close() !!}
                     </div>
