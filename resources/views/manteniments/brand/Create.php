@@ -150,12 +150,12 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-12 form-group">
-                                {!! Form::label('email', 'Email', ['class' => 'control-label']) !!}
-                                {!! Form::text('email', old('email'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                                {!! Form::label('date-entrance', 'Date-entrance', ['class' => 'control-label']) !!}
+                                {!! Form::text('date-entrance', old('date-entrance'), ['class' => 'form-control', 'placeholder' => '']) !!}
                                 <p class="help-block"></p>
-                                @if($errors->has('email'))
+                                @if($errors->has('date-entrance'))
                                     <p class="help-block">
-                                        {{ $errors->first('email') }}
+                                        {{ $errors->first('date-entrance') }}
                                     </p>
                                 @endif
                             </div>
