@@ -118,6 +118,17 @@
                         });
                 }
             }
+
+            listen() {
+            Echo.channel('posts')
+              .listen('PostPublished', post => {
+                if (! ('Notification' in window)) {
+                  alert('No es pot notificar');
+                  return;
+                }
         }
+
+      }
+    }
     }
 </script>

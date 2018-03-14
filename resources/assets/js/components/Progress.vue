@@ -50,9 +50,6 @@
             this.text = "Test";
         }
     }
-</script>
-
-<script>
 
 export default {
     name: 'ProgressBar',
@@ -67,4 +64,6 @@ export default {
         }
     }
 
+  }
+</script>
 </script>
