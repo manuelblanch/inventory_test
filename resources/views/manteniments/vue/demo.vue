@@ -84,7 +84,40 @@
     </section>
 
   </div>
-
-
   </div>
 </template>
+
+<script>
+    export default {
+        data: function () {
+            return {
+                brands: []
+            }
+        },
+        mounted() {
+            var app = this;
+            axios.get('/api/v1/demo')
+                .then(function (resp) {
+                    app.tests = resp.data;
+                })
+                .catch(function (resp) {
+                    console.log(resp);
+                    alert("No es pot carregar");
+                });
+        },
+        methods: {
+            deleteEntry(id, index) {
+                if (confirm("Vols esborrar?")) {
+                    var app = this;
+                    axios.delete('/api/v1/demo/' + id)
+                        .then(function (resp) {
+                            app.tests.splice(index, 1);
+                        })
+                        .catch(function (resp) {
+                            alert("No es pot esborrar");
+                        });
+                }
+            }
+        }
+    }
+</script>
