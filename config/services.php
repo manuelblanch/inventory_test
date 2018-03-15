@@ -65,4 +65,11 @@ return [
         'redirect'      => env('TWITTER_OAUTH_APP_REDIRECT_URL'),
     ],
 
+    'linkedin' => [
+
+        'client_id' => 'id',
+        'client_secret' => 'secret',
+        'redirect' => ''
+    ],
+
 ];
