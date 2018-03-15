@@ -12,6 +12,14 @@ use Exception;
 
 class AuthController extends Controller {
 
-  
+  use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+
+
+      protected $redirectTo = '/';
+      public function __construct()
+        {
+          $this->middleware('guest', ['except' => 'logout']);
+
+      }
 
 }
