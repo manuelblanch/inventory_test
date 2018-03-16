@@ -54,4 +54,45 @@ class AuthController extends Controller {
 
 }
 
+public function redirectToLinkedin()
+
+    {
+
+        return Socialite::driver('linkedin')->redirect();
+
+    }
+
+
+    public function handleLinkedinCallback()
+
+    {
+
+        try {
+
+            $user = Socialite::driver('linkedin')->user();
+
+            $create['name'] = $user->name;
+
+            $create['email'] = $user->email;
+
+            $create['linkedin_id'] = $user->id;
+
+
+
+            $userModel = new User;
+
+            $createdUser = $userModel->addNew($create);
+
+            Auth::loginUsingId($createdUser->id);
+
+            return redirect()->route('home');
+
+        } catch (Exception $e) {
+
+            return redirect('auth/linkedin');
+
+        }
+
+    }
+
 }
