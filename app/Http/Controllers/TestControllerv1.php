@@ -7,10 +7,10 @@ use App\Http\Controllers\Controller;
 
 class TestController extends Controller
 {
-    public function index()
+    /*public function index()
     {
         return Test::all();
-    }
+    }*/
 
     public function show($id)
     {
@@ -57,4 +57,20 @@ class TestController extends Controller
      * @param  \App\task  $task
      * @return \Illuminate\Http\Response
      */
+
+     public function index()
+     {
+         $start = microtime(true);
+
+         $result = Cache::remember('tests', 10, function () {
+             return Location::all();
+         });
+         $locations = Location::paginate(5);
+
+         $duration = (microtime(true) - $start) * 1000;
+
+         \Log::info('With cache: '.$duration.' ms.');
+
+         return view('manteniments/test/index', ['tests' => $tests]);
+     }
 }
