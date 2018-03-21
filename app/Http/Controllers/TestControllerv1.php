@@ -37,4 +37,24 @@ class TestController extends Controller
         $company->delete();
         return '';
     }
+
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\task  $task
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(task $task)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\task  $task
+     * @return \Illuminate\Http\Response
+     */
 }
