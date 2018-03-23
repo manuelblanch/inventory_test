@@ -43,36 +43,6 @@
     </div>
 </template>
 
-<script>
-    export default {
-        data: function () {
-            return {
-                brand: {
-                    name: '',
-                    description: '',
-                    date: '',
-                    update: '',
-                }
-            }
-        },
-        methods: {
-            saveForm() {
-                event.preventDefault();
-                var app = this;
-                var newBrand = app.brand;
-                axios.post('/api/v1/brands', newBrand)
-                    .then(function (resp) {
-                        app.$router.push({path: '/'});
-                    })
-                    .catch(function (resp) {
-                        console.log(resp);
-                        alert("No es pot crear");
-                    });
-            }
-        }
-    }
-</script>
-
 @extends('layouts.app')
 
 @section('content')
@@ -143,3 +113,33 @@
         </div>
     </div>
 @stop
+
+<script>
+    export default {
+        data: function () {
+            return {
+                brand: {
+                    name: '',
+                    description: '',
+                    date: '',
+                    update: '',
+                }
+            }
+        },
+        methods: {
+            saveForm() {
+                event.preventDefault();
+                var app = this;
+                var newBrand = app.brand;
+                axios.post('/api/v1/brands', newBrand)
+                    .then(function (resp) {
+                        app.$router.push({path: '/'});
+                    })
+                    .catch(function (resp) {
+                        console.log(resp);
+                        alert("No es pot crear");
+                    });
+            }
+        }
+    }
+</script>
