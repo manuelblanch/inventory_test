@@ -1,6 +1,14 @@
 import Notifications from './Notifications.vue'
 import { events }    from './events'
 
+import Button from 'vue-progress-button'
+
+export default {
+  components: {
+    'progress-button': Button
+  }
+}
+
 var Notify = {
   install(Vue, params = {}) {
     if (this.installed) {
