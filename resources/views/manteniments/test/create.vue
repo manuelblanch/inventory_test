@@ -1,3 +1,5 @@
+
+
 <template>
   <div class='ui centered card'>
     // Todo shown when we are not in editing mode.
@@ -26,10 +28,15 @@
           <input type='text' v-model="todo.project" >
         </div>
         <div class='ui two button attached buttons'>
+          <progress-button>Button</progress-button>
           <button class='ui basic blue button' v-on:click="hideForm">
             Close X
           </button>
         </div>
+
+        <progress-button name="duration" class="btn btn-info mr-1 mb-1" :duration="10000">10 second animation</progress-button>
+        <progress-button name="bottom" class="btn btn-success mr-1 mb-1" :height="5" position="bottom">Bottom fill</progress-button>
+        <progress-button name="bottom" class="btn btn-warning mr-1 mb-1" :height="5" position="top">Top fill</progress-button>
       </div>
     </div>
     <div class='ui bottom attached green basic button' v-show="!isEditing &&todo.done" disabled>
