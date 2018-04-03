@@ -30,3 +30,13 @@ Route::filter('forcehttp', function()
     return Redirect::to($url,301);
   }
 });
+
+Route::get('/', array('before'=>'forcehttp', function()
+{
+    return View::make('home');
+}));
+
+Route::get('/login/', array(
+  'before'=>'forcehttps',
+  'uses' => 'userController@login')
+);
