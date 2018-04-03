@@ -13,3 +13,20 @@ Route::get('linkedin', function () {
 Route::get('auth/linkedin', 'Auth\AuthController@redirectToLinkedin');
 
 Route::get('auth/linkedin/callback', 'Auth\AuthController@handleLinkedinCallback');
+
+Route::filter('forcehttps', function()
+{
+  if(!Request::secure())
+  {
+    return Redirect::secure(Request::getRequestUri(),301);
+  }
+});
+
+Route::filter('forcehttp', function()
+{
+  $url = Request::url();
+  if(Request::secure()){
+    $url = str_replace('https://','http://',$url);
+    return Redirect::to($url,301);
+  }
+});
