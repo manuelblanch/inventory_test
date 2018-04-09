@@ -217,6 +217,23 @@
     </div>
   </div>
 </div>
+
+<!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <ul class="timeline">
+                            <li>
+                                <div class="timeline-badge"><i class="fa fa-check"></i>
+                                </div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4 class="timeline-title"></h4>
+                                        <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
+                                        </p>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p></p>
+                                    </div>
+</div>
     <div class="row">
         <div class="col-sm-8">
           <h3 class="box-title">Llista de Test</h3>
