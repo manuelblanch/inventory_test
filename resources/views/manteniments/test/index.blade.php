@@ -234,6 +234,33 @@
                                         <p></p>
                                     </div>
 </div>
+
+</li>
+                            <li class="timeline-inverted">
+                                <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
+                                </div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4 class="timeline-title">Test</h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p>Test 1</p>
+                                        <p>Test 2</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="timeline-badge danger"><i class="fa fa-bomb"></i>
+                                </div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4 class="timeline-title">Lorem ipsum dolor</h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p>Test 3</p>
+                                    </div>
+                                </div>
+</li>
     <div class="row">
         <div class="col-sm-8">
           <h3 class="box-title">Llista de Test</h3>
