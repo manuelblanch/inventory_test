@@ -22,3 +22,26 @@
     this.color = color;
     this.name = name;
   }
+
+  import CrudComponent from './CrudComponent.vue';
+export default {
+  data() {
+    return {
+      cruds: []
+    }
+  },
+  methods: {
+    create() {
+      windows.axios.get('/api/cruds/create').then(( {data} )) => {
+        this.cruds.push(new Crud(data));
+      }),
+    },
+    read() {
+    window.axios.get('/api/cruds').then(({ data }) => {
+      data.forEach(crud => {
+        this.cruds.push(new Crud(crud));
+      });
+    });
+  },
+},
+...
