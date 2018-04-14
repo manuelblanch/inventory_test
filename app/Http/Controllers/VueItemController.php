@@ -93,19 +93,21 @@ class VueItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+     public function update(Request $request, $id)
+     {
+         $this->validate($request, [
+             'title' => 'required',
+             'description' => 'required',
+         ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+         $edit = Item::find($id)->update($request->all());
+
+         return response()->json($edit);
+     }
+
+     public function destroy($id)
+     {
+         Item::find($id)->delete();
+         return response()->json(['done']);
+     }
 }
