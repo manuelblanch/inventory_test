@@ -93,6 +93,24 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="title">Nom Curt:</label>
+                            <textarea name="shortName" class="form-control" v-model="newItem.shortName"></textarea>
+                            <span v-if="formErrors['shortName']" class="error text-danger">@{{ formErrors['shortName'] }}</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="title">Data_Entrada:</label>
+                            <textarea name="date_entrance" class="form-control" v-model="newItem.date_entrance"></textarea>
+                            <span v-if="formErrors['date_entrance']" class="error text-danger">@{{ formErrors['date_entrance'] }}</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="title">Ultima_Entrada:</label>
+                            <textarea name="last_update" class="form-control" v-model="newItem.last_update"></textarea>
+                            <span v-if="formErrors['last_update']" class="error text-danger">@{{ formErrors['last_update'] }}</span>
+                        </div>
+
+                        <div class="form-group">
                             <button type="submit" class="btn btn-success">Afegeix</button>
                         </div>
                     </form>
