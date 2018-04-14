@@ -57,3 +57,34 @@
                 </li>
             </ul>
         </nav>
+
+        <!-- Create Item Modal -->
+        <div class="modal fade" id="create-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Afegeix Objectes</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- Form-->
+                    <form method="POST" enctype="multipart/form-data" v-on:submit.prevent="createItem">
+                        <div class="form-group">
+                            <label for="title">Titol:</label>
+                            <input type="text" name="title" class="form-control" v-model="newItem.title" />
+                            <span v-if="formErrors['title']" class="error text-danger">@{{ formErrors['title'] }}</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="title">Descripció:</label>
+                            <textarea name="description" class="form-control" v-model="newItem.description"></textarea>
+                            <span v-if="formErrors['description']" class="error text-danger">@{{ formErrors['description'] }}</span>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">Afegeix</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+          </div>
