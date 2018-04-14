@@ -29,8 +29,13 @@
                 <th width="200px">Acció</th>
             </tr>
             <tr v-for="item in items">
-                <td>@{{ item.title }}</td>
-                <td>@{{ item.description }}</td>
+                <td>@{{ brand.title }}</td>
+                <td>@{{ brand.description }}</td>
+                <td>@{{ brand.name }}</td>
+                <td>@{{ brand.shortName }}</td>
+                <td>@{{ brand.description }}</td>
+                <td>@{{ brand.date_entrance }}</td>
+                <td>@{{ brand.last_update }}</td>
                 <td>
                     <button class="btn btn-primary" @click.prevent="editItem(item)">Editar</button>
                     <button class="btn btn-danger" @click.prevent="deleteItem(item)">Esborrar</button>
