@@ -87,6 +87,12 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="title">Nom:</label>
+                            <textarea name="name" class="form-control" v-model="newItem.name"></textarea>
+                            <span v-if="formErrors['name']" class="error text-danger">@{{ formErrors['name'] }}</span>
+                        </div>
+
+                        <div class="form-group">
                             <button type="submit" class="btn btn-success">Afegeix</button>
                         </div>
                     </form>
