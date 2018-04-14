@@ -25,7 +25,7 @@
         <table class="table table-bordered">
             <tr>
                 <th>Titul</th>
-                <th>Descricio</th>
+                <th>Descripció</th>
                 <th width="200px">Acció</th>
             </tr>
             <tr v-for="item in items">
@@ -117,3 +117,5 @@
                 </div>
             </div>
           </div>
+
+          
