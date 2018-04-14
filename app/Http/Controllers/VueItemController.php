@@ -11,10 +11,30 @@ class VueItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
+
+     public function manageVue()
+   {
+       return view('manage-vue');
+   }
+
+   public function index(Request $request)
+   {
+       $items = Item::latest()->paginate(5);
+
+       $response = [
+           'pagination' => [
+               'total' => $items->total(),
+               'per_page' => $items->perPage(),
+               'current_page' => $items->currentPage(),
+               'last_page' => $items->lastPage(),
+               'from' => $items->firstItem(),
+               'to' => $items->lastItem()
+           ],
+           'data' => $items
+       ];
+
+       return response()->json($response);
+   }
 
     /**
      * Show the form for creating a new resource.
@@ -32,10 +52,17 @@ class VueItemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+     public function store(Request $request)
+     {
+         $this->validate($request, [
+             'title' => 'required',
+             'description' => 'required',
+         ]);
+
+         $create = Item::create($request->all());
+
+         return response()->json($create);
+     }
 
     /**
      * Display the specified resource.
