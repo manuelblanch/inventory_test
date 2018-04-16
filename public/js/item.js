@@ -49,4 +49,12 @@ new Vue({
   		this.getVueItems(this.pagination.current_page);
   },
 
-  
+  methods :{
+    getVueItems:
+
+    createVueItems:
+
+    editVueItems:
+
+    deleteVueItems:
+  }
