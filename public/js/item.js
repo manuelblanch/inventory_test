@@ -44,3 +44,9 @@ new Vue({
              return pagesArray;
          }
      },
+
+     ready : function(){
+  		this.getVueItems(this.pagination.current_page);
+  },
+
+  
