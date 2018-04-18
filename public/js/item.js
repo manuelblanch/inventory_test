@@ -16,8 +16,8 @@ new Vue({
     offset: 4,
     formErrors:{},
     formErrorsUpdate:{},
-    newItem : {'title':'','description':''},
-    fillItem : {'title':'','description':'','id':''}
+    newItem : {'name':'','shortname':'','description':'','date_entrance':'', 'last_update':''},
+    fillItem : {'name':'','shortname':'','description':'','date_entrance':'', 'last_update':''}
   },
 
   computed: {
