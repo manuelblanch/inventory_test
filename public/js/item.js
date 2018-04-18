@@ -63,7 +63,7 @@ new Vue({
     		    this.changePage(this.pagination.current_page);
     			this.newItem = {'name':'','shortname':'','description':'','date_entrance':'', 'last_update':''};
     			$("#create-item").modal('hide');
-    			toastr.success('Item Created Successfully.', 'Success Alert', {timeOut: 5000});
+    			toastr.success('Creat de forma correcta.', 'Success Alert', {timeOut: 5000});
     		  }, (response) => {
     			this.formErrors = response.data;
     	    });
@@ -78,5 +78,10 @@ new Vue({
             $("#edit-item").modal('show');
         },
 
-    deleteItem:
+        deleteItem: function(item){
+            this.$http.delete('/vueitems/'+item.id).then((response) => {
+                this.changePage(this.pagination.current_page);
+                toastr.success('Esborrat de forma correcta.', 'Success Alert', {timeOut: 5000});
+            });
+          },
   }
