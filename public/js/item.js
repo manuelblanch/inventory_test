@@ -50,7 +50,12 @@ new Vue({
   },
 
   methods :{
-    getVueItems:
+    getVueItems: function(page){
+          this.$http.get('/vueitems?page='+page).then((response) => {
+            this.$set('items', response.data.data.data);
+            this.$set('pagination', response.data.pagination);
+          });
+        },
 
     createVueItems:
 
