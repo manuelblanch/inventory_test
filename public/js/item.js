@@ -61,7 +61,7 @@ new Vue({
     		  var input = this.newItem;
     		  this.$http.post('/vueitems',input).then((response) => {
     		    this.changePage(this.pagination.current_page);
-    			this.newItem = {'title':'','description':''};
+    			this.newItem = {'name':'','shortname':'','description':'','date_entrance':'', 'last_update':''};
     			$("#create-item").modal('hide');
     			toastr.success('Item Created Successfully.', 'Success Alert', {timeOut: 5000});
     		  }, (response) => {
@@ -69,7 +69,14 @@ new Vue({
     	    });
     	},
 
-    editVueItems:
+      editItem: function(item){
+            this.fillItem.title = item.title;
+            this.fillItem.id = item.id;
+            this.fillItem.description = item.description;
+            this.fillItem.date_entrance = item.date_entrance;
+            this.fillItem.last_update = item.last_update;
+            $("#edit-item").modal('show');
+        },
 
-    deleteVueItems:
+    deleteItem:
   }
