@@ -57,7 +57,17 @@ new Vue({
           });
         },
 
-    createVueItems:
+        createItem: function(){
+    		  var input = this.newItem;
+    		  this.$http.post('/vueitems',input).then((response) => {
+    		    this.changePage(this.pagination.current_page);
+    			this.newItem = {'title':'','description':''};
+    			$("#create-item").modal('hide');
+    			toastr.success('Item Created Successfully.', 'Success Alert', {timeOut: 5000});
+    		  }, (response) => {
+    			this.formErrors = response.data;
+    	    });
+    	},
 
     editVueItems:
 
