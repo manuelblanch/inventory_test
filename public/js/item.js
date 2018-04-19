@@ -75,7 +75,7 @@ new Vue({
             this.changePage(this.pagination.current_page);
             this.fillItem = {'title':'','description':'','id':''};
             $("#edit-item").modal('hide');
-            toastr.success('Item Updated Successfully.', 'Success Alert', {timeOut: 5000});
+            toastr.success('Creat de forma correcta.', 'Success Alert', {timeOut: 5000});
           }, (response) => {
               this.formErrorsUpdate = response.data;
           });
