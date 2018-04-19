@@ -96,4 +96,10 @@ new Vue({
                 toastr.success('Esborrat de forma correcta.', 'Success Alert', {timeOut: 5000});
             });
           },
+
+          changePage: function (page) {
+          this.pagination.current_page = page;
+          this.getVueItems(page);
+      }
+
   }
