@@ -69,6 +69,18 @@ new Vue({
     	    });
     	},
 
+      updateItem: function(id){
+        var input = this.fillItem;
+        this.$http.put('/vueitems/'+id,input).then((response) => {
+            this.changePage(this.pagination.current_page);
+            this.fillItem = {'title':'','description':'','id':''};
+            $("#edit-item").modal('hide');
+            toastr.success('Item Updated Successfully.', 'Success Alert', {timeOut: 5000});
+          }, (response) => {
+              this.formErrorsUpdate = response.data;
+          });
+      },
+
       editItem: function(item){
             this.fillItem.title = item.title;
             this.fillItem.id = item.id;
