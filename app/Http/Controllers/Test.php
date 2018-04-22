@@ -136,6 +136,12 @@ class TestController extends Controller
         return redirect()->intended('mnt/test');
     }
 
+    /*public function destroy($id)
+    {
+        Item::find($id)->delete();
+        return response()->json(['done']);
+    }*/
+
     public function search(Request $request)
     {
         $constraints = [
