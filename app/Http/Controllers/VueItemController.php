@@ -98,6 +98,10 @@ class VueItemController extends Controller
          $this->validate($request, [
              'title' => 'required',
              'description' => 'required',
+             'name' => 'required',
+             'shortName' =>'required',
+             'date_entrance' => 'required',
+             'last_update' => 'required'
          ]);
 
          $edit = Item::find($id)->update($request->all());
