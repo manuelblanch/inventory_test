@@ -15,7 +15,7 @@
       "acacha/user": "~0.2",
       "acacha/stateful-eloquent": "dev-master",
       "laravel/passport": "^2.0",
-      "scool/foundation": "dev-master",
+      "scool/foundation": "^0.2.1",
       "acacha/l5-repository": "dev-master",
       "predis/predis": "^1.1",
       "spatie/laravel-menu": "^2.0",
