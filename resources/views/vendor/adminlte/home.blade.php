@@ -17,7 +17,7 @@
 		<!-- small box -->
 		<div class="small-box bg-aqua">
 			<div class="inner">
-				<h3>150</h3>
+				<h3>200</h3>
 
 				<p>Objectes de l'inventari</p>
 			</div>
@@ -28,12 +28,50 @@
 		</div>
 	</div>
 
-	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-</button>
+	<ul class="nav navbar-nav navbar-left navbar-top-links">
+	                    <li><a href="#"><i class="fa fa-home fa-fw"></i>Web</a></li>
+	                </ul>
+
+	                <ul class="nav navbar-right navbar-top-links">
+	                    <li class="dropdown navbar-inverse">
+	                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+	                            <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
+	                        </a>
+	                        <ul class="dropdown-menu dropdown-alerts">
+	                            <li>
+	                                <a href="#">
+	                                    <div>
+	                                        <i class="fa fa-comment fa-fw"></i>Nou Comentari
+	                                        <span class="pull-right text-muted small">4 minutes ago</span>
+	                                    </div>
+	                                </a>
+	                            </li>
+	                            <li>
+	                                <a href="#">
+	                                    <div>
+	                                        <i class="fa fa-twitter fa-fw"></i> Nous Seguidors
+	                                        <span class="pull-right text-muted small">12 minutes ago</span>
+	                                    </div>
+	                                </a>
+	                            </li>
+	                            <li>
+	                                <a href="#">
+	                                    <div>
+	                                        <i class="fa fa-envelope fa-fw"></i> Missatge Enviat
+	                                        <span class="pull-right text-muted small">4 minutes ago</span>
+	                                    </div>
+	                                </a>
+	                            </li>
+	                            <li>
+	                                <a href="#">
+	                                    <div>
+	                                        <i class="fa fa-tasks fa-fw"></i> Nova Tasca
+	                                        <span class="pull-right text-muted small">4 minutes ago</span>
+	                                    </div>
+	                                </a>
+	                            </li>
+	<li>
+
 
 	<!-- ./col -->
 	<div class="col-lg-3 col-xs-6">
