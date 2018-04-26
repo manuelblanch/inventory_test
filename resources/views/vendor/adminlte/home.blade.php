@@ -27,6 +27,14 @@
 			<a href="{{ url('inventory-mnt') }}" class="small-box-footer">Acces a la llista<i class="fa fa-arrow-circle-right"></i></a>
 		</div>
 	</div>
+
+	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+</button>
+
 	<!-- ./col -->
 	<div class="col-lg-3 col-xs-6">
 		<!-- small box -->
