@@ -147,6 +147,23 @@
 																			 <a href="panels-wells.html">Panels and Wells</a>
 </li>
 
+<li>
+                                        <a href="buttons.html">Buttons</a>
+                                    </li>
+                                    <li>
+                                        <a href="notifications.html">Notifications</a>
+                                    </li>
+                                    <li>
+                                        <a href="typography.html">Typography</a>
+                                    </li>
+                                    <li>
+                                        <a href="icons.html"> Icons</a>
+                                    </li>
+                                    <li>
+                                        <a href="grid.html">Grid</a>
+                                    </li>
+</ul>
+
 	<!-- ./col -->
 	<div class="col-lg-3 col-xs-6">
 		<!-- small box -->
