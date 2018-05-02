@@ -448,6 +448,73 @@
                                             </table>
 </div>
 
+<!-- /.table-responsive -->
+                                    </div>
+                                    <!-- /.col-lg-4 (nested) -->
+                                    <div class="col-lg-8">
+                                        <div id="morris-bar-chart"></div>
+                                    </div>
+                                    <!-- /.col-lg-8 (nested) -->
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <i class="fa fa-clock-o fa-fw"></i> Responsive Timeline
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <ul class="timeline">
+                                    <li>
+                                        <div class="timeline-badge"><i class="fa fa-check"></i>
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h4 class="timeline-title">Lorem ipsum dolor</h4>
+
+                                                <p>
+                                                    <small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via
+                                                        Twitter
+                                                    </small>
+                                                </p>
+                                            </div>
+                                            <div class="timeline-body">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero
+                                                    laboriosam
+                                                    dolor perspiciatis omnis exercitationem. Beatae, officia pariatur? Est
+                                                    cum
+                                                    veniam excepturi. Maiores praesentium, porro voluptas suscipit facere
+                                                    rem
+                                                    dicta, debitis.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="timeline-inverted">
+                                        <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h4 class="timeline-title">Lorem ipsum dolor</h4>
+                                            </div>
+                                            <div class="timeline-body">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolorem
+                                                    quibusdam, tenetur commodi provident cumque magni voluptatem libero,
+                                                    quis
+                                                    rerum. Fugiat esse debitis optio, tempore. Animi officiis alias, officia
+                                                    repellendus.</p>
+
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium
+                                                    maiores
+                                                    odit qui est tempora eos, nostrum provident explicabo dignissimos
+                                                    debitis
+                                                    vel! Adipisci eius voluptates, ad aut recusandae minus eaque facere.</p>
+                                            </div>
+                                        </div>
+</li>
+
 	<!-- ./col -->
 	<div class="col-lg-3 col-xs-6">
 		<!-- small box -->
