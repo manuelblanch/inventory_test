@@ -577,6 +577,40 @@
                                         </div>
 </li>
 
+<li>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h4 class="timeline-title">Lorem ipsum dolor</h4>
+                                            </div>
+                                            <div class="timeline-body">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi fuga odio
+                                                    quibusdam. Iure expedita, incidunt unde quis nam! Quod, quisquam.
+                                                    Officia
+                                                    quam qui adipisci quas consequuntur nostrum sequi. Consequuntur,
+                                                    commodi.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="timeline-inverted">
+                                        <div class="timeline-badge success"><i class="fa fa-graduation-cap"></i>
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h4 class="timeline-title">Lorem ipsum dolor</h4>
+                                            </div>
+                                            <div class="timeline-body">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
+                                                    obcaecati,
+                                                    quaerat tempore officia voluptas debitis consectetur culpa amet,
+                                                    accusamus
+                                                    dolorum fugiat, animi dicta aperiam, enim incidunt quisquam maxime neque
+                                                    eaque.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+</div>
+
 	<!-- ./col -->
 	<div class="col-lg-3 col-xs-6">
 		<!-- small box -->
