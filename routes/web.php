@@ -107,5 +107,7 @@ Route::resource('/task', 'TaskController');
 Route::get('/redirect', 'SocialAuthTwitterController@redirect');
 Route::get('/callback', 'SocialAuthTwitterController@callback');
 
+Route::get('events', 'EventController@index');
+
 Route::group(['middleware' => 'web'], function () {
 });
