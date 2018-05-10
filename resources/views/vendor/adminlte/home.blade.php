@@ -638,6 +638,38 @@
                                             <span class="pull-right text-muted small"><em>27 minutes ago</em>
                                             </span>
 </a>
+
+<a href="#" class="list-group-item">
+                                        <i class="fa fa-tasks fa-fw"></i> Nova Tasca
+                                            <span class="pull-right text-muted small"><em>43 minutes ago</em>
+                                            </span>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <i class="fa fa-upload fa-fw"></i> Servidor Reiniciat
+                                            <span class="pull-right text-muted small"><em>11:32 AM</em>
+                                            </span>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <i class="fa fa-bolt fa-fw"></i> Servidor Trencat!
+                                            <span class="pull-right text-muted small"><em>11:13 AM</em>
+                                            </span>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <i class="fa fa-warning fa-fw"></i> El Servidor no respon
+                                            <span class="pull-right text-muted small"><em>10:57 AM</em>
+                                            </span>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <i class="fa fa-shopping-cart fa-fw"></i> Nou objecte demanat
+                                            <span class="pull-right text-muted small"><em>9:49 AM</em>
+                                            </span>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <i class="fa fa-money fa-fw"></i> Paga Obtinguda
+                                            <span class="pull-right text-muted small"><em>Yesterday</em>
+                                            </span>
+                                    </a>
+</div>
 </div>
 
 	<!-- ./col -->
