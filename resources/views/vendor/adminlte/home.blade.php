@@ -583,11 +583,7 @@
                                                 <h4 class="timeline-title">Lorem ipsum dolor</h4>
                                             </div>
                                             <div class="timeline-body">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi fuga odio
-                                                    quibusdam. Iure expedita, incidunt unde quis nam! Quod, quisquam.
-                                                    Officia
-                                                    quam qui adipisci quas consequuntur nostrum sequi. Consequuntur,
-                                                    commodi.</p>
+                                                <p>Lorem ipsum dolor sit amet</p>
                                             </div>
                                         </div>
                                     </li>
@@ -599,12 +595,7 @@
                                                 <h4 class="timeline-title">Lorem ipsum dolor</h4>
                                             </div>
                                             <div class="timeline-body">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-                                                    obcaecati,
-                                                    quaerat tempore officia voluptas debitis consectetur culpa amet,
-                                                    accusamus
-                                                    dolorum fugiat, animi dicta aperiam, enim incidunt quisquam maxime neque
-                                                    eaque.</p>
+                                                <p>Lorem ipsum dolor sit amet</p>
                                             </div>
                                         </div>
                                     </li>
@@ -669,6 +660,21 @@
                                             <span class="pull-right text-muted small"><em>Yesterday</em>
                                             </span>
                                     </a>
+</div>
+
+<!-- /.list-group -->
+                                <a href="#" class="btn btn-default btn-block">View All Alerts</a>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <i class="fa fa-bar-chart-o fa-fw"></i> Donut Chart Example
+                            </div>
+                            <div class="panel-body">
+                                <div id="morris-donut-chart"></div>
+                                <a href="#" class="btn btn-default btn-block">View Details</a>
 </div>
 </div>
 
