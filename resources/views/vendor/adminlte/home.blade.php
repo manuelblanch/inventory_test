@@ -420,42 +420,7 @@
                                                     <td>3:20 PM</td>
                                                     <td>$234.34</td>
                                                 </tr>
-                                                <tr>
-                                                    <td>3324</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:03 PM</td>
-                                                    <td>$724.17</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3323</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:00 PM</td>
-                                                    <td>$23.71</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3322</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:49 PM</td>
-                                                    <td>$8345.23</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3321</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:23 PM</td>
-                                                    <td>$245.12</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3320</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:15 PM</td>
-                                                    <td>$5663.54</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3319</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:13 PM</td>
-                                                    <td>$943.45</td>
-                                                </tr>
+
                                                 </tbody>
                                             </table>
 </div>
@@ -494,13 +459,7 @@
                                                 </p>
                                             </div>
                                             <div class="timeline-body">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero
-                                                    laboriosam
-                                                    dolor perspiciatis omnis exercitationem. Beatae, officia pariatur? Est
-                                                    cum
-                                                    veniam excepturi. Maiores praesentium, porro voluptas suscipit facere
-                                                    rem
-                                                    dicta, debitis.</p>
+                                                <p>Lorem ipsum dolor</p>
                                             </div>
                                         </div>
                                     </li>
@@ -512,17 +471,9 @@
                                                 <h4 class="timeline-title">Lorem ipsum dolor</h4>
                                             </div>
                                             <div class="timeline-body">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolorem
-                                                    quibusdam, tenetur commodi provident cumque magni voluptatem libero,
-                                                    quis
-                                                    rerum. Fugiat esse debitis optio, tempore. Animi officiis alias, officia
-                                                    repellendus.</p>
+                                                <p>Lorem ipsum dolor sit amet.</p>
 
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium
-                                                    maiores
-                                                    odit qui est tempora eos, nostrum provident explicabo dignissimos
-                                                    debitis
-                                                    vel! Adipisci eius voluptates, ad aut recusandae minus eaque facere.</p>
+                                                <p>Lorem ipsum dolor sit amet.</p>
                                             </div>
                                         </div>
 </li>
@@ -535,10 +486,7 @@
                                                 <h4 class="timeline-title">Lorem ipsum dolor</h4>
                                             </div>
                                             <div class="timeline-body">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus
-                                                    numquam
-                                                    facilis enim eaque, tenetur nam id qui vel velit similique nihil iure
-                                                    molestias aliquam, voluptatem totam quaerat, magni commodi quisquam.</p>
+                                                <p>Lorem ipsum dolor sit amet.</p>
                                             </div>
                                         </div>
                                     </li>
@@ -548,11 +496,7 @@
                                                 <h4 class="timeline-title">Lorem ipsum dolor</h4>
                                             </div>
                                             <div class="timeline-body">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates est
-                                                    quaerat asperiores sapiente, eligendi, nihil. Itaque quos, alias
-                                                    sapiente
-                                                    rerum quas odit! Aperiam officiis quidem delectus libero, omnis ut
-                                                    debitis!</p>
+                                                <p>Lorem ipsum dolor sit amet</p>
                                             </div>
                                         </div>
 </li><li>
@@ -563,10 +507,7 @@
                                                 <h4 class="timeline-title">Lorem ipsum dolor</h4>
                                             </div>
                                             <div class="timeline-body">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis minus
-                                                    modi
-                                                    quam ipsum alias at est molestiae excepturi delectus nesciunt, quibusdam
-                                                    debitis amet, beatae consequuntur impedit nulla qui! Laborum, atque.</p>
+                                                <p>Lorem ipsum dolor sit amet</p>
                                                 <hr>
                                                 <div class="btn-group">
                                                     <button type="button" class="btn btn-primary btn-sm dropdown-toggle"
