@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-class UserMantenimentSpec extends ObjectBehavior {
+class UserMantenimentSpec extends TestCase {
 
   function let(Repository $Repository)
   {

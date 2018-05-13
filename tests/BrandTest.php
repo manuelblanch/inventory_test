@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-class BrandSpec extends ObjectBehavior {
+class BrandSpec extends TestCase {
 
   function let(Repository $Repository)
   {
