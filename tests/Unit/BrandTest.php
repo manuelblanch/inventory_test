@@ -1,7 +1,7 @@
 <?php
 namespace Tests;
-class Brand extends TestCase {
-  function let(Repository $Repository)
+class Brand extends \PHPUnit_Framework_TestCase {
+  function testlet(Repository $Repository)
   {
     $this->beConstructedWith($Repository);
   }
@@ -18,7 +18,7 @@ class Brand extends TestCase {
     $response->firstname->shouldBe('Marca');
     $response->lastname->shouldBe('Sound');
   }
-  function throw_exception(Repository $Repository)
+  function testthrow_exception(Repository $Repository)
   {
     $Repository->get(1)->willReturn(null)->shouldBeCalled();
     $this->shouldThrow(NoSuchUserException::class)->duringGet(1);

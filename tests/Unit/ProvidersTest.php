@@ -16,12 +16,12 @@ class ProvidersTest extends \PHPUnit_Framework_TestCase
      */
     public function testExample()
     {
-        $user = factory(Provider::class)->create([
+        $user = factory(Providers::class)->create([
           'name' => 'Test',
           'shortName' => 'T1',
           'description' => 'proba',
-          'date_entrance' => Carbon::parse('2018-12-12'),
-          'last_update' => Carbon::parse('2018-11-11'),
+          'date_entrance' => '2018-12-12',
+          'last_update' => '2018-11-11',
         ]);
 
         $this->assertEquals('Test T1 proba 2018-12-12 2018-11-11');
