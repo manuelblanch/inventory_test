@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 
-class ExampleTest extends TestCase
+class ExampleTest extends \PHPUnit_Framework_TestCase 
 {
     /**
      * A basic test example.
@@ -13,6 +13,6 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $this->assertTrue(true);
+        $this->assertTrue(false);
     }
 }

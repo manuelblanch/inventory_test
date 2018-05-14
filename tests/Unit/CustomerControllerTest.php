@@ -11,7 +11,7 @@ use PHPUnit_Framework_MockObject_MockObject;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class CustomerControllerTest extends TestCase
+class CustomerControllerTest extends TestCase 
 {
     /** @var CustomerService|PHPUnit_Framework_MockObject_MockObject */
     private $customerServiceMock;

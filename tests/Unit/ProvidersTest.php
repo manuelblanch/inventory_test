@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ProvidersTest extends TestCase
+class ProvidersTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * A basic test example.
