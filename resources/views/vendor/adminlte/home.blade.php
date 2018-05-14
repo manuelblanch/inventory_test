@@ -21,13 +21,13 @@
 										</div>
 										<div class="col-xs-9 text-right">
 												<div class="huge">26</div>
-												<div>New Comments!</div>
+												<div>Objectes de l'inventari</div>
 										</div>
 								</div>
 						</div>
 						<a href="#">
 								<div class="panel-footer">
-										<span class="pull-left">View Details</span>
+										<span class="pull-left">Acces a la llista</span>
 										<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
 										<div class="clearfix"></div>
@@ -44,13 +44,13 @@
 										</div>
 										<div class="col-xs-9 text-right">
 												<div class="huge">12</div>
-												<div>New Tasks!</div>
+												<div>Localitzacions</div>
 										</div>
 								</div>
 						</div>
 						<a href="#">
 								<div class="panel-footer">
-										<span class="pull-left">View Details</span>
+										<span class="pull-left">Acces a la localització</span>
 										<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
 										<div class="clearfix"></div>
@@ -67,13 +67,13 @@
 										</div>
 										<div class="col-xs-9 text-right">
 												<div class="huge">124</div>
-												<div>New Orders!</div>
+												<div>Proveidors</div>
 										</div>
 								</div>
 						</div>
 						<a href="#">
 								<div class="panel-footer">
-										<span class="pull-left">View Details</span>
+										<span class="pull-left">Acces als proveidors</span>
 										<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
 										<div class="clearfix"></div>
@@ -90,13 +90,13 @@
 										</div>
 										<div class="col-xs-9 text-right">
 												<div class="huge">13</div>
-												<div>Support Tickets!</div>
+												<div>Marques</div>
 										</div>
 								</div>
 						</div>
 						<a href="#">
 								<div class="panel-footer">
-										<span class="pull-left">View Details</span>
+										<span class="pull-left">Acces a marques</span>
 										<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
 										<div class="clearfix"></div>

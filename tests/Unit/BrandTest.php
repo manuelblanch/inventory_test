@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-class BrandSpec extends TestCase {
+class Brand extends TestCase {
 
   function let(Repository $Repository)
   {
