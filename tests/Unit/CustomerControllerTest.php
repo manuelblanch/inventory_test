@@ -1,6 +1,6 @@
-<?php  
+<?php
 
-namespace tests\PhpunitBundle\Controller;
+namespace Tests;
 
 use DateTime;
 use PhpunitBundle\Controller\CustomerController;
