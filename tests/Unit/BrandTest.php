@@ -1,7 +1,7 @@
 <?php
 
 namespace Tests;
-
+/*
 class BrandTest extends \PHPUnit_Framework_TestCase
 {
     public function testlet(Repository $Repository)
@@ -9,7 +9,7 @@ class BrandTest extends \PHPUnit_Framework_TestCase
         $this->beConstructedWith($Repository);
     }
 
-    public function return_user_in_database(Repository $Repository)
+    public function testreturn_user_in_database(Repository $Repository)
     {
         $userRepository->get(1)->willReturn([
         'id'        => 1,
@@ -28,4 +28,4 @@ class BrandTest extends \PHPUnit_Framework_TestCase
         $Repository->get(1)->willReturn(null)->shouldBeCalled();
         $this->shouldThrow(NoSuchUserException::class)->duringGet(1);
     }
-}
+}*/
