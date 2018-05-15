@@ -45,7 +45,7 @@ class TaskController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      *
      * @return \Illuminate\Http\Response
      */
@@ -95,8 +95,8 @@ class TaskController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\task  $task
+     * @param \Illuminate\Http\Request $request
+     * @param \App\task                $task
      *
      * @return \Illuminate\Http\Response
      */

@@ -60,7 +60,7 @@ class Test extends Controller
     public function store(Request $request)
     {
         $this->validateInput($request);
-        Test::create([
+        self::create([
          'name'          => $request['name'],
          'shortName'     => $request['shortName'],
          'description'   => $request['description'],
@@ -92,7 +92,7 @@ class Test extends Controller
      */
     public function edit($id)
     {
-        $test = Test::find($id);
+        $test = self::find($id);
         if ($test == null || count($test) == 0) {
             return redirect()->intended('/mnt/test');
         }
@@ -110,7 +110,7 @@ class Test extends Controller
      */
     public function update(Request $request, $id)
     {
-        $test = Test::findOrFail($id);
+        $test = self::findOrFail($id);
         $input = [
         'name'          => $request['name'],
         'shortName'     => $request['shortName'],
@@ -121,7 +121,7 @@ class Test extends Controller
         $this->validate($request, [
       'name' => 'required|max:60',
       ]);
-        Test::where('id', $id)
+        self::where('id', $id)
           ->update($input);
 
         return redirect()->intended('mnt/test');
@@ -136,7 +136,7 @@ class Test extends Controller
      */
     public function destroy($id)
     {
-        Test::where('id', $id)->delete();
+        self::where('id', $id)->delete();
 
         return redirect()->intended('mnt/test');
     }
@@ -160,7 +160,7 @@ class Test extends Controller
 
     private function doSearchingQuery($constraints)
     {
-        $query = test::query();
+        $query = self::query();
         $fields = array_keys($constraints);
         $index = 0;
         foreach ($constraints as $constraint) {
