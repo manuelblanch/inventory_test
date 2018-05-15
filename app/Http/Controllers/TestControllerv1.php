@@ -62,8 +62,8 @@ class TestControllerv1 extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\task  $task
+     * @param \Illuminate\Http\Request $request
+     * @param \App\task                $task
      *
      * @return \Illuminate\Http\Response
      */
