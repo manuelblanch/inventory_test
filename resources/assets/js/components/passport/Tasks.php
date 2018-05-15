@@ -1,5 +1,5 @@
 <?php
-
+/*
 <template>
     <div class="container">
         <div class="row">
@@ -105,6 +105,6 @@
             },
         }
     }
-</script>
+</script> */
 
 ?>
