@@ -2,8 +2,6 @@
 
 namespace Tests\Unit;
 
-use Tests\TestCase;
-
 class ExampleTest extends \PHPUnit_Framework_TestCase
 {
     /**

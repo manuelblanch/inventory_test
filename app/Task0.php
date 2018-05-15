@@ -5,7 +5,7 @@ namespace App;
 use App\Events\TaskCreated;
 use Illuminate\Database\Eloquent\Model;
 
-class Task2 extends Model
+class Task0 extends Model
 {
     use RecordsActivity;
     /**

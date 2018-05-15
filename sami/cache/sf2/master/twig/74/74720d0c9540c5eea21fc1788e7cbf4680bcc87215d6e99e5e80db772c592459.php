@@ -377,6 +377,7 @@ window.projectVersion = '";
         $blocks = [];
 
         ob_start();
+
         try {
             // line 216
             echo '    ';
@@ -446,6 +447,7 @@ window.projectVersion = '";
         $blocks = [];
 
         ob_start();
+
         try {
             // line 226
             echo '    ';

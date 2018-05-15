@@ -11,30 +11,29 @@ class VueItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function manageVue()
+    {
+        return view('manage-vue');
+    }
 
-     public function manageVue()
-   {
-       return view('manage-vue');
-   }
+    public function index(Request $request)
+    {
+        $items = Item::latest()->paginate(5);
 
-   public function index(Request $request)
-   {
-       $items = Item::latest()->paginate(5);
-
-       $response = [
+        $response = [
            'pagination' => [
-               'total' => $items->total(),
-               'per_page' => $items->perPage(),
+               'total'        => $items->total(),
+               'per_page'     => $items->perPage(),
                'current_page' => $items->currentPage(),
-               'last_page' => $items->lastPage(),
-               'from' => $items->firstItem(),
-               'to' => $items->lastItem()
+               'last_page'    => $items->lastPage(),
+               'from'         => $items->firstItem(),
+               'to'           => $items->lastItem(),
            ],
-           'data' => $items
+           'data' => $items,
        ];
 
-       return response()->json($response);
-   }
+        return response()->json($response);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -50,24 +49,26 @@ class VueItemController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     *
      * @return \Illuminate\Http\Response
      */
-     public function store(Request $request)
-     {
-         $this->validate($request, [
-             'title' => 'required',
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+             'title'       => 'required',
              'description' => 'required',
          ]);
 
-         $create = Item::create($request->all());
+        $create = Item::create($request->all());
 
-         return response()->json($create);
-     }
+        return response()->json($create);
+    }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -78,7 +79,8 @@ class VueItemController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -86,11 +88,10 @@ class VueItemController extends Controller
         //
 
         if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
-        // Ignores notices and reports all other kinds... and warnings
-        error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
-        // error_reporting(E_ALL ^ E_WARNING); // Maybe this is enough
-    }
-
+            // Ignores notices and reports all other kinds... and warnings
+            error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+            // error_reporting(E_ALL ^ E_WARNING); // Maybe this is enough
+        }
     }
 
     /**
@@ -98,27 +99,29 @@ class VueItemController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
+     *
      * @return \Illuminate\Http\Response
      */
-     public function update(Request $request, $id)
-     {
-         $this->validate($request, [
-             'title' => 'required',
-             'description' => 'required',
-             'name' => 'required',
-             'shortName' =>'required',
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+             'title'         => 'required',
+             'description'   => 'required',
+             'name'          => 'required',
+             'shortName'     => 'required',
              'date_entrance' => 'required',
-             'last_update' => 'required'
+             'last_update'   => 'required',
          ]);
 
-         $edit = Item::find($id)->update($request->all());
+        $edit = Item::find($id)->update($request->all());
 
-         return response()->json($edit);
-     }
+        return response()->json($edit);
+    }
 
-     public function destroy($id)
-     {
-         Item::find($id)->delete();
-         return response()->json(['done']);
-     }
+    public function destroy($id)
+    {
+        Item::find($id)->delete();
+
+        return response()->json(['done']);
+    }
 }

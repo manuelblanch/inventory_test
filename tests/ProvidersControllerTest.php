@@ -7,7 +7,7 @@ abstract class ProvidersControllerTest extends TestCase
     public function __construct()
     {
         // We have no interest in testing Eloquent
-      $this->mock = Mockery::mock('Eloquent', 'ProvidersController');
+        $this->mock = Mockery::mock('Eloquent', 'ProvidersController');
     }
 
     public function tearDown()

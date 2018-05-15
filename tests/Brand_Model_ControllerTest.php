@@ -7,7 +7,7 @@ abstract class Brand_Model_ControllerTest extends TestCase
     public function __construct()
     {
         // We have no interest in testing Eloquent
-      $this->mock = Mockery::mock('Eloquent', 'Brand_Model_Controller');
+        $this->mock = Mockery::mock('Eloquent', 'Brand_Model_Controller');
     }
 
     public function tearDown()

@@ -9,7 +9,7 @@ namespace Tests;
 /**
  * @covers Email
  */
-final class EmailTest extends TestCase
+final class FirstTest0 extends TestCase
 {
     public function testCanBeCreatedFromValidEmailAddress(): void
     {
