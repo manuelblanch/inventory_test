@@ -29,7 +29,7 @@ Route::filter('forcehttp', function () {
 
 Route::get('/', ['before'=> 'forcehttp', function () {
     return View::make('home');
-}, ]);
+}]);
 
 Route::get('/login/', [
   'before'=> 'forcehttps',

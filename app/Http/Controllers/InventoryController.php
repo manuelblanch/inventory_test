@@ -215,7 +215,7 @@ class InventoryController extends Controller
     /**
      * Load image resource.
      *
-     * @param  string  $name
+     * @param string $name
      *
      * @return \Illuminate\Http\Response
      */
