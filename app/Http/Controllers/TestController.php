@@ -1,61 +1,56 @@
-<?php namespace App\Http\Controllers;
+<?php
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class TestController extends Controller {
-
-    public function index() {
+class TestController extends Controller
+{
+    public function index()
+    {
         $data['tasks'] = [
                 [
-                        'name' => 'Design New Dashboard',
+                        'name'     => 'Design New Dashboard',
                         'progress' => '87',
-                        'color' => 'danger'
+                        'color'    => 'danger',
                 ],
                 [
-                        'name' => 'Create Home Page',
+                        'name'     => 'Create Home Page',
                         'progress' => '76',
-                        'color' => 'warning'
+                        'color'    => 'warning',
                 ],
                 [
-                        'name' => 'Some Other Task',
+                        'name'     => 'Some Other Task',
                         'progress' => '32',
-                        'color' => 'success'
+                        'color'    => 'success',
                 ],
                 [
-                        'name' => 'Start Building Website',
+                        'name'     => 'Start Building Website',
                         'progress' => '56',
-                        'color' => 'info'
+                        'color'    => 'info',
                 ],
                 [
-                        'name' => 'Develop an Awesome Algorithm',
+                        'name'     => 'Develop an Awesome Algorithm',
                         'progress' => '10',
-                        'color' => 'success'
-                ]
+                        'color'    => 'success',
+                ],
         ];
+
         return view('test')->with($data);
 
         if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
-        // Ignores notices and reports all other kinds... and warnings
-        error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
-        // error_reporting(E_ALL ^ E_WARNING); // Maybe this is enough
-    }
-    
+            // Ignores notices and reports all other kinds... and warnings
+            error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+            // error_reporting(E_ALL ^ E_WARNING); // Maybe this is enough
+        }
     }
 
     public function update(Request $request)
-   {
-
-
-
-
-       $path = Storage::putFileAs(
+    {
+        $path = Storage::putFileAs(
     'avatars', $request->file('avatar'), $request->user()->id
 );
 
- return $path;
-   }
-
+        return $path;
+    }
 }

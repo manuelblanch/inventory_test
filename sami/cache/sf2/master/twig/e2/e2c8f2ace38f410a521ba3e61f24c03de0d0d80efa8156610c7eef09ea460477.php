@@ -332,12 +332,12 @@ class __TwigTemplate_8e6218bd36f7b76d195624c2a59ca3e927beb46975683a269365c81ec62
                 if (!twig_get_attribute($this->env, $this->getSourceContext(), $context['loop'], 'last', [])) {
                     echo ', ';
                 }
-                ++$context['loop']['index0'];
-                ++$context['loop']['index'];
+                $context['loop']['index0']++;
+                $context['loop']['index']++;
                 $context['loop']['first'] = false;
                 if (isset($context['loop']['length'])) {
-                    --$context['loop']['revindex0'];
-                    --$context['loop']['revindex'];
+                    $context['loop']['revindex0']--;
+                    $context['loop']['revindex']--;
                     $context['loop']['last'] = 0 === $context['loop']['revindex0'];
                 }
             }
@@ -747,12 +747,12 @@ class __TwigTemplate_8e6218bd36f7b76d195624c2a59ca3e927beb46975683a269365c81ec62
             echo '</div>
             </div>
         ';
-            ++$context['loop']['index0'];
-            ++$context['loop']['index'];
+            $context['loop']['index0']++;
+            $context['loop']['index']++;
             $context['loop']['first'] = false;
             if (isset($context['loop']['length'])) {
-                --$context['loop']['revindex0'];
-                --$context['loop']['revindex'];
+                $context['loop']['revindex0']--;
+                $context['loop']['revindex']--;
                 $context['loop']['last'] = 0 === $context['loop']['revindex0'];
             }
         }
@@ -797,12 +797,12 @@ class __TwigTemplate_8e6218bd36f7b76d195624c2a59ca3e927beb46975683a269365c81ec62
             echo '
             </div>
         ';
-            ++$context['loop']['index0'];
-            ++$context['loop']['index'];
+            $context['loop']['index0']++;
+            $context['loop']['index']++;
             $context['loop']['first'] = false;
             if (isset($context['loop']['length'])) {
-                --$context['loop']['revindex0'];
-                --$context['loop']['revindex'];
+                $context['loop']['revindex0']--;
+                $context['loop']['revindex']--;
                 $context['loop']['last'] = 0 === $context['loop']['revindex0'];
             }
         }

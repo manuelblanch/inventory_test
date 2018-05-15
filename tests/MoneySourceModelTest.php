@@ -7,7 +7,7 @@ abstract class MoneySourceModelTest extends TestCase
     public function __construct()
     {
         // We have no interest in testing Eloquent
-      $this->mock = Mockery::mock('Eloquent', 'MoneySourceModel');
+        $this->mock = Mockery::mock('Eloquent', 'MoneySourceModel');
     }
 
     public function tearDown()

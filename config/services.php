@@ -67,9 +67,9 @@ return [
 
     'linkedin' => [
 
-        'client_id' => 'id',
+        'client_id'     => 'id',
         'client_secret' => 'secret',
-        'redirect' => ''
+        'redirect'      => '',
     ],
 
 ];

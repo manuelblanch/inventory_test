@@ -1,31 +1,29 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-use App\User;
-use Validator;
+
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-use Socialite;
+use App\User;
 use Auth;
 use Exception;
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Socialite;
+use Validator;
 
-class AuthController extends Controller {
+class AuthController extends Controller
+{
+    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
-  use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+    protected $redirectTo = '/';
 
-
-      protected $redirectTo = '/';
-      public function __construct()
-        {
-          $this->middleware('guest', ['except' => 'logout']);
-
-      }
-
-      protected function validator(array $data)
-
+    public function __construct()
     {
+        $this->middleware('guest', ['except' => 'logout']);
+    }
 
+    protected function validator(array $data)
+    {
         return Validator::make($data, [
 
             'name' => 'required|max:255',
@@ -35,14 +33,11 @@ class AuthController extends Controller {
             'password' => 'required|confirmed|min:6',
 
         ]);
-
     }
 
     protected function create(array $data)
-
-{
-
-    return User::create([
+    {
+        return User::create([
 
         'name' => $data['name'],
 
@@ -51,24 +46,16 @@ class AuthController extends Controller {
         'password' => bcrypt($data['password']),
 
     ]);
-
-}
-
-public function redirectToLinkedin()
-
-    {
-
-        return Socialite::driver('linkedin')->redirect();
-
     }
 
+    public function redirectToLinkedin()
+    {
+        return Socialite::driver('linkedin')->redirect();
+    }
 
     public function handleLinkedinCallback()
-
     {
-
         try {
-
             $user = Socialite::driver('linkedin')->user();
 
             $create['name'] = $user->name;
@@ -77,22 +64,15 @@ public function redirectToLinkedin()
 
             $create['linkedin_id'] = $user->id;
 
-
-
-            $userModel = new User;
+            $userModel = new User();
 
             $createdUser = $userModel->addNew($create);
 
             Auth::loginUsingId($createdUser->id);
 
             return redirect()->route('home');
-
         } catch (Exception $e) {
-
             return redirect('auth/linkedin');
-
         }
-
     }
-
 }

@@ -6,24 +6,23 @@ use App\Location;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
-class TestController extends Controller
+class Test extends Controller
 {
     /**
-      * Display a listing of the resource.
-      *
-      * @return \Illuminate\Http\Response
-      */
-     public function __construct()
-     {
-         $this->middleware('auth');
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
 
-         if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
-         // Ignores notices and reports all other kinds... and warnings
-         error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
-         // error_reporting(E_ALL ^ E_WARNING); // Maybe this is enough
-     }
-     
-     }
+        if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
+            // Ignores notices and reports all other kinds... and warnings
+            error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+            // error_reporting(E_ALL ^ E_WARNING); // Maybe this is enough
+        }
+    }
 
     public function index()
     {
@@ -135,7 +134,6 @@ class TestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     public function destroy($id)
     {
         Test::where('id', $id)->delete();

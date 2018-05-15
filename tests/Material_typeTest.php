@@ -2,12 +2,12 @@
 
 namespace Tests;
 
-abstract class Material_TypeTest extends TestCase
+abstract class Material_typeTest extends TestCase
 {
     public function __construct()
     {
         // We have no interest in testing Eloquent
-      $this->mock = Mockery::mock('Eloquent', 'Material_Type_Model');
+        $this->mock = Mockery::mock('Eloquent', 'Material_Type_Model');
     }
 
     public function tearDown()

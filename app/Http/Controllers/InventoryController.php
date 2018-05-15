@@ -26,11 +26,10 @@ class InventoryController extends Controller
         $this->middleware('auth');
 
         if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
-        // Ignores notices and reports all other kinds... and warnings
-        error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
-        // error_reporting(E_ALL ^ E_WARNING); // Maybe this is enough
-    }
-    
+            // Ignores notices and reports all other kinds... and warnings
+            error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+            // error_reporting(E_ALL ^ E_WARNING); // Maybe this is enough
+        }
     }
 
     /**
@@ -213,20 +212,20 @@ class InventoryController extends Controller
         return $query->paginate(5);
     }
 
-     /**
-      * Load image resource.
-      *
-      * @param  string  $name
-      *
-      * @return \Illuminate\Http\Response
-      */
-     public function load($name)
-     {
-         $path = storage_path().'/app/public/'.$name;
-         if (file_exists($path)) {
-             return Response::download($path);
-         }
-     }
+    /**
+     * Load image resource.
+     *
+     * @param  string  $name
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function load($name)
+    {
+        $path = storage_path().'/app/public/'.$name;
+        if (file_exists($path)) {
+            return Response::download($path);
+        }
+    }
 
     private function validateInput($request)
     {

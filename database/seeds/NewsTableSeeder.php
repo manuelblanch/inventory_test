@@ -5,13 +5,13 @@ use Illuminate\Database\Seeder;
 class NewsTableSeeder extends Seeder
 {
     /**
-      * Run the database seeds.
-      *
-      * @return void
-      */
-     public function run()
-     {
-         DB::table('news')->insert([
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        DB::table('news')->insert([
              'title'             => 'Lorem ipsum dolor sit',
              'slug'              => 'lorem-ipsum',
              'short_description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -21,5 +21,5 @@ class NewsTableSeeder extends Seeder
              'created_at'        => date('Y-m-d H:i:s'),
              'updated_at'        => date('Y-m-d H:i:s'),
          ]);
-     }
+    }
 }

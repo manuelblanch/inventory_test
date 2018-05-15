@@ -7,7 +7,7 @@ abstract class NotificationTest extends TestCase
     public function __construct()
     {
         // We have no interest in testing Eloquent
-      $this->mock = Mockery::mock('Eloquent', 'Notification_Model');
+        $this->mock = Mockery::mock('Eloquent', 'Notification_Model');
     }
 
     public function tearDown()

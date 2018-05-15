@@ -21,11 +21,10 @@ class ExportController extends Controller
         $this->middleware('auth');
 
         if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
-        // Ignores notices and reports all other kinds... and warnings
-        error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
-        // error_reporting(E_ALL ^ E_WARNING); // Maybe this is enough
-    }
-    
+            // Ignores notices and reports all other kinds... and warnings
+            error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+            // error_reporting(E_ALL ^ E_WARNING); // Maybe this is enough
+        }
     }
 
     /**
@@ -61,18 +60,18 @@ class ExportController extends Controller
         //return view('/export/index', ['inventories' =>$inventories, 'searchingVals' => $constraints]);
     }
 
-     /**
-      * Store a newly created resource in storage.
-      *
-      * @param  \Illuminate\Http\Request  $request
-      *
-      * @return \Illuminate\Http\Response
-      */
-     public function exportExcel(Request $request)
-     {
-         $this->prepareExportingData($request)->export('csv');
-         redirect()->intended('mnt-export');
-     }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function exportExcel(Request $request)
+    {
+        $this->prepareExportingData($request)->export('csv');
+        redirect()->intended('mnt-export');
+    }
 
     public function exportPDF(Request $request)
     {
@@ -92,10 +91,10 @@ class ExportController extends Controller
 
         return Excel::create('Exportat_desde_'.$request['from'].'_a_'.$request['to'], function ($excel) use ($inventories, $request) {
             // Set the title
-       $excel->setTitle('Inventari from '.$request['from'].' to '.$request['to']);
+            $excel->setTitle('Inventari from '.$request['from'].' to '.$request['to']);
 
-       // Call them separately
-       $excel->setDescription('Llista');
+            // Call them separately
+            $excel->setDescription('Llista');
             $excel->sheet('Items', function ($sheet) use ($inventories) {
                 $sheet->fromArray($inventories);
             });

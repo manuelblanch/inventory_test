@@ -9,7 +9,7 @@ abstract class LocationModelTest extends TestCase
     public function __construct()
     {
         // We have no interest in testing Eloquent
-      $this->mock = Mockery::mock('Eloquent', 'Location');
+        $this->mock = Mockery::mock('Eloquent', 'Location');
     }
 
     public function tearDown()

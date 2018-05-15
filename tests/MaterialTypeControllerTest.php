@@ -7,7 +7,7 @@ abstract class MaterialTypeControllerTest extends TestCase
     public function __construct()
     {
         // We have no interest in testing Eloquent
-      $this->mock = Mockery::mock('Eloquent', 'MaterialType');
+        $this->mock = Mockery::mock('Eloquent', 'MaterialType');
     }
 
     public function tearDown()
