@@ -109,5 +109,8 @@ Route::get('/callback', 'SocialAuthTwitterController@callback');
 
 Route::get('events', 'EventController@index');
 
+Route::get('events', 'EventController@index')->name('events.index');
+Route::post('events', 'EventController@addEvent')->name('events.add');
+
 Route::group(['middleware' => 'web'], function () {
 });
