@@ -71,6 +71,7 @@ desired effect
 </div>
 @section('scripts')
     @include('adminlte::layouts.partials.scripts')
+    
     <script src="https://unpkg.com/vue"></script>
     <script>
     var app5 = new Vue({
