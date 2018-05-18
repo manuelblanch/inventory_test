@@ -45,16 +45,17 @@ desired effect
 
 
 <div id="app">
-    <div class="wrapper">
-      <notification>
-        @if (session('notification'))
-      <notification type="{{ session('notificationType') }}" message="{{ session('notification') }}"></notification>
-  @elseif (session('status'))
-      <notification type="alert-primary" message="{{ session('status') }}"></notification>
-  @else
-      <notification></notification>
-  @endif
+  <notification>
+    @if (session('notification'))
+  <notification type="{{ session('notificationType') }}" message="{{ session('notification') }}"></notification>
+@elseif (session('status'))
+  <notification type="alert-primary" message="{{ session('status') }}"></notification>
+@else
+  <notification></notification>
+@endif
 </notification>
+    <div class="wrapper">
+
 
     @include('adminlte::layouts.partials.mainheader')
 
