@@ -13,6 +13,14 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+window.Vue = require('vue');
+
+Vue.component('notification', require('./components/Notification.vue'));
+
+const app = new Vue({
+    el: '#app'
+});
+
 Vue.component('notification', require('./components/Notification.vue'));
 
 Vue.component('task', require('./components/Task.vue'));
@@ -21,9 +29,7 @@ const app = new Vue({
     el: '#app'
 });
 
-require('./bootstrap');
 
-window.Vue = require('vue');
 import VueRouter from 'vue-router';
 
 window.Vue.use(VueRouter);
