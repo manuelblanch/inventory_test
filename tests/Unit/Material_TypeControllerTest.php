@@ -2,9 +2,9 @@
 
 namespace Tests\Unit;
 
-class MaterialTypeControllerTest extends \PHPUnit_Framework_TestCase
+class Material_TypeControllerTest extends \PHPUnit_Framework_TestCase
 {
-    
+
 
     public function testtearDown()
     {
