@@ -1,16 +1,12 @@
 <?php
 
-namespace Tests;
+namespace Tests\Unit;
 
-abstract class MaterialTypeControllerTest extends TestCase
+class MaterialTypeControllerTest extends \PHPUnit_Framework_TestCase
 {
-    public function __construct()
-    {
-        // We have no interest in testing Eloquent
-        $this->mock = Mockery::mock('Eloquent', 'MaterialType');
-    }
+    
 
-    public function tearDown()
+    public function testtearDown()
     {
         Mockery::close();
     }
