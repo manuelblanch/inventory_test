@@ -4,6 +4,5 @@
     <a href="{{ url('/auth/twitter') }}" class="btn btn-block btn-social btn-twitter btn-flat"><i class="fa fa-twitter"></i> {{ trans('adminlte_lang::message.signTwitter') }}</a>
     <a href="{{ url('/auth/facebook') }}" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> {{ trans('adminlte_lang::message.signFacebook') }}</a>
     <a href="{{ url('/auth/linkedin') }}" class="btn btn-block btn-social btn-linkedin btn-flat"><i class="fa fa-linkedin"></i> {{ trans('adminlte_lang::message.signLinkedin') }}</a>
-    <a href="{{ url('/auth/bitbucket') }}" class="btn btn-block btn-social btn-bitbucket btn-flat"><i class="fa fa-bitbucket"></i> {{ trans('Sing in using Bitbucket') }}</a>
     <a href="{{ url('/auth/google') }}" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> {{ trans('Sing in using G+') }}</a>
 </div><!-- /.social-auth-links -->

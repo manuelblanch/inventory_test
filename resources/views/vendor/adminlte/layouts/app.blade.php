@@ -45,19 +45,7 @@ desired effect
 
 
 <div id="app">
-  
-        @if (session('notification'))
-            <notification type="{{ session('notificationType') }}" message="{{ session('notification') }}"></notification>
-        @elseif (session('status'))
-            <notification type="alert-primary" message="{{ session('status') }}"></notification>
-        @else
-            <notification></notification>
-        @endif
-
-        ...
-    </div>
     <div class="wrapper">
-
 
     @include('adminlte::layouts.partials.mainheader')
 
@@ -83,7 +71,6 @@ desired effect
 </div>
 @section('scripts')
     @include('adminlte::layouts.partials.scripts')
-
     <script src="https://unpkg.com/vue"></script>
     <script>
     var app5 = new Vue({
