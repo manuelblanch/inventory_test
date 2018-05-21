@@ -8,7 +8,7 @@
     <section class="content">
       <div class="box">
   <div class="box-header">
-    <div class="row">
+    <div id="crud" class="row">
         <div class="col-sm-8">
           <h3 class="box-title">Llista de procedencia dels diners</h3>
         </div>

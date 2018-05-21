@@ -98,9 +98,9 @@ Route::post('mnt-export/search', 'ExportController@search')->name('export.search
 Route::post('mnt-export/excel', 'ExportController@exportExcel')->name('export.excel');
 Route::post('mnt-export/pdf', 'ExportController@exportPDF')->name('export.pdf');
 
-Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+//Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
-Route::get('tasks', 'DashboardController@tasks')->name('tasks');
+//Route::get('tasks', 'DashboardController@tasks')->name('tasks');
 
 Route::resource('/task', 'TaskController');
 
