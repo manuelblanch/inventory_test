@@ -30,10 +30,11 @@ require('./bootstrap');
          }
 
          deleteKeep: function(keep) {
-        var url = 'mnt/brand' + keep.id;
-        axios.delete(url).then(response => {
-            this.getKeeps();
-        });
-    }
+    var url = 'mnt/brand' + keep.id;
+    axios.delete(url).then(response => { //eliminamos
+        this.getKeeps(); //listamos
+        toastr.success('Eliminado correctamente'); //mensaje
+    });
+}
      }
  });

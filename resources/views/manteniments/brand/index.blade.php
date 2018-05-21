@@ -61,7 +61,7 @@
                           <span class="glyphicon glyphicon-edit"></span>
                         Editar
                         </a>
-                        <button type="submit" class="btn btn-danger col-sm-12 col-xs-12 btn-margin">
+                        <button type="submit" class="btn btn-danger col-sm-12 col-xs-12 btn-margin" v-on:click.prevent="deleteKeep(keep)">
                           <span class="glyphicon glyphicon-trash"></span>
                         Esborrar
                         </button>
