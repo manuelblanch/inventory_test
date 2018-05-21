@@ -29,7 +29,7 @@ const app = new Vue({
     el: '#app'
 });
 
-
+import Toast from 'vue-easy-toast'
 import VueRouter from 'vue-router';
 
 window.Vue.use(VueRouter);

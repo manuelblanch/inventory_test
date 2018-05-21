@@ -100,7 +100,6 @@
     </section>
     <!-- /.content -->
   </div>
-
   <script>
       export default {
           mounted() {

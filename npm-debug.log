@@ -7,7 +7,7 @@
 6 silly lifecycle @~predev: no script for predev, continuing
 7 info lifecycle @~dev: @
 8 verbose lifecycle @~dev: unsafe-perm in lifecycle true
-9 verbose lifecycle @~dev: PATH: /usr/share/npm/bin/node-gyp-bin:/home/manuel/Code/scool/inventory_test/node_modules/.bin:~/.config/composer/vendor/bin:/home/manuel/bin:/home/manuel/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/manuel/.composer/vendor/bin
+9 verbose lifecycle @~dev: PATH: /usr/share/npm/bin/node-gyp-bin:/home/manuel/Code/scool/inventory_test/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
 10 verbose lifecycle @~dev: CWD: /home/manuel/Code/scool/inventory_test
 11 silly lifecycle @~dev: Args: [ '-c',
 11 silly lifecycle   'node node_modules/cross-env/bin/cross-env.js NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js' ]
