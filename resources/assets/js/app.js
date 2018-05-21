@@ -23,10 +23,17 @@ require('./bootstrap');
      },
      methods: {
          getKeeps: function() {
-             var urlKeeps = 'tasks';
+             var urlKeeps = 'mnt/brand';
              axios.get(urlKeeps).then(response => {
                  this.keeps = response.data
              });
          }
+
+         deleteKeep: function(keep) {
+        var url = 'mnt/brand' + keep.id;
+        axios.delete(url).then(response => {
+            this.getKeeps();
+        });
+    }
      }
  });
