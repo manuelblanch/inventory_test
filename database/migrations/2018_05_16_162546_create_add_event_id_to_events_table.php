@@ -1,6 +1,8 @@
 <?php
-use Illuminate\Database\Schema\Blueprint;
+
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+
 class AddEventIdToEventsTable extends Migration
 {
     /**
@@ -10,10 +12,11 @@ class AddEventIdToEventsTable extends Migration
      */
     public function up()
     {
-        Schema::table('events', function(Blueprint $table){
+        Schema::table('events', function (Blueprint $table) {
             $table->string('event_id')->after('calendar_id');
         });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -21,7 +24,7 @@ class AddEventIdToEventsTable extends Migration
      */
     public function down()
     {
-        Schema::table('events', function(Blueprint $table){
+        Schema::table('events', function (Blueprint $table) {
             $table->dropColumn('event_id');
         });
     }
