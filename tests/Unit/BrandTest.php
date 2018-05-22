@@ -1,6 +1,7 @@
 <?php
 
 namespace Tests;
+
 /*
 class BrandTest extends \PHPUnit_Framework_TestCase
 {
