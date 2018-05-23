@@ -11,9 +11,6 @@ const { mix } = require('laravel-mix');
  |
  */
 
-<<<<<<< HEAD
-=======
-
     mix.scripts([
         'resources/assets/js/jquery.js',
         'resources/assets/js/bootstrap.js',
@@ -26,19 +23,7 @@ const { mix } = require('laravel-mix');
         'resources/assets/css/toastr.css',
     ], 'public/css/app.css');
 
->>>>>>> 1a2c0847d6d8f425665176fcc6bfac8ef9bf6b35
 
- mix.scripts([
-   'resources/assets/js/jquery.js',
-   'resources/assets/js/bootstrap.js',
-   'resources/assets/js/toastr.js',
-   'resources/assets/js/vue.js',
-   'resources/assets/js/axios.js',
-   'resources/assets/js/app.js',
-], 'public/js/app.js').styles([
-   'resources/assets/css/bootstrap.css',
-   'resources/assets/css/toastr.css',
-], 'public/css/app.css');
 
 /*
 mix.js('resources/assets/js/app.js', 'public/js')
@@ -70,4 +55,4 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .copy('node_modules/admin-lte/dist/img','public/img')
    .copy('node_modules/admin-lte/plugins','public/plugins')
    .copy('node_modules/icheck/skins/square/blue.png','public/css')
-   .copy('node_modules/icheck/skins/square/blue@2x.png','public/css');
+   .copy('node_modules/icheck/skins/square/blue@2x.png','public/css');*/
