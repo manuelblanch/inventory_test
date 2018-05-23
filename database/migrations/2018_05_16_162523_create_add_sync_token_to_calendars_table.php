@@ -1,6 +1,8 @@
 <?php
-use Illuminate\Database\Schema\Blueprint;
+
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+
 class AddSyncTokenToCalendarsTable extends Migration
 {
     /**
@@ -10,10 +12,11 @@ class AddSyncTokenToCalendarsTable extends Migration
      */
     public function up()
     {
-        Schema::table('calendars', function(Blueprint $table){
+        Schema::table('calendars', function (Blueprint $table) {
             $table->string('sync_token');
         });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -21,7 +24,7 @@ class AddSyncTokenToCalendarsTable extends Migration
      */
     public function down()
     {
-        Schema::table('calendars', function(Blueprint $table){
+        Schema::table('calendars', function (Blueprint $table) {
             $table->dropColumn('sync_token');
         });
     }

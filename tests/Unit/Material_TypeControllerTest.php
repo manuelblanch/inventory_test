@@ -4,8 +4,6 @@ namespace Tests\Unit;
 
 class Material_TypeControllerTest extends \PHPUnit_Framework_TestCase
 {
-
-
     public function testtearDown()
     {
         Mockery::close();
