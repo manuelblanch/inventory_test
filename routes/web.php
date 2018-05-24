@@ -107,9 +107,9 @@ Route::resource('/task', 'TaskController');
 Route::get('/redirect', 'SocialAuthTwitterController@redirect');
 Route::get('/callback', 'SocialAuthTwitterController@callback');
 
-Route::get('events', 'EventController@index');
+//Route::get('events', 'EventController@index');
 
-Route::get('calendar-mnt', 'EventController@index')->name('events.index');
+Route::get('calendar-mnt', 'EventController@index')->name('calendar.index');
 Route::post('calendar-mnt', 'EventController@addEvent')->name('events.add');
 
 Route::group(['middleware' => 'web'], function () {
