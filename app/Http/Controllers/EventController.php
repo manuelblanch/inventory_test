@@ -26,7 +26,7 @@ class EventController extends Controller
     	}
     	$calendar_details = Calendar::addEvents($event_list);
 
-        return view('calendar/index', compact('calendar_details') );
+        return view('/events', compact('calendar_details') );
     }
 
     public function addEvent(Request $request)
@@ -39,7 +39,7 @@ class EventController extends Controller
 
         if ($validator->fails()) {
         	\Session::flash('warnning','Please enter the valid details');
-            return Redirect::to('calendar/index')->withInput()->withErrors($validator);
+            return Redirect::to('/events')->withInput()->withErrors($validator);
         }
 
         $event = new Event;
@@ -49,7 +49,7 @@ class EventController extends Controller
         $event->save();
 
         \Session::flash('success','Event added successfully.');
-        return Redirect::to('calendar/index');
+        return Redirect::to('/events');
     }
 
 
