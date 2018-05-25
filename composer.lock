@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "dcd25673594cef1cc38cbed5e03196bd",
-    "content-hash": "6c64d7e08298e9f66ee632fa1085f81e",
+    "hash": "676515ee3c199652883b5c5361e93734",
+    "content-hash": "a60a3ee35f53e305be609ef6c2f598ed",
     "packages": [
         {
             "name": "acacha/admin-lte-template-laravel",
@@ -385,6 +385,11 @@
         {
             "name": "acacha/stateful-eloquent",
             "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/acacha/stateful-eloquent.git",
+                "reference": "133b8537c626e9842479eea5bbe4b95363267d7e"
+            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/acacha/stateful-eloquent/zipball/133b8537c626e9842479eea5bbe4b95363267d7e",
@@ -480,6 +485,49 @@
                 "user"
             ],
             "time": "2016-12-05 13:39:37"
+        },
+        {
+            "name": "balping/json-raw-encoder",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/balping/json-raw-encoder.git",
+                "reference": "c404b7fc0e04ddf5d298e53105c5fc306f523195"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/balping/json-raw-encoder/zipball/c404b7fc0e04ddf5d298e53105c5fc306f523195",
+                "reference": "c404b7fc0e04ddf5d298e53105c5fc306f523195",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Balping\\JsonRaw\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Balázs Dura-Kovács"
+                }
+            ],
+            "description": "Encode arrays to json with raw JS objects (eg. callbacks) in them",
+            "keywords": [
+                "callback",
+                "encode",
+                "json"
+            ],
+            "time": "2018-05-04 15:38:02"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -707,6 +755,51 @@
                 }
             ],
             "time": "2016-06-13 19:28:20"
+        },
+        {
+            "name": "consoletvs/charts",
+            "version": "6.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ConsoleTVs/Charts.git",
+                "reference": "635e9ee22e90cb75a97df7ed225b4fefe821daea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ConsoleTVs/Charts/zipball/635e9ee22e90cb75a97df7ed225b4fefe821daea",
+                "reference": "635e9ee22e90cb75a97df7ed225b4fefe821daea",
+                "shasum": ""
+            },
+            "require": {
+                "balping/json-raw-encoder": "^1.0",
+                "illuminate/support": "5.*",
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ConsoleTVs\\Charts\\ChartsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ConsoleTVs\\Charts\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Èrik Campobadal Forés",
+                    "email": "soc@erik.cat"
+                }
+            ],
+            "description": "The laravel charting package",
+            "time": "2018-05-04 17:40:36"
         },
         {
             "name": "creativeorange/gravatar",
