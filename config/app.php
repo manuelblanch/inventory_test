@@ -279,6 +279,7 @@ return [
         Barryvdh\DomPDF\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         MaddHatter\LaravelFullcalendar\ServiceProvider::class,
+        ConsoleTVs\Charts\ChartsServiceProvider::class,
 
         //llum_providers
     ],
@@ -332,6 +333,7 @@ return [
         'Form'         => Collective\Html\FormFacade::class,
         'Html'         => Collective\Html\HtmlFacade::class,
         'Calendar'     => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
+        'Charts'       => ConsoleTVs\Charts\Facades\Charts::class,
         /*
          * Acacha Llum Aliases...
          *
