@@ -26,7 +26,7 @@ class EventController extends Controller
     	}
     	$calendar_details = Calendar::addEvents($event_list);
 
-        return view('/events', compact('calendar_details') );
+        return view('events', compact('calendar_details') );
     }
 
     public function addEvent(Request $request)
