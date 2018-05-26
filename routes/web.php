@@ -112,7 +112,7 @@ Route::get('/callback', 'SocialAuthTwitterController@callback');
 Route::get('events', 'EventController@index')->name('events.index');
 Route::post('events', 'EventController@addEvent')->name('events.add');
 
-Route::get('my-chart', 'ChartController@index');
+Route::get('my-chart', 'ChartController@index')->name('chart.index');
 
 Route::group(['middleware' => 'web'], function () {
 });

@@ -32,7 +32,7 @@ class ChartController extends Controller
 
     				->get();
 
-        $chart = inventory::database($users, 'bar', 'highcharts')
+        $chart = Charts::database($users, 'bar', 'highcharts')
 
 			      ->title("Monthly new Register Users")
 
