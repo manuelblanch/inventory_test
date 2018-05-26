@@ -1,33 +1,84 @@
-<!DOCTYPE html>
+@extends('adminlte::layouts.app')
 
-<html>
+@section('main-content')
+    <div class="container">
 
-<head>
+        <div class="panel panel-primary">
 
-    <title>Laravel 5 Chart example using Charts Package</title>
+         <div class="panel-heading">Charts In Laravel 5 Using Charts Package</div>
 
-    <meta charset="utf-8">
+          <div class="panel-body">
+            <div class="row">
+            <div class="col-md-6">
+               {!! $chart->html() !!}
+            </div>
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <br/><br/>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+            <div class="col-md-6">
+               {!! $pie_chart->html() !!}
+            </div>
 
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+            <br/><br/>
 
-    {!! Charts::assets() !!}
+            <div class="col-md-6">
+               {!! $line_chart->html() !!}
+            </div>
 
-</head>
+            <br/><br/>
 
-<body>
+            <div class="col-md-6">
+               {!! $areaspline_chart->html() !!}
+            </div>
 
-	<div class="container">
+            <br/><br/>
 
-		<h1>Laravel 5 Chart example using Charts Package</h1>
 
-		{!! $chart->render() !!}
+            <div class="col-md-6">
+               {!! $geo_chart->html() !!}
+            </div>
 
-	</div>
+            <br/><br/>
 
-</body>
 
-</html>
+            <div class="col-md-6">
+               {!! $area_chart->html() !!}
+            </div>
+
+            <br/><br/>
+
+            <div class="col-md-6">
+               {!! $donut_chart->html() !!}
+            </div>
+
+
+            <br/><br/>
+
+            <div class="col-md-6">
+               {!! $percentage_chart->html() !!}
+            </div>
+
+
+         </div>
+
+        </div>
+
+    </div>
+
+    {!! Charts::scripts() !!}
+    {!! $chart->script() !!}
+
+    {!! $pie_chart->script() !!}
+
+    {!! $line_chart->script() !!}
+
+    {!! $areaspline_chart->script() !!}
+
+    {!! $percentage_chart->script() !!}
+
+    {!! $geo_chart->script() !!}
+
+    {!! $area_chart->script() !!}
+
+    {!! $donut_chart->script() !!}
+@endsection
