@@ -77,6 +77,6 @@ class ChartController extends Controller
 			    ->dimensions(1000,500)
 			    ->responsive(true);
 
-        return view('charts',compact('chart' , 'pie_chart', 'line_chart', 'areaspline_chart', 'percentage_chart', 'geo_chart', 'area_chart', 'donut_chart'));
+        return view('chart',compact('chart' , 'pie_chart', 'line_chart', 'areaspline_chart', 'percentage_chart', 'geo_chart', 'area_chart', 'donut_chart'));
     }
 }
