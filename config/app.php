@@ -161,6 +161,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        ConsoleTVs\Charts\ChartsServiceProvider::class,
+
         /*
          * Acacha Llum Service Providers...
          *
@@ -279,7 +281,8 @@ return [
         Barryvdh\DomPDF\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         MaddHatter\LaravelFullcalendar\ServiceProvider::class,
-        ConsoleTVs\Charts\ChartsServiceProvider::class,
+
+
 
         //llum_providers
     ],
@@ -334,12 +337,17 @@ return [
         'Html'         => Collective\Html\HtmlFacade::class,
         'Calendar'     => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
         'Charts'       => ConsoleTVs\Charts\Facades\Charts::class,
+
+
+
+
         /*
          * Acacha Llum Aliases...
          *
          * See: https://github.com/acacha/llum
          */
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
         'Menu'     => Spatie\Menu\Laravel\MenuFacade::class,

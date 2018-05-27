@@ -35,6 +35,7 @@
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
             <li><a href="{{ url('inventory-mnt') }}"><i class='fa fa-link'></i> <span>Inventory</span></a></li>
+            <li><a href="{{ url('my-chart') }}"><i class='fa fa-link'></i> <span>Dashboard</span></a></li>
             <li><a href="{{ url('events') }}"><i class='fa fa-link'></i> <span>Calendari</span></a></li>
             <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Manteniments</span>
