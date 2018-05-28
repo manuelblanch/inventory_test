@@ -170,6 +170,59 @@ desired effect
 
   <link href="{{ asset('assets/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet">
   <script src="{{ asset('assets/sweetalert2/sweetalert2.min.js')}}"></script>
+  <script>
+  $(document).ready(function(){
+
+		readProducts(); /* it will load products when document loads */
+
+		$(document).on('click', '#delete_product', function(e){
+
+			var productId = $(this).data('id');
+			SwalDelete(productId);
+			e.preventDefault();
+		});
+
+	});
+
+	function SwalDelete(productId){
+
+		swal({
+			title: 'Estas Segur?',
+			text: "El producte sera esborrat de manera definitiva!",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, delete it!',
+			showLoaderOnConfirm: true,
+
+			preConfirm: function() {
+			  return new Promise(function(resolve) {
+
+			     $.ajax({
+			   		url: 'delete.php',
+			    	type: 'POST',
+			       	data: 'delete='+productId,
+			       	dataType: 'json'
+			     })
+			     .done(function(response){
+			     	swal('Deleted!', response.message, response.status);
+					readProducts();
+			     })
+			     .fail(function(){
+			     	swal('Oops...', 'Something went wrong with ajax !', 'error');
+			     });
+			  });
+		    },
+			allowOutsideClick: false
+		});
+
+	}
+
+	function readProducts(){
+		$('#load-products').load('read.php');
+	}
+  </script>
 
 
 @show
