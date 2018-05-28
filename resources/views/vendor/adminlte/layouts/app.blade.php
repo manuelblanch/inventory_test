@@ -200,7 +200,7 @@ desired effect
 			  return new Promise(function(resolve) {
 
 			     $.ajax({
-			   		url: 'delete.php',
+			   		url: 'resources/views/manteniments/location/delete.php',
 			    	type: 'POST',
 			       	data: 'delete='+productId,
 			       	dataType: 'json'
@@ -220,7 +220,7 @@ desired effect
 	}
 
 	function readProducts(){
-		$('#load-products').load('read.php');
+		$('#load-products').load('resources/views/manteniments/location/index.blade.php');
 	}
   </script>
 
