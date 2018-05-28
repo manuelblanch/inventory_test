@@ -162,6 +162,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         ConsoleTVs\Charts\ChartsServiceProvider::class,
+        UxWeb\SweetAlert\SweetAlertServiceProvider::class,
 
         /*
          * Acacha Llum Service Providers...
@@ -337,6 +338,7 @@ return [
         'Html'         => Collective\Html\HtmlFacade::class,
         'Calendar'     => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
         'Charts'       => ConsoleTVs\Charts\Facades\Charts::class,
+        'Alert'        => UxWeb\SweetAlert\SweetAlert::class,
 
 
 
