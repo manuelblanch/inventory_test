@@ -37,6 +37,7 @@ desired effect
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
+
     <!-- Optional theme -->
 
     <title></title>
@@ -165,6 +166,10 @@ desired effect
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
+
+
+  <link href="{{ asset('assets/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet">
+  <script src="{{ asset('assets/sweetalert2/sweetalert2.min.js')}}"></script>
 
 
 @show
