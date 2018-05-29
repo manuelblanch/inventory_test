@@ -116,5 +116,7 @@ Route::get('my-chart', 'ChartController@index')->name('chart.index');
 
 Route::get('sweetalertdemo', ['as'=>'SweetAlert','uses'=>'SweetAlertDemo@index']);
 
+Route::resource('posts', 'PostsController');
+
 Route::group(['middleware' => 'web'], function () {
 });
