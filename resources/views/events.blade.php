@@ -15,7 +15,7 @@
 
             <div class="panel panel-primary">
 
-             <div class="panel-heading">Event Calendar in Laravel 5 Using Laravel-fullcalendar</div>
+             <div class="panel-heading">Calendari de events</div>
 
               <div class="panel-body">
 
@@ -32,36 +32,36 @@
 
                       <div class="col-xs-4 col-sm-4 col-md-4">
                         <div class="form-group">
-                            {!! Form::label('event_name','Event Name:') !!}
+                            {!! Form::label('event_name','Nom Event:') !!}
                             <div class="">
                             {!! Form::text('event_name', null, ['class' => 'form-control']) !!}
-                            {!! $errors->first('event_name', '<p class="alert alert-danger">:message</p>') !!}
+                            {!! $errors->first('event_name', '<p class="alert alert-danger">Nom necessari si us plau introdueixlo</p>') !!}
                             </div>
                         </div>
                       </div>
 
                       <div class="col-xs-3 col-sm-3 col-md-3">
                         <div class="form-group">
-                          {!! Form::label('start_date','Start Date:') !!}
+                          {!! Form::label('start_date','Data Inici:') !!}
                           <div class="">
                           {!! Form::date('start_date', null, ['class' => 'form-control']) !!}
-                          {!! $errors->first('start_date', '<p class="alert alert-danger">:message</p>') !!}
+                          {!! $errors->first('start_date', '<p class="alert alert-danger">Es necessaria una data inicial</p>') !!}
                           </div>
                         </div>
                       </div>
 
                       <div class="col-xs-3 col-sm-3 col-md-3">
                         <div class="form-group">
-                          {!! Form::label('end_date','End Date:') !!}
+                          {!! Form::label('end_date','Data Final:') !!}
                           <div class="">
                           {!! Form::date('end_date', null, ['class' => 'form-control']) !!}
-                          {!! $errors->first('end_date', '<p class="alert alert-danger">:message</p>') !!}
+                          {!! $errors->first('end_date', '<p class="alert alert-danger">Es necessaria una data final</p>') !!}
                           </div>
                         </div>
                       </div>
 
                       <div class="col-xs-1 col-sm-1 col-md-1 text-center"> &nbsp;<br/>
-                      {!! Form::submit('Add Event',['class'=>'btn btn-primary']) !!}
+                      {!! Form::submit('Afegeix Event',['class'=>'btn btn-primary']) !!}
                       </div>
                     </div>
                    {!! Form::close() !!}
@@ -71,7 +71,7 @@
             </div>
 
             <div class="panel panel-primary">
-              <div class="panel-heading">MY Event Details</div>
+              <div class="panel-heading">Calendari</div>
               <div class="panel-body" >
                   {!! $calendar_details->calendar() !!}
               </div>

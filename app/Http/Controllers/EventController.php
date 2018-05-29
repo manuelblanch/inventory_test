@@ -38,7 +38,7 @@ class EventController extends Controller
         ]);
 
         if ($validator->fails()) {
-        	\Session::flash('warnning','Please enter the valid details');
+        	\Session::flash('warnning','Si us plau afegeix les dades de forma correcta');
             return Redirect::to('/events')->withInput()->withErrors($validator);
         }
 
@@ -48,7 +48,7 @@ class EventController extends Controller
         $event->end_date = $request['end_date'];
         $event->save();
 
-        \Session::flash('success','Event added successfully.');
+        \Session::flash('success','Event afegit de forma correcta.');
         return Redirect::to('/events');
     }
 

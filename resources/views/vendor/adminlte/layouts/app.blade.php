@@ -74,9 +74,6 @@ desired effect
 @section('scripts')
     @include('adminlte::layouts.partials.scripts')
 
-
-
-
     <script src="https://unpkg.com/vue"></script>
     <script>
     var app5 = new Vue({
@@ -226,58 +223,31 @@ desired effect
 
   <script>
 
-  $(document).ready(function(){
-
-    readProducts(); /* it will load products when document loads */
-
-    $(document).on('click', '#add_product', function(e){
-
-      var productId = $(this).data('id');
-      SwalAdd(productId);
-      e.preventDefault();
-    });
-
-  });
-
-  function SwalAdd(productId){
-
-    swal({
-      title: 'Estas?',
-      text: "El producte!",
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!',
-      showLoaderOnConfirm: true,
-
-      preConfirm: function() {
-        return new Promise(function(resolve) {
-
-           $.ajax({
-            url: 'resources/views/manteniments/location/delete.php',
-            type: 'POST',
-              data: 'delete='+productId,
-              dataType: 'json'
-           })
-           .done(function(response){
-            swal('Deleted!', response.message, response.status);
-          readProducts();
-           })
-           .fail(function(){
-            swal('Oops...', 'Something went wrong with ajax !', 'error');
-           });
-        });
-        },
-      allowOutsideClick: false
-    });
-
+  export default {
+    data() {
+      return {}
+    },
+    methods: {
+      alertDisplay() {
+        this.$swal({
+          title: 'Are you sure?',
+          text: 'You can\'t revert your action',
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Yes Delete it!',
+          cancelButtonText: 'No, Keep it!',
+          showCloseButton: true,
+          showLoaderOnConfirm: true
+        }).then((result) => {
+          if(result.value) {
+            this.$swal('Deleted', 'You successfully deleted this file', 'success')
+          } else {
+            this.$swal('Cancelled', 'Your file is still intact', 'info')
+          }
+        })
+      }
+    }
   }
-
-  function readProducts(){
-    $('#load-products').load('resources/views/manteniments/location/index.blade.php');
-  }
-
 
   </script>
 

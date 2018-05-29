@@ -24,5 +24,8 @@
     "webpack": "^3.6.0",
     "webpack-cli": "^2.0.13",
     "webpack-dev-server": "^3.1.1"
+  },
+  "dependencies": {
+    "vue-sweetalert2": "^1.2.4"
   }
 }
