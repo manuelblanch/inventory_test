@@ -62,7 +62,7 @@
                           <span class="glyphicon glyphicon-edit"></span>
                         Editar
                         </a>
-                        <a class="btn btn-sm btn-danger" id="delete_product" data-id="<?php echo $product_id; ?>" href="javascript:void(0)"><i class="glyphicon glyphicon-trash"></i></a>
+                        <button type="submit" class="btn btn-danger col-sm-12 col-xs-12 btn-margin" id="alert">
                           <span class="glyphicon glyphicon-trash"></span>
                         Esborrar
                         </button>
