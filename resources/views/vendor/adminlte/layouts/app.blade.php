@@ -227,11 +227,26 @@ desired effect
     swal({position: 'center',
           type: 'success',
           title: 'Has introduit una nova localització',
-          showConfirmButton: false,
+          showConfirmButton: true,
           timer: 3000
   });
 });
   </script>
+
+  <script>
+
+  $('#alert2').click(function(){
+    swal({position: 'center',
+          type: 'success',
+          title: 'Has introduit un nou proveidor',
+          showConfirmButton: false,
+          timer: 3000
+          
+  });
+  });
+
+  </script>
+
 
 
 @show
