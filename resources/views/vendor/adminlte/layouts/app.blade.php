@@ -241,7 +241,77 @@ desired effect
           title: 'Has introduit un nou proveidor',
           showConfirmButton: false,
           timer: 3000
-          
+
+  });
+  });
+
+  </script>
+
+  <script>
+
+  $('#alert3').click(function(){
+    swal({position: 'center',
+          type: 'success',
+          title: 'Has introduit un nou objecte en inventari',
+          showConfirmButton: false,
+          timer: 3000
+
+  });
+  });
+
+  </script>
+
+  <script>
+
+  $('#alert4').click(function(){
+    swal({position: 'center',
+          type: 'success',
+          title: 'Has introduit un nou tipus de material',
+          showConfirmButton: false,
+          timer: 3000
+
+  });
+  });
+
+  </script>
+
+  <script>
+
+  $('#alert5').click(function(){
+    swal({position: 'center',
+          type: 'success',
+          title: 'Has introduit una nova marca',
+          showConfirmButton: false,
+          timer: 3000
+
+  });
+  });
+
+  </script>
+
+  <script>
+
+  $('#alert6').click(function(){
+    swal({position: 'center',
+          type: 'success',
+          title: 'Has introduit un nou model de marca',
+          showConfirmButton: false,
+          timer: 3000
+
+  });
+  });
+
+  </script>
+
+  <script>
+
+  $('#alert7').click(function(){
+    swal({position: 'center',
+          type: 'success',
+          title: 'Has introduit una nova procedencia monetaria',
+          showConfirmButton: false,
+          timer: 3000
+
   });
   });
 
