@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Location;
 use App\Material_Type;
+use App\Brand;
+use App\MoneySource;
+use App\Provider;
+use App\Brand_Model;
 use Charts;
 use DB;
 
@@ -38,21 +42,21 @@ class ChartController extends Controller
 				->responsive(true)
         ->groupByMonth(date('Y'), true);
 
-
-		$line_chart = Charts::create('line', 'highcharts')
-			    ->title('Line Chart Demo')
+$brand = Brand::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date('Y'))->get();
+		$line_chart = Charts::database($brand, 'line', 'highcharts')
+			    ->title('Marques')
 			    ->elementLabel('Chart Labels')
-			    ->labels(['Product 1', 'Product 2', 'Product 3', 'Product 4', 'Product 5', 'Product 6'])
-			    ->values([15,25,50, 5,10,20])
 			    ->dimensions(1000,500)
-			    ->responsive(true);
+			    ->responsive(true)
+          ->groupByMonth(date('Y'), true);
 
-		$areaspline_chart = Charts::multi('areaspline', 'highcharts')
-				    ->title('Areaspline Chart Demo')
+$moneySource = MoneySource::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date('Y'))->get();
+		$areaspline_chart = Charts::database($moneySource, 'line', 'highcharts')
+				    ->title('Monetaria')
 				    ->colors(['#ff0000', '#ffffff'])
-				    ->labels(['Jan', 'Feb', 'Mar', 'Apl', 'May','Jun'])
-				    ->dataset('Product 1', [10, 15, 20, 25, 30, 35])
-				    ->dataset('Product 2',  [14, 19, 26, 32, 40, 50]);
+            ->dimensions(1000,500)
+  			    ->responsive(true)
+            ->groupByMonth(date('Y'), true);
 
 
 		$percentage_chart = Charts::create('percentage', 'justgage')
@@ -71,20 +75,18 @@ class ChartController extends Controller
 				    ->values([25,55,70,90])
 				    ->dimensions(1000,500)
 				    ->responsive(true);
-
-		$area_chart = Charts::create('area', 'highcharts')
-			    ->title('Area Chart')
+$provider = Provider::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date('Y'))->get();
+		$area_chart = Charts::database($provider, 'area', 'highcharts')
+			    ->title('Proveidors')
 			    ->elementLabel('Chart Labels')
-			    ->labels(['First', 'Second', 'Third'])
-			    ->values([28,52,64,86,99])
 			    ->dimensions(1000,500)
+          ->groupByMonth(date('Y'), true)
 			    ->responsive(true);
-
-		$donut_chart = Charts::create('donut', 'highcharts')
-			    ->title('Donut Chart')
-			    ->labels(['Product 1', 'Product 2', 'Product 3', 'Product 4', 'Product 5', 'Product 6'])
-			    ->values([25,50,70,860])
+$brand_model = Brand_Model::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date('Y'))->get();
+		$donut_chart = Charts::database($brand_model,'donut', 'highcharts')
+			    ->title('Model de Marques')
 			    ->dimensions(1000,500)
+          ->groupByMonth(date('Y'), true)
 			    ->responsive(true);
 
         return view('chart',compact('chart' , 'chart2', 'pie_chart', 'line_chart', 'areaspline_chart', 'percentage_chart', 'geo_chart', 'area_chart', 'donut_chart'));
