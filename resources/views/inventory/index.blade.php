@@ -78,7 +78,7 @@
                           <span class="glyphicon glyphicon-edit"></span>
                         Actualitzar
                         </a>
-                         <button type="submit" class="btn btn-danger col-sm-12 col-xs-12 btn-margin">
+                         <button type="submit" class="btn btn-danger col-sm-12 col-xs-12 btn-margin" id="edit2">
                            <span class="glyphicon glyphicon-trash"></span>
                           Esborrar
                         </button>

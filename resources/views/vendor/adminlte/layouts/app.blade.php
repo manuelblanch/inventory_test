@@ -317,6 +317,32 @@ desired effect
 
   </script>
 
+  <script>
+
+  $('#edit1').click(function(){
+    swal({position: 'center',
+          type: 'success',
+          title: 'Has editat un objecte de inventari'
+          showConfirmButton: false,
+          timer: 3000
+        });
+  });
+
+  </script>
+
+  <script>
+
+  $('#edit2').click(function(){
+    swal({position: 'center',
+          type: 'success',
+          title: 'Has editat un objecte de inventari'
+          showConfirmButton: false,
+          timer: 3000
+        });
+  });
+
+  </script>
+
 
 
 @show
