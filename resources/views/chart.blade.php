@@ -13,6 +13,10 @@
                {!! $chart->html() !!}
             </div>
 
+            <div class="col-md-6">
+               {!! $chart->html() !!}
+            </div>
+
             <br/><br/>
 
             <div class="col-md-6">
@@ -66,7 +70,10 @@
     </div>
 
     {!! Charts::scripts() !!}
+
     {!! $chart->script() !!}
+
+    {!! $chart2->script() !!}
 
     {!! $pie_chart->script() !!}
 

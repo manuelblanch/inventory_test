@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Product;
+use App\Location;
 use Charts;
 use DB;
 
@@ -19,6 +20,14 @@ class ChartController extends Controller
 			      ->dimensions(1000, 500)
 			      ->responsive(true)
 			      ->groupByMonth(date('Y'), true);
+
+            $location = Location::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date('Y'))->get();
+              $chart2 = Charts::database($location, 'bar', 'highcharts')
+      			      ->title("Location Details")
+      			      ->elementLabel("Location Products")
+      			      ->dimensions(1000, 500)
+      			      ->responsive(true)
+      			      ->groupByMonth(date('Y'), true);
 
 
 		$pie_chart = Charts::create('pie', 'highcharts')
@@ -77,6 +86,6 @@ class ChartController extends Controller
 			    ->dimensions(1000,500)
 			    ->responsive(true);
 
-        return view('chart',compact('chart' , 'pie_chart', 'line_chart', 'areaspline_chart', 'percentage_chart', 'geo_chart', 'area_chart', 'donut_chart'));
+        return view('chart',compact('chart' , 'chart2', 'pie_chart', 'line_chart', 'areaspline_chart', 'percentage_chart', 'geo_chart', 'area_chart', 'donut_chart'));
     }
 }
