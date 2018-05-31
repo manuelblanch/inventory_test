@@ -14,7 +14,7 @@
             </div>
 
             <div class="col-md-6">
-               {!! $chart->html() !!}
+               {!! $chart2->html() !!}
             </div>
 
             <br/><br/>
