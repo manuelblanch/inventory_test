@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Product;
 use App\Location;
+use App\Material_Type;
 use Charts;
 use DB;
 
@@ -23,19 +24,19 @@ class ChartController extends Controller
 
             $location = Location::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date('Y'))->get();
               $chart2 = Charts::database($location, 'bar', 'highcharts')
-      			      ->title("Location Details")
+      			      ->title("Localitzacions")
       			      ->elementLabel("Location Products")
       			      ->dimensions(1000, 500)
       			      ->responsive(true)
       			      ->groupByMonth(date('Y'), true);
 
-
-		$pie_chart = Charts::create('pie', 'highcharts')
-				->title('Pie Chart Demo')
-				->labels(['Product 1', 'Product 2', 'Product 3'])
-				->values([15,25,50])
+  $material_type = Material_Type::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date('Y'))->get();
+		$pie_chart = Charts::database($material_type, 'pie', 'highcharts')
+				->title('Materials')
+				->elementLabel("Total Products")
 				->dimensions(1000,500)
-				->responsive(true);
+				->responsive(true)
+        ->groupByMonth(date('Y'), true);
 
 
 		$line_chart = Charts::create('line', 'highcharts')
