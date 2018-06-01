@@ -89,6 +89,9 @@ $brand_model = Brand_Model::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date
           ->groupByMonth(date('Y'), true)
 			    ->responsive(true);
 
-        return view('chart',compact('chart' , 'chart2', 'pie_chart', 'line_chart', 'areaspline_chart', 'percentage_chart', 'geo_chart', 'area_chart', 'donut_chart'));
+          return view('chart',compact('chart' , 'chart2', 'pie_chart', 'line_chart', 'areaspline_chart', 'percentage_chart', 'geo_chart', 'area_chart', 'donut_chart'));
+
+
     }
+
 }
