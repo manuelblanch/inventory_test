@@ -149,6 +149,26 @@
 															 </div>
 </div>
 
+<div class="container">
+
+	  <div class="panel panel-primary">
+
+			<div class="panel-heading">Dashboard de la base de dades Inventari</div>
+
+<div class="panel-body">
+	<div class="row">
+	<div class="col-md-6">
+		 
+	</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 <!-- /.panel-heading -->
                             <div class="panel-body">
                                 <div id="morris-area-chart"></div>
@@ -297,4 +317,5 @@
 		</div>
 	</div>
 </div>
+
 @endsection
