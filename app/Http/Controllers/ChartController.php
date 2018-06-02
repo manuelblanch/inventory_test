@@ -20,8 +20,8 @@ class ChartController extends Controller
     {
     	$products = Product::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date('Y'))->get();
         $chart = Charts::database($products, 'bar', 'highcharts')
-			      ->title("Product Details")
-			      ->elementLabel("Total Products")
+			      ->title("Detalls del productes")
+			      ->elementLabel("Total Productes")
 			      ->dimensions(1000, 500)
 			      ->responsive(true)
 			      ->groupByMonth(date('Y'), true);
@@ -29,7 +29,7 @@ class ChartController extends Controller
             $location = Location::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date('Y'))->get();
               $chart2 = Charts::database($location, 'bar', 'highcharts')
       			      ->title("Localitzacions")
-      			      ->elementLabel("Location Products")
+      			      ->elementLabel("Numero de localitzacions")
       			      ->dimensions(1000, 500)
       			      ->responsive(true)
       			      ->groupByMonth(date('Y'), true);
@@ -37,7 +37,7 @@ class ChartController extends Controller
   $material_type = Material_Type::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date('Y'))->get();
 		$pie_chart = Charts::database($material_type, 'pie', 'highcharts')
 				->title('Materials')
-				->elementLabel("Total Products")
+				->elementLabel("Total Materials")
 				->dimensions(1000,500)
 				->responsive(true)
         ->groupByMonth(date('Y'), true);
@@ -45,7 +45,7 @@ class ChartController extends Controller
 $brand = Brand::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date('Y'))->get();
 		$line_chart = Charts::database($brand, 'line', 'highcharts')
 			    ->title('Marques')
-			    ->elementLabel('Chart Labels')
+			    ->elementLabel('Etiquetes de grafics')
 			    ->dimensions(1000,500)
 			    ->responsive(true)
           ->groupByMonth(date('Y'), true);
@@ -60,28 +60,30 @@ $moneySource = MoneySource::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date
 
 
 		$percentage_chart = Charts::create('percentage', 'justgage')
-				    ->title('Percentage Chart Demo')
-				    ->elementLabel('Chart Labels')
+				    ->title('Percentage Grafiques')
+				    ->elementLabel('Etiquetes de grafics')
 				    ->values([65,0,100])
 				    ->responsive(true)
 				    ->height(300)
 				    ->width(0);
 
 		$geo_chart = Charts::create('geo', 'highcharts')
-				    ->title('GEO Chart Demo')
+				    ->title('Grafic geografic')
 				    ->elementLabel('Chart Labels')
 				    ->labels(['US', 'UK', 'IND'])
 				    ->colors(['#C5CAE9', '#283593'])
 				    ->values([25,55,70,90])
 				    ->dimensions(1000,500)
 				    ->responsive(true);
+
 $provider = Provider::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date('Y'))->get();
 		$area_chart = Charts::database($provider, 'area', 'highcharts')
 			    ->title('Proveidors')
-			    ->elementLabel('Chart Labels')
+			    ->elementLabel('Etiquetes de grafics')
 			    ->dimensions(1000,500)
           ->groupByMonth(date('Y'), true)
 			    ->responsive(true);
+
 $brand_model = Brand_Model::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date('Y'))->get();
 		$donut_chart = Charts::database($brand_model,'donut', 'highcharts')
 			    ->title('Model de Marques')
