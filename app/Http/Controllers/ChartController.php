@@ -83,6 +83,7 @@ $provider = Provider::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date('Y'))
 			    ->dimensions(1000,500)
           ->groupByMonth(date('Y'), true)
 			    ->responsive(true);
+          
 
 $brand_model = Brand_Model::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date('Y'))->get();
 		$donut_chart = Charts::database($brand_model,'donut', 'highcharts')
