@@ -13,7 +13,7 @@
           <h3 class="box-title">Inventari</h3>
         </div>
         <div class="col-sm-4">
-          <a class="btn btn-primary" href="{{ route('inventory.create') }}">Afegeix nou item</a>
+          <a class="btn btn-primary" id= "acces1" href="{{ route('inventory.create') }}">Afegeix nou item</a>
         </div>
     </div>
   </div>

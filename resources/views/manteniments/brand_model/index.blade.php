@@ -15,7 +15,7 @@
         </div>
         <div class="col-sm-4">
 
-          <a class="btn btn-primary" href="{{ route('brand_model.create') }}">Afegeix un nou model de marca</a>
+          <a class="btn btn-primary" id="acces6" href="{{ route('brand_model.create') }}">Afegeix un nou model de marca</a>
         </div>
     </div>
   </div>

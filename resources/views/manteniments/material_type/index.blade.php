@@ -14,7 +14,7 @@
           <h3 class="box-title">Llista de tipus de material</h3>
         </div>
         <div class="col-sm-4">
-          <a class="btn btn-primary" href="{{ route('material_type.create') }}">Afegeix un nou tipus de material</a>
+          <a class="btn btn-primary" id="acces4" href="{{ route('material_type.create') }}">Afegeix un nou tipus de material</a>
         </div>
     </div>
   </div>

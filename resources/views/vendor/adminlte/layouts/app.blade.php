@@ -226,13 +226,12 @@ desired effect
   $('#aler').click(function(){
 
   swal({
-  title: 'Are you sure?',
-  text: "You won't be able to revert this!",
+  title: 'Esborrat',
   type: 'warning',
   showCancelButton: true,
   confirmButtonColor: '#3085d6',
   cancelButtonColor: '#d33',
-  confirmButtonText: 'Yes, delete it!'
+  confirmButtonText: ''
 }).then((result) => {
   if (result.value) {
     swal(
@@ -371,93 +370,9 @@ desired effect
   <script>
 
   $('#alert8').click(function(){
-    swal({position: 'top-end',
+    swal({position: 'top',
           type: 'success',
-          title: 'Accedint a la introduccio de dades',
-          showConfirmButton: false,
-          timer: 3000
-
-  });
-  });
-
-  </script>
-
-  <script>
-
-  $('#alert7').click(function(){
-    swal({position: 'center',
-          type: 'success',
-          title: 'Has introduit una nova procedencia monetaria',
-          showConfirmButton: false,
-          timer: 3000
-
-  });
-  });
-
-  </script>
-
-  <script>
-
-  $('#alert7').click(function(){
-    swal({position: 'center',
-          type: 'success',
-          title: 'Has introduit una nova procedencia monetaria',
-          showConfirmButton: false,
-          timer: 3000
-
-  });
-  });
-
-  </script>
-
-  <script>
-
-  $('#alert7').click(function(){
-    swal({position: 'center',
-          type: 'success',
-          title: 'Has introduit una nova procedencia monetaria',
-          showConfirmButton: false,
-          timer: 3000
-
-  });
-  });
-
-  </script>
-
-  <script>
-
-  $('#alert7').click(function(){
-    swal({position: 'center',
-          type: 'success',
-          title: 'Has introduit una nova procedencia monetaria',
-          showConfirmButton: false,
-          timer: 3000
-
-  });
-  });
-
-  </script>
-
-  <script>
-
-  $('#alert7').click(function(){
-    swal({position: 'center',
-          type: 'success',
-          title: 'Has introduit una nova procedencia monetaria',
-          showConfirmButton: false,
-          timer: 3000
-
-  });
-  });
-
-  </script>
-
-  <script>
-
-  $('#alert7').click(function(){
-    swal({position: 'center',
-          type: 'success',
-          title: 'Has introduit una nova procedencia monetaria',
+          title: 'Accedint a la introduccio de dades a la procedencia monetaria',
           showConfirmButton: false,
           timer: 3000
 
@@ -493,6 +408,118 @@ desired effect
   });
 
   </script>
+
+<script>
+
+  $('#acces1').click(function(){
+    swal({position: 'top',
+          type: 'success',
+          title: 'Accedint a la pagina de introducció de dades a inventari',
+          showConfirmButton: false,
+          timer: 3000
+
+  });
+  });
+
+</script>
+
+<script>
+
+  $('#acces2').click(function(){
+    swal({position: 'top',
+          type: 'success',
+          title: 'Accedint a la pagina de introducció de dades a proveidors',
+          showConfirmButton: false,
+          timer: 3000
+
+  });
+  });
+
+</script>
+
+<script>
+
+  $('#acces3').click(function(){
+    swal({position: 'top',
+          type: 'success',
+          title: 'Accedint a la pagina de introducció de dades a localització',
+          showConfirmButton: false,
+          timer: 3000
+
+  });
+  });
+
+</script>
+
+<script>
+
+  $('#acces4').click(function(){
+    swal({position: 'top',
+          type: 'success',
+          title: 'Accedint a la pagina de introducció de dades a tipus de material',
+          showConfirmButton: false,
+          timer: 3000
+
+  });
+  });
+
+</script>
+
+<script>
+
+  $('#acces5').click(function(){
+    swal({position: 'top',
+          type: 'success',
+          title: 'Accedint a la pagina de introducció de dades de les marques',
+          showConfirmButton: false,
+          timer: 3000
+
+  });
+  });
+
+</script>
+
+<script>
+
+  $('#acces6').click(function(){
+    swal({position: 'top',
+          type: 'success',
+          title: 'Accedint a la pagina de introducció de dades del model de les marques',
+          showConfirmButton: false,
+          timer: 3000
+
+  });
+  });
+
+</script>
+
+<script>
+
+  $('#export1').click(function(){
+    swal({position: 'top',
+          type: 'success',
+          title: 'Exportant informació a format pdf',
+          showConfirmButton: false,
+          timer: 3000
+
+  });
+  });
+
+</script>
+
+<script>
+
+  $('#export2').click(function(){
+    swal({position: 'top',
+          type: 'success',
+          title: 'Exportant informació a format excel',
+          showConfirmButton: false,
+          timer: 3000
+
+  });
+  });
+
+</script>
 
 @show
 @isset($calendar_details)

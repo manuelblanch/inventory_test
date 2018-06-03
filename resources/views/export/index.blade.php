@@ -18,7 +18,7 @@
                 {{ csrf_field() }}
                 <input type="hidden" value="{{$searchingVals['from']}}" name="from" />
                 <input type="hidden" value="{{$searchingVals['to']}}" name="to" />
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary" id="export2">
                   Exportar Inventari a format Excel
                 </button>
             </form>
@@ -28,7 +28,7 @@
                 {{ csrf_field() }}
                 <input type="hidden" value="{{$searchingVals['from']}}" name="from" />
                 <input type="hidden" value="{{$searchingVals['to']}}" name="to" />
-                <button type="submit" class="btn btn-info">
+                <button type="submit" class="btn btn-info" id="export1">
                   Exportar Inventari a format PDF
                 </button>
             </form>

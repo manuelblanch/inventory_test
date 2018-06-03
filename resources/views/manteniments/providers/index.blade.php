@@ -13,7 +13,7 @@
           <h3 class="box-title">Llista de proveidors</h3>
         </div>
         <div class="col-sm-4">
-          <a class="btn btn-primary" href="{{ route('provider.create') }}">Afegeix un nou proveidor</a>
+          <a class="btn btn-primary" id="acces2" href="{{ route('provider.create') }}">Afegeix un nou proveidor</a>
         </div>
     </div>
   </div>
