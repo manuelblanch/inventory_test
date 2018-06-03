@@ -25,7 +25,7 @@
 										</div>
 								</div>
 						</div>
-						<a href="#">
+						<a href="{{ url('inventory-mnt') }}">
 								<div class="panel-footer">
 										<span class="pull-left">Acces a la llista</span>
 										<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -48,7 +48,7 @@
 										</div>
 								</div>
 						</div>
-						<a href="#">
+						<a href="{{ url('mnt/location') }}">
 								<div class="panel-footer">
 										<span class="pull-left">Acces a la localització</span>
 										<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -71,7 +71,7 @@
 										</div>
 								</div>
 						</div>
-						<a href="#">
+						<a href="{{ url('mnt/provider') }}">
 								<div class="panel-footer">
 										<span class="pull-left">Acces als proveidors</span>
 										<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -94,7 +94,7 @@
 										</div>
 								</div>
 						</div>
-						<a href="#">
+						<a href="{{ url('mnt/brand') }}">
 								<div class="panel-footer">
 										<span class="pull-left">Acces a marques</span>
 										<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -112,60 +112,36 @@
                                             <table class="table table-bordered table-hover table-striped">
                                                 <thead>
                                                 <tr>
-                                                    <th>#</th>
-                                                    <th>Date</th>
-                                                    <th>Time</th>
-                                                    <th>Amount</th>
+                                                    <th>Id</th>
+                                                    <th>Data</th>
+                                                    <th>Hora</th>
+                                                    <th>Preu</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <tr>
                                                     <td>3326</td>
-                                                    <td>10/21/2013</td>
+                                                    <td>10/21/2018</td>
                                                     <td>3:29 PM</td>
-                                                    <td>$321.33</td>
+                                                    <td>€35</td>
                                                 </tr>
                                                 <tr>
                                                     <td>3325</td>
-                                                    <td>10/21/2013</td>
+                                                    <td>10/21/2018</td>
                                                     <td>3:20 PM</td>
-                                                    <td>$234.34</td>
+                                                    <td>€23</td>
                                                 </tr>
                                                 <tr>
                                                     <td>3324</td>
-                                                    <td>10/21/2013</td>
+                                                    <td>10/21/2018</td>
                                                     <td>3:03 PM</td>
-                                                    <td>$724.17</td>
+                                                    <td>€72</td>
                                                 </tr>
                                                 <tr>
                                                     <td>3323</td>
-                                                    <td>10/21/2013</td>
+                                                    <td>10/21/2018</td>
                                                     <td>3:00 PM</td>
-                                                    <td>$23.71</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3322</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:49 PM</td>
-                                                    <td>$8345.23</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3321</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:23 PM</td>
-                                                    <td>$245.12</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3320</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:15 PM</td>
-                                                    <td>$5663.54</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3319</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:13 PM</td>
-                                                    <td>$943.45</td>
+                                                    <td>€23</td>
                                                 </tr>
                                                 </tbody>
                                             </table>
@@ -285,12 +261,12 @@
 			<div class="inner">
 				<h3>200</h3>
 
-				<p>Objectes de l'inventari</p>
+				<p>Tipus de material</p>
 			</div>
 			<div class="icon">
 				<i class="ion ion-bag"></i>
 			</div>
-			<a href="{{ url('inventory-mnt') }}" class="small-box-footer">Acces a la llista<i class="fa fa-arrow-circle-right"></i></a>
+			<a href="{{ url('mnt/material_type') }}" class="small-box-footer">Acces a la llista<i class="fa fa-arrow-circle-right"></i></a>
 		</div>
 	</div>
 
@@ -305,12 +281,12 @@
 			<div class="inner">
 				<h3>65</h3>
 
-				<p>Localitzacions</p>
+				<p>Model marca</p>
 			</div>
 			<div class="icon">
 				<i class="ion ion-stats-bars"></i>
 			</div>
-			<a href="{{ url('mnt/location') }}" class="small-box-footer">Acces a la llista<i class="fa fa-arrow-circle-right"></i></a>
+			<a href="{{ url('mnt/brand_model') }}" class="small-box-footer">Acces a la llista<i class="fa fa-arrow-circle-right"></i></a>
 		</div>
 	</div>
 	<div class="col-lg-3 col-xs-6">
@@ -319,12 +295,12 @@
 			<div class="inner">
 				<h3>23</h3>
 
-				<p>Proveidors</p>
+				<p>Procedencia monetaria</p>
 			</div>
 			<div class="icon">
 				<i class="ion ion-pie-graph"></i>
 			</div>
-			<a href="{{ url('mnt/provider') }}" class="small-box-footer">Acces a la llista<i class="fa fa-arrow-circle-right"></i></a>
+			<a href="{{ url('mnt/moneySource') }}" class="small-box-footer">Acces a la llista<i class="fa fa-arrow-circle-right"></i></a>
 		</div>
 	</div>
 	<!-- ./col -->

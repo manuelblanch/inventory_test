@@ -67,14 +67,7 @@ $moneySource = MoneySource::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date
 				    ->height(300)
 				    ->width(0);
 
-		$geo_chart = Charts::create('geo', 'highcharts')
-				    ->title('Grafic geografic')
-				    ->elementLabel('Chart Labels')
-				    ->labels(['US', 'UK', 'IND'])
-				    ->colors(['#C5CAE9', '#283593'])
-				    ->values([25,55,70,90])
-				    ->dimensions(1000,500)
-				    ->responsive(true);
+
 
 $provider = Provider::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date('Y'))->get();
 		$area_chart = Charts::database($provider, 'area', 'highcharts')
@@ -83,7 +76,7 @@ $provider = Provider::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date('Y'))
 			    ->dimensions(1000,500)
           ->groupByMonth(date('Y'), true)
 			    ->responsive(true);
-          
+
 
 $brand_model = Brand_Model::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date('Y'))->get();
 		$donut_chart = Charts::database($brand_model,'donut', 'highcharts')
@@ -92,7 +85,16 @@ $brand_model = Brand_Model::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date
           ->groupByMonth(date('Y'), true)
 			    ->responsive(true);
 
-          return view('chart',compact('chart' , 'chart2', 'pie_chart', 'line_chart', 'areaspline_chart', 'percentage_chart', 'geo_chart', 'area_chart', 'donut_chart'));
+          $geo_chart = Charts::create('geo', 'highcharts')
+      				    ->title('Grafic geografic')
+      				    ->elementLabel('Chart Labels')
+      				    ->labels(['US', 'UK', 'IND'])
+      				    ->colors(['#C5CAE9', '#283593'])
+      				    ->values([25,55,70,90])
+      				    ->dimensions(1000,500)
+      				    ->responsive(true);
+
+          return view('chart',compact('chart' , 'chart2', 'pie_chart', 'line_chart', 'areaspline_chart', 'percentage_chart', 'area_chart', 'donut_chart', 'geo_chart'));
 
 
     }

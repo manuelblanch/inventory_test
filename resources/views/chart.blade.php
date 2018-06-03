@@ -39,13 +39,6 @@
 
 
             <div class="col-md-6">
-               {!! $geo_chart->html() !!}
-            </div>
-
-            <br/><br/>
-
-
-            <div class="col-md-6">
                {!! $area_chart->html() !!}
             </div>
 
@@ -55,6 +48,12 @@
                {!! $donut_chart->html() !!}
             </div>
 
+
+            <br/><br/>
+
+            <div class="col-md-6">
+               {!! $geo_chart->html() !!}
+            </div>
 
             <br/><br/>
 
