@@ -14,9 +14,9 @@ class MoneySourceControllerTest extends \PHPUnit_Framework_TestCase
 protected function setUp()
 {
     parent::setUp();
-    
+
 }
-public function test1()
+public function testcreate()
 {
     $moneySource = MoneySource::create([
         'name' => 'Elena',
