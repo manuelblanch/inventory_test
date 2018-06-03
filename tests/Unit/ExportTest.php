@@ -8,7 +8,6 @@ use Mockery as m;
 
 class ExportTest extends \PHPUnit_Framework_TestCase
 {
-
     public function setUp()
     {
         $this->afterApplicationCreated(function () {
