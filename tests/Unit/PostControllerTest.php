@@ -1,10 +1,8 @@
 <?php
 
-# app/tests/controllers/PostsControllerTest.php
+// app/tests/controllers/PostsControllerTest.php
 
 use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class PostControllerTest extends \PHPUnit_Framework_TestCase
 {

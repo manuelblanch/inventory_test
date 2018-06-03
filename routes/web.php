@@ -114,7 +114,7 @@ Route::post('events', 'EventController@addEvent')->name('events.add');
 
 Route::get('my-chart', 'ChartController@index')->name('chart.index');
 
-Route::get('sweetalertdemo', ['as'=>'SweetAlert','uses'=>'SweetAlertDemo@index']);
+Route::get('sweetalertdemo', ['as'=>'SweetAlert', 'uses'=>'SweetAlertDemo@index']);
 
 Route::resource('posts', 'PostsController');
 

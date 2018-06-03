@@ -1,10 +1,14 @@
 <?php
+
 namespace Tests;
-use InvalidArgumentException;
+
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+use InvalidArgumentException;
+
 abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
+
     protected function assertAuthenticationRequired($uri, $method = 'get', $redirect = '/login')
     {
         $method = strtolower($method);
