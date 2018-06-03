@@ -14,12 +14,12 @@ use Tests\TestCase;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ExportController;
 
-class ExportTest extends TestCase
+class ExportTest extends \PHPUnit_Framework_TestCase
 {
 
   public function setUp()
 {
-    $this->afterApplicationCreated(function () {
+    /*$this->afterApplicationCreated(function () {
         $this->db = m::mock(
             Connection::class.'[select,update,insert,delete]',
             [m::mock(\PDO::class)]
@@ -34,7 +34,7 @@ class ExportTest extends TestCase
         $p->setValue($manager, $list);
         $this->cityMock = m::mock(Export::class . '[update, delete]');
     });
-    parent::setUp();
+    parent::setUp();*/
 }
     public function testIndex()
     {
