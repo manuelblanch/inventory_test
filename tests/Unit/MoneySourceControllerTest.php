@@ -30,4 +30,12 @@ public function testcreate()
     ]);
     $this->assertEquals($moneySource->fullname,'El, Noia');
 }
+
+public function testedit(){
+
+}
+
+public function testdelete(){
+  
+}
 }
