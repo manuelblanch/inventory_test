@@ -9,7 +9,7 @@ use Tests\TestCase;
 
 class ExportTest extends \PHPUnit_Framework_TestCase
 {
-<<<<<<< HEAD
+
 
   public function setUp()
 {
@@ -30,7 +30,7 @@ class ExportTest extends \PHPUnit_Framework_TestCase
     });
     parent::setUp();*/
 }
-=======
+
     public function setUp()
     {
         $this->afterApplicationCreated(function () {
@@ -51,7 +51,7 @@ class ExportTest extends \PHPUnit_Framework_TestCase
         parent::setUp();
     }
 
->>>>>>> 0a5dfbf8ebe4ba9b18e6226ba17c6102ff2c5bd5
+
     public function testIndex()
     {
         /*$this->mock
