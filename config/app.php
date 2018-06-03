@@ -283,8 +283,6 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         MaddHatter\LaravelFullcalendar\ServiceProvider::class,
 
-
-
         //llum_providers
     ],
     /*
@@ -339,9 +337,6 @@ return [
         'Calendar'     => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
         'Charts'       => ConsoleTVs\Charts\Facades\Charts::class,
         'Alert'        => UxWeb\SweetAlert\SweetAlert::class,
-
-
-
 
         /*
          * Acacha Llum Aliases...
