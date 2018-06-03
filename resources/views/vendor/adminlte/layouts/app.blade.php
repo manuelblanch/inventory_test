@@ -223,6 +223,31 @@ desired effect
 
   <script>
 
+  $('#aler').click(function(){
+
+  swal({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  type: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, delete it!'
+}).then((result) => {
+  if (result.value) {
+    swal(
+      'Deleted!',
+      'Your file has been deleted.',
+      'success'
+    )
+  }
+});
+});
+
+</script>
+
+  <script>
+
   $('#alert').click(function(){
     swal({position: 'center',
           type: 'success',
@@ -343,15 +368,136 @@ desired effect
 
   </script>
 
+  <script>
 
+  $('#alert8').click(function(){
+    swal({position: 'top-end',
+          type: 'success',
+          title: 'Accedint a la introduccio de dades',
+          showConfirmButton: false,
+          timer: 3000
+
+  });
+  });
+
+  </script>
+
+  <script>
+
+  $('#alert7').click(function(){
+    swal({position: 'center',
+          type: 'success',
+          title: 'Has introduit una nova procedencia monetaria',
+          showConfirmButton: false,
+          timer: 3000
+
+  });
+  });
+
+  </script>
+
+  <script>
+
+  $('#alert7').click(function(){
+    swal({position: 'center',
+          type: 'success',
+          title: 'Has introduit una nova procedencia monetaria',
+          showConfirmButton: false,
+          timer: 3000
+
+  });
+  });
+
+  </script>
+
+  <script>
+
+  $('#alert7').click(function(){
+    swal({position: 'center',
+          type: 'success',
+          title: 'Has introduit una nova procedencia monetaria',
+          showConfirmButton: false,
+          timer: 3000
+
+  });
+  });
+
+  </script>
+
+  <script>
+
+  $('#alert7').click(function(){
+    swal({position: 'center',
+          type: 'success',
+          title: 'Has introduit una nova procedencia monetaria',
+          showConfirmButton: false,
+          timer: 3000
+
+  });
+  });
+
+  </script>
+
+  <script>
+
+  $('#alert7').click(function(){
+    swal({position: 'center',
+          type: 'success',
+          title: 'Has introduit una nova procedencia monetaria',
+          showConfirmButton: false,
+          timer: 3000
+
+  });
+  });
+
+  </script>
+
+  <script>
+
+  $('#alert7').click(function(){
+    swal({position: 'center',
+          type: 'success',
+          title: 'Has introduit una nova procedencia monetaria',
+          showConfirmButton: false,
+          timer: 3000
+
+  });
+  });
+
+  </script>
+
+  <script>
+
+  $('#alert7').click(function(){
+    swal({position: 'center',
+          type: 'success',
+          title: 'Has introduit una nova procedencia monetaria',
+          showConfirmButton: false,
+          timer: 3000
+
+  });
+  });
+
+  </script>
+
+  <script>
+
+  $('#busqueda').click(function(){
+    swal({title: 'Buscant informació en la base de dades',
+          text: '...',
+          type: 'success',
+          showConfirmButton: false,
+          timer: 1200
+
+  });
+  });
+
+  </script>
 
 @show
 @isset($calendar_details)
           {!! $calendar_details->script() !!}
 @endisset
-
-
-
 
 @shown
 

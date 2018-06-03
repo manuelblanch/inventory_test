@@ -12,7 +12,7 @@
   </div>
   <!-- /.box-body -->
   <div class="box-footer">
-    <button type="submit" class="btn btn-primary">
+    <button type="submit" class="btn btn-primary" id="busqueda">
       <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
       Busqueda
     </button>
