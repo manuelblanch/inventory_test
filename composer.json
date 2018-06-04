@@ -33,10 +33,11 @@
       "secondtruth/startmin": "^1.0",
       "consoletvs/charts": "^5.0.2",
       "uxweb/sweet-alert": "~1.4"
+
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
-        "mockery/mockery": "0.9.*",
+        "mockery/mockery": "1.0.0-alpha1@dev",
         "phpunit/phpunit": "~6.0",
         "symfony/css-selector": "3.1.*",
         "symfony/dom-crawler": "3.1.*",
