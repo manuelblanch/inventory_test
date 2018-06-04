@@ -228,7 +228,7 @@ class BrandControllerTest extends \PHPUnit_Framework_TestCase
                 return is_array($arg) && $arg['name'] == 'Nova Marca';
             }
         )])->andThrow(new QueryException('', [], new \Exception));
-        $response = $controller->update($request, $city);
+        $response = $controller->update($request, $brand);
         $this->assertInstanceOf(RedirectResponse::class, $response);
         $this->assertEquals(config('app.url'), $response->headers->get('Location'));
         $this->assertArrayHasKey('system', $response->getSession()->get('errors')->messages());
