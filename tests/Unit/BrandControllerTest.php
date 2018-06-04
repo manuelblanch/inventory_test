@@ -1,22 +1,19 @@
 <?php
 
 namespace Tests\Unit;
-use App\Http\Controllers\BrandController;
-use Illuminate\Http\RedirectResponse;
+
 use App\Brand;
+use App\Http\Controllers\BrandController;
 use Illuminate\Database\Connection;
 use Illuminate\Database\QueryException;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\ParameterBag;
-use Tests\TestCase;
-use Illuminate\Http\Request;
-use Mockery;
-
 
 class BrandControllerTest extends \PHPUnit_Framework_TestCase
 {
-
-  /**
+    /**
      * @var \Mockery\Mock|\Illuminate\Database\Connection
      */
     protected $db;
@@ -24,6 +21,7 @@ class BrandControllerTest extends \PHPUnit_Framework_TestCase
      * @var \Mockery\Mock|App\Brand
      */
     protected $brandMock;
+
     public function setUp()
     {
         $this->afterApplicationCreated(function () {
@@ -39,11 +37,10 @@ class BrandControllerTest extends \PHPUnit_Framework_TestCase
             $list = $p->getValue($manager);
             $list['mock'] = $this->db;
             $p->setValue($manager, $list);
-            $this->brandMock = m::mock(Brand::class . '[update, delete]');
+            $this->brandMock = m::mock(Brand::class.'[update, delete]');
         });
         parent::setUp();
     }
-
 
     public function test_index_returns_view()
     {
@@ -57,6 +54,7 @@ class BrandControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('brand.list', $view->getName());
         $this->assertArrayHasKey('brand', $view->getData());
     }
+
     public function test_it_stores_new_brand()
     {
         $controller = new BrandController();
@@ -75,7 +73,7 @@ class BrandControllerTest extends \PHPUnit_Framework_TestCase
                 m::on(function ($arg) {
                     return is_array($arg) &&
                         $arg[0] == 'Nova Marca';
-                })
+                }),
             ])
             ->andReturn(true);
         /** @var RedirectResponse $response */
@@ -84,6 +82,7 @@ class BrandControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(route('brand.index'), $response->headers->get('Location'));
         $this->assertEquals(333, $response->getSession()->get('created'));
     }
+
     public function test_it_throws_error_on_duplicate_name()
     {
         $controller = new BrandController();
@@ -101,6 +100,7 @@ class BrandControllerTest extends \PHPUnit_Framework_TestCase
         $this->expectException(ValidationException::class);
         $controller->store($request);
     }
+
     public function test_store_new_city_throw_query_exception()
     {
         $controller = new BrandController();
@@ -118,10 +118,10 @@ class BrandControllerTest extends \PHPUnit_Framework_TestCase
                 m::on(function ($arg) {
                     return is_array($arg) &&
                         $arg[0] == 'Nova Marca';
-                })
+                }),
             ])
-            ->andReturnUsing(function() {
-                throw new QueryException('', [], new \Exception);
+            ->andReturnUsing(function () {
+                throw new QueryException('', [], new \Exception());
             });
         /** @var RedirectResponse $response */
         $response = $controller->store($request);
@@ -129,6 +129,7 @@ class BrandControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(config('app.url'), $response->headers->get('Location'));
         $this->assertArrayHasKey('system', $response->getSession()->get('errors')->messages());
     }
+
     public function test_it_fires_event_and_shows_city()
     {
         $controller = new BrandController();
@@ -141,6 +142,7 @@ class BrandControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('brand.item', $view->getName());
         $this->assertArrayHasKey('brand', $view->getData());
     }
+
     public function test_create_returns_view()
     {
         $controller = new BrandController();
@@ -148,6 +150,7 @@ class BrandControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('brand.form', $view->getName());
         $this->assertArraySubset(['brand' => null], $view->getData());
     }
+
     public function test_edit_brand()
     {
         $cityInfo = ['id' => 1, 'name' => 'Nova Marca'];
@@ -157,11 +160,12 @@ class BrandControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('brand.form', $view->getName());
         $this->assertArraySubset(['brand' => $brand], $view->getData());
     }
+
     public function test_update_existing_brand()
     {
         $controller = new BrandController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nova Marca',
         ];
         $brand = $this->brandMock->forceFill(['id' => 1, 'name' => 'Marca Antiga']);
@@ -176,21 +180,22 @@ class BrandControllerTest extends \PHPUnit_Framework_TestCase
             m::any(),
         ])->andReturn([(object) ['aggregate' => 0]]);
         $this->brandMock->shouldReceive('update')->once()->withArgs([
-            m::on(function($arg) {
+            m::on(function ($arg) {
                 return is_array($arg) && $arg['name'] == 'Nova Marca';
             }
-        )])->andReturn($newBrand);
+        ), ])->andReturn($newBrand);
         $this->db->getPdo()->shouldReceive('lastInsertId')->andReturn($data['id']);
         $response = $controller->update($request, $brand);
         $this->assertInstanceOf(RedirectResponse::class, $response);
         $this->assertEquals(route('brand.index'), $response->headers->get('Location'));
         $this->assertEquals($data['id'], $response->getSession()->get('updated'));
     }
+
     public function test_update_throws_error_on_duplicate_name()
     {
         $controller = new BrandController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nova Marca',
         ];
         $brand = new Brand();
@@ -206,11 +211,12 @@ class BrandControllerTest extends \PHPUnit_Framework_TestCase
         $this->expectException(ValidationException::class);
         $controller->update($request, $brand);
     }
+
     public function test_update_existing_brand_throw_query_exception()
     {
         $controller = new BrandController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nova Marca',
         ];
         $brand = $this->brandMock->forceFill(['id' => 1, 'name' => 'Marca Antiga']);
@@ -224,20 +230,21 @@ class BrandControllerTest extends \PHPUnit_Framework_TestCase
             m::any(),
         ])->andReturn([(object) ['aggregate' => 0]]);
         $this->brandMock->shouldReceive('update')->once()->withArgs([
-            m::on(function($arg) {
+            m::on(function ($arg) {
                 return is_array($arg) && $arg['name'] == 'Nova Marca';
             }
-        )])->andThrow(new QueryException('', [], new \Exception));
+        ), ])->andThrow(new QueryException('', [], new \Exception()));
         $response = $controller->update($request, $brand);
         $this->assertInstanceOf(RedirectResponse::class, $response);
         $this->assertEquals(config('app.url'), $response->headers->get('Location'));
         $this->assertArrayHasKey('system', $response->getSession()->get('errors')->messages());
     }
+
     public function test_destroy_existing_brand()
     {
         $controller = new BrandController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nova Marca',
         ];
         $brand = $this->brandMock->forceFill($data);
@@ -247,16 +254,17 @@ class BrandControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(route('brand.index'), $response->headers->get('Location'));
         $this->assertEquals($data['id'], $response->getSession()->get('deleted'));
     }
+
     public function test_destroy_existing_brand_throw_query_exception()
     {
         $controller = new BrandController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nova Marca',
         ];
         $brand = $this->brandMock->forceFill($data);
-        $this->brandMock->shouldReceive('delete')->once()->andReturnUsing(function() {
-            throw new QueryException('', [], new \Exception);
+        $this->brandMock->shouldReceive('delete')->once()->andReturnUsing(function () {
+            throw new QueryException('', [], new \Exception());
         });
         $response = $controller->destroy($brand);
         $this->assertInstanceOf(RedirectResponse::class, $response);

@@ -1,22 +1,19 @@
 <?php
 
 namespace Tests\Unit;
+
 use App\Http\Controllers\Material_TypeController;
-use Illuminate\Http\RedirectResponse;
 use App\Material_Type;
 use Illuminate\Database\Connection;
 use Illuminate\Database\QueryException;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\ParameterBag;
-use Tests\TestCase;
-use Illuminate\Http\Request;
-use Mockery;
-
 
 class Material_TypeControllerTest extends \PHPUnit_Framework_TestCase
 {
-
-  /**
+    /**
      * @var \Mockery\Mock|\Illuminate\Database\Connection
      */
     protected $db;
@@ -24,6 +21,7 @@ class Material_TypeControllerTest extends \PHPUnit_Framework_TestCase
      * @var \Mockery\Mock|App\Material_Type
      */
     protected $material_typeMock;
+
     public function setUp()
     {
         $this->afterApplicationCreated(function () {
@@ -39,11 +37,10 @@ class Material_TypeControllerTest extends \PHPUnit_Framework_TestCase
             $list = $p->getValue($manager);
             $list['mock'] = $this->db;
             $p->setValue($manager, $list);
-            $this->material_typeMock = m::mock(Material_Type::class . '[update, delete]');
+            $this->material_typeMock = m::mock(Material_Type::class.'[update, delete]');
         });
         parent::setUp();
     }
-
 
     public function test_index_returns_view()
     {
@@ -57,6 +54,7 @@ class Material_TypeControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('brand.list', $view->getName());
         $this->assertArrayHasKey('brand', $view->getData());
     }
+
     public function test_it_stores_new_material_type()
     {
         $controller = new Material_TypeController();
@@ -75,7 +73,7 @@ class Material_TypeControllerTest extends \PHPUnit_Framework_TestCase
                 m::on(function ($arg) {
                     return is_array($arg) &&
                         $arg[0] == 'Nou Tipus de material';
-                })
+                }),
             ])
             ->andReturn(true);
         /** @var RedirectResponse $response */
@@ -84,6 +82,7 @@ class Material_TypeControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(route('material_type.index'), $response->headers->get('Location'));
         $this->assertEquals(333, $response->getSession()->get('created'));
     }
+
     public function test_it_throws_error_on_duplicate_name()
     {
         $controller = new Material_TypeController();
@@ -101,6 +100,7 @@ class Material_TypeControllerTest extends \PHPUnit_Framework_TestCase
         $this->expectException(ValidationException::class);
         $controller->store($request);
     }
+
     public function test_store_new_material_type_throw_query_exception()
     {
         $controller = new Material_TypeController();
@@ -118,10 +118,10 @@ class Material_TypeControllerTest extends \PHPUnit_Framework_TestCase
                 m::on(function ($arg) {
                     return is_array($arg) &&
                         $arg[0] == 'Nou tipus de material';
-                })
+                }),
             ])
-            ->andReturnUsing(function() {
-                throw new QueryException('', [], new \Exception);
+            ->andReturnUsing(function () {
+                throw new QueryException('', [], new \Exception());
             });
         /** @var RedirectResponse $response */
         $response = $controller->store($request);
@@ -129,6 +129,7 @@ class Material_TypeControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(config('app.url'), $response->headers->get('Location'));
         $this->assertArrayHasKey('system', $response->getSession()->get('errors')->messages());
     }
+
     public function test_it_fires_event_and_shows_material_type()
     {
         $controller = new Material_TypeController();
@@ -141,6 +142,7 @@ class Material_TypeControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('material_type.item', $view->getName());
         $this->assertArrayHasKey('material_type', $view->getData());
     }
+
     public function test_create_returns_view()
     {
         $controller = new Material_TypeController();
@@ -148,6 +150,7 @@ class Material_TypeControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('material_type.form', $view->getName());
         $this->assertArraySubset(['material_type' => null], $view->getData());
     }
+
     public function test_edit_material_type()
     {
         $material_typeInfo = ['id' => 1, 'name' => 'Nou Tipus de material'];
@@ -157,11 +160,12 @@ class Material_TypeControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('material_type.form', $view->getName());
         $this->assertArraySubset(['material_type' => $material_type], $view->getData());
     }
+
     public function test_update_existing_material_type()
     {
         $controller = new Material_TypeController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nou Tipus de material',
         ];
         $material_type = $this->material_typeMock->forceFill(['id' => 1, 'name' => 'Tipus de material antic']);
@@ -176,21 +180,22 @@ class Material_TypeControllerTest extends \PHPUnit_Framework_TestCase
             m::any(),
         ])->andReturn([(object) ['aggregate' => 0]]);
         $this->material_typeMock->shouldReceive('update')->once()->withArgs([
-            m::on(function($arg) {
+            m::on(function ($arg) {
                 return is_array($arg) && $arg['name'] == 'Nou Tipus de material';
             }
-        )])->andReturn($newMaterial_type);
+        ), ])->andReturn($newMaterial_type);
         $this->db->getPdo()->shouldReceive('lastInsertId')->andReturn($data['id']);
         $response = $controller->update($request, $material_type);
         $this->assertInstanceOf(RedirectResponse::class, $response);
         $this->assertEquals(route('material_type.index'), $response->headers->get('Location'));
         $this->assertEquals($data['id'], $response->getSession()->get('updated'));
     }
+
     public function test_update_throws_error_on_duplicate_name()
     {
         $controller = new Material_TypeController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nova tipus de material',
         ];
         $material_type = new Material_Type();
@@ -206,11 +211,12 @@ class Material_TypeControllerTest extends \PHPUnit_Framework_TestCase
         $this->expectException(ValidationException::class);
         $controller->update($request, $material_type);
     }
+
     public function test_update_existing_material_type_throw_query_exception()
     {
         $controller = new Material_TypeController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nou Tipus de material',
         ];
         $material_type = $this->material_typeMock->forceFill(['id' => 1, 'name' => 'Tipus de material antic']);
@@ -224,20 +230,21 @@ class Material_TypeControllerTest extends \PHPUnit_Framework_TestCase
             m::any(),
         ])->andReturn([(object) ['aggregate' => 0]]);
         $this->material_typeMock->shouldReceive('update')->once()->withArgs([
-            m::on(function($arg) {
+            m::on(function ($arg) {
                 return is_array($arg) && $arg['name'] == 'Nou Tipus de material';
             }
-        )])->andThrow(new QueryException('', [], new \Exception));
+        ), ])->andThrow(new QueryException('', [], new \Exception()));
         $response = $controller->update($request, $matrial_type);
         $this->assertInstanceOf(RedirectResponse::class, $response);
         $this->assertEquals(config('app.url'), $response->headers->get('Location'));
         $this->assertArrayHasKey('system', $response->getSession()->get('errors')->messages());
     }
+
     public function test_destroy_existing_material_type()
     {
         $controller = new Material_TypeController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nou Tipus de material',
         ];
         $material_type = $this->material_typeMock->forceFill($data);
@@ -247,16 +254,17 @@ class Material_TypeControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(route('material_type.index'), $response->headers->get('Location'));
         $this->assertEquals($data['id'], $response->getSession()->get('deleted'));
     }
+
     public function test_destroy_existing_material_type_throw_query_exception()
     {
         $controller = new Material_TypeController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nou Tipus de material',
         ];
         $material_type = $this->material_typeMock->forceFill($data);
-        $this->material_typeMock->shouldReceive('delete')->once()->andReturnUsing(function() {
-            throw new QueryException('', [], new \Exception);
+        $this->material_typeMock->shouldReceive('delete')->once()->andReturnUsing(function () {
+            throw new QueryException('', [], new \Exception());
         });
         $response = $controller->destroy($material_type);
         $this->assertInstanceOf(RedirectResponse::class, $response);
