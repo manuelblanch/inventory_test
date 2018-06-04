@@ -1,22 +1,19 @@
 <?php
 
 namespace Tests\Unit;
+
 use App\Http\Controllers\ProviderController;
-use Illuminate\Http\RedirectResponse;
 use App\Provider;
 use Illuminate\Database\Connection;
 use Illuminate\Database\QueryException;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\ParameterBag;
-use Tests\TestCase;
-use Illuminate\Http\Request;
-use Mockery;
-
 
 class ProviderControllerTest extends \PHPUnit_Framework_TestCase
 {
-
-  /**
+    /**
      * @var \Mockery\Mock|\Illuminate\Database\Connection
      */
     protected $db;
@@ -24,6 +21,7 @@ class ProviderControllerTest extends \PHPUnit_Framework_TestCase
      * @var \Mockery\Mock|App\Provider
      */
     protected $providerMock;
+
     public function setUp()
     {
         $this->afterApplicationCreated(function () {
@@ -39,11 +37,10 @@ class ProviderControllerTest extends \PHPUnit_Framework_TestCase
             $list = $p->getValue($manager);
             $list['mock'] = $this->db;
             $p->setValue($manager, $list);
-            $this->providerMock = m::mock(Provider::class . '[update, delete]');
+            $this->providerMock = m::mock(Provider::class.'[update, delete]');
         });
         parent::setUp();
     }
-
 
     public function test_index_returns_view()
     {
@@ -57,6 +54,7 @@ class ProviderControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('provider.list', $view->getName());
         $this->assertArrayHasKey('provider', $view->getData());
     }
+
     public function test_it_stores_new_provider()
     {
         $controller = new ProviderController();
@@ -75,7 +73,7 @@ class ProviderControllerTest extends \PHPUnit_Framework_TestCase
                 m::on(function ($arg) {
                     return is_array($arg) &&
                         $arg[0] == 'Nou Proveidor';
-                })
+                }),
             ])
             ->andReturn(true);
         /** @var RedirectResponse $response */
@@ -84,6 +82,7 @@ class ProviderControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(route('provider.index'), $response->headers->get('Location'));
         $this->assertEquals(333, $response->getSession()->get('created'));
     }
+
     public function test_it_throws_error_on_duplicate_name()
     {
         $controller = new ProviderController();
@@ -101,6 +100,7 @@ class ProviderControllerTest extends \PHPUnit_Framework_TestCase
         $this->expectException(ValidationException::class);
         $controller->store($request);
     }
+
     public function test_store_new_provider_throw_query_exception()
     {
         $controller = new ProviderController();
@@ -118,10 +118,10 @@ class ProviderControllerTest extends \PHPUnit_Framework_TestCase
                 m::on(function ($arg) {
                     return is_array($arg) &&
                         $arg[0] == 'Nou Proveidor';
-                })
+                }),
             ])
-            ->andReturnUsing(function() {
-                throw new QueryException('', [], new \Exception);
+            ->andReturnUsing(function () {
+                throw new QueryException('', [], new \Exception());
             });
         /** @var RedirectResponse $response */
         $response = $controller->store($request);
@@ -129,6 +129,7 @@ class ProviderControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(config('app.url'), $response->headers->get('Location'));
         $this->assertArrayHasKey('system', $response->getSession()->get('errors')->messages());
     }
+
     public function test_it_fires_event_and_shows_provider()
     {
         $controller = new ProviderController();
@@ -141,6 +142,7 @@ class ProviderControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('provider.item', $view->getName());
         $this->assertArrayHasKey('provider', $view->getData());
     }
+
     public function test_create_returns_view()
     {
         $controller = new ProviderController();
@@ -148,6 +150,7 @@ class ProviderControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('provider.create', $view->getName());
         $this->assertArraySubset(['provider' => null], $view->getData());
     }
+
     public function test_edit_provider()
     {
         $providerInfo = ['id' => 1, 'name' => 'Nou Proveidor'];
@@ -157,11 +160,12 @@ class ProviderControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('provider.create', $view->getName());
         $this->assertArraySubset(['provider' => $provider], $view->getData());
     }
+
     public function test_update_existing_provider()
     {
         $controller = new ProviderController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nou Proveidor',
         ];
         $provider = $this->providerMock->forceFill(['id' => 1, 'name' => 'Proveidor antic']);
@@ -176,21 +180,22 @@ class ProviderControllerTest extends \PHPUnit_Framework_TestCase
             m::any(),
         ])->andReturn([(object) ['aggregate' => 0]]);
         $this->providerMock->shouldReceive('update')->once()->withArgs([
-            m::on(function($arg) {
+            m::on(function ($arg) {
                 return is_array($arg) && $arg['name'] == 'Nou Proveidor';
             }
-        )])->andReturn($newProvider);
+        ), ])->andReturn($newProvider);
         $this->db->getPdo()->shouldReceive('lastInsertId')->andReturn($data['id']);
         $response = $controller->update($request, $provider);
         $this->assertInstanceOf(RedirectResponse::class, $response);
         $this->assertEquals(route('provider.index'), $response->headers->get('Location'));
         $this->assertEquals($data['id'], $response->getSession()->get('updated'));
     }
+
     public function test_update_throws_error_on_duplicate_name()
     {
         $controller = new ProviderController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nou Proveidor',
         ];
         $provider = new Provider();
@@ -206,11 +211,12 @@ class ProviderControllerTest extends \PHPUnit_Framework_TestCase
         $this->expectException(ValidationException::class);
         $controller->update($request, $provider);
     }
+
     public function test_update_existing_provider_throw_query_exception()
     {
         $controller = new ProviderController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nou Proveidor',
         ];
         $provider = $this->providerMock->forceFill(['id' => 1, 'name' => 'Proveidor antic']);
@@ -224,20 +230,21 @@ class ProviderControllerTest extends \PHPUnit_Framework_TestCase
             m::any(),
         ])->andReturn([(object) ['aggregate' => 0]]);
         $this->providerMock->shouldReceive('update')->once()->withArgs([
-            m::on(function($arg) {
+            m::on(function ($arg) {
                 return is_array($arg) && $arg['name'] == 'Nou Proveidor';
             }
-        )])->andThrow(new QueryException('', [], new \Exception));
+        ), ])->andThrow(new QueryException('', [], new \Exception()));
         $response = $controller->update($request, $provider);
         $this->assertInstanceOf(RedirectResponse::class, $response);
         $this->assertEquals(config('app.url'), $response->headers->get('Location'));
         $this->assertArrayHasKey('system', $response->getSession()->get('errors')->messages());
     }
+
     public function test_destroy_existing_provider()
     {
         $controller = new ProviderController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nou Proveidor',
         ];
         $provider = $this->providerMock->forceFill($data);
@@ -247,16 +254,17 @@ class ProviderControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(route('provider.index'), $response->headers->get('Location'));
         $this->assertEquals($data['id'], $response->getSession()->get('deleted'));
     }
+
     public function test_destroy_existing_provider_throw_query_exception()
     {
         $controller = new ProviderController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nou Proveidor',
         ];
         $provider = $this->providerMock->forceFill($data);
-        $this->providerMock->shouldReceive('delete')->once()->andReturnUsing(function() {
-            throw new QueryException('', [], new \Exception);
+        $this->providerMock->shouldReceive('delete')->once()->andReturnUsing(function () {
+            throw new QueryException('', [], new \Exception());
         });
         $response = $controller->destroy($provider);
         $this->assertInstanceOf(RedirectResponse::class, $response);

@@ -1,22 +1,19 @@
 <?php
 
 namespace Tests\Unit;
+
 use App\Http\Controllers\LocationController;
-use Illuminate\Http\RedirectResponse;
 use App\Location;
 use Illuminate\Database\Connection;
 use Illuminate\Database\QueryException;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\ParameterBag;
-use Tests\TestCase;
-use Illuminate\Http\Request;
-use Mockery;
-
 
 class LocationControllerTest extends \PHPUnit_Framework_TestCase
 {
-
-  /**
+    /**
      * @var \Mockery\Mock|\Illuminate\Database\Connection
      */
     protected $db;
@@ -24,6 +21,7 @@ class LocationControllerTest extends \PHPUnit_Framework_TestCase
      * @var \Mockery\Mock|App\Location
      */
     protected $locationMock;
+
     public function setUp()
     {
         $this->afterApplicationCreated(function () {
@@ -39,11 +37,10 @@ class LocationControllerTest extends \PHPUnit_Framework_TestCase
             $list = $p->getValue($manager);
             $list['mock'] = $this->db;
             $p->setValue($manager, $list);
-            $this->locationMock = m::mock(Location::class . '[update, delete]');
+            $this->locationMock = m::mock(Location::class.'[update, delete]');
         });
         parent::setUp();
     }
-
 
     public function test_index_returns_view()
     {
@@ -57,6 +54,7 @@ class LocationControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('location.list', $view->getName());
         $this->assertArrayHasKey('location', $view->getData());
     }
+
     public function test_it_stores_new_location()
     {
         $controller = new LocationController();
@@ -75,7 +73,7 @@ class LocationControllerTest extends \PHPUnit_Framework_TestCase
                 m::on(function ($arg) {
                     return is_array($arg) &&
                         $arg[0] == 'Nova Localitzacio';
-                })
+                }),
             ])
             ->andReturn(true);
         /** @var RedirectResponse $response */
@@ -84,6 +82,7 @@ class LocationControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(route('location.index'), $response->headers->get('Location'));
         $this->assertEquals(333, $response->getSession()->get('created'));
     }
+
     public function test_it_throws_error_on_duplicate_name()
     {
         $controller = new LocationController();
@@ -101,6 +100,7 @@ class LocationControllerTest extends \PHPUnit_Framework_TestCase
         $this->expectException(ValidationException::class);
         $controller->store($request);
     }
+
     public function test_store_new_location_throw_query_exception()
     {
         $controller = new LocationController();
@@ -118,10 +118,10 @@ class LocationControllerTest extends \PHPUnit_Framework_TestCase
                 m::on(function ($arg) {
                     return is_array($arg) &&
                         $arg[0] == 'Nova Localitzacio';
-                })
+                }),
             ])
-            ->andReturnUsing(function() {
-                throw new QueryException('', [], new \Exception);
+            ->andReturnUsing(function () {
+                throw new QueryException('', [], new \Exception());
             });
         /** @var RedirectResponse $response */
         $response = $controller->store($request);
@@ -129,6 +129,7 @@ class LocationControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(config('app.url'), $response->headers->get('Location'));
         $this->assertArrayHasKey('system', $response->getSession()->get('errors')->messages());
     }
+
     public function test_it_fires_event_and_shows_location()
     {
         $controller = new LocationController();
@@ -141,6 +142,7 @@ class LocationControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('location.item', $view->getName());
         $this->assertArrayHasKey('location', $view->getData());
     }
+
     public function test_create_returns_view()
     {
         $controller = new LocationController();
@@ -148,6 +150,7 @@ class LocationControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('location.create', $view->getName());
         $this->assertArraySubset(['location' => null], $view->getData());
     }
+
     public function test_edit_location()
     {
         $locationInfo = ['id' => 1, 'name' => 'Nova Localitzacio'];
@@ -157,11 +160,12 @@ class LocationControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('brand.form', $view->getName());
         $this->assertArraySubset(['location' => $location], $view->getData());
     }
+
     public function test_update_existing_location()
     {
         $controller = new LocationController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nova Localitzacio',
         ];
         $location = $this->locationMock->forceFill(['id' => 1, 'name' => 'Localitzacio Antiga']);
@@ -176,21 +180,22 @@ class LocationControllerTest extends \PHPUnit_Framework_TestCase
             m::any(),
         ])->andReturn([(object) ['aggregate' => 0]]);
         $this->brandMock->shouldReceive('update')->once()->withArgs([
-            m::on(function($arg) {
+            m::on(function ($arg) {
                 return is_array($arg) && $arg['name'] == 'Nova Localitzacio';
             }
-        )])->andReturn($newLocation);
+        ), ])->andReturn($newLocation);
         $this->db->getPdo()->shouldReceive('lastInsertId')->andReturn($data['id']);
         $response = $controller->update($request, $location);
         $this->assertInstanceOf(RedirectResponse::class, $response);
         $this->assertEquals(route('location.index'), $response->headers->get('Location'));
         $this->assertEquals($data['id'], $response->getSession()->get('updated'));
     }
+
     public function test_update_throws_error_on_duplicate_name()
     {
         $controller = new LocactionController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nova Localitzacio',
         ];
         $location = new Location();
@@ -206,11 +211,12 @@ class LocationControllerTest extends \PHPUnit_Framework_TestCase
         $this->expectException(ValidationException::class);
         $controller->update($request, $location);
     }
+
     public function test_update_existing_location_throw_query_exception()
     {
         $controller = new LocationController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nova Localitzacio',
         ];
         $brand = $this->brandMock->forceFill(['id' => 1, 'name' => 'Localitzacio Antiga']);
@@ -224,20 +230,21 @@ class LocationControllerTest extends \PHPUnit_Framework_TestCase
             m::any(),
         ])->andReturn([(object) ['aggregate' => 0]]);
         $this->locationMock->shouldReceive('update')->once()->withArgs([
-            m::on(function($arg) {
+            m::on(function ($arg) {
                 return is_array($arg) && $arg['name'] == 'Nova Localitzacio';
             }
-        )])->andThrow(new QueryException('', [], new \Exception));
+        ), ])->andThrow(new QueryException('', [], new \Exception()));
         $response = $controller->update($request, $location);
         $this->assertInstanceOf(RedirectResponse::class, $response);
         $this->assertEquals(config('app.url'), $response->headers->get('Location'));
         $this->assertArrayHasKey('system', $response->getSession()->get('errors')->messages());
     }
+
     public function test_destroy_existing_location()
     {
         $controller = new LocationController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nova Localitzacio',
         ];
         $location = $this->brandMock->forceFill($data);
@@ -247,16 +254,17 @@ class LocationControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(route('location.index'), $response->headers->get('Location'));
         $this->assertEquals($data['id'], $response->getSession()->get('deleted'));
     }
+
     public function test_destroy_existing_location_throw_query_exception()
     {
         $controller = new LocationController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nova Localitzacio',
         ];
         $location = $this->locationMock->forceFill($data);
-        $this->locationMock->shouldReceive('delete')->once()->andReturnUsing(function() {
-            throw new QueryException('', [], new \Exception);
+        $this->locationMock->shouldReceive('delete')->once()->andReturnUsing(function () {
+            throw new QueryException('', [], new \Exception());
         });
         $response = $controller->destroy($brand);
         $this->assertInstanceOf(RedirectResponse::class, $response);

@@ -1,22 +1,19 @@
 <?php
 
 namespace Tests\Unit;
+
 use App\Http\Controllers\InventoryController;
-use Illuminate\Http\RedirectResponse;
 use App\Inventory;
 use Illuminate\Database\Connection;
 use Illuminate\Database\QueryException;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\ParameterBag;
-use Tests\TestCase;
-use Illuminate\Http\Request;
-use Mockery;
-
 
 class InventoryControllerTest extends \PHPUnit_Framework_TestCase
 {
-
-  /**
+    /**
      * @var \Mockery\Mock|\Illuminate\Database\Connection
      */
     protected $db;
@@ -24,6 +21,7 @@ class InventoryControllerTest extends \PHPUnit_Framework_TestCase
      * @var \Mockery\Mock|App\Brand
      */
     protected $brandMock;
+
     public function setUp()
     {
         $this->afterApplicationCreated(function () {
@@ -39,11 +37,10 @@ class InventoryControllerTest extends \PHPUnit_Framework_TestCase
             $list = $p->getValue($manager);
             $list['mock'] = $this->db;
             $p->setValue($manager, $list);
-            $this->inventoryMock = m::mock(Inventory::class . '[update, delete]');
+            $this->inventoryMock = m::mock(Inventory::class.'[update, delete]');
         });
         parent::setUp();
     }
-
 
     public function test_index_returns_view()
     {
@@ -57,6 +54,7 @@ class InventoryControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('inventories.list', $view->getName());
         $this->assertArrayHasKey('inventories', $view->getData());
     }
+
     public function test_it_stores_new_inventory()
     {
         $controller = new InventoryController();
@@ -75,7 +73,7 @@ class InventoryControllerTest extends \PHPUnit_Framework_TestCase
                 m::on(function ($arg) {
                     return is_array($arg) &&
                         $arg[0] == 'Nou Objecte';
-                })
+                }),
             ])
             ->andReturn(true);
         /** @var RedirectResponse $response */
@@ -84,6 +82,7 @@ class InventoryControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(route('inventories.index'), $response->headers->get('Location'));
         $this->assertEquals(333, $response->getSession()->get('created'));
     }
+
     public function test_it_throws_error_on_duplicate_name()
     {
         $controller = new InventoryController();
@@ -101,6 +100,7 @@ class InventoryControllerTest extends \PHPUnit_Framework_TestCase
         $this->expectException(ValidationException::class);
         $controller->store($request);
     }
+
     public function test_store_new_inventory_throw_query_exception()
     {
         $controller = new InventoryController();
@@ -118,10 +118,10 @@ class InventoryControllerTest extends \PHPUnit_Framework_TestCase
                 m::on(function ($arg) {
                     return is_array($arg) &&
                         $arg[0] == 'Nou Objecte';
-                })
+                }),
             ])
-            ->andReturnUsing(function() {
-                throw new QueryException('', [], new \Exception);
+            ->andReturnUsing(function () {
+                throw new QueryException('', [], new \Exception());
             });
         /** @var RedirectResponse $response */
         $response = $controller->store($request);
@@ -129,6 +129,7 @@ class InventoryControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(config('app.url'), $response->headers->get('Location'));
         $this->assertArrayHasKey('system', $response->getSession()->get('errors')->messages());
     }
+
     public function test_it_fires_event_and_shows_inventory()
     {
         $controller = new InventoryController();
@@ -141,6 +142,7 @@ class InventoryControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('inventories.item', $view->getName());
         $this->assertArrayHasKey('inventories', $view->getData());
     }
+
     public function test_create_returns_view()
     {
         $controller = new InventoryController();
@@ -148,6 +150,7 @@ class InventoryControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('inventories.form', $view->getName());
         $this->assertArraySubset(['inventories' => null], $view->getData());
     }
+
     public function test_edit_inventory()
     {
         $inventoriInfo = ['id' => 1, 'name' => 'Nou Objecte'];
@@ -157,11 +160,12 @@ class InventoryControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('inventory.form', $view->getName());
         $this->assertArraySubset(['brand' => $inventory], $view->getData());
     }
+
     public function test_update_existing_inventory()
     {
         $controller = new InventoryController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nou Objecte',
         ];
         $inventory = $this->inventoryMock->forceFill(['id' => 1, 'name' => 'Objecte Antic']);
@@ -176,21 +180,22 @@ class InventoryControllerTest extends \PHPUnit_Framework_TestCase
             m::any(),
         ])->andReturn([(object) ['aggregate' => 0]]);
         $this->brandMock->shouldReceive('update')->once()->withArgs([
-            m::on(function($arg) {
+            m::on(function ($arg) {
                 return is_array($arg) && $arg['name'] == 'Nou Objecte';
             }
-        )])->andReturn($newInventory);
+        ), ])->andReturn($newInventory);
         $this->db->getPdo()->shouldReceive('lastInsertId')->andReturn($data['id']);
         $response = $controller->update($request, $inventory);
         $this->assertInstanceOf(RedirectResponse::class, $response);
         $this->assertEquals(route('inventories.index'), $response->headers->get('Location'));
         $this->assertEquals($data['id'], $response->getSession()->get('updated'));
     }
+
     public function test_update_throws_error_on_duplicate_name()
     {
         $controller = new InventoryController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nou Objecte',
         ];
         $inventory = new Inventory();
@@ -206,11 +211,12 @@ class InventoryControllerTest extends \PHPUnit_Framework_TestCase
         $this->expectException(ValidationException::class);
         $controller->update($request, $brand);
     }
+
     public function test_update_existing_inventory_throw_query_exception()
     {
         $controller = new InventoryController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nou Objecte',
         ];
         $inventory = $this->brandMock->forceFill(['id' => 1, 'name' => 'Objecte Antic']);
@@ -224,20 +230,21 @@ class InventoryControllerTest extends \PHPUnit_Framework_TestCase
             m::any(),
         ])->andReturn([(object) ['aggregate' => 0]]);
         $this->brandMock->shouldReceive('update')->once()->withArgs([
-            m::on(function($arg) {
+            m::on(function ($arg) {
                 return is_array($arg) && $arg['name'] == 'Nou Objecte';
             }
-        )])->andThrow(new QueryException('', [], new \Exception));
+        ), ])->andThrow(new QueryException('', [], new \Exception()));
         $response = $controller->update($request, $inventory);
         $this->assertInstanceOf(RedirectResponse::class, $response);
         $this->assertEquals(config('app.url'), $response->headers->get('Location'));
         $this->assertArrayHasKey('system', $response->getSession()->get('errors')->messages());
     }
+
     public function test_destroy_existing_inventory()
     {
         $controller = new InventoryController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nova Marca',
         ];
         $brand = $this->brandMock->forceFill($data);
@@ -247,16 +254,17 @@ class InventoryControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(route('brand.index'), $response->headers->get('Location'));
         $this->assertEquals($data['id'], $response->getSession()->get('deleted'));
     }
+
     public function test_destroy_existing_inventory_throw_query_exception()
     {
         $controller = new InventoryController();
         $data = [
-            'id' => 1,
+            'id'   => 1,
             'name' => 'Nou Objecte',
         ];
         $brand = $this->brandMock->forceFill($data);
-        $this->brandMock->shouldReceive('delete')->once()->andReturnUsing(function() {
-            throw new QueryException('', [], new \Exception);
+        $this->brandMock->shouldReceive('delete')->once()->andReturnUsing(function () {
+            throw new QueryException('', [], new \Exception());
         });
         $response = $controller->destroy($inventory);
         $this->assertInstanceOf(RedirectResponse::class, $response);
