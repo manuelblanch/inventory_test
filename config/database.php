@@ -59,6 +59,8 @@ return [
             'database'  => env('DB_DATABASE', 'inventoryscool2z'),
             'username'  => env('DB_USERNAME', 'mnxdple45'),
             'password'  => env('DB_PASSWORD', 'Tm438ps12'),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
