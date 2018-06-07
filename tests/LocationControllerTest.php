@@ -3,46 +3,36 @@
 namespace Tests;
 
 use App;
-use Artisan;
-use App\Events\LocationShown;
-use Illuminate\Events\Dispatcher;
 use App\Http\Controllers\LocationController;
 use App\Location;
-use Mockery as m;
-use Illuminate\Database\Connection;
-use Illuminate\Database\QueryException;
+use Illuminate\Events\Dispatcher;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Validation\ValidationException;
+use Mockery as m;
 use Symfony\Component\HttpFoundation\ParameterBag;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Contracts\Console\Kernel;
-use Illuminate\Contracts\Console\Kernel as ConsoleKernel;
-use Illuminate\Support\Facades\Hash;
 
 class LocationControllerTest extends BrowserKitTest
 {
-  /**
-   * @var \Mockery\Mock|\Illuminate\Database\Connection
-   */
-  protected $db;
-  /**
-   * @var \Mockery\Mock|App\Location
-   */
-  protected $brandMock;
+    /**
+     * @var \Mockery\Mock|\Illuminate\Database\Connection
+     */
+    protected $db;
+    /**
+     * @var \Mockery\Mock|App\Location
+     */
+    protected $brandMock;
 
-  public function setUp()
-  {
-      parent::setUp();
-      App::setLocale('en');
-  }
+    public function setUp()
+    {
+        parent::setUp();
+        App::setLocale('en');
+    }
 
     public function test_index_returns_view()
     {
         $controller = new LocationController();
         $view = $controller->index();
         $this->assertEquals('manteniments.location.index', $view->getName());
-
     }
 
     public function test_it_stores_new_location()
@@ -56,8 +46,7 @@ class LocationControllerTest extends BrowserKitTest
         $request->setJson(new ParameterBag($data));
         // Mock Validation Presence Query
 
-        /** @var RedirectResponse $response */
-
+        /* @var RedirectResponse $response */
     }
 
     public function test_it_throws_error_on_duplicate_name()
@@ -81,7 +70,6 @@ class LocationControllerTest extends BrowserKitTest
             return $arg instanceof BrandShown && $arg->brand === $brand;
         }));
         $view = $controller->show($events, $location);
-
     }
 
     public function test_create_returns_view()
@@ -89,7 +77,6 @@ class LocationControllerTest extends BrowserKitTest
         $controller = new LocationController();
         $view = $controller->create();
         $this->assertEquals('manteniments.location.create', $view->getName());
-
     }
 
     public function test_edit_location()
@@ -98,7 +85,6 @@ class LocationControllerTest extends BrowserKitTest
         $location = new Location($locationInfo);
         $controller = new LocationController();
         $view = $controller->edit($location);
-
     }
 
     public function test_update_existing_location()
@@ -113,7 +99,6 @@ class LocationControllerTest extends BrowserKitTest
         $request = new Request();
         $request->headers->set('content-type', 'application/json');
         $request->setJson(new ParameterBag($data));
-
     }
 
     public function test_update_throws_error_on_duplicate_name()
@@ -143,7 +128,6 @@ class LocationControllerTest extends BrowserKitTest
         $request = new Request();
         $request->headers->set('content-type', 'application/json');
         $request->setJson(new ParameterBag($data));
-
     }
 
     public function test_destroy_existing_location()
@@ -157,7 +141,6 @@ class LocationControllerTest extends BrowserKitTest
         $response = $controller->destroy($location);
         $this->assertInstanceOf(RedirectResponse::class, $response);
         $this->assertEquals(route('location.index'), $response->headers->get('Location'));
-
     }
 
     public function test_destroy_existing_location_throw()
@@ -168,9 +151,7 @@ class LocationControllerTest extends BrowserKitTest
             'name' => 'Nova Localitzacio',
         ];
 
-
         $response = $controller->destroy($brand);
         $this->assertInstanceOf(RedirectResponse::class, $response);
-        
     }
 }
