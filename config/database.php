@@ -58,7 +58,7 @@ return [
             'port'      => env('DB_PORT', '3306'),
             'database'  => env('DB_DATABASE', 'inventoryscool2z'),
             'username'  => env('DB_USERNAME', 'mnxdple45'),
-            'password'  => env('DB_PASSWORD', 'Wme914Fxma'),
+            'password'  => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'charset'   => 'utf8',
