@@ -4,7 +4,6 @@
 
 namespace App\Http\Controllers;
 
-
 class PostsController extends Controller
 {
     protected $post;

@@ -3,19 +3,11 @@
 namespace Tests;
 
 use App;
-use Artisan;
 use App\Brand;
 use App\Http\Controllers\BrandController;
-use Illuminate\Database\Connection;
-use Illuminate\Database\QueryException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\ParameterBag;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Contracts\Console\Kernel;
-use Illuminate\Contracts\Console\Kernel as ConsoleKernel;
-use Illuminate\Support\Facades\Hash;
 
 class BrandControllerTest extends BrowserKitTest
 {
@@ -45,9 +37,7 @@ class BrandControllerTest extends BrowserKitTest
         $request->setJson(new ParameterBag($data));
         // Mock Validation Presence Query
 
-        /** @var RedirectResponse $response */
-
-
+        /* @var RedirectResponse $response */
     }
 
     public function test_it_throws_error_on_duplicate_name()
@@ -67,7 +57,6 @@ class BrandControllerTest extends BrowserKitTest
         $cityInfo = ['id' => 1, 'name' => 'Nova Marca'];
         $controller = new BrandController();
         $view = $controller->edit($brand);
-
     }
 
     public function test_update_existing_brand()
@@ -77,12 +66,11 @@ class BrandControllerTest extends BrowserKitTest
             'id'   => 1,
             'name' => 'Nova Marca',
         ];
-        
+
         $newBrand = (new Brand())->forceFill(['id' => 1, 'name' => $data['name']]);
         $request = new Request();
         $request->headers->set('content-type', 'application/json');
         $request->setJson(new ParameterBag($data));
-
     }
 
     public function test_update_throws_error_on_duplicate_name()
@@ -113,7 +101,5 @@ class BrandControllerTest extends BrowserKitTest
         $response = $controller->destroy($brand);
         $this->assertInstanceOf(RedirectResponse::class, $response);
         $this->assertEquals(route('brand.index'), $response->headers->get('Location'));
-
     }
-
 }

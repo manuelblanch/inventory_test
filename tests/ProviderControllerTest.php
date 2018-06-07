@@ -3,20 +3,11 @@
 namespace Tests;
 
 use App;
-use Artisan;
-
 use App\Http\Controllers\ProviderController;
 use App\Provider;
-use Illuminate\Database\Connection;
-use Illuminate\Database\QueryException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\ParameterBag;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Contracts\Console\Kernel;
-use Illuminate\Contracts\Console\Kernel as ConsoleKernel;
-use Illuminate\Support\Facades\Hash;
 
 class ProviderControllerTest extends BrowserKitTest
 {
@@ -45,8 +36,7 @@ class ProviderControllerTest extends BrowserKitTest
         $request->headers->set('content-type', 'application/json');
         $request->setJson(new ParameterBag($data));
 
-        /** @var RedirectResponse $response */
-
+        /* @var RedirectResponse $response */
     }
 
     public function test_create_returns_view()
@@ -54,7 +44,6 @@ class ProviderControllerTest extends BrowserKitTest
         $controller = new ProviderController();
         $view = $controller->create();
         $this->assertEquals('manteniments.providers.create', $view->getName());
-
     }
 
     public function test_edit_provider()
@@ -63,9 +52,7 @@ class ProviderControllerTest extends BrowserKitTest
         $provider = new Provider($providerInfo);
         $controller = new ProviderController();
         $view = $controller->edit($provider);
-
     }
-
 
     public function test_destroy_existing_provider()
     {
@@ -77,7 +64,5 @@ class ProviderControllerTest extends BrowserKitTest
 
         $response = $controller->destroy($provider);
         $this->assertInstanceOf(RedirectResponse::class, $response);
-
     }
-
 }
