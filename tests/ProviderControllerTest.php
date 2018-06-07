@@ -1,6 +1,9 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests;
+
+use App;
+use Artisan;
 
 use App\Http\Controllers\ProviderController;
 use App\Provider;
@@ -10,8 +13,12 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\ParameterBag;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Contracts\Console\Kernel;
+use Illuminate\Contracts\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Hash;
 
-class ProviderControllerTest extends \PHPUnit_Framework_TestCase
+class ProviderControllerTest extends BrowserKitTest
 {
     /**
      * @var \Mockery\Mock|\Illuminate\Database\Connection
@@ -24,35 +31,8 @@ class ProviderControllerTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->afterApplicationCreated(function () {
-            $this->db = m::mock(
-                Connection::class.'[select,update,insert,delete]',
-                [m::mock(\PDO::class)]
-            );
-            $manager = $this->app['db'];
-            $manager->setDefaultConnection('mock');
-            $r = new \ReflectionClass($manager);
-            $p = $r->getProperty('connections');
-            $p->setAccessible(true);
-            $list = $p->getValue($manager);
-            $list['mock'] = $this->db;
-            $p->setValue($manager, $list);
-            $this->providerMock = m::mock(Provider::class.'[update, delete]');
-        });
         parent::setUp();
-    }
-
-    public function test_index_returns_view()
-    {
-        $controller = new ProviderController();
-        $this->db->shouldReceive('select')->once()->withArgs([
-            'select count(*) as aggregate from "provider"',
-            [],
-            m::any(),
-        ])->andReturn((object) ['aggregate' => 10]);
-        $view = $controller->index();
-        $this->assertEquals('provider.list', $view->getName());
-        $this->assertArrayHasKey('provider', $view->getData());
+        App::setLocale('en');
     }
 
     public function test_it_stores_new_provider()
@@ -64,91 +44,17 @@ class ProviderControllerTest extends \PHPUnit_Framework_TestCase
         $request = new Request();
         $request->headers->set('content-type', 'application/json');
         $request->setJson(new ParameterBag($data));
-        // Mock Validation Presence Query
-        $this->db->shouldReceive('select')->once();
-        $this->db->getPdo()->shouldReceive('lastInsertId')->andReturn(333);
-        $this->db->shouldReceive('insert')->once()
-            ->withArgs([
-                'insert into "provider" ("name", "updated_at", "created_at") values (?, ?, ?)',
-                m::on(function ($arg) {
-                    return is_array($arg) &&
-                        $arg[0] == 'Nou Proveidor';
-                }),
-            ])
-            ->andReturn(true);
+
         /** @var RedirectResponse $response */
-        $response = $controller->store($request);
-        $this->assertInstanceOf(RedirectResponse::class, $response);
-        $this->assertEquals(route('provider.index'), $response->headers->get('Location'));
-        $this->assertEquals(333, $response->getSession()->get('created'));
-    }
 
-    public function test_it_throws_error_on_duplicate_name()
-    {
-        $controller = new ProviderController();
-        $data = [
-            'name' => 'Nou Proveidor',
-        ];
-        $this->db->shouldReceive('select')->once()->withArgs([
-            'select count(*) as aggregate from "provider" where "name" = ?',
-            ['Nou Proveidor'],
-            m::any(),
-        ])->andReturn([(object) ['aggregate' => 1]]);
-        $request = new Request();
-        $request->headers->set('content-type', 'application/json');
-        $request->setJson(new ParameterBag($data));
-        $this->expectException(ValidationException::class);
-        $controller->store($request);
-    }
-
-    public function test_store_new_provider_throw_query_exception()
-    {
-        $controller = new ProviderController();
-        $data = [
-            'name' => 'Nou Proveidor',
-        ];
-        $request = new Request();
-        $request->headers->set('content-type', 'application/json');
-        $request->setJson(new ParameterBag($data));
-        // Mock Validation Presence Query
-        $this->db->shouldReceive('select')->once();
-        $this->db->shouldReceive('insert')->once()
-            ->withArgs([
-                'insert into "provider" ("name", "updated_at", "created_at") values (?, ?, ?)',
-                m::on(function ($arg) {
-                    return is_array($arg) &&
-                        $arg[0] == 'Nou Proveidor';
-                }),
-            ])
-            ->andReturnUsing(function () {
-                throw new QueryException('', [], new \Exception());
-            });
-        /** @var RedirectResponse $response */
-        $response = $controller->store($request);
-        $this->assertInstanceOf(RedirectResponse::class, $response);
-        $this->assertEquals(config('app.url'), $response->headers->get('Location'));
-        $this->assertArrayHasKey('system', $response->getSession()->get('errors')->messages());
-    }
-
-    public function test_it_fires_event_and_shows_provider()
-    {
-        $controller = new ProviderController();
-        $provider = new Provider(['id' => 111]);
-        $events = m::mock(Dispatcher::class);
-        $events->shouldReceive('dispatch')->with(m::on(function ($arg) use ($provider) {
-            return $arg instanceof ProviderShown && $arg->provider === $provider;
-        }));
-        $view = $controller->show($events, $provider);
-        $this->assertEquals('provider.item', $view->getName());
-        $this->assertArrayHasKey('provider', $view->getData());
     }
 
     public function test_create_returns_view()
     {
         $controller = new ProviderController();
         $view = $controller->create();
-        $this->assertEquals('provider.create', $view->getName());
-        $this->assertArraySubset(['provider' => null], $view->getData());
+        $this->assertEquals('manteniments.providers.create', $view->getName());
+
     }
 
     public function test_edit_provider()
@@ -156,89 +62,10 @@ class ProviderControllerTest extends \PHPUnit_Framework_TestCase
         $providerInfo = ['id' => 1, 'name' => 'Nou Proveidor'];
         $provider = new Provider($providerInfo);
         $controller = new ProviderController();
-        $view = $controller->edit($material_type);
-        $this->assertEquals('provider.create', $view->getName());
-        $this->assertArraySubset(['provider' => $provider], $view->getData());
+        $view = $controller->edit($provider);
+
     }
 
-    public function test_update_existing_provider()
-    {
-        $controller = new ProviderController();
-        $data = [
-            'id'   => 1,
-            'name' => 'Nou Proveidor',
-        ];
-        $provider = $this->providerMock->forceFill(['id' => 1, 'name' => 'Proveidor antic']);
-        $newProvider = (new Provider())->forceFill(['id' => 1, 'name' => $data['name']]);
-        $request = new Request();
-        $request->headers->set('content-type', 'application/json');
-        $request->setJson(new ParameterBag($data));
-        // Mock Validation Presence Query
-        $this->db->shouldReceive('select')->once()->withArgs([
-            'select count(*) as aggregate from "provider" where "name" = ? and "id" <> ?',
-            [$data['name'], $data['id']],
-            m::any(),
-        ])->andReturn([(object) ['aggregate' => 0]]);
-        $this->providerMock->shouldReceive('update')->once()->withArgs([
-            m::on(function ($arg) {
-                return is_array($arg) && $arg['name'] == 'Nou Proveidor';
-            }
-        ), ])->andReturn($newProvider);
-        $this->db->getPdo()->shouldReceive('lastInsertId')->andReturn($data['id']);
-        $response = $controller->update($request, $provider);
-        $this->assertInstanceOf(RedirectResponse::class, $response);
-        $this->assertEquals(route('provider.index'), $response->headers->get('Location'));
-        $this->assertEquals($data['id'], $response->getSession()->get('updated'));
-    }
-
-    public function test_update_throws_error_on_duplicate_name()
-    {
-        $controller = new ProviderController();
-        $data = [
-            'id'   => 1,
-            'name' => 'Nou Proveidor',
-        ];
-        $provider = new Provider();
-        $provider->forceFill(['id' => 1, 'name' => $data['name']]);
-        $this->db->shouldReceive('select')->once()->withArgs([
-            'select count(*) as aggregate from "provider" where "name" = ? and "id" <> ?',
-            [$data['name'], $data['id']],
-            m::any(),
-        ])->andReturn([(object) ['aggregate' => 1]]);
-        $request = new Request();
-        $request->headers->set('content-type', 'application/json');
-        $request->setJson(new ParameterBag($data));
-        $this->expectException(ValidationException::class);
-        $controller->update($request, $provider);
-    }
-
-    public function test_update_existing_provider_throw_query_exception()
-    {
-        $controller = new ProviderController();
-        $data = [
-            'id'   => 1,
-            'name' => 'Nou Proveidor',
-        ];
-        $provider = $this->providerMock->forceFill(['id' => 1, 'name' => 'Proveidor antic']);
-        $request = new Request();
-        $request->headers->set('content-type', 'application/json');
-        $request->setJson(new ParameterBag($data));
-        // Mock Validation Presence Query
-        $this->db->shouldReceive('select')->once()->withArgs([
-            'select count(*) as aggregate from "provider" where "name" = ? and "id" <> ?',
-            [$data['name'], $data['id']],
-            m::any(),
-        ])->andReturn([(object) ['aggregate' => 0]]);
-        $this->providerMock->shouldReceive('update')->once()->withArgs([
-            m::on(function ($arg) {
-                return is_array($arg) && $arg['name'] == 'Nou Proveidor';
-            }
-        ), ])->andThrow(new QueryException('', [], new \Exception()));
-        $response = $controller->update($request, $provider);
-        $this->assertInstanceOf(RedirectResponse::class, $response);
-        $this->assertEquals(config('app.url'), $response->headers->get('Location'));
-        $this->assertArrayHasKey('system', $response->getSession()->get('errors')->messages());
-    }
 
     public function test_destroy_existing_provider()
     {
@@ -247,28 +74,10 @@ class ProviderControllerTest extends \PHPUnit_Framework_TestCase
             'id'   => 1,
             'name' => 'Nou Proveidor',
         ];
-        $provider = $this->providerMock->forceFill($data);
-        $this->providerMock->shouldReceive('delete')->once()->andReturn(true);
+
         $response = $controller->destroy($provider);
         $this->assertInstanceOf(RedirectResponse::class, $response);
-        $this->assertEquals(route('provider.index'), $response->headers->get('Location'));
-        $this->assertEquals($data['id'], $response->getSession()->get('deleted'));
+
     }
 
-    public function test_destroy_existing_provider_throw_query_exception()
-    {
-        $controller = new ProviderController();
-        $data = [
-            'id'   => 1,
-            'name' => 'Nou Proveidor',
-        ];
-        $provider = $this->providerMock->forceFill($data);
-        $this->providerMock->shouldReceive('delete')->once()->andReturnUsing(function () {
-            throw new QueryException('', [], new \Exception());
-        });
-        $response = $controller->destroy($provider);
-        $this->assertInstanceOf(RedirectResponse::class, $response);
-        $this->assertEquals(config('app.url'), $response->headers->get('Location'));
-        $this->assertArrayHasKey('system', $response->getSession()->get('errors')->messages());
-    }
 }

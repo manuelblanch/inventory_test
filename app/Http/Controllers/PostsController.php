@@ -2,7 +2,10 @@
 
 // app/controllers/PostsController.php
 
-class PostsController extends BaseController
+namespace App\Http\Controllers;
+
+
+class PostsController extends Controller
 {
     protected $post;
 
