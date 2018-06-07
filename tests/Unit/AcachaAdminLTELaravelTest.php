@@ -1,17 +1,19 @@
 <?php
+
 namespace Tests;
+
 use App;
 use Artisan;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Contracts\Console\Kernel;
-use Illuminate\Contracts\Console\Kernel as ConsoleKernel;
 use Illuminate\Support\Facades\Hash;
+
 /**
  * Class AcachaAdminLTELaravelTest.
  */
 class AcachaAdminLTELaravelTest extends BrowserKitTest
 {
     //use DatabaseMigrations;
+
     /**
      * Set up tests.
      */
@@ -20,6 +22,7 @@ class AcachaAdminLTELaravelTest extends BrowserKitTest
         parent::setUp();
         App::setLocale('en');
     }
+
     /**
      * Set up before class.
      */
@@ -27,6 +30,7 @@ class AcachaAdminLTELaravelTest extends BrowserKitTest
     {
         passthru('composer dumpautoload');
     }
+
     /**
      * Test Landing Page.
      *
@@ -39,6 +43,7 @@ class AcachaAdminLTELaravelTest extends BrowserKitTest
              ->see('adminlte-laravel')
              ->see('Pratt');
     }
+
     /**
      * Test Landing Page.
      *
@@ -54,6 +59,7 @@ class AcachaAdminLTELaravelTest extends BrowserKitTest
             ->see('Pratt')
             ->see($user->name);
     }
+
     /**
      * Test Login Page.
      *
@@ -64,11 +70,11 @@ class AcachaAdminLTELaravelTest extends BrowserKitTest
         $this->visit('/login')
             ->see('Sign in to start your session');
     }
+
     /**
      * Test Login.
      *
      * @return void
-     *
      */
     public function testLogin()
     {
@@ -82,6 +88,7 @@ class AcachaAdminLTELaravelTest extends BrowserKitTest
             ->seePageIs('/home')
             ->see($user->name);
     }
+
     /**
      * Test Login.
      *
@@ -96,6 +103,7 @@ class AcachaAdminLTELaravelTest extends BrowserKitTest
             ->see('The email field is required')
             ->see('The password field is required');
     }
+
     /**
      * Test Register Page.
      *
@@ -106,6 +114,7 @@ class AcachaAdminLTELaravelTest extends BrowserKitTest
         $this->visit('/register')
             ->see('Register a new membership');
     }
+
     /**
      * Test Password reset Page.
      *
@@ -116,6 +125,7 @@ class AcachaAdminLTELaravelTest extends BrowserKitTest
         $this->visit('/password/reset')
             ->see('Reset Password');
     }
+
     /**
      * Test home page is only for authorized Users.
      *
@@ -128,6 +138,7 @@ class AcachaAdminLTELaravelTest extends BrowserKitTest
         $this->visit('/home')
             ->seePageIs('/login');
     }
+
     /**
      * Test home page works with Authenticated Users.
      *
@@ -141,6 +152,7 @@ class AcachaAdminLTELaravelTest extends BrowserKitTest
             ->visit('/home')
             ->see($user->name);
     }
+
     /**
      * Test log out.
      *
@@ -156,6 +168,7 @@ class AcachaAdminLTELaravelTest extends BrowserKitTest
             ->makeRequestUsingForm($form)
             ->seePageIs('/');
     }
+
     /**
      * Test 404 Error page.
      *
@@ -167,6 +180,7 @@ class AcachaAdminLTELaravelTest extends BrowserKitTest
             ->seeStatusCode(404)
             ->see('404');
     }
+
     /**
      * Test user registration.
      *
@@ -187,6 +201,7 @@ class AcachaAdminLTELaravelTest extends BrowserKitTest
             ->seeInDatabase('users', ['email' => 'sergiturbadenas@gmail.com',
                                       'name'  => 'Sergi Tur Badenas', ]);
     }
+
     /**
      * Test required fields on registration page.
      *
@@ -200,19 +215,21 @@ class AcachaAdminLTELaravelTest extends BrowserKitTest
             ->see('The email field is required')
             ->see('The password field is required');
     }
+
     /**
      * Test send password reset.
      *
      * @return void
      */
-  /*  public function testSendPasswordReset()
-    {
-        $user = factory(App\User::class)->create();
-        $this->visit('password/reset')
-            ->type($user->email, 'email')
-            ->press('Send Password Reset Link')
-            ->see('We have e-mailed your password reset link!');
-    }*/
+    /*  public function testSendPasswordReset()
+      {
+          $user = factory(App\User::class)->create();
+          $this->visit('password/reset')
+              ->type($user->email, 'email')
+              ->press('Send Password Reset Link')
+              ->see('We have e-mailed your password reset link!');
+      }*/
+
     /**
      * Test send password reset user not exists.
      *
@@ -225,21 +242,22 @@ class AcachaAdminLTELaravelTest extends BrowserKitTest
             ->press('Send Password Reset Link')
             ->see('There were some problems with your input');
     }
+
     /**
-     * Test make:view command
-     *
+     * Test make:view command.
      */
     public function testMakeViewCommand()
     {
         $view = 'ehqwiqweiohqweihoqweiohqweiojhqwejioqwejjqwe';
-        $viewPath= 'views/' . $view . '.blade.php';
+        $viewPath = 'views/'.$view.'.blade.php';
+
         try {
             unlink(resource_path($view));
         } catch (\Exception $e) {
         }
         $this->callArtisanMakeView($view);
         $resultAsText = Artisan::output();
-        $expectedOutput = 'File ' . resource_path($viewPath) . ' created';
+        $expectedOutput = 'File '.resource_path($viewPath).' created';
         $this->assertEquals($expectedOutput, trim($resultAsText));
         $this->assertFileExists(resource_path($viewPath));
         $this->callArtisanMakeView($view);
@@ -247,6 +265,7 @@ class AcachaAdminLTELaravelTest extends BrowserKitTest
         $this->assertEquals('File already exists', trim($resultAsText));
         unlink(resource_path($viewPath));
     }
+
     /**
      * Create view using make:view command.
      *
@@ -258,13 +277,14 @@ class AcachaAdminLTELaravelTest extends BrowserKitTest
             'name' => $view,
         ]);
     }
+
     /**
-     * Test adminlte:admin command
-     *
+     * Test adminlte:admin command.
      */
     public function testAdminlteAdminCommand()
     {
         $seed = database_path('seeds/AdminUserSeeder.php');
+
         try {
             unlink($seed);
         } catch (\Exception $e) {
@@ -272,6 +292,7 @@ class AcachaAdminLTELaravelTest extends BrowserKitTest
         $this->callAdminlteAdminCommand();
         $this->assertFileExists($seed);
     }
+
     /**
      * Call adminlte:admin command.
      */
