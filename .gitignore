@@ -8,4 +8,4 @@ Homestead.yaml
 .env
 _ide_helper.php
 config/debugbar.php
-/config/database.php
+config/database.php
